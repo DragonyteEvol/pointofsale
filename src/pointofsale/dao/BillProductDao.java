@@ -4,10 +4,12 @@
  */
 package pointofsale.dao;
 
+import pointofsale.objects.BillProduct;
+
 /**
  *
  * @author dragonyte
  */
-public interface BillProductDao extends Dao<BillProductDao, Long>{
+public interface BillProductDao extends Dao<BillProduct, Long>{
     
 }

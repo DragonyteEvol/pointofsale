@@ -5,25 +5,25 @@
 package pointofsale.dao.implement;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import pointofsale.dao.AnnulmentDao;
+import pointofsale.dao.EventDao;
 import pointofsale.database.SqlConstructor;
-import pointofsale.objects.Annulment;
+import pointofsale.objects.Event;
 
 /**
  *
  * @author dragonyte
  */
-public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
-
+public class EventDaoImpl extends SqlConstructor implements EventDao{
+    
 	// table config
-	final String TABLE="annulments";
-	final List<String> COLUMS= Arrays.asList("reason","user_id");
+	final String TABLE="events";
+	final List<String> COLUMS= Arrays.asList("name","description","start_date","end_date","price");
 
 	// queries
 	String INSERT;
@@ -34,7 +34,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	private Connection connection;
 
-    public AnnulmentDaoImpl(Connection connection) {
+    public EventDaoImpl(Connection connection) {
 		this.connection=connection;
 		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
 		this.INSERT=setInsert(this.TABLE,this.COLUMS);
@@ -42,12 +42,15 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// insert row 
 	@Override
-	public void insert(Annulment a) {
+	public void insert(Event a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
+			statement.setString(1, a.getName());
+			statement.setString(2, a.getDescription());
+			statement.setString(3, a.getStart_date());
+			statement.setString(4, a.getEnd_date());
+			statement.setDouble(5, a.getPrice());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -65,7 +68,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// delete row
 	@Override
-	public void delete(Annulment a) {
+	public void delete(Event a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(DELETE);
@@ -87,13 +90,16 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// update row
 	@Override
-	public void modify(Annulment a) {
+	public void modify(Event a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
-			statement.setInt(3, a.getId());
+			statement.setString(1, a.getName());
+			statement.setString(2, a.getDescription());
+			statement.setString(3, a.getStart_date());
+			statement.setString(4, a.getEnd_date());
+			statement.setDouble(5, a.getPrice());
+			statement.setInt(6, a.getId());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -111,10 +117,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select all rows
 	@Override
-	public List<Annulment> selectAll() {
+	public List<Event> selectAll() {
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		List<Annulment> a=new ArrayList<>();
+		List<Event> a=new ArrayList<>();
 		try{
 			statement = this.connection.prepareStatement(GETALL);
 			set = statement.executeQuery();
@@ -138,10 +144,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select row for id
 	@Override
-	public Annulment selectById(Long id){
+	public Event selectById(Long id){
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		Annulment a=null;
+		Event a=null;
 		try{
 			statement = this.connection.prepareStatement(GETONE);
 			statement.setLong(1, id);
@@ -166,11 +172,15 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 	}
 
 	// convert ResultSet to objects
-	public Annulment convert(ResultSet set) throws SQLException{
-		String reason= set.getString("reason");
-		Integer user_id= set.getInt("user_id");
+	public Event convert(ResultSet set) throws SQLException{
+		String name = set.getString("name");
+		String description= set.getString("description");
+		String start_date= set.getString("start_date");
+		String end_date= set.getString("end_date");
+		Double price= set.getDouble("price");
 		String created_at= set.getString("created_at");
-		Annulment annulment= new Annulment(set.getInt("id"),reason, user_id,created_at);
-		return annulment;
+		Event event = new Event(set.getInt("id"),name, description,start_date,end_date,price,created_at);
+		return event;
 	}
+    
 }

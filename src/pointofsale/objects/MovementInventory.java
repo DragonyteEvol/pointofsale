@@ -16,7 +16,7 @@ public class MovementInventory {
 	private Double quantity;
 	private String created_at;
 
-    public MovementInventory(Integer id, boolean addition, boolean substraction, Integer ingredient_id, Double quantity, String created_at) {
+    public MovementInventory(Integer id,Integer ingredient_id,Double quantity,boolean addition, boolean substraction, String created_at) {
         this.id = id;
         this.addition = addition;
         this.substraction = substraction;

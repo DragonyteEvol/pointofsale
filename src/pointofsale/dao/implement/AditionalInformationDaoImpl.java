@@ -11,19 +11,18 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import pointofsale.dao.AnnulmentDao;
 import pointofsale.database.SqlConstructor;
-import pointofsale.objects.Annulment;
+import pointofsale.dao.AditionalInformationDao;
+import pointofsale.objects.AditionalInformation;
 
 /**
  *
  * @author dragonyte
  */
-public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
-
-	// table config
-	final String TABLE="annulments";
-	final List<String> COLUMS= Arrays.asList("reason","user_id");
+public class AditionalInformationDaoImpl extends SqlConstructor implements AditionalInformationDao{
+// table config
+	final String TABLE="aditional_information";
+	final List<String> COLUMS= Arrays.asList("nit","name","logo_path","default_tip");
 
 	// queries
 	String INSERT;
@@ -34,7 +33,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	private Connection connection;
 
-    public AnnulmentDaoImpl(Connection connection) {
+    public AditionalInformationDaoImpl(Connection connection) {
 		this.connection=connection;
 		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
 		this.INSERT=setInsert(this.TABLE,this.COLUMS);
@@ -42,12 +41,14 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// insert row 
 	@Override
-	public void insert(Annulment a) {
+	public void insert(AditionalInformation a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
+			statement.setInt(1, a.getNit());
+			statement.setString(2, a.getName());
+			statement.setString(3, a.getLogo_path());
+			statement.setInt(4, a.getDefault_tip());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -65,7 +66,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// delete row
 	@Override
-	public void delete(Annulment a) {
+	public void delete(AditionalInformation a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(DELETE);
@@ -87,13 +88,15 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// update row
 	@Override
-	public void modify(Annulment a) {
+	public void modify(AditionalInformation a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
-			statement.setInt(3, a.getId());
+			statement.setInt(1, a.getNit());
+			statement.setString(2, a.getName());
+			statement.setString(3, a.getLogo_path());
+			statement.setInt(4, a.getDefault_tip());
+			statement.setInt(5, a.getId());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -111,10 +114,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select all rows
 	@Override
-	public List<Annulment> selectAll() {
+	public List<AditionalInformation> selectAll() {
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		List<Annulment> a=new ArrayList<>();
+		List<AditionalInformation> a=new ArrayList<>();
 		try{
 			statement = this.connection.prepareStatement(GETALL);
 			set = statement.executeQuery();
@@ -138,10 +141,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select row for id
 	@Override
-	public Annulment selectById(Long id){
+	public AditionalInformation selectById(Long id){
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		Annulment a=null;
+		AditionalInformation a=null;
 		try{
 			statement = this.connection.prepareStatement(GETONE);
 			statement.setLong(1, id);
@@ -166,11 +169,14 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 	}
 
 	// convert ResultSet to objects
-	public Annulment convert(ResultSet set) throws SQLException{
-		String reason= set.getString("reason");
-		Integer user_id= set.getInt("user_id");
+	public AditionalInformation convert(ResultSet set) throws SQLException{
+		Integer nit = set.getInt("nit");
+		String name= set.getString("name");
+		String logo_path= set.getString("logo_path");
+		Integer default_tip= set.getInt("default_tip");
 		String created_at= set.getString("created_at");
-		Annulment annulment= new Annulment(set.getInt("id"),reason, user_id,created_at);
-		return annulment;
+		AditionalInformation information= new AditionalInformation(set.getInt("id"),nit, name,logo_path,default_tip,created_at);
+		return information;
 	}
+    
 }

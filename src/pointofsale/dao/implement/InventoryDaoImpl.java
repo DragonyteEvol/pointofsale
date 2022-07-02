@@ -5,25 +5,25 @@
 package pointofsale.dao.implement;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import pointofsale.dao.AnnulmentDao;
+import pointofsale.dao.InventoryDao;
 import pointofsale.database.SqlConstructor;
-import pointofsale.objects.Annulment;
+import pointofsale.objects.Inventory;
 
 /**
  *
  * @author dragonyte
  */
-public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
-
+public class InventoryDaoImpl extends SqlConstructor implements InventoryDao{
+    
 	// table config
-	final String TABLE="annulments";
-	final List<String> COLUMS= Arrays.asList("reason","user_id");
+	final String TABLE="inventory";
+	final List<String> COLUMS= Arrays.asList("ingredient_id","quantity","minimum");
 
 	// queries
 	String INSERT;
@@ -34,7 +34,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	private Connection connection;
 
-    public AnnulmentDaoImpl(Connection connection) {
+    public InventoryDaoImpl(Connection connection) {
 		this.connection=connection;
 		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
 		this.INSERT=setInsert(this.TABLE,this.COLUMS);
@@ -42,12 +42,13 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// insert row 
 	@Override
-	public void insert(Annulment a) {
+	public void insert(Inventory a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
+			statement.setInt(1, a.getIngredient_id());
+			statement.setDouble(2, a.getQuantity());
+			statement.setDouble(3, a.getMinimum());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -65,7 +66,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// delete row
 	@Override
-	public void delete(Annulment a) {
+	public void delete(Inventory a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(DELETE);
@@ -87,13 +88,14 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// update row
 	@Override
-	public void modify(Annulment a) {
+	public void modify(Inventory a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
-			statement.setInt(3, a.getId());
+			statement.setInt(1, a.getIngredient_id());
+			statement.setDouble(2, a.getQuantity());
+			statement.setDouble(3, a.getMinimum());
+			statement.setInt(4, a.getId());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -111,10 +113,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select all rows
 	@Override
-	public List<Annulment> selectAll() {
+	public List<Inventory> selectAll() {
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		List<Annulment> a=new ArrayList<>();
+		List<Inventory> a=new ArrayList<>();
 		try{
 			statement = this.connection.prepareStatement(GETALL);
 			set = statement.executeQuery();
@@ -138,10 +140,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select row for id
 	@Override
-	public Annulment selectById(Long id){
+	public Inventory selectById(Long id){
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		Annulment a=null;
+		Inventory a=null;
 		try{
 			statement = this.connection.prepareStatement(GETONE);
 			statement.setLong(1, id);
@@ -166,11 +168,13 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 	}
 
 	// convert ResultSet to objects
-	public Annulment convert(ResultSet set) throws SQLException{
-		String reason= set.getString("reason");
-		Integer user_id= set.getInt("user_id");
+	public Inventory convert(ResultSet set) throws SQLException{
+		Integer ingredient_id= set.getInt("ingredient_id");
+		Double quantity= set.getDouble("quantity");
+		Double minimum= set.getDouble("minimum");
 		String created_at= set.getString("created_at");
-		Annulment annulment= new Annulment(set.getInt("id"),reason, user_id,created_at);
-		return annulment;
+		Inventory inventory = new Inventory(set.getInt("id"),ingredient_id, quantity,minimum,created_at);
+		return inventory;
 	}
+    
 }

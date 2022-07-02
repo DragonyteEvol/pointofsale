@@ -5,25 +5,25 @@
 package pointofsale.dao.implement;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import pointofsale.dao.AnnulmentDao;
+import pointofsale.dao.RoomDao;
 import pointofsale.database.SqlConstructor;
-import pointofsale.objects.Annulment;
+import pointofsale.objects.Room;
 
 /**
  *
  * @author dragonyte
  */
-public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
-
+public class RoomDaoImpl extends SqlConstructor implements RoomDao{
+    
 	// table config
-	final String TABLE="annulments";
-	final List<String> COLUMS= Arrays.asList("reason","user_id");
+	final String TABLE="rooms";
+	final List<String> COLUMS= Arrays.asList("route_image","capacity","description","price","categorie_id");
 
 	// queries
 	String INSERT;
@@ -34,7 +34,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	private Connection connection;
 
-    public AnnulmentDaoImpl(Connection connection) {
+    public RoomDaoImpl(Connection connection) {
 		this.connection=connection;
 		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
 		this.INSERT=setInsert(this.TABLE,this.COLUMS);
@@ -42,12 +42,15 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// insert row 
 	@Override
-	public void insert(Annulment a) {
+	public void insert(Room a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
+			statement.setString(1, a.getRoute_image());
+			statement.setInt(2, a.getCapacity());
+			statement.setString(3, a.getDescription());
+			statement.setDouble(4, a.getPrice());
+			statement.setInt(5, a.getCategorie_id());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -65,7 +68,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// delete row
 	@Override
-	public void delete(Annulment a) {
+	public void delete(Room a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(DELETE);
@@ -87,13 +90,16 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// update row
 	@Override
-	public void modify(Annulment a) {
+	public void modify(Room a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
-			statement.setInt(3, a.getId());
+			statement.setString(1, a.getRoute_image());
+			statement.setInt(2, a.getCapacity());
+			statement.setString(3, a.getDescription());
+			statement.setDouble(4, a.getPrice());
+			statement.setInt(5, a.getCategorie_id());
+			statement.setInt(6, a.getId());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -111,10 +117,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select all rows
 	@Override
-	public List<Annulment> selectAll() {
+	public List<Room> selectAll() {
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		List<Annulment> a=new ArrayList<>();
+		List<Room> a=new ArrayList<>();
 		try{
 			statement = this.connection.prepareStatement(GETALL);
 			set = statement.executeQuery();
@@ -138,10 +144,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select row for id
 	@Override
-	public Annulment selectById(Long id){
+	public Room selectById(Long id){
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		Annulment a=null;
+		Room a=null;
 		try{
 			statement = this.connection.prepareStatement(GETONE);
 			statement.setLong(1, id);
@@ -166,11 +172,15 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 	}
 
 	// convert ResultSet to objects
-	public Annulment convert(ResultSet set) throws SQLException{
-		String reason= set.getString("reason");
-		Integer user_id= set.getInt("user_id");
+	public Room convert(ResultSet set) throws SQLException{
+		String route_image= set.getString("route_image");
+		Integer capacity= set.getInt("capacity");
+		String description= set.getString("description");
+		Double price= set.getDouble("price");
+		Integer categorie_id= set.getInt("categorie_id");
 		String created_at= set.getString("created_at");
-		Annulment annulment= new Annulment(set.getInt("id"),reason, user_id,created_at);
-		return annulment;
+		Room room = new Room(set.getInt("id"),route_image, capacity,description,price,categorie_id,created_at);
+		return room;
 	}
+    
 }

@@ -5,25 +5,24 @@
 package pointofsale.dao.implement;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import pointofsale.dao.AnnulmentDao;
 import pointofsale.database.SqlConstructor;
-import pointofsale.objects.Annulment;
+import pointofsale.objects.BillTableProductTmp;
 
 /**
  *
  * @author dragonyte
  */
-public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
-
+public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointofsale.dao.BillTableProductTmpDao{
+    
 	// table config
-	final String TABLE="annulments";
-	final List<String> COLUMS= Arrays.asList("reason","user_id");
+	final String TABLE="bills_table_products_tmp";
+	final List<String> COLUMS= Arrays.asList("bill_tmp_id","product_id","quantity","subvalue");
 
 	// queries
 	String INSERT;
@@ -34,7 +33,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	private Connection connection;
 
-    public AnnulmentDaoImpl(Connection connection) {
+    public BillTableProductTmpDaoImpl(Connection connection) {
 		this.connection=connection;
 		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
 		this.INSERT=setInsert(this.TABLE,this.COLUMS);
@@ -42,12 +41,14 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// insert row 
 	@Override
-	public void insert(Annulment a) {
+	public void insert(BillTableProductTmp a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
+			statement.setInt(1, a.getBill_tmp_id());
+			statement.setInt(2 ,a.getProduct_id());
+			statement.setInt(3, a.getQuantity());
+			statement.setDouble(4, a.getSubvalue());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -65,7 +66,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// delete row
 	@Override
-	public void delete(Annulment a) {
+	public void delete(BillTableProductTmp a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(DELETE);
@@ -87,13 +88,15 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// update row
 	@Override
-	public void modify(Annulment a) {
+	public void modify(BillTableProductTmp a) {
 		PreparedStatement statement=null;
 		try{
 			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getReason());
-			statement.setInt(2, a.getUser_id());
-			statement.setInt(3, a.getId());
+			statement.setInt(1, a.getBill_tmp_id());
+			statement.setInt(2 ,a.getProduct_id());
+			statement.setInt(3, a.getQuantity());
+			statement.setDouble(4, a.getSubvalue());
+			statement.setInt(5, a.getId());
 			if(statement.executeUpdate()==0){
 				System.out.println("Execute error");
 			}
@@ -111,10 +114,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select all rows
 	@Override
-	public List<Annulment> selectAll() {
+	public List<BillTableProductTmp> selectAll() {
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		List<Annulment> a=new ArrayList<>();
+		List<BillTableProductTmp> a=new ArrayList<>();
 		try{
 			statement = this.connection.prepareStatement(GETALL);
 			set = statement.executeQuery();
@@ -138,10 +141,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 
 	// select row for id
 	@Override
-	public Annulment selectById(Long id){
+	public BillTableProductTmp selectById(Long id){
 		PreparedStatement statement= null;
 		ResultSet set= null;
-		Annulment a=null;
+		BillTableProductTmp a=null;
 		try{
 			statement = this.connection.prepareStatement(GETONE);
 			statement.setLong(1, id);
@@ -166,11 +169,14 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao{
 	}
 
 	// convert ResultSet to objects
-	public Annulment convert(ResultSet set) throws SQLException{
-		String reason= set.getString("reason");
-		Integer user_id= set.getInt("user_id");
+	public BillTableProductTmp convert(ResultSet set) throws SQLException{
+		Integer bill_tmp_id= set.getInt("bill_tmp_id");
+		Integer product_id= set.getInt("product_id");
+		Integer quantity= set.getInt("quantity");
+		Double subvalue= set.getDouble("subvalue");
 		String created_at= set.getString("created_at");
-		Annulment annulment= new Annulment(set.getInt("id"),reason, user_id,created_at);
-		return annulment;
+		BillTableProductTmp billTableProduct = new BillTableProductTmp(set.getInt("id"),bill_tmp_id, product_id,quantity,subvalue,created_at);
+		return billTableProduct;
 	}
+    
 }
