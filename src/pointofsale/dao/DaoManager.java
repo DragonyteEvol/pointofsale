@@ -14,4 +14,5 @@ public interface DaoManager {
         AditionalInformationDao getAditionalInformationDao();
         BillDao getBillDao();
         CategorieDao getCategorieDao();
+        UserDao getUserDao();
 }

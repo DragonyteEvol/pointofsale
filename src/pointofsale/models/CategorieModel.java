@@ -4,14 +4,14 @@
  */
 package pointofsale.models;
 
-import pointofsale.objects.Unit;
+import pointofsale.objects.Categorie;
 
 /**
  *
  * @author dragonyte
  */
-public class UnitModel extends Model{
-    public void insert(Unit unit){
-		this.dao.getUnitDao().insert(unit);
-	}
+public class CategorieModel extends Model{
+    public void insert(Categorie categorie){
+        this.dao.getCategorieDao().insert(categorie);
+    }
 }

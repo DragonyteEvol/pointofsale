@@ -16,6 +16,10 @@ public class User {
 	private boolean admin;
 	private String created_at;
 
+	public User(){
+
+	}
+
     public User(Integer id, String name, String mail, String password, boolean admin, String created_at) {
         this.id = id;
         this.name = name;

@@ -11,5 +11,5 @@ import pointofsale.objects.User;
  * @author dragonyte
  */
 public interface UserDao extends Dao<User, Long>{
-    
+    User selectByMail(String a);
 }

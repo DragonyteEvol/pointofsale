@@ -4,6 +4,10 @@
  */
 package pointofsale;
 
+import pointofsale.controllers.HomeController;
+
+
+
 
 /**
  *
@@ -15,6 +19,7 @@ public class PointOfSale {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-	}
+        HomeController a = new HomeController();
+    }
 
 }

@@ -30,6 +30,7 @@ public class UserDaoImpl extends SqlConstructor implements UserDao{
 	String UPDATE;
 	final String DELETE= "delete from "+TABLE+" where id=?";
 	final String GETALL= "select * from "+TABLE;
+	final String GETBYMAIL= "select * from "+TABLE+" where mail=?";
 	final String GETONE= "select * from "+TABLE+" where id=?";
 
 	private Connection connection;
@@ -179,5 +180,32 @@ public class UserDaoImpl extends SqlConstructor implements UserDao{
 		User user = new User(set.getInt("id"),name, mail,password,admin,created_at);
 		return user;
 	}
+
+    @Override
+    public User selectByMail(String mail) {
+		PreparedStatement statement= null;
+		ResultSet set= null;
+		User a = null;
+		try{
+			statement = this.connection.prepareStatement(GETBYMAIL);
+			statement.setString(1, mail);
+			set = statement.executeQuery();
+			while(set.next()){
+				a=convert(set);
+			}
+		}catch(SQLException e){
+			System.out.println(e.getMessage());
+		}finally{
+			if(set!=null){
+				try{
+					set.close();
+				}catch(SQLException e){
+					System.out.println(e.getMessage());
+				}
+			}
+		}
+		return a;
+
+    }
     
 }

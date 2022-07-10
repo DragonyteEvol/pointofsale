@@ -5,7 +5,6 @@
 package pointofsale.dao.implement;
 
 import java.sql.Connection;
-import java.util.List;
 import pointofsale.dao.AditionalInformationDao;
 import pointofsale.dao.AnnulmentDao;
 import pointofsale.dao.BillDao;
@@ -13,12 +12,7 @@ import pointofsale.dao.CategorieDao;
 
 import pointofsale.dao.DaoManager;
 import pointofsale.dao.UnitDao;
-import pointofsale.database.DataBaseConnection;
-import pointofsale.objects.AditionalInformation;
-import pointofsale.objects.Annulment;
-import pointofsale.objects.Bill;
-import pointofsale.objects.Categorie;
-import pointofsale.objects.Unit;
+import pointofsale.dao.UserDao;
 
 /**
  *
@@ -33,10 +27,10 @@ public class DaoManagerImpl implements DaoManager{
         private AditionalInformationDao aditionalInformation =null;
         private BillDao bill =null;
         private CategorieDao categorie =null;
+        private UserDao user =null;
 
-	public DaoManagerImpl() {
-		DataBaseConnection databaseConnection= new DataBaseConnection();
-		this.connection = databaseConnection.connect();
+	public DaoManagerImpl(Connection connection) {
+		this.connection = connection;
 	}
 
     @Override
@@ -55,14 +49,6 @@ public class DaoManagerImpl implements DaoManager{
         return this.annulment;
     }
     
-    public static void main(String[] a){
-        DaoManagerImpl dao = new DaoManagerImpl();
-        List<Categorie> units = dao.getCategorieDao().selectAll();
-        for(Categorie x:units){
-            System.out.println(x.toString());
-        }
-    }
-
     @Override
     public AditionalInformationDao getAditionalInformationDao() {
         if(aditionalInformation==null){
@@ -85,6 +71,14 @@ public class DaoManagerImpl implements DaoManager{
             this.categorie = new CategorieDaoImpl(connection);
         }
         return this.categorie;
+    }
+
+    @Override
+    public UserDao getUserDao() {
+        if(user==null){
+            this.user = new UserDaoImpl(connection);
+        }
+        return this.user;
     }
 
     
