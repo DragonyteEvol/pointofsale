@@ -131,7 +131,6 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
                 try {
                     set.close();
                     statement.close();
-                    this.connection.close();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }

@@ -59,7 +59,6 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
         } finally {
             try {
                 statement.close();
-                this.connection.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }

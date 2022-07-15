@@ -6,34 +6,60 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import pointofsale.controllers.modal.NewUnitController;
+import pointofsale.models.UnitModel;
+import pointofsale.objects.Unit;
 import pointofsale.views.inventory.UnitView;
 
 /**
  *
  * @author dragonyte
  */
-public class UnitController extends Controller implements ActionListener{
-    
+public class UnitController extends Controller implements ActionListener {
+
     private UnitView view;
+    private UnitModel unitModel;
+    private JPanel panel;
 
     public UnitController(JPanel panel) {
+        this.initComponents(panel);
+
+    }
+
+    private void initComponents(JPanel panel) {
+        // VARIABLES
         this.view = new UnitView();
-        InventoryMenuController a = new InventoryMenuController(panel);
-        this.addViewWhitoutRefresh(this.view, panel);
-        
+        this.unitModel = new UnitModel();
+        this.panel = panel;
+
+        this.setResource(this.view);
+        // print views
+        this.addView(this.view, panel);
+
+        this.initEvents();
+    }
+
+    // events
+    private void initEvents() {
         this.view.btnCreate.addActionListener(this);
+    }
+
+    private void setResource(JPanel view) {
+        List<Unit> units = this.unitModel.selectAll();
+        for (Unit unit : units) {
+            view.add(new JButton(unit.getName()));
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if(source==this.view.btnCreate){
-            new NewUnitController();
+        if (source == this.view.btnCreate) {
+            NewUnitController newUnit = new NewUnitController(this);
+            this.initComponents(this.panel);
         }
     }
-    
-    
-    
 }

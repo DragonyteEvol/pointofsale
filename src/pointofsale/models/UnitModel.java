@@ -4,6 +4,8 @@
  */
 package pointofsale.models;
 
+import java.util.List;
+
 import pointofsale.objects.Unit;
 
 /**
@@ -15,5 +17,11 @@ public class UnitModel extends Model{
 		Integer a =this.dao.getUnitDao().insert(unit);
 		this.saveChanges();
 		System.out.println(a);
+	}
+
+	public List<Unit> selectAll(){
+		List<Unit> units = this.dao.getUnitDao().selectAll();
+		this.closeConnection();
+		return units;
 	}
 }

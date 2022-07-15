@@ -7,31 +7,31 @@ package pointofsale.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
-import pointofsale.views.inventory.InventoryView;
+import pointofsale.views.inventory.ReceptionView;
 
 /**
  *
  * @author dragonyte
  */
-public class InventoryController extends Controller implements ActionListener{
-    
-    private InventoryView view;
+public class ReceptionController extends Controller implements ActionListener{
+    private ReceptionView view;
 
-    public InventoryController(JPanel panel) {
-        this.view = new InventoryView();
-        
-        this.addView(this.view, panel);
-        
-        this.view.btnPrint.addActionListener(this);
+    public ReceptionController(JPanel panel) {
+        this.initComponents(panel);
     }
 
+    private void initComponents(JPanel panel){
+        this.view = new ReceptionView();
+        this.addView(this.view, panel);
+        
+        this.initEvents();
+    }
     
+    private void initEvents(){
+        this.view.btnCreate.addActionListener(this);
+    }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==this.view.btnPrint){
-            System.out.println("print");
-        }
     }
-    
 }

@@ -5,6 +5,7 @@
 package pointofsale.controllers;
 
 import javax.swing.JPanel;
+import pointofsale.views.layouts.MenuLayout;
 
 /**
  *
@@ -26,11 +27,22 @@ public class Controller {
         panel.repaint();
     }
     
-    // add a view to a father's panel whitout recharge or remove the childs's views
-    public void addViewWhitoutRefresh(JPanel view,JPanel panel){
-        view.setSize(614,382);
-        view.setLocation(201, 0);
-        
-        panel.add(view);
+    
+    public void addView(JPanel view,JPanel window){
+        window.removeAll();
+        view.setSize(608,382);
+        window.add(view);
+        window.revalidate();
+        window.repaint();
+    }
+    
+    public MenuLayout setMenuLayout(JPanel panel){
+        panel.removeAll();
+        MenuLayout layout = new MenuLayout();
+        layout.setSize(814,382);
+        panel.add(layout);
+        panel.revalidate();
+        panel.repaint();
+        return layout;
     }
 }

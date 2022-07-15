@@ -14,22 +14,19 @@ import java.sql.SQLException;
  */
 public class DataBaseConnection {
 	String base= "pointofsale.db";
-	Connection connect;
-	public DataBaseConnection(){
-		this.connect();
-	}
 
 	public Connection connect(){
+		Connection connect=null;
 		try{
-			this.connect = DriverManager.getConnection("jdbc:sqlite:"+this.base);
-			this.connect.setAutoCommit(false);
-			if(this.connect!=null){
-				System.out.println("OK");
+			connect = DriverManager.getConnection("jdbc:sqlite:"+this.base);
+			connect.setAutoCommit(false);
+			if(connect!=null){
+				System.out.println("Connection open");
 			}
 		}catch(SQLException e){
 			System.out.println("connect error " + e.getMessage());
 		}
-		return this.connect;
+		return connect;
 	}
 
 	// Close connection method

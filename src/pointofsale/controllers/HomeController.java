@@ -7,6 +7,7 @@ package pointofsale.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pointofsale.views.HomeView;
+import pointofsale.views.layouts.MenuLayout;
 
 /**
  *
@@ -28,7 +29,9 @@ public class HomeController extends Controller implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==this.view.btnInventory){
-            new InventoryController(this.view.pnDinamic);
+            MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
+            InventoryMenuController menuController = new InventoryMenuController(layout.pnPanel,layout.pnWindow);
+            InventoryController inventoryController = new InventoryController(layout.pnWindow);
         }
     }
     

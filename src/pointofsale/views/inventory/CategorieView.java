@@ -8,12 +8,12 @@ package pointofsale.views.inventory;
  *
  * @author dragonyte
  */
-public class UnitView extends javax.swing.JPanel {
+public class CategorieView extends javax.swing.JPanel {
 
     /**
-     * Creates new form UnitView
+     * Creates new form CategorieView
      */
-    public UnitView() {
+    public CategorieView() {
         initComponents();
     }
 
@@ -28,11 +28,10 @@ public class UnitView extends javax.swing.JPanel {
 
         btnCreate = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 102, 255));
+        setBackground(new java.awt.Color(0, 0, 255));
 
-        btnCreate.setBackground(new java.awt.Color(255, 51, 51));
         btnCreate.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btnCreate.setText("Unidades");
+        btnCreate.setText("Categorias");
         add(btnCreate);
     }// </editor-fold>//GEN-END:initComponents
 
