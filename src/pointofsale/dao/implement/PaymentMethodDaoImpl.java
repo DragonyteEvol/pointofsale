@@ -19,159 +19,159 @@ import pointofsale.objects.PaymentMethod;
  *
  * @author dragonyte
  */
-public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMethodDao{
-    
-	// table config
-	final String TABLE="payment_methods";
-	final List<String> COLUMS= Arrays.asList("name","virtual");
+public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMethodDao {
 
-	// queries
-	String INSERT;
-	String UPDATE;
-	final String DELETE= "delete from "+TABLE+" where id=?";
-	final String GETALL= "select * from "+TABLE;
-	final String GETONE= "select * from "+TABLE+" where id=?";
+    // table config
+    final String TABLE = "payment_methods";
+    final List<String> COLUMS = Arrays.asList("name", "virtual");
 
-	private Connection connection;
+    // queries
+    String INSERT;
+    String UPDATE;
+    final String DELETE = "delete from " + TABLE + " where id=?";
+    final String GETALL = "select * from " + TABLE;
+    final String GETONE = "select * from " + TABLE + " where id=?";
+
+    private Connection connection;
 
     public PaymentMethodDaoImpl(Connection connection) {
-		this.connection=connection;
-		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
-		this.INSERT=setInsert(this.TABLE,this.COLUMS);
+        this.connection = connection;
+        this.UPDATE = setUpdate(this.TABLE, this.COLUMS);
+        this.INSERT = setInsert(this.TABLE, this.COLUMS);
     }
 
-	// insert row 
-	@Override
-	public void insert(PaymentMethod a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getName());
-			statement.setBoolean(2, a.isVirtual());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // insert row 
+    @Override
+    public Integer insert(PaymentMethod a) {
+        PreparedStatement statement = null;
+        Integer rowId = null;
+        try {
+            statement = this.connection.prepareStatement(INSERT);
+            statement.setString(1, a.getName());
+            statement.setBoolean(2, a.isVirtual());
+            rowId = statement.executeUpdate();
+            if (rowId == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return rowId;
+    }
 
-	// delete row
-	@Override
-	public void delete(PaymentMethod a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(DELETE);
-			statement.setInt(1, a.getId());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // delete row
+    @Override
+    public void delete(PaymentMethod a) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETE);
+            statement.setInt(1, a.getId());
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-	// update row
-	@Override
-	public void modify(PaymentMethod a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getName());
-			statement.setBoolean(2, a.isVirtual());
-			statement.setInt(3, a.getId());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // update row
+    @Override
+    public void modify(PaymentMethod a) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(UPDATE);
+            statement.setString(1, a.getName());
+            statement.setBoolean(2, a.isVirtual());
+            statement.setInt(3, a.getId());
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-	// select all rows
-	@Override
-	public List<PaymentMethod> selectAll() {
-		PreparedStatement statement= null;
-		ResultSet set= null;
-		List<PaymentMethod> a=new ArrayList<>();
-		try{
-			statement = this.connection.prepareStatement(GETALL);
-			set = statement.executeQuery();
-			while(set.next()){
-				a.add(convert(set));
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally{
-			if(set!=null){
-				try{
-					set.close();
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}
-			}
-		}
-		return a;
+    // select all rows
+    @Override
+    public List<PaymentMethod> selectAll() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<PaymentMethod> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETALL);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
 
-	}
+    }
 
-	// select row for id
-	@Override
-	public PaymentMethod selectById(Long id){
-		PreparedStatement statement= null;
-		ResultSet set= null;
-		PaymentMethod a=null;
-		try{
-			statement = this.connection.prepareStatement(GETONE);
-			statement.setLong(1, id);
-			set = statement.executeQuery();
-			if(set.next()){
-				a= convert(set);
-			}else{
-				System.out.println("empty set");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally{
-			if(set!=null){
-				try{
-					set.close();
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}
-			}
-		}
-		return a;
-	}
+    // select row for id
+    @Override
+    public PaymentMethod selectById(Long id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        PaymentMethod a = null;
+        try {
+            statement = this.connection.prepareStatement(GETONE);
+            statement.setLong(1, id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
 
-	// convert ResultSet to objects
-	public PaymentMethod convert(ResultSet set) throws SQLException{
-		String name = set.getString("name");
-		Boolean virtual= set.getBoolean("virtual");
-		String created_at= set.getString("created_at");
-		PaymentMethod paymentMethod = new PaymentMethod(set.getInt("id"),name, virtual,created_at);
-		return paymentMethod;
-	}
-    
+    // convert ResultSet to objects
+    public PaymentMethod convert(ResultSet set) throws SQLException {
+        String name = set.getString("name");
+        Boolean virtual = set.getBoolean("virtual");
+        String created_at = set.getString("created_at");
+        PaymentMethod paymentMethod = new PaymentMethod(set.getInt("id"), name, virtual, created_at);
+        return paymentMethod;
+    }
+
 }

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface Dao<C,I> {
     
-    void insert(C a);
+    Integer insert(C a);
     
     void delete(C a);
     

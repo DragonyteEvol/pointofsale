@@ -4,6 +4,9 @@
  */
 package pointofsale.models;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import pointofsale.dao.DaoManager;
 import pointofsale.dao.implement.DaoManagerImpl;
 import pointofsale.database.DataBaseConnection;
@@ -15,10 +18,29 @@ import pointofsale.database.DataBaseConnection;
 public class Model {
 
     DaoManager dao;
+	Connection connection;
     
     public Model() {
         DataBaseConnection databaseConnection= new DataBaseConnection();
-        this.dao = new DaoManagerImpl(databaseConnection.connect());
+		connection = databaseConnection.connect();
+        this.dao = new DaoManagerImpl(connection);
     }
-    
+
+	public void saveChanges(){
+		try{
+			this.connection.commit();
+			this.closeConnection();
+		}catch(SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void closeConnection(){
+		try{
+			this.connection.close();
+		}catch(SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

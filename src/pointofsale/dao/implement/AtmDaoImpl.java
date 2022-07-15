@@ -19,158 +19,158 @@ import pointofsale.objects.Atm;
  *
  * @author dragonyte
  */
-public class AtmDaoImpl extends SqlConstructor implements AtmDao{
-    
-	// table config
-	final String TABLE="atm";
-	final List<String> COLUMS= Arrays.asList("user_id","value");
+public class AtmDaoImpl extends SqlConstructor implements AtmDao {
 
-	// queries
-	String INSERT;
-	String UPDATE;
-	final String DELETE= "delete from "+TABLE+" where id=?";
-	final String GETALL= "select * from "+TABLE;
-	final String GETONE= "select * from "+TABLE+" where id=?";
+    // table config
+    final String TABLE = "atm";
+    final List<String> COLUMS = Arrays.asList("user_id", "value");
 
-	private Connection connection;
+    // queries
+    String INSERT;
+    String UPDATE;
+    final String DELETE = "delete from " + TABLE + " where id=?";
+    final String GETALL = "select * from " + TABLE;
+    final String GETONE = "select * from " + TABLE + " where id=?";
+
+    private Connection connection;
 
     public AtmDaoImpl(Connection connection) {
-		this.connection=connection;
-		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
-		this.INSERT=setInsert(this.TABLE,this.COLUMS);
+        this.connection = connection;
+        this.UPDATE = setUpdate(this.TABLE, this.COLUMS);
+        this.INSERT = setInsert(this.TABLE, this.COLUMS);
     }
 
-	// insert row 
-	@Override
-	public void insert(Atm a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(INSERT);
-			statement.setInt(1, a.getUser_id());
-			statement.setDouble(2, a.getValue());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // insert row 
+    @Override
+    public Integer insert(Atm a) {
+        PreparedStatement statement = null;
+        Integer rowId = null;
+        try {
+            statement = this.connection.prepareStatement(INSERT);
+            statement.setInt(1, a.getUser_id());
+            statement.setDouble(2, a.getValue());
+            rowId = statement.executeUpdate();
+            if (rowId == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return rowId;
+    }
 
-	// delete row
-	@Override
-	public void delete(Atm a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(DELETE);
-			statement.setInt(1, a.getId());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // delete row
+    @Override
+    public void delete(Atm a) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETE);
+            statement.setInt(1, a.getId());
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-	// update row
-	@Override
-	public void modify(Atm a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(UPDATE);
-			statement.setInt(1, a.getUser_id());
-			statement.setDouble(2, a.getValue());
-			statement.setInt(3, a.getId());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // update row
+    @Override
+    public void modify(Atm a) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(UPDATE);
+            statement.setInt(1, a.getUser_id());
+            statement.setDouble(2, a.getValue());
+            statement.setInt(3, a.getId());
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-	// select all rows
-	@Override
-	public List<Atm> selectAll() {
-		PreparedStatement statement= null;
-		ResultSet set= null;
-		List<Atm> a=new ArrayList<>();
-		try{
-			statement = this.connection.prepareStatement(GETALL);
-			set = statement.executeQuery();
-			while(set.next()){
-				a.add(convert(set));
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally{
-			if(set!=null){
-				try{
-					set.close();
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}
-			}
-		}
-		return a;
+    // select all rows
+    @Override
+    public List<Atm> selectAll() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Atm> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETALL);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
 
-	}
+    }
 
-	// select row for id
-	@Override
-	public Atm selectById(Long id){
-		PreparedStatement statement= null;
-		ResultSet set= null;
-		Atm a=null;
-		try{
-			statement = this.connection.prepareStatement(GETONE);
-			statement.setLong(1, id);
-			set = statement.executeQuery();
-			if(set.next()){
-				a= convert(set);
-			}else{
-				System.out.println("empty set");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally{
-			if(set!=null){
-				try{
-					set.close();
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}
-			}
-		}
-		return a;
-	}
+    // select row for id
+    @Override
+    public Atm selectById(Long id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        Atm a = null;
+        try {
+            statement = this.connection.prepareStatement(GETONE);
+            statement.setLong(1, id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
 
-	// convert ResultSet to objects
-	public Atm convert(ResultSet set) throws SQLException{
-		Integer user_id= set.getInt("user_id");
-		Double value= set.getDouble("value");
-		String created_at= set.getString("created_at");
-		Atm atm = new Atm(set.getInt("id"),user_id, value,created_at);
-		return atm;
-	}
+    // convert ResultSet to objects
+    public Atm convert(ResultSet set) throws SQLException {
+        Integer user_id = set.getInt("user_id");
+        Double value = set.getDouble("value");
+        String created_at = set.getString("created_at");
+        Atm atm = new Atm(set.getInt("id"), user_id, value, created_at);
+        return atm;
+    }
 }

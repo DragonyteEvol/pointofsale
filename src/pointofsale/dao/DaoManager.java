@@ -10,9 +10,12 @@ package pointofsale.dao;
  */
 public interface DaoManager {
 	UnitDao getUnitDao();
-        AnnulmentDao getAnnulmentDao();
-        AditionalInformationDao getAditionalInformationDao();
-        BillDao getBillDao();
-        CategorieDao getCategorieDao();
-        UserDao getUserDao();
+	AnnulmentDao getAnnulmentDao();
+	AditionalInformationDao getAditionalInformationDao();
+	BillDao getBillDao();
+	CategorieDao getCategorieDao();
+	UserDao getUserDao();
+	IngredientDao getIngredientDao();
+	InventoryDao getInventoryDao();
+	MovementInventoryDao getMovementInventoryDao();
 }

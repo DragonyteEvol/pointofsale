@@ -12,6 +12,8 @@ import pointofsale.objects.Unit;
  */
 public class UnitModel extends Model{
     public void insert(Unit unit){
-		this.dao.getUnitDao().insert(unit);
+		Integer a =this.dao.getUnitDao().insert(unit);
+		this.saveChanges();
+		System.out.println(a);
 	}
 }

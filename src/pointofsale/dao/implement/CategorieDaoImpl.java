@@ -19,158 +19,185 @@ import pointofsale.objects.Categorie;
  *
  * @author dragonyte
  */
-public class CategorieDaoImpl extends SqlConstructor implements CategorieDao{
-    
-	// table config
-	final String TABLE="categories";
-	final List<String> COLUMS= Arrays.asList("name","target");
+public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
 
-	// queries
-	String INSERT;
-	String UPDATE;
-	final String DELETE= "delete from "+TABLE+" where id=?";
-	final String GETALL= "select * from "+TABLE;
-	final String GETONE= "select * from "+TABLE+" where id=?";
+    // table config
+    final String TABLE = "categories";
+    final List<String> COLUMS = Arrays.asList("name", "target");
 
-	private Connection connection;
+    // queries
+    String INSERT;
+    String UPDATE;
+    final String DELETE = "delete from " + TABLE + " where id=?";
+    final String GETALL = "select * from " + TABLE;
+    final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETWHERE = "select * from " + TABLE + " where ";
+
+    private Connection connection;
 
     public CategorieDaoImpl(Connection connection) {
-		this.connection=connection;
-		this.UPDATE=setUpdate(this.TABLE,this.COLUMS);
-		this.INSERT=setInsert(this.TABLE,this.COLUMS);
+        this.connection = connection;
+        this.UPDATE = setUpdate(this.TABLE, this.COLUMS);
+        this.INSERT = setInsert(this.TABLE, this.COLUMS);
     }
 
-	// insert row 
-	@Override
-	public void insert(Categorie a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(INSERT);
-			statement.setString(1, a.getName());
-			statement.setInt(2, a.getTarget());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // insert row 
+    @Override
+    public Integer insert(Categorie a) {
+        PreparedStatement statement = null;
+        Integer rowId = null;
+        try {
+            statement = this.connection.prepareStatement(INSERT);
+            statement.setString(1, a.getName());
+            statement.setInt(2, a.getTarget());
+            rowId = statement.executeUpdate();
+            if (rowId == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+                this.connection.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return rowId;
+    }
 
-	// delete row
-	@Override
-	public void delete(Categorie a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(DELETE);
-			statement.setInt(1, a.getId());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // delete row
+    @Override
+    public void delete(Categorie a) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETE);
+            statement.setInt(1, a.getId());
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-	// update row
-	@Override
-	public void modify(Categorie a) {
-		PreparedStatement statement=null;
-		try{
-			statement=this.connection.prepareStatement(UPDATE);
-			statement.setString(1, a.getName());
-			statement.setInt(2, a.getTarget());
-			statement.setInt(3, a.getId());
-			if(statement.executeUpdate()==0){
-				System.out.println("Execute error");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-		finally{
-			try{
-				statement.close();
-			}catch(SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	}
+    // update row
+    @Override
+    public void modify(Categorie a) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(UPDATE);
+            statement.setString(1, a.getName());
+            statement.setInt(2, a.getTarget());
+            statement.setInt(3, a.getId());
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-	// select all rows
-	@Override
-	public List<Categorie> selectAll() {
-		PreparedStatement statement= null;
-		ResultSet set= null;
-		List<Categorie> a=new ArrayList<>();
-		try{
-			statement = this.connection.prepareStatement(GETALL);
-			set = statement.executeQuery();
-			while(set.next()){
-				a.add(convert(set));
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally{
-			if(set!=null){
-				try{
-					set.close();
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}
-			}
-		}
-		return a;
+    // select all rows
+    @Override
+    public List<Categorie> selectAll() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Categorie> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETALL);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
 
-	}
+    }
 
-	// select row for id
-	@Override
-	public Categorie selectById(Long id){
-		PreparedStatement statement= null;
-		ResultSet set= null;
-		Categorie a=null;
-		try{
-			statement = this.connection.prepareStatement(GETONE);
-			statement.setLong(1, id);
-			set = statement.executeQuery();
-			if(set.next()){
-				a= convert(set);
-			}else{
-				System.out.println("empty set");
-			}
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}finally{
-			if(set!=null){
-				try{
-					set.close();
-				}catch(SQLException e){
-					System.out.println(e.getMessage());
-				}
-			}
-		}
-		return a;
-	}
+    // select row for id
+    @Override
+    public Categorie selectById(Long id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        Categorie a = null;
+        try {
+            statement = this.connection.prepareStatement(GETONE);
+            statement.setLong(1, id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
 
-	// convert ResultSet to objects
-	public Categorie convert(ResultSet set) throws SQLException{
-		String name= set.getString("name");
-		Integer target= set.getInt("target");
-		String created_at= set.getString("created_at");
-		Categorie categorie = new Categorie(set.getInt("id"),name, target,created_at);
-		return categorie;
-	}
+    // convert ResultSet to objects
+    public Categorie convert(ResultSet set) throws SQLException {
+        String name = set.getString("name");
+        Integer target = set.getInt("target");
+        String created_at = set.getString("created_at");
+        Categorie categorie = new Categorie(set.getInt("id"), name, target, created_at);
+        return categorie;
+    }
+
+    @Override
+    public List<Categorie> selectWhere(String where) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Categorie> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETWHERE + where);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
 }

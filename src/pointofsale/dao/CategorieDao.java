@@ -4,6 +4,8 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
+
 import pointofsale.objects.Categorie;
 
 /**
@@ -11,5 +13,5 @@ import pointofsale.objects.Categorie;
  * @author dragonyte
  */
 public interface CategorieDao extends Dao<Categorie, Long>{
-    
+	List<Categorie> selectWhere(String where);    
 }

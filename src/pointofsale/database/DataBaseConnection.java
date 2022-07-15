@@ -22,6 +22,7 @@ public class DataBaseConnection {
 	public Connection connect(){
 		try{
 			this.connect = DriverManager.getConnection("jdbc:sqlite:"+this.base);
+			this.connect.setAutoCommit(false);
 			if(this.connect!=null){
 				System.out.println("OK");
 			}
