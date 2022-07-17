@@ -8,9 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+
 import pointofsale.dao.InventoryDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.Inventory;
@@ -46,14 +49,15 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
         PreparedStatement statement = null;
         Integer rowId=null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, a.getIngredient_id());
             statement.setDouble(2, a.getQuantity());
             statement.setDouble(3, a.getMinimum());
-            rowId = statement.executeUpdate();
-            if (rowId== 0) {
-                System.out.println("Execute error");
-            }
+            statement.executeUpdate();
+			ResultSet idKey=statement.getGeneratedKeys();
+			if(idKey.next()){
+				rowId=idKey.getInt(1);
+			}
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {

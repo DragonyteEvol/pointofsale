@@ -23,15 +23,26 @@ public class HomeController extends Controller implements ActionListener{
         this.view.setVisible(true);
         
         this.view.btnInventory.addActionListener(this);
+        this.view.btnSell.addActionListener(this);
+        this.view.btnDashboard.addActionListener(this);
     }
     
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==this.view.btnInventory){
+        Object source = ae.getSource();
+        if(source==this.view.btnInventory){
             MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
             InventoryMenuController menuController = new InventoryMenuController(layout.pnPanel,layout.pnWindow);
             InventoryController inventoryController = new InventoryController(layout.pnWindow);
+        }
+        if(source==this.view.btnSell){
+            MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
+            SellMenuController sellMenuController = new SellMenuController(layout.pnPanel,layout.pnWindow);
+            TableController tableController = new TableController(layout.pnWindow);
+        }
+        if(source==this.view.btnDashboard){
+            DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
         }
     }
     

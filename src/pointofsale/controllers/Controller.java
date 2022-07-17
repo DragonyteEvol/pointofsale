@@ -36,6 +36,14 @@ public class Controller {
         window.repaint();
     }
     
+    public void addViewFirstPlane(JPanel view,JPanel window){
+        window.removeAll();
+        view.setSize(814,382);
+        window.add(view);
+        window.revalidate();
+        window.repaint();
+    }
+    
     public MenuLayout setMenuLayout(JPanel panel){
         panel.removeAll();
         MenuLayout layout = new MenuLayout();

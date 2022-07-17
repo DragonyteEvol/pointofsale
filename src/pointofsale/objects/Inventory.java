@@ -22,6 +22,8 @@ public class Inventory {
         this.minimum = minimum;
         this.created_at = created_at;
     }
+    
+    public Inventory(){}
 
     public Integer getId() {
         return id;

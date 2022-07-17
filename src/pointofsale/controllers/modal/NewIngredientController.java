@@ -10,8 +10,12 @@ import java.util.List;
 import javax.swing.JComboBox;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.CategorieModel;
+import pointofsale.models.IngredientModel;
 import pointofsale.models.UnitModel;
 import pointofsale.objects.Categorie;
+import pointofsale.objects.Ingredient;
+import pointofsale.objects.Inventory;
+import pointofsale.objects.MovementInventory;
 import pointofsale.objects.Unit;
 import pointofsale.views.modal.NewIngredientView;
 
@@ -22,10 +26,8 @@ import pointofsale.views.modal.NewIngredientView;
 public class NewIngredientController extends ModalController implements ActionListener {
 
     private NewIngredientView view;
-    private CategorieModel model;
 
     public NewIngredientController() {
-        this.model = new CategorieModel();
 
         // view config
         this.view = new NewIngredientView(null, true);
@@ -44,6 +46,8 @@ public class NewIngredientController extends ModalController implements ActionLi
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
+            InsertThread insertThread = new InsertThread(this.view);
+            insertThread.start();
         }
     }
 
@@ -82,19 +86,55 @@ public class NewIngredientController extends ModalController implements ActionLi
 
     class InsertThread extends Thread {
 
-        private boolean validateRequest(String name) {
+        private NewIngredientView view;
+
+        public InsertThread(NewIngredientView view) {
+            this.view = view;
+        }
+
+        private boolean validateRequest() {
+            String name = this.view.txtName.getText();
             if (name.isBlank() || name.isEmpty()) {
                 return false;
             } else {
                 return true;
             }
         }
+
+        private Ingredient createIngredient() {
+            String name = this.view.txtName.getText();
+            Double price = Double.valueOf((Integer) this.view.txtPrice.getValue());
+            Integer unit_id = this.view.cbUnit.getSelectedIndex() + 1;
+            Double quantity = Double.valueOf((Integer) this.view.txtStock.getValue());
+            Double minimum = Double.valueOf((Integer) this.view.txtMinimum.getValue());
+            Integer categorie_id = this.view.cbCategorie.getSelectedIndex() + 1;
+            
+            //CREATE INGREDIENT
+            Ingredient ingredient = new Ingredient();
+            ingredient.setName(name);
+            ingredient.setPrice(price);
+            ingredient.setUnit_id(unit_id);
+            ingredient.setQuantity(quantity);
+            ingredient.setMinimum(minimum);
+            ingredient.setCategorie_id(categorie_id);
+            ingredient.setRoute_image("");
+            return ingredient;
+        }
         
-        
+       
+
+        private void insertIngredient() {
+            IngredientModel model = new IngredientModel();
+            if (validateRequest()) {
+                Ingredient ingredient = createIngredient();
+                model.insert(ingredient,true);
+            }
+        }
 
         @Override
         public void run() {
-
+            this.insertIngredient();
+            this.view.dispose();
         }
     }
 }

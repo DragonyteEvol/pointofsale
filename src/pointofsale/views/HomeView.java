@@ -30,12 +30,12 @@ public class HomeView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnDashboard = new javax.swing.JButton();
+        btnSell = new javax.swing.JButton();
         btnInventory = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnAccounting = new javax.swing.JButton();
+        btnEvent = new javax.swing.JButton();
+        btnConfig = new javax.swing.JButton();
         pnDinamic = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,23 +61,23 @@ public class HomeView extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Dashboard");
-        jPanel3.add(jButton1);
+        btnDashboard.setText("Dashboard");
+        jPanel3.add(btnDashboard);
 
-        jButton2.setText("Vender");
-        jPanel3.add(jButton2);
+        btnSell.setText("Vender");
+        jPanel3.add(btnSell);
 
         btnInventory.setText("Inventario");
         jPanel3.add(btnInventory);
 
-        jButton4.setText("Contabilidad");
-        jPanel3.add(jButton4);
+        btnAccounting.setText("Contabilidad");
+        jPanel3.add(btnAccounting);
 
-        jButton5.setText("Eventos");
-        jPanel3.add(jButton5);
+        btnEvent.setText("Eventos");
+        jPanel3.add(btnEvent);
 
-        jButton6.setText("Configuracion");
-        jPanel3.add(jButton6);
+        btnConfig.setText("Configuracion");
+        jPanel3.add(btnConfig);
 
         pnDinamic.setSize(814,382);
 
@@ -160,12 +160,12 @@ public class HomeView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAccounting;
+    public javax.swing.JButton btnConfig;
+    public javax.swing.JButton btnDashboard;
+    public javax.swing.JButton btnEvent;
     public javax.swing.JButton btnInventory;
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton4;
-    public javax.swing.JButton jButton5;
-    public javax.swing.JButton jButton6;
+    public javax.swing.JButton btnSell;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -14,8 +14,22 @@ public class Ingredient {
 	private Double price;
 	private Integer unit_id;
 	private Integer categorie_id;
+        private Double quantity;
+        private Double minimum;
 	private String route_image;
 	private String created_at;
+
+    public Ingredient(Integer id, String name, Double price, Integer unit_id, Integer categorie_id,Double quantity,Double minimum ,String route_image, String created_at) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.unit_id = unit_id;
+        this.categorie_id = categorie_id;
+        this.quantity = quantity;
+        this.minimum = minimum;
+        this.route_image = route_image;
+        this.created_at = created_at;
+    }
 
     public Ingredient(Integer id, String name, Double price, Integer unit_id, Integer categorie_id, String route_image, String created_at) {
         this.id = id;
@@ -26,6 +40,10 @@ public class Ingredient {
         this.route_image = route_image;
         this.created_at = created_at;
     }
+    
+    
+    
+    public Ingredient(){}
 
     public Integer getId() {
         return id;
@@ -82,6 +100,24 @@ public class Ingredient {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(Double minimum) {
+        this.minimum = minimum;
+    }
+    
+    
 
     @Override
     public String toString() {

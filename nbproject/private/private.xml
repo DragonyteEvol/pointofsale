@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/Controller.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/HomeController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/InventoryMenuController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/IngredientController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/HomeView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/SellMenuController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/DashboardController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/sell/TableView.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -24,6 +24,8 @@ public class MovementInventory {
         this.quantity = quantity;
         this.created_at = created_at;
     }
+    
+    public MovementInventory(){}
 
     public Integer getId() {
         return id;

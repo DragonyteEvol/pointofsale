@@ -29,7 +29,7 @@ public class Model {
 	public void saveChanges(){
 		try{
 			this.connection.commit();
-			this.connection.close();
+			this.closeConnection();
 		}catch(SQLException e){
 			System.out.println(e.getMessage());
 		}

@@ -16,12 +16,10 @@ import pointofsale.views.menu.InventoryMenu;
 public class InventoryMenuController extends Controller implements ActionListener{
     
     public InventoryMenu view;
-    private JPanel panelMenu;
     private JPanel panelWindow;
 
     public InventoryMenuController(JPanel panelMenu,JPanel panelWindow) {
         this.view = new InventoryMenu();
-        this.panelMenu = panelMenu;
         this.panelWindow = panelWindow;
         this.addMenu(this.view, panelMenu);
         

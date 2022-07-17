@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,16 +47,17 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setDouble(2, a.getPrice());
             statement.setInt(3, a.getUnit_id());
             statement.setInt(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
-            rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
-            }
+            statement.executeUpdate();
+			ResultSet idKey = statement.getGeneratedKeys();
+			if(idKey.next()){
+				rowId=idKey.getInt(1);
+			}
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
