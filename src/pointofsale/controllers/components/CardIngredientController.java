@@ -21,6 +21,7 @@ public class CardIngredientController implements ActionListener {
 
     private CardIngredientView view;
     private IngredientUnit ingredient;
+    private JPanel panel;
     private JPanel pnInfo;
     private List<IngredientUnit> listQuantitys;
 
@@ -29,6 +30,7 @@ public class CardIngredientController implements ActionListener {
         this.pnInfo = panelInfo;
         this.ingredient = ingredient;
         this.listQuantitys = listQuantitys;
+        this.panel = panel;
         panel.add(view);
 
         this.view.btnAdd.addActionListener(this);
@@ -42,10 +44,10 @@ public class CardIngredientController implements ActionListener {
         }
     }
 
-    private void addComponent(Component component) {
-        this.pnInfo.add(component);
-        pnInfo.revalidate();
-        pnInfo.repaint();
+    private void removeComponent(Component component) {
+        this.panel.remove(component);
+        panel.revalidate();
+        panel.repaint();
     }
 
     @Override
@@ -56,7 +58,8 @@ public class CardIngredientController implements ActionListener {
             if (validateRequest(quantity)) {
                 this.ingredient.setQuantity(quantity);
                 this.listQuantitys.add(ingredient);
-                addComponent(new JButton(ingredient.getName()));
+                CardIngredientInfoController cardIngredientInfoController = new CardIngredientInfoController(listQuantitys, ingredient, pnInfo);
+                removeComponent(view);
             }
 
         }

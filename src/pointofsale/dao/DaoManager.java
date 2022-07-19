@@ -18,4 +18,6 @@ public interface DaoManager {
 	IngredientDao getIngredientDao();
 	InventoryDao getInventoryDao();
 	MovementInventoryDao getMovementInventoryDao();
+        ProductDao getProductDao();
+        ProductIngredientDao getProductIngredientDao();
 }

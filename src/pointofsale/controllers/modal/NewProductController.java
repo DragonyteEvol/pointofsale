@@ -16,6 +16,7 @@ import pointofsale.controllers.Controller;
 import pointofsale.controllers.components.CardIngredientController;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
+import pointofsale.models.ProductModel;
 import pointofsale.objects.Categorie;
 import pointofsale.objects.IngredientUnit;
 import pointofsale.objects.Product;
@@ -105,12 +106,30 @@ public class NewProductController extends Controller implements ActionListener {
 
         }
         if (source == this.secondView.btnSave) {
-            for(IngredientUnit ingredientUnit : this.listQuatitys){
-                System.out.print(ingredientUnit.getName());
-            }
+            InsertThread insertThread = new InsertThread(this.product, listQuatitys);
+            insertThread.start();
         }
     }
 
+    class InsertThread extends Thread {
+
+        private Product product;
+        private List<IngredientUnit> listIngredients;
+
+        public InsertThread(Product product, List<IngredientUnit> listIngredients) {
+            this.product = product;
+            this.listIngredients = listIngredients;
+        }
+
+        @Override
+        public void run() {
+            ProductModel productModel = new ProductModel();
+            productModel.insert(product, listIngredients);
+        }
+    }
+
+    
+    
     class SetResourceThread extends Thread {
 
         private JComboBox<Object> cbCategorie;

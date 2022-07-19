@@ -22,7 +22,9 @@ public class IngredientModel extends Model {
     }
 
     public List<Ingredient> selectAll() {
-        return this.dao.getIngredientDao().selectAll();
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectAll();
+        this.closeConnection();
+        return ingredients;
     }
 
     public void insert(Ingredient ingredient, boolean extras) {

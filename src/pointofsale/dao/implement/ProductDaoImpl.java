@@ -4,6 +4,7 @@
  */
 package pointofsale.dao.implement;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,15 +47,16 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setDouble(2, a.getPrice());
             statement.setInt(3, a.getTime());
             statement.setString(4, a.getRoute_image());
             statement.setInt(5, a.getCategorie_id());
-            rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            statement.executeUpdate();
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

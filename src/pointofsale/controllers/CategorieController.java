@@ -28,30 +28,29 @@ public class CategorieController extends Controller implements ActionListener {
     public CategorieController(JPanel panel) {
         this.initComponents(panel);
     }
-    
-    private void initComponents(JPanel panel){
+
+    private void initComponents(JPanel panel) {
         this.view = new CategorieView();
         this.panel = panel;
         this.model = new CategorieModel();
-        
-		this.setCategories();
+
+        this.setCategories();
         this.addView(this.view, panel);
-        
-        
+
         this.initEvents();
     }
 
-    private void initEvents(){
+    private void initEvents() {
         this.view.btnCreate.addActionListener(this);
     }
-    
-    private void setCategories(){
+
+    private void setCategories() {
         List<Categorie> categories = this.model.selectAll();
-        for(Categorie categorie: categories){
+        for (Categorie categorie : categories) {
             this.view.add(new JButton(categorie.getName()));
         }
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();

@@ -14,6 +14,8 @@ import pointofsale.dao.DaoManager;
 import pointofsale.dao.IngredientDao;
 import pointofsale.dao.InventoryDao;
 import pointofsale.dao.MovementInventoryDao;
+import pointofsale.dao.ProductDao;
+import pointofsale.dao.ProductIngredientDao;
 import pointofsale.dao.UnitDao;
 import pointofsale.dao.UserDao;
 
@@ -34,6 +36,8 @@ public class DaoManagerImpl implements DaoManager{
         private IngredientDao ingredient=null;
         private InventoryDao inventory=null;
         private MovementInventoryDao movementInventory= null;
+        private ProductDao productDao;
+        private ProductIngredientDao productIngredientDao;
 
 	public DaoManagerImpl(Connection connection) {
 		this.connection = connection;
@@ -109,6 +113,22 @@ public class DaoManagerImpl implements DaoManager{
             this.movementInventory = new MovementInventoryDaoImpl(connection);
         }
         return this.movementInventory;
+    }
+
+    @Override
+    public ProductDao getProductDao() {
+        if(movementInventory==null){
+            this.productDao = new ProductDaoImpl(connection);
+        }
+        return this.productDao;
+    }
+
+    @Override
+    public ProductIngredientDao getProductIngredientDao() {
+        if(movementInventory==null){
+            this.productIngredientDao = new ProductIngredientDaoImpl(connection);
+        }
+        return this.productIngredientDao;
     }
 
     

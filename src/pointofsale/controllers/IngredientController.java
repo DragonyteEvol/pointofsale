@@ -6,10 +6,13 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JButton;
 
 import javax.swing.JPanel;
 import pointofsale.controllers.modal.NewIngredientController;
 import pointofsale.models.IngredientModel;
+import pointofsale.objects.Ingredient;
 import pointofsale.views.inventory.IngredientView;
 
 /**
@@ -26,19 +29,25 @@ public class IngredientController extends Controller implements ActionListener {
 
     private void initComponents(JPanel panel) {
         this.view = new IngredientView();
+        
+        setIngredients();
+        
         this.addView(this.view, panel);
         this.initEvents();
     }
-
+    
+    private void setIngredients(){
+        IngredientModel ingredientModel = new IngredientModel();
+        List<Ingredient> ingredients = ingredientModel.selectAll();
+        for(Ingredient ingredient: ingredients){
+            this.view.add(new JButton(ingredient.getName()));
+        }
+    }
+    
     private void initEvents() {
         this.view.btnCreate.addActionListener(this);
     }
 
-    private void setResources(){
-        IngredientModel model = new IngredientModel();
-        
-    }
-    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -47,4 +56,5 @@ public class IngredientController extends Controller implements ActionListener {
             this.initComponents(this.view);
         }
     }
+    
 }

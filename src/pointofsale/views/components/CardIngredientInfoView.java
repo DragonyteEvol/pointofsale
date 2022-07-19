@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package pointofsale.views.inventory;
+package pointofsale.views.components;
 
 /**
  *
  * @author dragonyte
  */
-public class IngredientView extends javax.swing.JPanel {
+public class CardIngredientInfoView extends javax.swing.JPanel {
 
     /**
-     * Creates new form IngredientView
+     * Creates new form CardIngredientInfoView
      */
-    public IngredientView() {
+    public CardIngredientInfoView() {
         initComponents();
     }
 
@@ -26,16 +26,31 @@ public class IngredientView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCreate = new javax.swing.JButton();
+        txtName = new javax.swing.JLabel();
+        txtQuantity = new javax.swing.JLabel();
+        txtUnit = new javax.swing.JLabel();
+        btnDrop = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 51, 153));
+        setBackground(new java.awt.Color(255, 51, 51));
 
-        btnCreate.setText("New");
-        add(btnCreate);
+        txtName.setText("Nombre");
+        add(txtName);
+
+        txtQuantity.setText("Cantidad");
+        add(txtQuantity);
+
+        txtUnit.setText("Unidad");
+        add(txtUnit);
+
+        btnDrop.setText("X");
+        add(btnDrop);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCreate;
+    public javax.swing.JButton btnDrop;
+    public javax.swing.JLabel txtName;
+    public javax.swing.JLabel txtQuantity;
+    public javax.swing.JLabel txtUnit;
     // End of variables declaration//GEN-END:variables
 }
