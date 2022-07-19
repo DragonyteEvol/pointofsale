@@ -12,23 +12,29 @@ import pointofsale.objects.Categorie;
  *
  * @author dragonyte
  */
-public class CategorieModel extends Model{
+public class CategorieModel extends Model {
 
-    public void insert(Categorie categorie){
+    public void insert(Categorie categorie) {
         this.dao.getCategorieDao().insert(categorie);
-		this.saveChanges();
+        this.saveChanges();
     }
 
-	public List<Categorie> selectAll(){
-		List<Categorie> categories = this.dao.getCategorieDao().selectAll();
-		this.closeConnection();
-		return categories;
-	}
+    public List<Categorie> selectAll() {
+        List<Categorie> categories = this.dao.getCategorieDao().selectAll();
+        this.closeConnection();
+        return categories;
+    }
 
-	public List<Categorie> selectCategoriesIngredients(){
-		List<Categorie> categories = this.dao.getCategorieDao().selectWhere("target = 0");
-		this.closeConnection();
-		return categories;
-	}
+    public List<Categorie> selectCategoriesIngredients() {
+        List<Categorie> categories = this.dao.getCategorieDao().selectWhere("target = 0");
+        this.closeConnection();
+        return categories;
+    }
+
+    public List<Categorie> selectCategoriesProducts() {
+        List<Categorie> categories = this.dao.getCategorieDao().selectWhere("target = 1");
+        this.closeConnection();
+        return categories;
+    }
 
 }

@@ -181,8 +181,8 @@ public class NewIngredientView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSave;
-    public javax.swing.JComboBox<String> cbCategorie;
-    public javax.swing.JComboBox<String> cbUnit;
+    public javax.swing.JComboBox<Object> cbCategorie;
+    public javax.swing.JComboBox<Object> cbUnit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

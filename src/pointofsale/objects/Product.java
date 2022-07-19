@@ -17,6 +17,11 @@ public class Product {
 	private Integer categorie_id;
 	private String created_at;
 
+    public Product() {
+    }
+
+        
+        
     public Product(Integer id, String name, Double price, Integer time, String route_image, Integer categorie_id, String created_at) {
         this.id = id;
         this.name = name;

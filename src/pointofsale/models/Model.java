@@ -18,30 +18,34 @@ import pointofsale.database.DataBaseConnection;
 public class Model {
 
     DaoManager dao;
-	Connection connection;
-    
+    Connection connection;
+
     public Model() {
-        DataBaseConnection databaseConnection= new DataBaseConnection();
-		connection = databaseConnection.connect();
+        DataBaseConnection databaseConnection = new DataBaseConnection();
+        connection = databaseConnection.connect();
         this.dao = new DaoManagerImpl(connection);
     }
 
-	public void saveChanges(){
-		try{
-			this.connection.commit();
-			this.closeConnection();
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-	}
+    public void saveChanges() {
+        try {
+            this.connection.commit();
+            this.closeConnection();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
-	public void closeConnection(){
-		try{
-			this.connection.close();
-			System.out.println("Connection closed");
-		}catch(SQLException e){
-			System.out.println(e.getMessage());
-		}
-	}
+    public void closeConnection() {
+        try {
+            this.connection.close();
+            System.out.println("Connection closed");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void rollBack() throws SQLException{
+        this.connection.rollback();
+    }
 
 }

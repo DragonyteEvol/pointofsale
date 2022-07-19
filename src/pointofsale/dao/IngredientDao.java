@@ -4,12 +4,15 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.Ingredient;
+import pointofsale.objects.IngredientUnit;
 
 /**
  *
  * @author dragonyte
  */
 public interface IngredientDao extends Dao<Ingredient, Long>{
-    
+    List<Ingredient> selectWhere(String where);
+    List<IngredientUnit> selectWhitUnit(String where);
 }

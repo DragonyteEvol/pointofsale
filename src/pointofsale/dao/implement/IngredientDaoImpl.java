@@ -15,6 +15,7 @@ import java.util.List;
 import pointofsale.dao.IngredientDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.Ingredient;
+import pointofsale.objects.IngredientUnit;
 
 /**
  *
@@ -32,6 +33,8 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETWHERE = "select * from " + TABLE + " where ";
+    final String GETUNIT = "SELECT ingredients.*,units.name as unit from ingredients INNER join units on ingredients.unit_id = units.id";
 
     private Connection connection;
 
@@ -47,17 +50,17 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
+            statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setDouble(2, a.getPrice());
             statement.setInt(3, a.getUnit_id());
             statement.setInt(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
             statement.executeUpdate();
-			ResultSet idKey = statement.getGeneratedKeys();
-			if(idKey.next()){
-				rowId=idKey.getInt(1);
-			}
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -174,6 +177,14 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     }
 
     // convert ResultSet to objects
+    public IngredientUnit convertIngredientUnit(ResultSet set) throws SQLException {
+        Integer id = set.getInt("id");
+        String name = set.getString("name");
+        String unit = set.getString("unit");
+        IngredientUnit ingredientUnit = new IngredientUnit(id, name, unit);
+        return ingredientUnit;
+    }
+
     public Ingredient convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
         Double price = set.getDouble("price");
@@ -183,6 +194,62 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         String created_at = set.getString("created_at");
         Ingredient ingredient = new Ingredient(set.getInt("id"), name, price, unit_id, categorie_id, route_image, created_at);
         return ingredient;
+    }
+
+    @Override
+    public List<Ingredient> selectWhere(String where) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Ingredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETWHERE + where);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+
+    }
+
+    @Override
+    public List<IngredientUnit> selectWhitUnit(String where) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<IngredientUnit> a = new ArrayList<>();
+        try {
+            if (where.isBlank() || where.isEmpty()) {
+                statement = this.connection.prepareStatement(GETUNIT);
+            } else {
+                statement = this.connection.prepareStatement(GETUNIT+ " where "+ where);
+            }
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertIngredientUnit(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+
     }
 
 }

@@ -8,7 +8,7 @@ package pointofsale.objects;
  *
  * @author dragonyte
  */
-public class Categorie {
+public class Categorie{
 	private Integer id;    
 	private String name;
 	private Integer target;
@@ -55,7 +55,7 @@ public class Categorie {
 
     @Override
     public String toString() {
-        return "Categorie{" + "id=" + id + ", name=" + name + ", target=" + target + ", created_at=" + created_at + '}';
+        return name;
     }
         
         

@@ -7,6 +7,7 @@ package pointofsale.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import pointofsale.controllers.modal.NewProductController;
 import pointofsale.views.inventory.ProductView;
 
 /**
@@ -36,7 +37,7 @@ public class ProductController extends Controller implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if(source == this.view.btnCreate){
-            
+            NewProductController newProduct = new NewProductController();
         }
     }
     

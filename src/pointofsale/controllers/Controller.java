@@ -18,7 +18,7 @@ public class Controller {
     public void addMenu(JPanel menu, JPanel panel) {
         
         //menu config 
-        menu.setSize(200,382);
+        menu.setSize(229,382);
         
         //panel remove childs and add panel menu
         panel.removeAll();

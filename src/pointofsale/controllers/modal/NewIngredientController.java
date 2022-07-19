@@ -14,8 +14,6 @@ import pointofsale.models.IngredientModel;
 import pointofsale.models.UnitModel;
 import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
-import pointofsale.objects.Inventory;
-import pointofsale.objects.MovementInventory;
 import pointofsale.objects.Unit;
 import pointofsale.views.modal.NewIngredientView;
 
@@ -53,10 +51,10 @@ public class NewIngredientController extends ModalController implements ActionLi
 
     class SetResourceThread extends Thread {
 
-        private JComboBox<String> cbUnit;
-        private JComboBox<String> cbCategorie;
+        private JComboBox<Object> cbUnit;
+        private JComboBox<Object> cbCategorie;
 
-        public SetResourceThread(JComboBox<String> cbUnit, JComboBox<String> cbCategorie) {
+        public SetResourceThread(JComboBox<Object> cbUnit, JComboBox<Object> cbCategorie) {
             this.cbUnit = cbUnit;
             this.cbCategorie = cbCategorie;
         }
@@ -65,7 +63,7 @@ public class NewIngredientController extends ModalController implements ActionLi
             UnitModel unitModel = new UnitModel();
             List<Unit> units = unitModel.selectAll();
             for (Unit unit : units) {
-                this.cbUnit.addItem(unit.getName());
+                this.cbUnit.addItem(unit);
             }
         }
 
@@ -73,8 +71,12 @@ public class NewIngredientController extends ModalController implements ActionLi
             CategorieModel categorieModel = new CategorieModel();
             List<Categorie> categories = categorieModel.selectCategoriesIngredients();
             for (Categorie categorie : categories) {
-                this.cbCategorie.addItem(categorie.getName());
+                this.cbCategorie.addItem(categorie);
             }
+        }
+        
+        private void setIngredients(){
+        
         }
 
         @Override
@@ -104,10 +106,12 @@ public class NewIngredientController extends ModalController implements ActionLi
         private Ingredient createIngredient() {
             String name = this.view.txtName.getText();
             Double price = Double.valueOf((Integer) this.view.txtPrice.getValue());
-            Integer unit_id = this.view.cbUnit.getSelectedIndex() + 1;
+            Unit unit =(Unit) this.view.cbUnit.getSelectedItem();
+            Integer unit_id = unit.getId();
             Double quantity = Double.valueOf((Integer) this.view.txtStock.getValue());
             Double minimum = Double.valueOf((Integer) this.view.txtMinimum.getValue());
-            Integer categorie_id = this.view.cbCategorie.getSelectedIndex() + 1;
+            Categorie categorie =(Categorie) this.view.cbCategorie.getSelectedItem();
+            Integer categorie_id = categorie.getId();
             
             //CREATE INGREDIENT
             Ingredient ingredient = new Ingredient();
