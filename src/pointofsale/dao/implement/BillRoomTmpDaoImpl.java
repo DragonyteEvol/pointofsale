@@ -4,6 +4,7 @@
  */
 package pointofsale.dao.implement;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,6 +32,7 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETWHEREROOMID = "select * from " + TABLE + " where room_id=?";
 
     private Connection connection;
 
@@ -46,12 +48,13 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, a.getRoom_id());
             statement.setDouble(2, a.getTotal());
-            rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            statement.executeUpdate();
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -172,6 +175,34 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
         String created_at = set.getString("created_at");
         BillRoomTmp billRoom = new BillRoomTmp(set.getInt("id"), room_id, total, created_at);
         return billRoom;
+    }
+
+    @Override
+    public BillRoomTmp selectByRoomId(Integer id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        BillRoomTmp a = null;
+        try {
+            statement = this.connection.prepareStatement(GETWHEREROOMID);
+            statement.setLong(1, id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

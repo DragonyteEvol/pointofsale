@@ -55,7 +55,7 @@ public class PaymentMethod {
 
     @Override
     public String toString() {
-        return "PaymentMethod{" + "id=" + id + ", name=" + name + ", virtual=" + virtual + ", created_at=" + created_at + '}';
+        return name;
     }
         
         

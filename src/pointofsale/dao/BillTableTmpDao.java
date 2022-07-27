@@ -11,5 +11,5 @@ import pointofsale.objects.BillTableTmp;
  * @author dragonyte
  */
 public interface BillTableTmpDao extends Dao<BillTableTmp, Long>{
-    
+    BillTableTmp selectByTableId(Integer id);
 }

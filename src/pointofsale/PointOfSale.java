@@ -4,7 +4,7 @@
  */
 package pointofsale;
 
-import pointofsale.controllers.HomeController;
+import pointofsale.controllers.modal.LoginController;
 
 
 
@@ -19,7 +19,10 @@ public class PointOfSale {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        HomeController a = new HomeController();
+        //HomeController a = new HomeController();
+        String value = MoneyConverter.convertDouble(45500);
+        System.out.print(value);
+        LoginController a = new LoginController();
     }
 
 }

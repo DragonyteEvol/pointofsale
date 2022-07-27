@@ -6,6 +6,8 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import pointofsale.UserGlobal;
+import pointofsale.controllers.modal.LoginController;
 import pointofsale.views.HomeView;
 import pointofsale.views.layouts.MenuLayout;
 
@@ -25,6 +27,9 @@ public class HomeController extends Controller implements ActionListener{
         this.view.btnInventory.addActionListener(this);
         this.view.btnSell.addActionListener(this);
         this.view.btnDashboard.addActionListener(this);
+        this.view.btnUser.addActionListener(this);
+        
+        this.view.btnUser.setText(UserGlobal.getUser().getName());
     }
     
     
@@ -43,6 +48,13 @@ public class HomeController extends Controller implements ActionListener{
         }
         if(source==this.view.btnDashboard){
             DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
+        }
+        
+        if(source==this.view.btnUser){
+            LoginController loginController = new LoginController();
+            if(loginController.logged){
+                this.view.dispose();
+            }
         }
     }
     

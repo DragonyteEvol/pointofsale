@@ -25,6 +25,11 @@ public class MoneyBox {
         this.created_at = created_at;
     }
 
+    public MoneyBox() {
+    }
+    
+    
+
     public Integer getId() {
         return id;
     }

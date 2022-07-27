@@ -18,6 +18,22 @@ public class CategorieModel extends Model {
         this.dao.getCategorieDao().insert(categorie);
         this.saveChanges();
     }
+    
+    public void update(Categorie categorie){
+        this.dao.getCategorieDao().modify(categorie);
+        this.saveChanges();
+    }
+    
+    public void delete(Categorie categorie){
+        this.dao.getCategorieDao().delete(categorie);
+        this.saveChanges();
+    }
+    
+    public Categorie selectById(Integer id){
+        Categorie categorie = this.dao.getCategorieDao().selectById(Long.parseLong(String.valueOf(id)));
+        this.closeConnection();
+        return categorie;
+    }
 
     public List<Categorie> selectAll() {
         List<Categorie> categories = this.dao.getCategorieDao().selectAll();
@@ -33,6 +49,12 @@ public class CategorieModel extends Model {
 
     public List<Categorie> selectCategoriesProducts() {
         List<Categorie> categories = this.dao.getCategorieDao().selectWhere("target = 1");
+        this.closeConnection();
+        return categories;
+    }
+    
+    public List<Categorie> selectCategoriesRooms() {
+        List<Categorie> categories = this.dao.getCategorieDao().selectWhere("target = 2");
         this.closeConnection();
         return categories;
     }

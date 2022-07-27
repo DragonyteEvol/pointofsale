@@ -11,5 +11,5 @@ import pointofsale.objects.BillRoomTmp;
  * @author dragonyte
  */
 public interface BillRoomTmpDao extends Dao<BillRoomTmp, Long>{
-    
+    BillRoomTmp selectByRoomId(Integer id);
 }

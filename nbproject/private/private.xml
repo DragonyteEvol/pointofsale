@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/Controller.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/dao/IngredientDao.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/InventoryController.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/IngredientController.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/NewCategorieView.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardIngredientController.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/objects/IngredientUnit.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/components/CardIngredientView.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/modal/NewProductController.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/AddIngredientProduct.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/dao/implement/IngredientDaoImpl.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardProductController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/OrderProductController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/modal/SellProductsController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/SellProductView.java</file>
         </group>
     </open-files>
 </project-private>

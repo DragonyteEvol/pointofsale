@@ -8,7 +8,6 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import pointofsale.objects.IngredientUnit;
 import pointofsale.views.components.CardIngredientView;

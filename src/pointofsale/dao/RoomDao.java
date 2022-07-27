@@ -11,5 +11,5 @@ import pointofsale.objects.Room;
  * @author dragonyte
  */
 public interface RoomDao extends Dao<Room, Long>{
-    
+    Room selectByIdWhitCategorie(Long id);
 }

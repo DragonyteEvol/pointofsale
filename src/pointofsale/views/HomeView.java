@@ -29,6 +29,7 @@ public class HomeView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnUser = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
         btnSell = new javax.swing.JButton();
@@ -44,6 +45,8 @@ public class HomeView extends javax.swing.JFrame {
 
         jLabel1.setText("Point Of Sale");
 
+        btnUser.setText("Name");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -51,13 +54,17 @@ public class HomeView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUser)
+                .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnUser))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -89,7 +96,7 @@ public class HomeView extends javax.swing.JFrame {
         );
         pnDinamicLayout.setVerticalGroup(
             pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
+            .addGap(0, 376, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -166,6 +173,7 @@ public class HomeView extends javax.swing.JFrame {
     public javax.swing.JButton btnEvent;
     public javax.swing.JButton btnInventory;
     public javax.swing.JButton btnSell;
+    public javax.swing.JButton btnUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

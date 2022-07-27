@@ -16,8 +16,10 @@ public class Room {
 	private Double price;
 	private Integer categorie_id;
 	private String created_at;
+        private boolean allocatted;
+        private String categorie;
 
-    public Room(Integer id, String route_image, Integer capacity, String description, Double price, Integer categorie_id, String created_at) {
+    public Room(Integer id, String route_image, Integer capacity, String description, Double price, Integer categorie_id,boolean allocatted, String created_at) {
         this.id = id;
         this.route_image = route_image;
         this.capacity = capacity;
@@ -25,7 +27,12 @@ public class Room {
         this.price = price;
         this.categorie_id = categorie_id;
         this.created_at = created_at;
+        this.allocatted = allocatted;
     }
+
+    public Room() {
+    }
+    
 
     public Integer getId() {
         return id;
@@ -82,6 +89,25 @@ public class Room {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
+    public boolean isAllocatted() {
+        return allocatted;
+    }
+
+    public void setAllocatted(boolean allocatted) {
+        this.allocatted = allocatted;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+    
+    
+    
 
     @Override
     public String toString() {

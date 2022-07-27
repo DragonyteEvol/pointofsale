@@ -9,23 +9,23 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Bill {
-	private Integer id;    
-	private String description;
-	private Integer client_type;
-	private Integer client_id;
-	private Integer user_id;
-	private Integer people;
-	private Integer discount;
-	private Double tip;
-	private boolean courtesy;
-	private boolean internal;
-	private Integer payment_method_id;
-	private boolean housing;
-	private boolean printed;
-	private Double total;
-	private Double total_real;
-	private Integer event_id;
-	private String created_at;
+	private Integer id=null;    
+	private String description=null;
+	private Integer client_type=null;
+	private Integer client_id=null;
+	private Integer user_id=null;
+	private Integer people=0;
+	private Integer discount=0;
+	private Double tip=0.0;
+	private boolean courtesy=false;
+	private boolean internal=false;
+	private Integer payment_method_id=null;
+	private boolean housing=false;
+	private boolean printed=false;
+	private Double total=null;
+	private Double total_real=null;
+	private Integer event_id=0;
+	private String created_at=null;
 
     public Bill(Integer id, String description, Integer client_type, Integer client_id, Integer user_id, Integer people, Integer discount, Double tip, boolean courtesy, boolean internal, Integer payment_method_id, boolean housing, boolean printed, Double total, Double total_real, Integer event_id, String created_at) {
         this.id = id;
@@ -46,6 +46,11 @@ public class Bill {
         this.event_id = event_id;
         this.created_at = created_at;
     }
+
+    public Bill() {
+    }
+    
+    
 
     public Integer getId() {
         return id;

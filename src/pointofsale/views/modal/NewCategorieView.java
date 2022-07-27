@@ -28,7 +28,7 @@ public class NewCategorieView extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -39,13 +39,13 @@ public class NewCategorieView extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 255));
 
-        jLabel1.setText("Crear Categoria");
+        txtTitle.setText("Crear Categoria");
 
         jLabel2.setText("Nombre");
 
         jLabel3.setText("Objetivo");
 
-        cbTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ingrediente", "producto" }));
+        cbTarget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ingrediente", "producto", "habitacion" }));
 
         btnSave.setText("Aceptar");
 
@@ -60,7 +60,7 @@ public class NewCategorieView extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3)
                         .addComponent(jLabel2)
-                        .addComponent(jLabel1)
+                        .addComponent(txtTitle)
                         .addComponent(txtName)
                         .addComponent(cbTarget, 0, 195, Short.MAX_VALUE)))
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -69,7 +69,7 @@ public class NewCategorieView extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel1)
+                .addComponent(txtTitle)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -142,10 +142,10 @@ public class NewCategorieView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSave;
     public javax.swing.JComboBox<String> cbTarget;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField txtName;
+    public javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,4 +28,10 @@ public class ProductModel extends Model{
         this.closeConnection();
         return products;
     }
+    
+    public List<Product> selectWhere(String where){
+        List<Product> products = this.dao.getProductDao().selectWhere(where);
+        this.closeConnection();
+        return products;
+    }
 }

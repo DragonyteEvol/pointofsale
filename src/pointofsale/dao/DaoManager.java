@@ -20,4 +20,13 @@ public interface DaoManager {
 	MovementInventoryDao getMovementInventoryDao();
         ProductDao getProductDao();
         ProductIngredientDao getProductIngredientDao();
+        TableDao getTableDao();
+        RoomDao getRoomDao();
+        PaymentMethodDao getPaymentMethodDao();
+        AtmDao getAtmDao();
+        MoneyBoxDao getMoneyBoxDao();
+        BillRoomTmpDao getBillRoomTmpDao();
+        BillTableTmpDao getBillTableTmpDao();
+        BillRoomProductTmpDao getBillRoomProductTmpDao();
+        BillTableProductTmpDao getBillTableProductTmpDao();
 }

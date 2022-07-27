@@ -5,6 +5,7 @@
 package pointofsale.dao.implement;
 
 import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,14 +46,15 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, a.getBill_tmp_id());
             statement.setInt(2, a.getProduct_id());
             statement.setInt(3, a.getQuantity());
             statement.setDouble(4, a.getSubvalue());
-            rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            statement.executeUpdate();
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

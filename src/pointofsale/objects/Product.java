@@ -16,6 +16,7 @@ public class Product {
 	private String route_image;
 	private Integer categorie_id;
 	private String created_at;
+        private Integer quantity=null;
 
     public Product() {
     }
@@ -87,6 +88,16 @@ public class Product {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -31,6 +31,7 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETWHERETABLEID = "select * from " + TABLE + " where table_id=?";
 
     private Connection connection;
 
@@ -172,6 +173,34 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
         String created_at = set.getString("created_at");
         BillTableTmp billTable = new BillTableTmp(set.getInt("id"), table_id, total, created_at);
         return billTable;
+    }
+
+    @Override
+    public BillTableTmp selectByTableId(Integer id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        BillTableTmp a = null;
+        try {
+            statement = this.connection.prepareStatement(GETWHERETABLEID);
+            statement.setLong(1, id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

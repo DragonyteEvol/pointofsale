@@ -20,6 +20,10 @@ public class SellMenuController extends Controller implements ActionListener{
     public SellMenuController(JPanel panelMenu,JPanel panelWindow) {
         this.view = new SellMenu();
         this.panelWindow = panelWindow;
+        
+        this.view.btnRoom.addActionListener(this);
+        this.view.btnTable.addActionListener(this);
+        
         this.addMenu(this.view, panelMenu);
     }
 
@@ -28,6 +32,9 @@ public class SellMenuController extends Controller implements ActionListener{
         Object source = ae.getSource();
         if(source==this.view.btnTable){
             TableController tableController = new TableController(panelWindow);
+        }
+        if(source==this.view.btnRoom){
+            RoomController roomController = new RoomController(panelWindow);
         }
     }   
 }

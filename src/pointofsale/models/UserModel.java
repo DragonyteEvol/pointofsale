@@ -13,10 +13,12 @@ import pointofsale.objects.User;
 public class UserModel extends Model{
     public void insert(User user){
         this.dao.getUserDao().insert(user);
+        this.saveChanges();
     }
 
     public User selectByMail(String mail){
 	User user = this.dao.getUserDao().selectByMail(mail);
+        this.closeConnection();
         return user;
     }
 

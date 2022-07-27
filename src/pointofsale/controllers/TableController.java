@@ -6,7 +6,13 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import pointofsale.controllers.components.CardTableController;
+import pointofsale.controllers.modal.NewTableController;
+import pointofsale.models.TableModel;
+import pointofsale.objects.Table;
 import pointofsale.views.sell.TableView;
 
 /**
@@ -15,25 +21,38 @@ import pointofsale.views.sell.TableView;
  */
 public class TableController extends Controller implements ActionListener{
     private TableView view;
+    private JPanel panel;
 
     public TableController(JPanel panel) {
         this.initComponents(panel);
     }
 
     private void initComponents(JPanel panel) {
+        this.panel = panel;
         this.view = new TableView();
+        setResources();
         this.addView(this.view, panel);
         this.initEvents();
     }
 
     private void initEvents() {
+        this.view.btnXD.addActionListener(this);
     }
 
     private void setResources(){
+        TableModel tableModel = new TableModel();
+        List<Table> tables = tableModel.selectAll();
+        for(Table table : tables){
+            CardTableController cardTableController = new CardTableController(this.view,table);
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Object source = ae.getSource();
+        if(source== this.view.btnXD){
+            NewTableController newTableController = new NewTableController();
+            initComponents(this.panel);
+        }
     }
 }

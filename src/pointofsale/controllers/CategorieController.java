@@ -7,9 +7,10 @@ package pointofsale.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.JButton;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import pointofsale.controllers.components.CardCategorieController;
 import pointofsale.controllers.modal.NewCategorieController;
 import pointofsale.models.CategorieModel;
 import pointofsale.objects.Categorie;
@@ -47,10 +48,11 @@ public class CategorieController extends Controller implements ActionListener {
     private void setCategories() {
         List<Categorie> categories = this.model.selectAll();
         for (Categorie categorie : categories) {
-            this.view.add(new JButton(categorie.getName()));
+            CardCategorieController cardCategorieController = new CardCategorieController(categorie,this.view.pnCategorie);
         }
+        
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
