@@ -14,10 +14,10 @@ public class Event {
 	private String description;
 	private String start_date;
 	private String end_date;
-	private Double price;
+	private Integer price;
 	private String created_at;
 
-    public Event(Integer id, String name, String description, String start_date, String end_date, Double price, String created_at) {
+    public Event(Integer id, String name, String description, String start_date, String end_date, Integer price, String created_at) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -67,11 +67,11 @@ public class Event {
         this.end_date = end_date;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

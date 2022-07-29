@@ -22,4 +22,10 @@ public class InventoryModel extends Model{
        this.dao.getInventoryDao().insert(inventory);
        this.dao.getMovementInventoryDao().insert(movementInventory);
    }
+   
+   public Inventory selectWhereIngredient(Integer id){
+       Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id="+String.valueOf(id));
+       this.closeConnection();
+       return inventory;
+   }
 }

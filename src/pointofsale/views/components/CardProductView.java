@@ -26,105 +26,97 @@ public class CardProductView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnImage = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        txtName = new javax.swing.JLabel();
-        txtCategorie = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnLess = new javax.swing.JButton();
-        txtQuantity = new javax.swing.JFormattedTextField();
-        btnPlus = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        txtName = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        txtPrice = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        txtCategorie = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 255));
+        setLayout(new java.awt.BorderLayout());
 
-        pnImage.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnEdit.setText("E");
+        jPanel2.add(btnEdit);
+
+        btnDelete.setText("D");
+        jPanel2.add(btnDelete);
+
+        jPanel1.add(jPanel2);
+
+        jPanel7.setBackground(new java.awt.Color(255, 51, 0));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        pnImage.add(jPanel2);
+        jPanel7.add(jPanel8);
 
-        txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jPanel1.add(jPanel7);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel4.setBackground(new java.awt.Color(255, 51, 0));
+
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         txtName.setText("Name");
+        jPanel4.add(txtName);
 
-        txtCategorie.setFont(new java.awt.Font("sansserif", 0, 8)); // NOI18N
+        jPanel3.add(jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 51, 0));
+
+        txtPrice.setText("10,000");
+        jPanel5.add(txtPrice);
+
+        jPanel3.add(jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(255, 51, 0));
+
+        txtCategorie.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         txtCategorie.setText("Categorie");
+        jPanel6.add(txtCategorie);
 
-        btnLess.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        btnLess.setText("-");
-        jPanel1.add(btnLess);
+        jPanel3.add(jPanel6);
 
-        txtQuantity.setText("1");
-        txtQuantity.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        jPanel1.add(txtQuantity);
-
-        btnPlus.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        btnPlus.setText("+");
-        jPanel1.add(btnPlus);
-
-        btnAdd.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        btnAdd.setText(">");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAdd);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName)
-                            .addComponent(txtCategorie)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addComponent(pnImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCategorie)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAdd;
-    public javax.swing.JButton btnLess;
-    public javax.swing.JButton btnPlus;
+    public javax.swing.JButton btnDelete;
+    public javax.swing.JButton btnEdit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    public javax.swing.JPanel pnImage;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     public javax.swing.JLabel txtCategorie;
     public javax.swing.JLabel txtName;
-    public javax.swing.JFormattedTextField txtQuantity;
+    public javax.swing.JLabel txtPrice;
     // End of variables declaration//GEN-END:variables
 }

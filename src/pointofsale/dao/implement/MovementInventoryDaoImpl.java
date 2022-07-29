@@ -29,6 +29,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
+    final String DELETEWHERE = "delete from " + TABLE + " where ";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
 
@@ -48,7 +49,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getIngredient_id());
-            statement.setDouble(2, a.getQuantity());
+            statement.setInt(2, a.getQuantity());
             statement.setBoolean(3, a.isAddition());
             statement.setBoolean(4, a.isSubstraction());
             rowId = statement.executeUpdate();
@@ -95,7 +96,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getIngredient_id());
-            statement.setDouble(2, a.getQuantity());
+            statement.setInt(2, a.getQuantity());
             statement.setBoolean(3, a.isAddition());
             statement.setBoolean(4, a.isSubstraction());
             statement.setInt(5, a.getId());
@@ -172,12 +173,31 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
     // convert ResultSet to objects
     public MovementInventory convert(ResultSet set) throws SQLException {
         Integer ingredient_id = set.getInt("ingredient_id");
-        Double quantity = set.getDouble("quantity");
+        Integer quantity = set.getInt("quantity");
         Boolean addition = set.getBoolean("addition");
         Boolean substraction = set.getBoolean("substraction");
         String created_at = set.getString("created_at");
         MovementInventory movementInventory = new MovementInventory(set.getInt("id"), ingredient_id, quantity, addition, substraction, created_at);
         return movementInventory;
+    }
+
+    @Override
+    public void deleteWhere(String where) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETEWHERE + where);
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 }

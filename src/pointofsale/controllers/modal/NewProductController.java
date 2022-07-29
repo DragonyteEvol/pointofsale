@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import pointofsale.controllers.Controller;
-import pointofsale.controllers.components.CardIngredientController;
+import pointofsale.controllers.components.CardIngredientWhitManagerController;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.ProductModel;
@@ -48,6 +48,7 @@ public class NewProductController extends Controller implements ActionListener {
 
         //events
         this.view.btnNext.addActionListener(this);
+        this.view.btnDelete.setVisible(false);
         this.secondView.btnSave.addActionListener(this);
 
         //threads
@@ -79,7 +80,7 @@ public class NewProductController extends Controller implements ActionListener {
 
     private Product createProduct() {
         String name = this.view.txtName.getText();
-        Double price = Double.valueOf((Integer) this.view.txtPrice.getValue());
+        Integer price = (Integer) this.view.txtPrice.getValue();
         Integer time = (Integer) this.view.txtTime.getValue();
         Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
         Integer categorie_id = categorie.getId();
@@ -173,7 +174,7 @@ public class NewProductController extends Controller implements ActionListener {
                 String where = "ingredients.categorie_id=" + String.valueOf(categorie.getId());
                 List<IngredientUnit> ingredients = ingredientModel.selectIngredientUnit(where);
                 for (IngredientUnit ingredient : ingredients) {
-                    CardIngredientController cardIngredientController = new CardIngredientController(ingredient, panel, this.view.pnInfo,this.listQuantitys);
+                    CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfo,this.listQuantitys);
                 }
                 scrollPanel.setViewportView(panel);
                 this.view.tabbedPane.add(categorie.getName(), scrollPanel);

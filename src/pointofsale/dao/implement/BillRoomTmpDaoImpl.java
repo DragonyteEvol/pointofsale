@@ -50,7 +50,7 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, a.getRoom_id());
-            statement.setDouble(2, a.getTotal());
+            statement.setInt(2, a.getTotal());
             statement.executeUpdate();
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
@@ -96,7 +96,7 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getRoom_id());
-            statement.setDouble(2, a.getTotal());
+            statement.setInt(2, a.getTotal());
             statement.setInt(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -171,7 +171,7 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
     // convert ResultSet to objects
     public BillRoomTmp convert(ResultSet set) throws SQLException {
         Integer room_id = set.getInt("room_id");
-        Double total = set.getDouble("total");
+        Integer total = set.getInt("total");
         String created_at = set.getString("created_at");
         BillRoomTmp billRoom = new BillRoomTmp(set.getInt("id"), room_id, total, created_at);
         return billRoom;

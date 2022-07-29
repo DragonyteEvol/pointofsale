@@ -62,7 +62,7 @@ public class RoomModel extends Model{
         this.saveChanges();
     }
     
-    public void allocateRoom(Room room, PaymentMethod paymentMethod,Double total,Double receibed){
+    public void allocateRoom(Room room, PaymentMethod paymentMethod,Integer total,Integer receibed){
         Bill bill = new Bill();
         bill.setClient_type(1);
         bill.setClient_id(room.getId());
@@ -99,7 +99,7 @@ public class RoomModel extends Model{
     }
     
     
-    public void allocateRoom(Room room, PaymentMethod paymentMethod,Double total){
+    public void allocateRoom(Room room, PaymentMethod paymentMethod,Integer total){
         Bill bill = new Bill();
         bill.setClient_type(1);
         bill.setClient_id(room.getId());

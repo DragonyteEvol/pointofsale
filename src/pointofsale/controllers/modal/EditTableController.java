@@ -54,7 +54,7 @@ public class EditTableController implements ActionListener{
             Integer capacity =(Integer) this.view.txtCapacity.getValue();
                         System.out.print("ok");
 
-            Double price =Double.parseDouble(String.valueOf(this.view.txtPrice.getValue()));
+            Integer price =Integer.parseInt(String.valueOf(this.view.txtPrice.getValue()));
             if(validRequest(capacity)){
                 table.setCapacity(capacity);
                 table.setPrice(price);

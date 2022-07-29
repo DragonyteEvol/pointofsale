@@ -53,14 +53,14 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
             statement.setInt(4, a.getUser_id());
             statement.setInt(5, a.getPeople());
             statement.setInt(6, a.getDiscount());
-            statement.setDouble(7, a.getTip());
+            statement.setInt(7, a.getTip());
             statement.setBoolean(8, a.isCourtesy());
             statement.setBoolean(9, a.isInternal());
             statement.setInt(10, a.getPayment_method_id());
             statement.setBoolean(11, a.isHousing());
             statement.setBoolean(12, a.isPrinted());
-            statement.setDouble(13, a.getTotal());
-            statement.setDouble(14, a.getTotal_real());
+            statement.setInt(13, a.getTotal());
+            statement.setInt(14, a.getTotal_real());
             statement.setInt(15, a.getEvent_id());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
@@ -111,14 +111,14 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
             statement.setInt(4, a.getUser_id());
             statement.setInt(5, a.getPeople());
             statement.setInt(6, a.getDiscount());
-            statement.setDouble(7, a.getTip());
+            statement.setInt(7, a.getTip());
             statement.setBoolean(8, a.isCourtesy());
             statement.setBoolean(9, a.isInternal());
             statement.setInt(10, a.getPayment_method_id());
             statement.setBoolean(11, a.isHousing());
             statement.setBoolean(12, a.isPrinted());
-            statement.setDouble(13, a.getTotal());
-            statement.setDouble(14, a.getTotal_real());
+            statement.setInt(13, a.getTotal());
+            statement.setInt(14, a.getTotal_real());
             statement.setInt(15, a.getEvent_id());
             statement.setInt(16, a.getId());
             if (statement.executeUpdate() == 0) {
@@ -199,14 +199,14 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
         Integer user_id = set.getInt("user_id");
         Integer people = set.getInt("people");
         Integer discount = set.getInt("discount");
-        Double tip = set.getDouble("tip");
+        Integer tip = set.getInt("tip");
         Boolean courtesy = set.getBoolean("courtesy");
         Boolean internal = set.getBoolean("internal");
         Integer payment_method_id = set.getInt("payment_method_id");
         Boolean housing = set.getBoolean("housing");
         Boolean printed = set.getBoolean("printed");
-        Double total = set.getDouble("total");
-        Double total_real = set.getDouble("total_real");
+        Integer total = set.getInt("total");
+        Integer total_real = set.getInt("total_real");
         Integer event_id = set.getInt("event_id");
         String created_at = set.getString("created_at");
         Bill bill = new Bill(set.getInt("id"), description, client_type, client_id, user_id, people, discount, tip, courtesy, internal, payment_method_id, housing, printed, total, total_real, event_id, created_at);

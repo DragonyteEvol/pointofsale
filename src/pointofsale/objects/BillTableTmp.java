@@ -11,10 +11,10 @@ package pointofsale.objects;
 public class BillTableTmp {
 	private Integer id;    
 	private Integer table_id;
-	private Double total;
+	private Integer total;
 	private String created_at;
 
-    public BillTableTmp(Integer id, Integer table_id, Double total, String created_at) {
+    public BillTableTmp(Integer id, Integer table_id, Integer total, String created_at) {
         this.id = id;
         this.table_id = table_id;
         this.total = total;
@@ -37,11 +37,11 @@ public class BillTableTmp {
         this.table_id = table_id;
     }
 
-    public Double getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 

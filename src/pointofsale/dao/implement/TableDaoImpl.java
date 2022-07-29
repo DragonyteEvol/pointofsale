@@ -48,7 +48,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getCapacity());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -93,7 +93,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getCapacity());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -168,7 +168,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
     // convert ResultSet to objects
     public Table convert(ResultSet set) throws SQLException {
         Integer capacity = set.getInt("capacity");
-        Double price = set.getDouble("price");
+        Integer price = set.getInt("price");
         String created_at = set.getString("created_at");
         Table table = new Table(set.getInt("id"), capacity, price, created_at);
         return table;

@@ -50,7 +50,7 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
             statement.setInt(1, a.getBill_id());
             statement.setInt(2, a.getProduct_id());
             statement.setInt(3, a.getQuantity());
-            statement.setDouble(4, a.getSubvalue());
+            statement.setInt(4, a.getSubvalue());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -97,7 +97,7 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
             statement.setInt(1, a.getBill_id());
             statement.setInt(2, a.getProduct_id());
             statement.setInt(3, a.getQuantity());
-            statement.setDouble(4, a.getSubvalue());
+            statement.setInt(4, a.getSubvalue());
             statement.setInt(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -174,7 +174,7 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
         Integer bill_id = set.getInt("bill_id");
         Integer product_id = set.getInt("product_id");
         Integer quantity = set.getInt("quantity");
-        Double subvalue = set.getDouble("subvalue");
+        Integer subvalue = set.getInt("subvalue");
         String created_at = set.getString("created_at");
         BillProduct billProduct = new BillProduct(set.getInt("id"), bill_id, product_id, quantity, subvalue, created_at);
         return billProduct;

@@ -28,7 +28,7 @@ public class NewIngredientView extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -42,13 +42,14 @@ public class NewIngredientView extends javax.swing.JDialog {
         txtStock = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         txtMinimum = new javax.swing.JSpinner();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabel1.setText("Crear Ingrediente");
+        txtTitle.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        txtTitle.setText("Crear Ingrediente");
 
         jLabel2.setText("Nombre");
 
@@ -64,6 +65,8 @@ public class NewIngredientView extends javax.swing.JDialog {
 
         jLabel7.setText("Cantidad minima");
 
+        btnDelete.setText("Eliminar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -73,12 +76,15 @@ public class NewIngredientView extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7)
                     .addComponent(jLabel6)
-                    .addComponent(btnSave)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDelete))
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel1)
+                    .addComponent(txtTitle)
                     .addComponent(txtName)
                     .addComponent(txtPrice)
                     .addComponent(cbUnit, 0, 219, Short.MAX_VALUE)
@@ -91,7 +97,7 @@ public class NewIngredientView extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addComponent(txtTitle)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -117,7 +123,9 @@ public class NewIngredientView extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(btnSave)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnDelete))
                 .addGap(25, 25, 25))
         );
 
@@ -180,10 +188,10 @@ public class NewIngredientView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnSave;
     public javax.swing.JComboBox<Object> cbCategorie;
     public javax.swing.JComboBox<Object> cbUnit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -195,5 +203,6 @@ public class NewIngredientView extends javax.swing.JDialog {
     public javax.swing.JTextField txtName;
     public javax.swing.JSpinner txtPrice;
     public javax.swing.JSpinner txtStock;
+    public javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }

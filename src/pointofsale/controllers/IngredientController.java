@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JButton;
 
 import javax.swing.JPanel;
+import pointofsale.controllers.components.CardIngredientController;
 import pointofsale.controllers.modal.NewIngredientController;
 import pointofsale.models.IngredientModel;
 import pointofsale.objects.Ingredient;
@@ -40,7 +41,7 @@ public class IngredientController extends Controller implements ActionListener {
         IngredientModel ingredientModel = new IngredientModel();
         List<Ingredient> ingredients = ingredientModel.selectAll();
         for(Ingredient ingredient: ingredients){
-            this.view.add(new JButton(ingredient.getName()));
+            CardIngredientController cardIngredientController = new CardIngredientController(ingredient, this.view.pnIngredients);
         }
     }
     

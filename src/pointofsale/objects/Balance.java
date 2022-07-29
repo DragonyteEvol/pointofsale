@@ -11,11 +11,11 @@ package pointofsale.objects;
 public class Balance {
 	private Integer id;
 	private String reason;
-	private Double value;
+	private Integer value;
 	private Integer user_id;
 	private String created_at;
 
-        public Balance(Integer id, String reason, Double value, Integer user_id, String created_at) {
+        public Balance(Integer id, String reason, Integer value, Integer user_id, String created_at) {
         this.id = id;
         this.reason = reason;
         this.value = value;
@@ -39,11 +39,11 @@ public class Balance {
         this.reason = reason;
     }
 
-    public Double getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 

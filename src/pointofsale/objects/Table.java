@@ -11,10 +11,10 @@ package pointofsale.objects;
 public class Table {
 	private Integer id;    
 	private Integer capacity;
-	private Double price;
+	private Integer price;
 	private String created_at;
 
-    public Table(Integer id, Integer capacity, Double price, String created_at) {
+    public Table(Integer id, Integer capacity, Integer price, String created_at) {
         this.id = id;
         this.capacity = capacity;
         this.price = price;
@@ -37,11 +37,11 @@ public class Table {
         this.capacity = capacity;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

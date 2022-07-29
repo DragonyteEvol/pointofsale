@@ -34,7 +34,7 @@ public class NewRoomController extends ModalController implements ActionListener
         this.view.setVisible(true);
     }
 
-    public boolean validRequest(Integer capacity,Double price) {
+    public boolean validRequest(Integer capacity,Integer price) {
         if (capacity <= 0 || price <=0) {
             return false;
         } else {
@@ -46,7 +46,7 @@ public class NewRoomController extends ModalController implements ActionListener
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Double price = Double.valueOf((Integer) this.view.txtPrice.getValue());
+            Integer price = (Integer) this.view.txtPrice.getValue();
             Integer capacity =(Integer) this.view.txtCapacity.getValue();
             if(validRequest(capacity, price)){
                 String description = this.view.txtDescription.getText();
@@ -84,7 +84,7 @@ public class NewRoomController extends ModalController implements ActionListener
 
         private Room room;
 
-        public InsertThread(Double price, Integer capacity,String description,Categorie categorie) {
+        public InsertThread(Integer price, Integer capacity,String description,Categorie categorie) {
             Room room_n = new Room();
             room_n.setCapacity(capacity);
             room_n.setRoute_image("");

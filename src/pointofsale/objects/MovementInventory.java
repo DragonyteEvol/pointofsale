@@ -13,10 +13,10 @@ public class MovementInventory {
 	private boolean addition;
 	private boolean substraction;
 	private Integer ingredient_id;
-	private Double quantity;
+	private Integer quantity;
 	private String created_at;
 
-    public MovementInventory(Integer id,Integer ingredient_id,Double quantity,boolean addition, boolean substraction, String created_at) {
+    public MovementInventory(Integer id,Integer ingredient_id,Integer quantity,boolean addition, boolean substraction, String created_at) {
         this.id = id;
         this.addition = addition;
         this.substraction = substraction;
@@ -59,11 +59,11 @@ public class MovementInventory {
         this.ingredient_id = ingredient_id;
     }
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

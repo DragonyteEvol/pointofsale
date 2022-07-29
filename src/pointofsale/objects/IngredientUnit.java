@@ -11,7 +11,7 @@ package pointofsale.objects;
 public class IngredientUnit {
     private Integer id;
     private String name,unit;
-    private Double quantity=null;
+    private Integer quantity=null;
 
     public IngredientUnit() {
     }
@@ -51,11 +51,11 @@ public class IngredientUnit {
         return name;
     }
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
     

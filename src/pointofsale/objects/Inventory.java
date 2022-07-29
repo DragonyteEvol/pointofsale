@@ -11,11 +11,11 @@ package pointofsale.objects;
 public class Inventory {
 	private Integer id;    
 	private Integer ingredient_id;
-	private Double quantity;
-	private Double minimum;
+	private Integer quantity;
+	private Integer minimum;
 	private String created_at;
 
-    public Inventory(Integer id, Integer ingredient_id, Double quantity, Double minimum, String created_at) {
+    public Inventory(Integer id, Integer ingredient_id, Integer quantity, Integer minimum, String created_at) {
         this.id = id;
         this.ingredient_id = ingredient_id;
         this.quantity = quantity;
@@ -41,19 +41,19 @@ public class Inventory {
         this.ingredient_id = ingredient_id;
     }
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public Double getMinimum() {
+    public Integer getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Double minimum) {
+    public void setMinimum(Integer minimum) {
         this.minimum = minimum;
     }
 

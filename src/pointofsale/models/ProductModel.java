@@ -34,4 +34,20 @@ public class ProductModel extends Model{
         this.closeConnection();
         return products;
     }
+    
+    public Product selectById(Integer id){
+        Product product = this.dao.getProductDao().selectById(Long.parseLong(String.valueOf(id)));
+        this.closeConnection();
+        return product;
+    }
+    
+    public void delete(Product product){
+        this.dao.getProductDao().delete(product);
+        this.saveChanges();
+    }
+    
+    public void update(Product product){
+        this.dao.getProductDao().modify(product);
+        this.saveChanges();
+    }
 }

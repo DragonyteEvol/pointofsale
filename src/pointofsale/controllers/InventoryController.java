@@ -21,17 +21,12 @@ public class InventoryController extends Controller implements ActionListener{
         this.view = new InventoryView();
         
         this.addView(this.view, panel);
-        
-        this.view.btnPrint.addActionListener(this);
     }
 
     
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==this.view.btnPrint){
-            System.out.println("print");
-        }
     }
     
 }

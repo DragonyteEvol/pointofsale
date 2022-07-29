@@ -48,7 +48,7 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getReason());
-            statement.setDouble(2, a.getValue());
+            statement.setInt(2, a.getValue());
             statement.setInt(3, a.getUser_id());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
@@ -94,7 +94,7 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getReason());
-            statement.setDouble(2, a.getValue());
+            statement.setInt(2, a.getValue());
             statement.setInt(3, a.getUser_id());
             statement.setInt(4, a.getId());
             if (statement.executeUpdate() == 0) {
@@ -170,7 +170,7 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
     // convert ResultSet to objects
     public Balance convert(ResultSet set) throws SQLException {
         String reason = set.getString("reason");
-        Double value = set.getDouble("value");
+        Integer value = set.getInt("value");
         Integer user_id = set.getInt("user_id");
         String created_at = set.getString("created_at");
         Balance balance = new Balance(set.getInt("id"), reason, value, user_id, created_at);

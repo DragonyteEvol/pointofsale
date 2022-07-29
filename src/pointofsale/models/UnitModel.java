@@ -12,16 +12,33 @@ import pointofsale.objects.Unit;
  *
  * @author dragonyte
  */
-public class UnitModel extends Model{
-    public void insert(Unit unit){
-		Integer a =this.dao.getUnitDao().insert(unit);
-		this.saveChanges();
-		System.out.println(a);
-	}
+public class UnitModel extends Model {
 
-	public List<Unit> selectAll(){
-		List<Unit> units = this.dao.getUnitDao().selectAll();
-		this.closeConnection();
-		return units;
-	}
+    public void insert(Unit unit) {
+        Integer a = this.dao.getUnitDao().insert(unit);
+        this.saveChanges();
+        System.out.println(a);
+    }
+
+    public List<Unit> selectAll() {
+        List<Unit> units = this.dao.getUnitDao().selectAll();
+        this.closeConnection();
+        return units;
+    }
+    
+    public Unit selectById(Integer id){
+        Unit unit = this.dao.getUnitDao().selectById(Long.parseLong(String.valueOf(id)));
+        this.closeConnection();
+        return unit;
+    }
+    
+    public void update(Unit unit){
+        this.dao.getUnitDao().modify(unit);
+        this.saveChanges();
+    }
+    
+    public void delete(Unit unit){
+        this.dao.getUnitDao().delete(unit);
+        this.saveChanges();
+    }
 }

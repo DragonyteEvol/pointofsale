@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import pointofsale.controllers.components.CardUnitController;
 import pointofsale.controllers.modal.NewUnitController;
 import pointofsale.models.UnitModel;
 import pointofsale.objects.Unit;
@@ -50,7 +51,7 @@ public class UnitController extends Controller implements ActionListener {
     private void setResource(JPanel view) {
         List<Unit> units = this.unitModel.selectAll();
         for (Unit unit : units) {
-            view.add(new JButton(unit.getName()));
+            CardUnitController cardUnitController = new CardUnitController(unit, this.view.pnUnits);
         }
     }
 

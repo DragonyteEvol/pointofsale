@@ -11,15 +11,15 @@ package pointofsale.objects;
 public class Ingredient {
 	private Integer id;    
 	private String name;
-	private Double price;
+	private Integer price;
 	private Integer unit_id;
 	private Integer categorie_id;
-        private Double quantity;
-        private Double minimum;
+        private Integer quantity;
+        private Integer minimum;
 	private String route_image;
 	private String created_at;
 
-    public Ingredient(Integer id, String name, Double price, Integer unit_id, Integer categorie_id,Double quantity,Double minimum ,String route_image, String created_at) {
+    public Ingredient(Integer id, String name, Integer price, Integer unit_id, Integer categorie_id,Integer quantity,Integer minimum ,String route_image, String created_at) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -31,7 +31,7 @@ public class Ingredient {
         this.created_at = created_at;
     }
 
-    public Ingredient(Integer id, String name, Double price, Integer unit_id, Integer categorie_id, String route_image, String created_at) {
+    public Ingredient(Integer id, String name, Integer price, Integer unit_id, Integer categorie_id, String route_image, String created_at) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -61,11 +61,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -101,19 +101,19 @@ public class Ingredient {
         this.created_at = created_at;
     }
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public Double getMinimum() {
+    public Integer getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Double minimum) {
+    public void setMinimum(Integer minimum) {
         this.minimum = minimum;
     }
     

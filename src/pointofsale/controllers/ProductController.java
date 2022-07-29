@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import pointofsale.controllers.components.CardProductController;
 import pointofsale.controllers.modal.NewProductController;
 import pointofsale.models.ProductModel;
 import pointofsale.objects.Product;
@@ -42,7 +43,7 @@ public class ProductController extends Controller implements ActionListener{
         ProductModel productModel = new ProductModel();
         List<Product> products = productModel.selectAll();
         for(Product product : products){
-            this.view.add(new JButton(product.getName()));
+            CardProductController cardProductController = new CardProductController(product, this.view.pnProducts);
         }
     }
     

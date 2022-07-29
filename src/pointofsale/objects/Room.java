@@ -13,13 +13,13 @@ public class Room {
 	private String route_image;
 	private Integer capacity;
 	private String description;
-	private Double price;
+	private Integer price;
 	private Integer categorie_id;
 	private String created_at;
         private boolean allocatted;
         private String categorie;
 
-    public Room(Integer id, String route_image, Integer capacity, String description, Double price, Integer categorie_id,boolean allocatted, String created_at) {
+    public Room(Integer id, String route_image, Integer capacity, String description, Integer price, Integer categorie_id,boolean allocatted, String created_at) {
         this.id = id;
         this.route_image = route_image;
         this.capacity = capacity;
@@ -66,11 +66,11 @@ public class Room {
         this.description = description;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

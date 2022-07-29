@@ -11,10 +11,10 @@ package pointofsale.objects;
 public class BillRestock {
 	private Integer id;    
 	private Integer user_id;
-	private Double price;
+	private Integer price;
 	private String created_at;
 
-    public BillRestock(Integer id, Integer user_id, Double price, String created_at) {
+    public BillRestock(Integer id, Integer user_id, Integer price, String created_at) {
         this.id = id;
         this.user_id = user_id;
         this.price = price;
@@ -37,11 +37,11 @@ public class BillRestock {
         this.user_id = user_id;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

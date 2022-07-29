@@ -26,10 +26,15 @@ public class IngredientModel extends Model {
         this.closeConnection();
         return ingredients;
     }
+    
+    public void update(Ingredient ingredient){
+        this.dao.getIngredientDao().modify(ingredient);
+        this.saveChanges();
+    }
 
     public void insert(Ingredient ingredient, boolean extras) {
-        Double quantity = ingredient.getQuantity();
-        Double minimum = ingredient.getMinimum();
+        Integer quantity = ingredient.getQuantity();
+        Integer minimum = ingredient.getMinimum();
 
         Integer ingredient_id = this.dao.getIngredientDao().insert(ingredient);
 
@@ -41,7 +46,7 @@ public class IngredientModel extends Model {
         this.saveChanges();
     }
 
-    private Inventory createInventory(Double minimum, Double quantity, Integer ingredient_id) {
+    private Inventory createInventory(Integer minimum, Integer quantity, Integer ingredient_id) {
         Inventory inventory = new Inventory();
         inventory.setMinimum(minimum);
         inventory.setQuantity(quantity);
@@ -49,7 +54,7 @@ public class IngredientModel extends Model {
         return inventory;
     }
 
-    private MovementInventory createMovement(Double quantity, Integer ingredient_id) {
+    private MovementInventory createMovement(Integer quantity, Integer ingredient_id) {
         MovementInventory movementInventory = new MovementInventory();
         movementInventory.setAddition(true);
         movementInventory.setSubstraction(false);
@@ -68,5 +73,18 @@ public class IngredientModel extends Model {
         List<IngredientUnit> ingredients = this.dao.getIngredientDao().selectWhitUnit(where);
         this.closeConnection();
         return ingredients;
+    }
+    
+    public Ingredient selectById(Integer id){
+        Ingredient ingredient = this.dao.getIngredientDao().selectById(Long.parseLong(String.valueOf(id)));
+        this.closeConnection();
+        return ingredient;
+    }
+    
+    public void delete(Ingredient ingredient){
+        this.dao.getIngredientDao().delete(ingredient);
+        this.dao.getMovementInventoryDao().deleteWhere("ingredient_id="+String.valueOf(ingredient.getId()));
+        this.dao.getInventoryDao().deleteWhere("ingredient_id="+String.valueOf(ingredient.getId()));
+        this.saveChanges();
     }
 }

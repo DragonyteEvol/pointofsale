@@ -47,7 +47,7 @@ public class EditRoomController implements ActionListener {
         this.view.txtTitle.setText("Editar habitacion "+ String.valueOf(room.getId()));
     }
     
-    public boolean validRequest(Integer capacity, Double price) {
+    public boolean validRequest(Integer capacity, Integer price) {
         if (capacity <= 0 || price <= 0) {
             return false;
         } else {
@@ -59,7 +59,7 @@ public class EditRoomController implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Double price = Double.parseDouble(String.valueOf(this.view.txtPrice.getValue()));
+            Integer price = Integer.parseInt(String.valueOf(this.view.txtPrice.getValue()));
             Integer capacity = (Integer) this.view.txtCapacity.getValue();
             if (validRequest(capacity, price)) {
                 String description = this.view.txtDescription.getText();
@@ -112,7 +112,7 @@ public class EditRoomController implements ActionListener {
 
         private Room room;
 
-        public UpdateThread(Room room,Double price, Integer capacity, String description, Categorie categorie) {
+        public UpdateThread(Room room,Integer price, Integer capacity, String description, Categorie categorie) {
             room.setCapacity(capacity);
             room.setRoute_image("");
             room.setDescription(description);

@@ -16,18 +16,18 @@ public class Bill {
 	private Integer user_id=null;
 	private Integer people=0;
 	private Integer discount=0;
-	private Double tip=0.0;
+	private Integer tip=0;
 	private boolean courtesy=false;
 	private boolean internal=false;
 	private Integer payment_method_id=null;
 	private boolean housing=false;
 	private boolean printed=false;
-	private Double total=null;
-	private Double total_real=null;
+	private Integer total=null;
+	private Integer total_real=null;
 	private Integer event_id=0;
 	private String created_at=null;
 
-    public Bill(Integer id, String description, Integer client_type, Integer client_id, Integer user_id, Integer people, Integer discount, Double tip, boolean courtesy, boolean internal, Integer payment_method_id, boolean housing, boolean printed, Double total, Double total_real, Integer event_id, String created_at) {
+    public Bill(Integer id, String description, Integer client_type, Integer client_id, Integer user_id, Integer people, Integer discount, Integer tip, boolean courtesy, boolean internal, Integer payment_method_id, boolean housing, boolean printed, Integer total, Integer total_real, Integer event_id, String created_at) {
         this.id = id;
         this.description = description;
         this.client_type = client_type;
@@ -108,11 +108,11 @@ public class Bill {
         this.discount = discount;
     }
 
-    public Double getTip() {
+    public Integer getTip() {
         return tip;
     }
 
-    public void setTip(Double tip) {
+    public void setTip(Integer tip) {
         this.tip = tip;
     }
 
@@ -156,19 +156,19 @@ public class Bill {
         this.printed = printed;
     }
 
-    public Double getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 
-    public Double getTotal_real() {
+    public Integer getTotal_real() {
         return total_real;
     }
 
-    public void setTotal_real(Double total_real) {
+    public void setTotal_real(Integer total_real) {
         this.total_real = total_real;
     }
 

@@ -57,7 +57,7 @@ public class Unit {
 
     @Override
     public String toString() {
-        return "Unit{" + "name=" + name + ", prefix=" + prefix + ", id=" + id + ", created_at=" + created_at + '}';
+        return name;
     }
     
     

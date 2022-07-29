@@ -38,8 +38,7 @@ public class BillModel extends Model {
 
     public void insertRoomOrder(Room room, List<Product> listProduct) {
         BillRoomTmp billRoomTmp = this.dao.getBillRoomTmpDao().selectByRoomId(room.getId());
-        Double price;
-        price = 0.0;
+        Integer price=0;
         if (billRoomTmp == null) {
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
@@ -47,7 +46,7 @@ public class BillModel extends Model {
             billRoomTmp = new BillRoomTmp(null, room.getId(), price, null);
             Integer id = this.dao.getBillRoomTmpDao().insert(billRoomTmp);
             for (Product product : listProduct) {
-                Double price_product = product.getPrice() * product.getQuantity();
+                Integer price_product = product.getPrice() * product.getQuantity();
                 BillRoomProductTmp billRoomProductTmp = new BillRoomProductTmp(null, id, product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillRoomProductTmpDao().insert(billRoomProductTmp);
             }
@@ -55,7 +54,7 @@ public class BillModel extends Model {
             ///////////////////////////
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
-                Double price_product = product.getPrice() * product.getQuantity();
+                Integer price_product = product.getPrice() * product.getQuantity();
                 BillRoomProductTmp billRoomProductTmp = new BillRoomProductTmp(null, billRoomTmp.getId(), product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillRoomProductTmpDao().insert(billRoomProductTmp);
             }
@@ -68,8 +67,7 @@ public class BillModel extends Model {
 
     public void insertTableOrder(Table table, List<Product> listProduct) {
         BillTableTmp billTableTmp = this.dao.getBillTableTmpDao().selectByTableId(table.getId());
-        Double price;
-        price = 0.0;
+        Integer price=0;
         if (billTableTmp == null) {
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
@@ -77,7 +75,7 @@ public class BillModel extends Model {
             billTableTmp = new BillTableTmp(null, table.getId(), price, null);
             Integer id = this.dao.getBillTableTmpDao().insert(billTableTmp);
             for (Product product : listProduct) {
-                Double price_product = product.getPrice() * product.getQuantity();
+                Integer price_product = product.getPrice() * product.getQuantity();
                 BillTableProductTmp billTableProductTmp = new BillTableProductTmp(null, id, product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillTableProductTmpDao().insert(billTableProductTmp);
             }
@@ -85,7 +83,7 @@ public class BillModel extends Model {
             ///////////////////////////
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
-                Double price_product = product.getPrice() * product.getQuantity();
+                Integer price_product = product.getPrice() * product.getQuantity();
                 BillTableProductTmp billTableProductTmp = new BillTableProductTmp(null, billTableTmp.getId(), product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillTableProductTmpDao().insert(billTableProductTmp);
             }

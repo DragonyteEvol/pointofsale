@@ -10,13 +10,13 @@ package pointofsale.objects;
  */
 public class MoneyBox {
 	private Integer id;    
-	private Double entry;
-	private Double out;
-	private Double required;
+	private Integer entry;
+	private Integer out;
+	private Integer required;
 	private Integer user_id;
 	private String created_at;
 
-    public MoneyBox(Integer id, Double entry, Double out, Double required, Integer user_id, String created_at) {
+    public MoneyBox(Integer id, Integer entry, Integer out, Integer required, Integer user_id, String created_at) {
         this.id = id;
         this.entry = entry;
         this.out = out;
@@ -38,27 +38,27 @@ public class MoneyBox {
         this.id = id;
     }
 
-    public Double getEntry() {
+    public Integer getEntry() {
         return entry;
     }
 
-    public void setEntry(Double entry) {
+    public void setEntry(Integer entry) {
         this.entry = entry;
     }
 
-    public Double getOut() {
+    public Integer getOut() {
         return out;
     }
 
-    public void setOut(Double out) {
+    public void setOut(Integer out) {
         this.out = out;
     }
 
-    public Double getRequired() {
+    public Integer getRequired() {
         return required;
     }
 
-    public void setRequired(Double required) {
+    public void setRequired(Integer required) {
         this.required = required;
     }
 

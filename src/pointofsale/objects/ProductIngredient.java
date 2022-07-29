@@ -12,10 +12,10 @@ public class ProductIngredient {
 	private Integer id;    
 	private Integer product_id;
 	private Integer ingredient_id;
-	private Double quantity;
+	private Integer quantity;
 	private String created_at;
 
-    public ProductIngredient(Integer id, Integer product_id, Integer ingredient_id, Double quantity, String created_at) {
+    public ProductIngredient(Integer id, Integer product_id, Integer ingredient_id, Integer quantity, String created_at) {
         this.id = id;
         this.product_id = product_id;
         this.ingredient_id = ingredient_id;
@@ -47,11 +47,11 @@ public class ProductIngredient {
         this.ingredient_id = ingredient_id;
     }
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

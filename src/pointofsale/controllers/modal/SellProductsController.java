@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import pointofsale.controllers.Controller;
-import pointofsale.controllers.components.CardProductController;
+import pointofsale.controllers.components.CardProductWhitManagerController;
 import pointofsale.models.BillModel;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.ProductModel;
@@ -107,7 +107,7 @@ public class SellProductsController extends Controller implements ActionListener
                 String where = "categorie_id=" + String.valueOf(categorie.getId());
                 List<Product> products = productModel.selectWhere(where);
                 for (Product product : products) {
-                    CardProductController cardProductController = new CardProductController(view, product, categorie, listProduct);
+                    CardProductWhitManagerController cardProductController = new CardProductWhitManagerController(view, product, categorie, listProduct);
                     cardProductController.addComponent(cardProductController.view, panel);
                 }
                 scrollPanel.setViewportView(panel);

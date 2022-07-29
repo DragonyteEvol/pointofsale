@@ -29,7 +29,7 @@ public class NewProductView extends javax.swing.JDialog {
 
         jTextField2 = new javax.swing.JTextField();
         pnDinamic = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -40,6 +40,7 @@ public class NewProductView extends javax.swing.JDialog {
         cbCategorie = new javax.swing.JComboBox<>();
         btnNext = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
 
         jTextField2.setText("jTextField2");
 
@@ -47,7 +48,7 @@ public class NewProductView extends javax.swing.JDialog {
 
         pnDinamic.setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setText("Crear producto");
+        txtTitle.setText("Crear producto");
 
         jLabel2.setText("Nombre");
 
@@ -72,30 +73,31 @@ public class NewProductView extends javax.swing.JDialog {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        btnDelete.setText("Eliminar");
+
         javax.swing.GroupLayout pnDinamicLayout = new javax.swing.GroupLayout(pnDinamic);
         pnDinamic.setLayout(pnDinamicLayout);
         pnDinamicLayout.setHorizontalGroup(
             pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnDinamicLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnDinamicLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPrice)
-                            .addComponent(txtTime)
-                            .addComponent(txtName)
-                            .addGroup(pnDinamicLayout.createSequentialGroup()
-                                .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(0, 197, Short.MAX_VALUE))))
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNext))
+                    .addComponent(cbCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPrice)
+                    .addComponent(txtTime)
+                    .addComponent(txtName)
                     .addGroup(pnDinamicLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNext)))
+                        .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(txtTitle))
+                        .addGap(0, 197, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -103,7 +105,7 @@ public class NewProductView extends javax.swing.JDialog {
             pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnDinamicLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addComponent(txtTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -121,7 +123,9 @@ public class NewProductView extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btnNext)
+                .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNext)
+                    .addComponent(btnDelete))
                 .addContainerGap(109, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -183,9 +187,9 @@ public class NewProductView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnNext;
     public javax.swing.JComboBox<Object> cbCategorie;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -196,5 +200,6 @@ public class NewProductView extends javax.swing.JDialog {
     public javax.swing.JTextField txtName;
     public javax.swing.JSpinner txtPrice;
     public javax.swing.JSpinner txtTime;
+    public javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }

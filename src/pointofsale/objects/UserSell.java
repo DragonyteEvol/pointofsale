@@ -11,10 +11,10 @@ package pointofsale.objects;
 public class UserSell {
 	private Integer id;
 	private Integer user_id;
-	private Double value;
+	private Integer value;
 	private String created_at;
 
-    public UserSell(Integer id, Integer user_id, Double value, String created_at) {
+    public UserSell(Integer id, Integer user_id, Integer value, String created_at) {
         this.id = id;
         this.user_id = user_id;
         this.value = value;
@@ -37,11 +37,11 @@ public class UserSell {
         this.user_id = user_id;
     }
 
-    public Double getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 

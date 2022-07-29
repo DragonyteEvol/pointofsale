@@ -48,7 +48,7 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getUser_id());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -93,7 +93,7 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getUser_id());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -168,7 +168,7 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
     // convert ResultSet to objects
     public BillRestock convert(ResultSet set) throws SQLException {
         Integer user_id = set.getInt("user_id");
-        Double price = set.getDouble("price");
+        Integer price = set.getInt("price");
         String created_at = set.getString("created_at");
         BillRestock billRestock = new BillRestock(set.getInt("id"), user_id, price, created_at);
         return billRestock;

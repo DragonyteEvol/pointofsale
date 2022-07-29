@@ -49,7 +49,7 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getTable_id());
-            statement.setDouble(2, a.getTotal());
+            statement.setInt(2, a.getTotal());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -94,7 +94,7 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getTable_id());
-            statement.setDouble(2, a.getTotal());
+            statement.setInt(2, a.getTotal());
             statement.setInt(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -169,7 +169,7 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
     // convert ResultSet to objects
     public BillTableTmp convert(ResultSet set) throws SQLException {
         Integer table_id = set.getInt("table_id");
-        Double total = set.getDouble("total");
+        Integer total = set.getInt("total");
         String created_at = set.getString("created_at");
         BillTableTmp billTable = new BillTableTmp(set.getInt("id"), table_id, total, created_at);
         return billTable;

@@ -50,7 +50,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getTime());
             statement.setString(4, a.getRoute_image());
             statement.setInt(5, a.getCategorie_id());
@@ -99,7 +99,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getTime());
             statement.setString(4, a.getRoute_image());
             statement.setInt(5, a.getCategorie_id());
@@ -177,7 +177,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
     // convert ResultSet to objects
     public Product convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
-        Double price = set.getDouble("price");
+        Integer price = set.getInt("price");
         Integer time = set.getInt("time");
         String route_image = set.getString("route_image");
         Integer categorie_id = set.getInt("categorie_id");

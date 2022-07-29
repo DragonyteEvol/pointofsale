@@ -33,6 +33,7 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         //events
         this.view.btnSave.addActionListener(this);
+        this.view.btnDelete.setVisible(false);
 
         SetResourceThread setResourceThread = new SetResourceThread(this.view.cbUnit, this.view.cbCategorie);
         setResourceThread.start();
@@ -105,11 +106,11 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         private Ingredient createIngredient() {
             String name = this.view.txtName.getText();
-            Double price = Double.valueOf((Integer) this.view.txtPrice.getValue());
+            Integer price = (Integer) this.view.txtPrice.getValue();
             Unit unit =(Unit) this.view.cbUnit.getSelectedItem();
             Integer unit_id = unit.getId();
-            Double quantity = Double.valueOf((Integer) this.view.txtStock.getValue());
-            Double minimum = Double.valueOf((Integer) this.view.txtMinimum.getValue());
+            Integer quantity = (Integer) this.view.txtStock.getValue();
+            Integer minimum = (Integer) this.view.txtMinimum.getValue();
             Categorie categorie =(Categorie) this.view.cbCategorie.getSelectedItem();
             Integer categorie_id = categorie.getId();
             

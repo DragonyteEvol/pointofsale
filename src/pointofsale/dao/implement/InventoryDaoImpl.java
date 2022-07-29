@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 import pointofsale.dao.InventoryDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.Inventory;
@@ -32,8 +31,10 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
+    final String DELETEWHERE = "delete from " + TABLE + " where ";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String SELECTWHERE = "select * from "+ TABLE + " where ";
 
     private Connection connection;
 
@@ -47,17 +48,17 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
     @Override
     public Integer insert(Inventory a) {
         PreparedStatement statement = null;
-        Integer rowId=null;
+        Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
+            statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, a.getIngredient_id());
-            statement.setDouble(2, a.getQuantity());
-            statement.setDouble(3, a.getMinimum());
+            statement.setInt(2, a.getQuantity());
+            statement.setInt(3, a.getMinimum());
             statement.executeUpdate();
-			ResultSet idKey=statement.getGeneratedKeys();
-			if(idKey.next()){
-				rowId=idKey.getInt(1);
-			}
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -98,8 +99,8 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getIngredient_id());
-            statement.setDouble(2, a.getQuantity());
-            statement.setDouble(3, a.getMinimum());
+            statement.setInt(2, a.getQuantity());
+            statement.setInt(3, a.getMinimum());
             statement.setInt(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -170,17 +171,63 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
         }
         return a;
     }
+    
+    @Override
+    public Inventory selectWhereIngredient(String where) {
+         PreparedStatement statement = null;
+        ResultSet set = null;
+        Inventory a = null;
+        try {
+            statement = this.connection.prepareStatement(SELECTWHERE + where);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
 
     // convert ResultSet to objects
     public Inventory convert(ResultSet set) throws SQLException {
         Integer ingredient_id = set.getInt("ingredient_id");
-        Double quantity = set.getDouble("quantity");
-        Double minimum = set.getDouble("minimum");
+        Integer quantity = set.getInt("quantity");
+        Integer minimum = set.getInt("minimum");
         String created_at = set.getString("created_at");
         Inventory inventory = new Inventory(set.getInt("id"), ingredient_id, quantity, minimum, created_at);
         return inventory;
     }
-    
-    
 
+    @Override
+    public void deleteWhere(String where) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETEWHERE + where);
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    
 }

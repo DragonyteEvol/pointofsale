@@ -26,16 +26,48 @@ public class IngredientView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txtSearch = new javax.swing.JTextField();
+        pnIngredients = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 51, 153));
+        setLayout(new java.awt.BorderLayout());
 
-        btnCreate.setText("New");
-        add(btnCreate);
+        jPanel1.setBackground(new java.awt.Color(0, 204, 153));
+        jPanel1.setForeground(new java.awt.Color(204, 255, 204));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnCreate.setText("+");
+        jPanel1.add(btnCreate);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtSearch.setText("Buscar");
+        jPanel3.add(txtSearch);
+
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        pnIngredients.setBackground(new java.awt.Color(0, 204, 153));
+        pnIngredients.setForeground(new java.awt.Color(204, 255, 204));
+        jPanel2.add(pnIngredients, java.awt.BorderLayout.CENTER);
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCreate;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel pnIngredients;
+    public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

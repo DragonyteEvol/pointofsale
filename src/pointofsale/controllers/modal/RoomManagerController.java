@@ -103,7 +103,7 @@ public class RoomManagerController extends ModalController implements ActionList
     }
 
     private void setThirdResource() {
-        Double price = getPrice();
+        Integer price = getPrice();
         this.thidView.txtTotal.setText(String.valueOf(price));
     }
 
@@ -114,10 +114,10 @@ public class RoomManagerController extends ModalController implements ActionList
         panel.repaint();
     }
 
-    private Double getPrice() {
+    private Integer getPrice() {
         Integer childs = (Integer) this.secondView.txtChild.getValue();
         Integer old = (Integer) this.secondView.txtOld.getValue();
-        Double price = this.room.getPrice() + (childs * 50000) + (old * 80000);
+        Integer price = this.room.getPrice() + (childs * 50000) + (old * 80000);
         return price;
     }
 
@@ -135,7 +135,7 @@ public class RoomManagerController extends ModalController implements ActionList
         if (source == this.secondView.btnPay) {
             PaymentMethod paymentMethod = (PaymentMethod) this.secondView.cbMethodPayment.getSelectedItem();
             if (paymentMethod.isVirtual()) {
-                Double total = getPrice();
+                Integer total = getPrice();
                 AllocattedTread allocattedTread = new AllocattedTread(room, paymentMethod, total);
                 allocattedTread.start();
                 this.view.dispose();
@@ -146,49 +146,49 @@ public class RoomManagerController extends ModalController implements ActionList
         }
 
         if (source == this.thidView.btn1000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 1000);
         }
 
         if (source == this.thidView.btn2000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 2000);
         }
 
         if (source == this.thidView.btn5000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 5000);
         }
 
         if (source == this.thidView.btn10000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 10000);
         }
 
         if (source == this.thidView.btn20000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 20000);
         }
 
         if (source == this.thidView.btn50000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 50000);
         }
 
         if (source == this.thidView.btn100000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 100000);
         }
 
         if (source == this.thidView.btn200000) {
-            Double price = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer price = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             this.thidView.txtPrice.setValue(price + 200000);
         }
 
         if (source == this.thidView.btnSave) {
-            Double pay = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer pay = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             PaymentMethod paymentMethod = (PaymentMethod) this.secondView.cbMethodPayment.getSelectedItem();
-            Double total = getPrice();
+            Integer total = getPrice();
             if (total <= pay) {
                 AllocattedTread allocattedTread = new AllocattedTread(room, paymentMethod, total, pay);
                 allocattedTread.start();
@@ -210,7 +210,7 @@ public class RoomManagerController extends ModalController implements ActionList
             this.secondView.txtPrice.setText(String.valueOf(getPrice()));
         }
         if (source == this.thidView.txtPrice) {
-            Double pay = Double.parseDouble(this.thidView.txtPrice.getValue().toString());
+            Integer pay = Integer.parseInt(this.thidView.txtPrice.getValue().toString());
             if (getPrice() >= pay) {
                 this.thidView.txtExchange.setText("0");
             } else {
@@ -223,16 +223,16 @@ public class RoomManagerController extends ModalController implements ActionList
 
         private Room room;
         private PaymentMethod paymentMethod;
-        private Double total, receibed;
+        private Integer total, receibed;
 
-        public AllocattedTread(Room room, PaymentMethod PaymentMethod, Double total, Double receibed) {
+        public AllocattedTread(Room room, PaymentMethod PaymentMethod, Integer total, Integer receibed) {
             this.room = room;
             this.paymentMethod = PaymentMethod;
             this.total = total;
             this.receibed = receibed;
         }
 
-        public AllocattedTread(Room room, PaymentMethod paymentMethod, Double total) {
+        public AllocattedTread(Room room, PaymentMethod paymentMethod, Integer total) {
             this.room = room;
             this.paymentMethod = paymentMethod;
             this.total = total;

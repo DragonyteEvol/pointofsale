@@ -11,7 +11,7 @@ package pointofsale.objects;
 public class Product {
 	private Integer id;    
 	private String name;
-	private Double price;
+	private Integer price;
 	private Integer time;
 	private String route_image;
 	private Integer categorie_id;
@@ -23,7 +23,7 @@ public class Product {
 
         
         
-    public Product(Integer id, String name, Double price, Integer time, String route_image, Integer categorie_id, String created_at) {
+    public Product(Integer id, String name, Integer price, Integer time, String route_image, Integer categorie_id, String created_at) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -49,11 +49,11 @@ public class Product {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

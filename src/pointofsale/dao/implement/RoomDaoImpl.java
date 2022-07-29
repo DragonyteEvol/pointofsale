@@ -51,7 +51,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
             statement.setString(1, a.getRoute_image());
             statement.setInt(2, a.getCapacity());
             statement.setString(3, a.getDescription());
-            statement.setDouble(4, a.getPrice());
+            statement.setInt(4, a.getPrice());
             statement.setBoolean(5, a.isAllocatted());
             statement.setInt(6, a.getCategorie_id());
 
@@ -101,7 +101,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
             statement.setString(1, a.getRoute_image());
             statement.setInt(2, a.getCapacity());
             statement.setString(3, a.getDescription());
-            statement.setDouble(4, a.getPrice());
+            statement.setInt(4, a.getPrice());
             statement.setBoolean(5, a.isAllocatted());
             statement.setInt(6, a.getCategorie_id());
             statement.setInt(7, a.getId());
@@ -209,7 +209,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
         String route_image = set.getString("route_image");
         Integer capacity = set.getInt("capacity");
         String description = set.getString("description");
-        Double price = set.getDouble("price");
+        Integer price = set.getInt("price");
         Integer categorie_id = set.getInt("categorie_id");
         boolean allocatted = set.getBoolean("allocatted");
         String created_at = set.getString("created_at");

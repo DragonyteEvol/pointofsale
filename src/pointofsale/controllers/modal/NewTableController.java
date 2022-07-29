@@ -42,7 +42,7 @@ public class NewTableController extends ModalController implements ActionListene
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             Integer capacity =(Integer) this.view.txtCapacity.getValue();
-            Double price =Double.valueOf((Integer) this.view.txtPrice.getValue());
+            Integer price =(Integer) this.view.txtPrice.getValue();
             if(validRequest(capacity)){
                 InsertThread insertThread = new InsertThread(price, capacity);
                 insertThread.start();
@@ -55,7 +55,7 @@ public class NewTableController extends ModalController implements ActionListene
 
         private Table table;
 
-        public InsertThread(Double price, Integer capacity) {
+        public InsertThread(Integer price, Integer capacity) {
             Table table = new Table(null, capacity, price, null);
             this.table = table;
         }

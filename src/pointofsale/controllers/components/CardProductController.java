@@ -7,86 +7,86 @@ package pointofsale.controllers.components;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.JPanel;
-import pointofsale.objects.Categorie;
+import pointofsale.controllers.modal.EditProductController;
+import pointofsale.models.ProductModel;
 import pointofsale.objects.Product;
 import pointofsale.views.components.CardProductView;
-import pointofsale.views.modal.SellProductView;
 
 /**
  *
  * @author dragonyte
  */
-public class CardProductController implements ActionListener {
-
+public class CardProductController implements ActionListener{
+     private Product product;
     public CardProductView view;
-    private SellProductView superView;
-    private Product product;
-    private Categorie categorie;
-    private List<Product> listProduct;
+    private JPanel panel;
 
-    public CardProductController(SellProductView superView, Product product, Categorie categorie,List<Product> listProduct) {
-        initComponents(superView, product, categorie,listProduct);
-    }
-
-    private void initComponents(SellProductView superView,Product product, Categorie categorie,List<Product> listproduct) {
-        this.view = new CardProductView();
-        this.superView = superView;
-        this.listProduct = listproduct;
-
+    public CardProductController(Product product, JPanel panel) {
         this.product = product;
-        this.categorie = categorie;
-        
+        this.panel = panel;
+        this.view = new CardProductView();
         setInfo();
         initEvents();
+
+        this.panel.add(view);
     }
-    
-    //ozuna
-    private void setInfo(){
-        this.view.txtCategorie.setText(categorie.getName());
-        this.view.txtName.setText("<html><p>"+ product.getName() +"</p></html>");
+
+    private void setInfo() {
+        this.view.txtName.setText(product.getName());
+        this.view.txtPrice.setText(String.valueOf(product.getPrice()));
+        this.view.txtCategorie.setText(String.valueOf(product.getTime()));
+        
+    }
+
+    private void removeComponent(Component component) {
+        this.panel.remove(component);
+        this.panel.repaint();
+        this.panel.revalidate();
+    }
+
+    private void refreshCategorie() {
+        ProductModel productModel = new ProductModel();
+        this.product = productModel.selectById(product.getId());
+        setInfo();
     }
 
     private void initEvents() {
-        this.view.btnAdd.addActionListener(this);
-        this.view.btnPlus.addActionListener(this);
-        this.view.btnLess.addActionListener(this);
-    }
-
-    public void addComponent(Component component,JPanel panel) {
-        panel.add(component);
-        panel.revalidate();
-        panel.repaint();
-    }
-    
-    private boolean validateRequest(Integer quantity){
-        if(quantity <= 0 || quantity ==null){
-            return false;
-        }else{
-            return true;
-        }
+        this.view.btnDelete.addActionListener(this);
+        this.view.btnEdit.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        Integer quantity = Integer.valueOf(this.view.txtQuantity.getText());
-        if (source == this.view.btnAdd) {
-            if(validateRequest(quantity)){
-                product.setQuantity(quantity);
-                OrderProductController order = new OrderProductController(listProduct, product,superView);
-            }
+        if (source == this.view.btnDelete) {
+            DeleteThread deleteThread = new DeleteThread(product);
+            deleteThread.start();
+            removeComponent(this.view);
         }
-        
-        if(source == this.view.btnPlus){
-            Integer sum = quantity + 1;
-            this.view.txtQuantity.setText(String.valueOf(sum));
+
+        if (source == this.view.btnEdit) {
+            EditProductController editProductController = new EditProductController(product);
+            refreshCategorie();
         }
-        
-        if(source == this.view.btnLess){
-            Integer less = quantity - 1;
-            this.view.txtQuantity.setText(String.valueOf(less));
+    }
+
+    class DeleteThread extends Thread {
+
+        private Product product;
+
+        public DeleteThread(Product product) {
+            this.product = product;
+        }
+
+        private void deleteProduct() {
+            ProductModel productModel = new ProductModel();
+            productModel.delete(product);
+        }
+
+        @Override
+        public void run() {
+            deleteProduct();
         }
     }
 }

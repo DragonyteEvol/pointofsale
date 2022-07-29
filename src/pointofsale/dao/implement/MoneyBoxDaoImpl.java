@@ -47,9 +47,9 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
         Integer rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setDouble(1, a.getEntry());
-            statement.setDouble(2, a.getOut());
-            statement.setDouble(3, a.getRequired());
+            statement.setInt(1, a.getEntry());
+            statement.setInt(2, a.getOut());
+            statement.setInt(3, a.getRequired());
             statement.setInt(4, a.getUser_id());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
@@ -94,9 +94,9 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setDouble(1, a.getEntry());
-            statement.setDouble(2, a.getOut());
-            statement.setDouble(3, a.getRequired());
+            statement.setInt(1, a.getEntry());
+            statement.setInt(2, a.getOut());
+            statement.setInt(3, a.getRequired());
             statement.setInt(4, a.getUser_id());
             statement.setInt(5, a.getId());
             if (statement.executeUpdate() == 0) {
@@ -171,9 +171,9 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
 
     // convert ResultSet to objects
     public MoneyBox convert(ResultSet set) throws SQLException {
-        Double entry = set.getDouble("entry");
-        Double out = set.getDouble("out");
-        Double required = set.getDouble("required");
+        Integer entry = set.getInt("entry");
+        Integer out = set.getInt("out");
+        Integer required = set.getInt("required");
         Integer user_id = set.getInt("user_id");
         String created_at = set.getString("created_at");
         MoneyBox moneyBox = new MoneyBox(set.getInt("id"), entry, out, required, user_id, created_at);

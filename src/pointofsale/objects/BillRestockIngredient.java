@@ -12,11 +12,11 @@ public class BillRestockIngredient {
 	private Integer id;    
 	private Integer bill_restock_id;
 	private Integer ingredient_id;
-	private Double quantity;
-	private Double subvalue;
+	private Integer quantity;
+	private Integer subvalue;
 	private String created_at;
 
-    public BillRestockIngredient(Integer id, Integer bill_restock_id, Integer ingredient_id, Double quantity, Double subvalue, String created_at) {
+    public BillRestockIngredient(Integer id, Integer bill_restock_id, Integer ingredient_id, Integer quantity, Integer subvalue, String created_at) {
         this.id = id;
         this.bill_restock_id = bill_restock_id;
         this.ingredient_id = ingredient_id;
@@ -49,19 +49,19 @@ public class BillRestockIngredient {
         this.ingredient_id = ingredient_id;
     }
 
-    public Double getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public Double getSubvalue() {
+    public Integer getSubvalue() {
         return subvalue;
     }
 
-    public void setSubvalue(Double subvalue) {
+    public void setSubvalue(Integer subvalue) {
         this.subvalue = subvalue;
     }
 

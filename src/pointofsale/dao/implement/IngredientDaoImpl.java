@@ -52,7 +52,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getUnit_id());
             statement.setInt(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
@@ -101,7 +101,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
-            statement.setDouble(2, a.getPrice());
+            statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getUnit_id());
             statement.setInt(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
@@ -187,7 +187,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
 
     public Ingredient convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
-        Double price = set.getDouble("price");
+        Integer price = set.getInt("price");
         Integer unit_id = set.getInt("unit_id");
         Integer categorie_id = set.getInt("categorie_id");
         String route_image = set.getString("route_image");

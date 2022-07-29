@@ -49,8 +49,8 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getBill_restock_id());
             statement.setInt(2, a.getIngredient_id());
-            statement.setDouble(3, a.getQuantity());
-            statement.setDouble(4, a.getSubvalue());
+            statement.setInt(3, a.getQuantity());
+            statement.setInt(4, a.getSubvalue());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -96,8 +96,8 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getBill_restock_id());
             statement.setInt(2, a.getIngredient_id());
-            statement.setDouble(3, a.getQuantity());
-            statement.setDouble(4, a.getSubvalue());
+            statement.setInt(3, a.getQuantity());
+            statement.setInt(4, a.getSubvalue());
             statement.setInt(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
@@ -173,8 +173,8 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
     public BillRestockIngredient convert(ResultSet set) throws SQLException {
         Integer bill_restock_id = set.getInt("bill_restock_id");
         Integer ingredient_id = set.getInt("ingredient_id");
-        Double quantity = set.getDouble("quantity");
-        Double subvalue = set.getDouble("subvalue");
+        Integer quantity = set.getInt("quantity");
+        Integer subvalue = set.getInt("subvalue");
         String created_at = set.getString("created_at");
         BillRestockIngredient billRestockIngredient = new BillRestockIngredient(set.getInt("id"), bill_restock_id, ingredient_id, quantity, subvalue, created_at);
         return billRestockIngredient;

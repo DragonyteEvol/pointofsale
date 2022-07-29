@@ -13,10 +13,10 @@ public class BillProduct {
 	private Integer bill_id;
 	private Integer product_id;
 	private Integer quantity;
-	private Double subvalue;
+	private Integer subvalue;
 	private String created_at;
 
-    public BillProduct(Integer id, Integer bill_id, Integer product_id, Integer quantity, Double subvalue, String created_at) {
+    public BillProduct(Integer id, Integer bill_id, Integer product_id, Integer quantity, Integer subvalue, String created_at) {
         this.id = id;
         this.bill_id = bill_id;
         this.product_id = product_id;
@@ -57,11 +57,11 @@ public class BillProduct {
         this.quantity = quantity;
     }
 
-    public Double getSubvalue() {
+    public Integer getSubvalue() {
         return subvalue;
     }
 
-    public void setSubvalue(Double subvalue) {
+    public void setSubvalue(Integer subvalue) {
         this.subvalue = subvalue;
     }
 
