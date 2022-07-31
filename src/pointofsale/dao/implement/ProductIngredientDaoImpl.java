@@ -29,7 +29,9 @@ public class ProductIngredientDaoImpl extends SqlConstructor implements ProductI
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
+    final String DELETEWHERE = "delete from " + TABLE + " where ";
     final String GETALL = "select * from " + TABLE;
+    final String GETWHERE = "select * from " + TABLE + " where ";
     final String GETONE = "select * from " + TABLE + " where id=?";
 
     private Connection connection;
@@ -175,6 +177,50 @@ public class ProductIngredientDaoImpl extends SqlConstructor implements ProductI
         String created_at = set.getString("created_at");
         ProductIngredient productIngredient = new ProductIngredient(set.getInt("id"), product_id, ingredient_id, quantity, created_at);
         return productIngredient;
+    }
+
+    @Override
+    public void deleteWhere(String where) {
+         PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETEWHERE+where);
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    @Override
+    public List<ProductIngredient> selectWhere(String where) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<ProductIngredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETWHERE + where);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

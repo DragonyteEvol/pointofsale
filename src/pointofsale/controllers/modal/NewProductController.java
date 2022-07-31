@@ -18,7 +18,7 @@ import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.ProductModel;
 import pointofsale.objects.Categorie;
-import pointofsale.objects.IngredientUnit;
+import pointofsale.objects.Ingredient;
 import pointofsale.objects.Product;
 import pointofsale.views.modal.AddIngredientProduct;
 import pointofsale.views.modal.NewProductView;
@@ -33,7 +33,7 @@ public class NewProductController extends Controller implements ActionListener {
     private AddIngredientProduct secondView;
     private Product product;
     private Dimension dimension;
-    private List<IngredientUnit> listQuatitys=new ArrayList<>();
+    private List<Ingredient> listQuatitys=new ArrayList<>();
 
     public NewProductController() {
 
@@ -115,9 +115,9 @@ public class NewProductController extends Controller implements ActionListener {
     class InsertThread extends Thread {
 
         private Product product;
-        private List<IngredientUnit> listIngredients;
+        private List<Ingredient> listIngredients;
 
-        public InsertThread(Product product, List<IngredientUnit> listIngredients) {
+        public InsertThread(Product product, List<Ingredient> listIngredients) {
             this.product = product;
             this.listIngredients = listIngredients;
         }
@@ -156,9 +156,9 @@ public class NewProductController extends Controller implements ActionListener {
     class SetSecondResourceThread extends Thread {
 
         private final AddIngredientProduct view;
-        private List<IngredientUnit> listQuantitys;
+        private List<Ingredient> listQuantitys;
 
-        public SetSecondResourceThread(AddIngredientProduct view,List<IngredientUnit> listQuantitys) {
+        public SetSecondResourceThread(AddIngredientProduct view,List<Ingredient> listQuantitys) {
             this.view = view;
             this.listQuantitys = listQuantitys;
         }
@@ -172,8 +172,8 @@ public class NewProductController extends Controller implements ActionListener {
                 JPanel panel = new JPanel();
                 IngredientModel ingredientModel = new IngredientModel();
                 String where = "ingredients.categorie_id=" + String.valueOf(categorie.getId());
-                List<IngredientUnit> ingredients = ingredientModel.selectIngredientUnit(where);
-                for (IngredientUnit ingredient : ingredients) {
+                List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
+                for (Ingredient ingredient : ingredients) {
                     CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfo,this.listQuantitys);
                 }
                 scrollPanel.setViewportView(panel);

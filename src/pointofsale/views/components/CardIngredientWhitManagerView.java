@@ -4,26 +4,26 @@
  */
 package pointofsale.views.components;
 
-import pointofsale.objects.IngredientUnit;
+import pointofsale.objects.Ingredient;
 
 /**
  *
  * @author dragonyte
  */
 public class CardIngredientWhitManagerView extends javax.swing.JPanel {
-    public IngredientUnit ingredient;
+    public Ingredient ingredient;
     /**
     
      * Creates new form AddIngredientCardView
      * @param ingredient
      */
-    public CardIngredientWhitManagerView(IngredientUnit ingredient) {
+    public CardIngredientWhitManagerView(Ingredient ingredient) {
         initComponents();
         this.ingredient = ingredient;
         setIngredient(ingredient);
     }
     
-    private void setIngredient(IngredientUnit ingredient){
+    private void setIngredient(Ingredient ingredient){
         this.labelName.setText(ingredient.getName());
         this.labelUnit.setText(ingredient.getUnit());
     }

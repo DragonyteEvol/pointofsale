@@ -5,7 +5,7 @@
 package pointofsale.models;
 
 import java.util.List;
-import pointofsale.objects.IngredientUnit;
+import pointofsale.objects.Ingredient;
 import pointofsale.objects.Product;
 import pointofsale.objects.ProductIngredient;
 
@@ -14,10 +14,10 @@ import pointofsale.objects.ProductIngredient;
  * @author dragonyte
  */
 public class ProductModel extends Model{
-    public void insert(Product product,List<IngredientUnit> listIngredients){
+    public void insert(Product product,List<Ingredient> listIngredients){
         Integer id = this.dao.getProductDao().insert(product);
-        for(IngredientUnit ingredientUnit: listIngredients){
-            ProductIngredient productIngredient = new ProductIngredient(null, id, ingredientUnit.getId(), ingredientUnit.getQuantity(), null);
+        for(Ingredient ingredient: listIngredients){
+            ProductIngredient productIngredient = new ProductIngredient(null, id, ingredient.getId(), ingredient.getQuantity(), null);
             this.dao.getProductIngredientDao().insert(productIngredient);
         }
         this.saveChanges();
@@ -43,6 +43,7 @@ public class ProductModel extends Model{
     
     public void delete(Product product){
         this.dao.getProductDao().delete(product);
+        this.dao.getProductIngredientDao().deleteWhere("product_id="+String.valueOf(product.getId()));
         this.saveChanges();
     }
     
@@ -50,4 +51,15 @@ public class ProductModel extends Model{
         this.dao.getProductDao().modify(product);
         this.saveChanges();
     }
+    
+    public void update(Product product,List<Ingredient> listIngredients){
+        this.dao.getProductDao().modify(product);
+        this.dao.getProductIngredientDao().deleteWhere("product_id="+String.valueOf(product.getId()));
+        for(Ingredient ingredient: listIngredients){
+            ProductIngredient productIngredient = new ProductIngredient(null, product.getId(), ingredient.getId(), ingredient.getQuantity(), null);
+            this.dao.getProductIngredientDao().insert(productIngredient);
+        }
+        this.saveChanges();
+    }
+    
 }

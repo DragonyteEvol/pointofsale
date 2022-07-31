@@ -15,7 +15,6 @@ import java.util.List;
 import pointofsale.dao.IngredientDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.Ingredient;
-import pointofsale.objects.IngredientUnit;
 
 /**
  *
@@ -35,6 +34,8 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHERE = "select * from " + TABLE + " where ";
     final String GETUNIT = "SELECT ingredients.*,units.name as unit from ingredients INNER join units on ingredients.unit_id = units.id";
+    final String GETRELPRODUCT = "SELECT ingredients.*,units.name as unit,product_ingredient.quantity as quantity from ingredients INNER join units on ingredients.unit_id = units.id INNER JOIN product_ingredient on product_ingredient.ingredient_id = ingredients.id";
+    final String GETUNITQUANTITY="SELECT ingredients.*,inventory.quantity,units.name as unit from ingredients INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id";
 
     private Connection connection;
 
@@ -177,12 +178,15 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     }
 
     // convert ResultSet to objects
-    public IngredientUnit convertIngredientUnit(ResultSet set) throws SQLException {
-        Integer id = set.getInt("id");
-        String name = set.getString("name");
+    public Ingredient convertIngredientUnit(ResultSet set, boolean quantity) throws SQLException {
         String unit = set.getString("unit");
-        IngredientUnit ingredientUnit = new IngredientUnit(id, name, unit);
-        return ingredientUnit;
+        Ingredient ingredient = convert(set);
+        ingredient.setUnit(unit);
+        if (quantity) {
+            Integer quantitys = set.getInt("quantity");
+            ingredient.setQuantity(quantitys);
+        }
+        return ingredient;
     }
 
     public Ingredient convert(ResultSet set) throws SQLException {
@@ -223,19 +227,19 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     }
 
     @Override
-    public List<IngredientUnit> selectWhitUnit(String where) {
+    public List<Ingredient> selectWhitUnit(String where) {
         PreparedStatement statement = null;
         ResultSet set = null;
-        List<IngredientUnit> a = new ArrayList<>();
+        List<Ingredient> a = new ArrayList<>();
         try {
             if (where.isBlank() || where.isEmpty()) {
                 statement = this.connection.prepareStatement(GETUNIT);
             } else {
-                statement = this.connection.prepareStatement(GETUNIT+ " where "+ where);
+                statement = this.connection.prepareStatement(GETUNIT + " where " + where);
             }
             set = statement.executeQuery();
             while (set.next()) {
-                a.add(convertIngredientUnit(set));
+                a.add(convertIngredientUnit(set, false));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -250,6 +254,57 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         }
         return a;
 
+    }
+
+    @Override
+    public List<Ingredient> selectRelProduct(Integer id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Ingredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETRELPRODUCT + " where product_ingredient.product_id=?");
+            statement.setInt(1, id);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertIngredientUnit(set, true));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public List<Ingredient> selectUnitQuantity() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Ingredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETUNITQUANTITY);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertIngredientUnit(set, true));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

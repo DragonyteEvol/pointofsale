@@ -10,23 +10,23 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JPanel;
 import pointofsale.objects.Ingredient;
-import pointofsale.views.components.CardIngredientInfoView;
+import pointofsale.views.components.CardReceipInfoView;
 
 /**
  *
  * @author dragonyte
  */
-public class CardIngredientInfoController implements ActionListener{
-
-    private CardIngredientInfoView view;
+public class CardReceipInfoController implements ActionListener{
+    
+    private CardReceipInfoView view;
     private List<Ingredient> listIngredient;
     private Ingredient ingredient;
     private JPanel panel;
 
-    public CardIngredientInfoController(List<Ingredient> listIngredient,Ingredient ingredient,JPanel panel) {
+    public CardReceipInfoController(List<Ingredient> listIngredient,Ingredient ingredient,JPanel panel) {
         this.listIngredient = listIngredient;
         this.ingredient = ingredient;
-        this.view = new CardIngredientInfoView();
+        this.view = new CardReceipInfoView();
         this.panel = panel;
         
         this.view.txtName.setText(ingredient.getName());
@@ -37,7 +37,6 @@ public class CardIngredientInfoController implements ActionListener{
         this.view.btnDrop.addActionListener(this);
         
         addComponent(view);
-        
     }
 
      private void addComponent(Component component) {
@@ -60,6 +59,5 @@ public class CardIngredientInfoController implements ActionListener{
             removeComponent(view);
         }
     }
-
 
 }

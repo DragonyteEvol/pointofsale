@@ -4,6 +4,7 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.ProductIngredient;
 
 /**
@@ -11,5 +12,6 @@ import pointofsale.objects.ProductIngredient;
  * @author dragonyte
  */
 public interface ProductIngredientDao extends Dao<ProductIngredient, Long>{
-    
+    void deleteWhere(String where);
+    List<ProductIngredient> selectWhere(String where);
 }

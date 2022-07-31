@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JPanel;
-import pointofsale.objects.IngredientUnit;
+import pointofsale.objects.Ingredient;
 import pointofsale.views.components.CardIngredientWhitManagerView;
 
 /**
@@ -19,12 +19,12 @@ import pointofsale.views.components.CardIngredientWhitManagerView;
 public class CardIngredientWhitManagerController implements ActionListener {
 
     public CardIngredientWhitManagerView view;
-    public IngredientUnit ingredient;
+    public Ingredient ingredient;
     private JPanel panel;
     private JPanel pnInfo;
-    private List<IngredientUnit> listQuantitys;
+    private List<Ingredient> listQuantitys;
 
-    public CardIngredientWhitManagerController(IngredientUnit ingredient, JPanel panel, JPanel panelInfo, List<IngredientUnit> listQuantitys) {
+    public CardIngredientWhitManagerController(Ingredient ingredient, JPanel panel, JPanel panelInfo, List<Ingredient> listQuantitys) {
         this.view = new CardIngredientWhitManagerView(ingredient);
         this.pnInfo = panelInfo;
         this.ingredient = ingredient;

@@ -6,7 +6,6 @@ package pointofsale.models;
 
 import java.util.List;
 import pointofsale.objects.Ingredient;
-import pointofsale.objects.IngredientUnit;
 import pointofsale.objects.Inventory;
 import pointofsale.objects.MovementInventory;
 
@@ -69,8 +68,8 @@ public class IngredientModel extends Model {
         return ingredients;
     }
     
-    public List<IngredientUnit> selectIngredientUnit(String where){
-        List<IngredientUnit> ingredients = this.dao.getIngredientDao().selectWhitUnit(where);
+    public List<Ingredient> selectIngredientUnit(String where){
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectWhitUnit(where);
         this.closeConnection();
         return ingredients;
     }
@@ -86,5 +85,17 @@ public class IngredientModel extends Model {
         this.dao.getMovementInventoryDao().deleteWhere("ingredient_id="+String.valueOf(ingredient.getId()));
         this.dao.getInventoryDao().deleteWhere("ingredient_id="+String.valueOf(ingredient.getId()));
         this.saveChanges();
+    }
+    
+    public List<Ingredient> selectRelProduct(Integer id){
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectRelProduct(id);
+        this.closeConnection();
+        return ingredients;
+    }
+    
+    public List<Ingredient> selectUnitQuantity(){
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectUnitQuantity();
+        this.closeConnection();
+        return ingredients;
     }
 }

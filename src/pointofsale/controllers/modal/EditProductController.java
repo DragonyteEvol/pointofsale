@@ -12,12 +12,13 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import pointofsale.controllers.components.CardIngredientInfoController;
 import pointofsale.controllers.components.CardIngredientWhitManagerController;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.ProductModel;
 import pointofsale.objects.Categorie;
-import pointofsale.objects.IngredientUnit;
+import pointofsale.objects.Ingredient;
 import pointofsale.objects.Product;
 import pointofsale.views.modal.AddIngredientProduct;
 import pointofsale.views.modal.NewProductView;
@@ -32,7 +33,7 @@ public class EditProductController implements ActionListener {
     private AddIngredientProduct secondView;
     private Product product;
     private Dimension dimension;
-    private List<IngredientUnit> listQuatitys = new ArrayList<>();
+    private List<Ingredient> listQuatitys = new ArrayList<>();
 
     public EditProductController(Product product) {
 
@@ -83,13 +84,12 @@ public class EditProductController implements ActionListener {
         return !(name.isBlank() || name.isEmpty());
     }
 
-    private Product createProduct() {
+    private Product createProduct(Product productv) {
         String name = this.view.txtName.getText();
         Integer price = (Integer) this.view.txtPrice.getValue();
         Integer time = (Integer) this.view.txtTime.getValue();
         Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
         Integer categorie_id = categorie.getId();
-        Product productv = new Product();
         productv.setName(name);
         productv.setPrice(price);
         productv.setTime(time);
@@ -104,7 +104,7 @@ public class EditProductController implements ActionListener {
         Object source = ae.getSource();
         if (source == this.view.btnNext) {
             if (validateRequest(this.view.txtName.getText())) {
-                this.product = createProduct();
+                this.product = createProduct(this.product);
                 this.changeView(this.view.pnDinamic);
             } else {
                 System.out.print("rellene los campos");
@@ -112,17 +112,18 @@ public class EditProductController implements ActionListener {
 
         }
         if (source == this.secondView.btnSave) {
-            InsertThread insertThread = new InsertThread(this.product, listQuatitys);
-            insertThread.start();
+            UpdateThread updateThread = new UpdateThread(this.product, listQuatitys);
+            updateThread.start();
+            this.view.dispose();
         }
     }
 
-    class InsertThread extends Thread {
+    class UpdateThread extends Thread {
 
         private Product product;
-        private List<IngredientUnit> listIngredients;
+        private List<Ingredient> listIngredients;
 
-        public InsertThread(Product product, List<IngredientUnit> listIngredients) {
+        public UpdateThread(Product product, List<Ingredient> listIngredients) {
             this.product = product;
             this.listIngredients = listIngredients;
         }
@@ -130,7 +131,7 @@ public class EditProductController implements ActionListener {
         @Override
         public void run() {
             ProductModel productModel = new ProductModel();
-            productModel.insert(product, listIngredients);
+            productModel.update(product, listIngredients);
         }
     }
 
@@ -159,9 +160,9 @@ public class EditProductController implements ActionListener {
     class SetSecondResourceThread extends Thread {
 
         private final AddIngredientProduct view;
-        private List<IngredientUnit> listQuantitys;
+        private List<Ingredient> listQuantitys;
 
-        public SetSecondResourceThread(AddIngredientProduct view, List<IngredientUnit> listQuantitys) {
+        public SetSecondResourceThread(AddIngredientProduct view, List<Ingredient> listQuantitys) {
             this.view = view;
             this.listQuantitys = listQuantitys;
         }
@@ -175,12 +176,22 @@ public class EditProductController implements ActionListener {
                 JPanel panel = new JPanel();
                 IngredientModel ingredientModel = new IngredientModel();
                 String where = "ingredients.categorie_id=" + String.valueOf(categorie.getId());
-                List<IngredientUnit> ingredients = ingredientModel.selectIngredientUnit(where);
-                for (IngredientUnit ingredient : ingredients) {
+                List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
+                for (Ingredient ingredient : ingredients) {
                     CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfo, this.listQuantitys);
                 }
                 scrollPanel.setViewportView(panel);
                 this.view.tabbedPane.add(categorie.getName(), scrollPanel);
+            }
+            
+            IngredientModel ingredientModel = new IngredientModel();
+            List<Ingredient> ingredients = ingredientModel.selectRelProduct(product.getId());
+            for(Ingredient ingredient : ingredients){
+                listQuantitys.add(ingredient);
+            }
+            
+            for(Ingredient ingredient : ingredients){
+                CardIngredientInfoController card = new CardIngredientInfoController(listQuantitys, ingredient, view.pnInfo);
             }
         }
 

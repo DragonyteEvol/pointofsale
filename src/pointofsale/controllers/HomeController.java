@@ -28,7 +28,7 @@ public class HomeController extends Controller implements ActionListener{
         this.view.btnSell.addActionListener(this);
         this.view.btnDashboard.addActionListener(this);
         this.view.btnUser.addActionListener(this);
-        
+        this.view.btnAccounting.addActionListener(this);
         this.view.btnUser.setText(UserGlobal.getUser().getName());
     }
     
@@ -48,6 +48,12 @@ public class HomeController extends Controller implements ActionListener{
         }
         if(source==this.view.btnDashboard){
             DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
+        }
+        
+        if(source==this.view.btnAccounting){
+            MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
+            AccountingMenuController accountingMenuController = new AccountingMenuController(layout.pnPanel, layout.pnWindow);
+            ExpenseController expenseController = new ExpenseController(layout.pnWindow);
         }
         
         if(source==this.view.btnUser){

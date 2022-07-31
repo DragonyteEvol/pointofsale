@@ -34,8 +34,7 @@ public class InventoryView extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        pnTable = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 102, 102));
         setLayout(new java.awt.BorderLayout());
@@ -76,20 +75,8 @@ public class InventoryView extends javax.swing.JPanel {
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.LINE_START);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Ingrediente", "Estado", "Cantidad disponible", "Modificado"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        pnTable.setLayout(new javax.swing.BoxLayout(pnTable, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel4.add(pnTable, java.awt.BorderLayout.CENTER);
 
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -103,8 +90,7 @@ public class InventoryView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JPanel pnTable;
     // End of variables declaration//GEN-END:variables
 }

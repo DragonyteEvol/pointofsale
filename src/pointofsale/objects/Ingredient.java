@@ -13,6 +13,7 @@ public class Ingredient {
 	private String name;
 	private Integer price;
 	private Integer unit_id;
+        private String unit,categorie;
 	private Integer categorie_id;
         private Integer quantity;
         private Integer minimum;
@@ -115,6 +116,22 @@ public class Ingredient {
 
     public void setMinimum(Integer minimum) {
         this.minimum = minimum;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
     
     
