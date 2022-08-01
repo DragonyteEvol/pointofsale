@@ -29,9 +29,9 @@ public class AcountingMenu extends javax.swing.JPanel {
         btnExpens = new javax.swing.JButton();
         btnSell = new javax.swing.JButton();
         btnBills = new javax.swing.JButton();
-        btnReports = new javax.swing.JButton();
         btnAnnulments = new javax.swing.JButton();
-        PaymentMethods = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
+        btnPaymentMethod = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout(6, 0));
 
@@ -44,22 +44,22 @@ public class AcountingMenu extends javax.swing.JPanel {
         btnBills.setText("Facturas");
         add(btnBills);
 
-        btnReports.setText("Informes");
-        add(btnReports);
-
         btnAnnulments.setText("Cancelaciones");
         add(btnAnnulments);
 
-        PaymentMethods.setText("Metodos de pago");
-        add(PaymentMethods);
+        btnReports.setText("Informes adicionales");
+        add(btnReports);
+
+        btnPaymentMethod.setText("Metodos de pago");
+        add(btnPaymentMethod);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton PaymentMethods;
     public javax.swing.JButton btnAnnulments;
     public javax.swing.JButton btnBills;
     public javax.swing.JButton btnExpens;
+    public javax.swing.JButton btnPaymentMethod;
     public javax.swing.JButton btnReports;
     public javax.swing.JButton btnSell;
     // End of variables declaration//GEN-END:variables

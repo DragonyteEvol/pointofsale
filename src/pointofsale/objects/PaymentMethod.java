@@ -21,6 +21,11 @@ public class PaymentMethod {
         this.created_at = created_at;
     }
 
+    public PaymentMethod() {
+    }
+    
+    
+
     public Integer getId() {
         return id;
     }

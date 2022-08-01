@@ -23,4 +23,20 @@ public class PaymentMethodModel extends Model {
         this.closeConnection();
         return paymentMethods;
     }
+    
+    public PaymentMethod selectById(Integer id){
+        PaymentMethod paymentMethod = this.dao.getPaymentMethodDao().selectById(Long.parseLong(String.valueOf(id)));
+        this.closeConnection();
+        return paymentMethod;
+    }
+    
+    public void delete(PaymentMethod paymentMethod){
+        this.dao.getPaymentMethodDao().delete(paymentMethod);
+        this.saveChanges();
+    }
+    
+    public void update(PaymentMethod paymentMethod){
+        this.dao.getPaymentMethodDao().modify(paymentMethod);
+        this.saveChanges();
+    }
 }

@@ -82,7 +82,8 @@ public class CardReceptionController implements ActionListener {
             ingredient.setQuantity(value);
             ingredient.setPrice(price);
             listIngredients.add(ingredient);
-            CardReceipInfoController card = new CardReceipInfoController(listIngredients, ingredient,superView.pnInfo);
+            CardReceipInfoController card = new CardReceipInfoController(listIngredients, ingredient,superView);
+            card.setTotalPrice(superView.txtPrice);
         }
     }
 

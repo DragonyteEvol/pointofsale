@@ -85,8 +85,9 @@ public class ReceptionController extends Controller implements ActionListener {
 
         @Override
         public void run() {
+            Integer price = Integer.valueOf(view.txtPrice.getText());
             InventoryModel inventoryModel = new InventoryModel();
-            inventoryModel.receiptInventory(listIngredients);
+            inventoryModel.receiptInventory(listIngredients,price);
             listIngredients.removeAll(listIngredients);
         }
     }

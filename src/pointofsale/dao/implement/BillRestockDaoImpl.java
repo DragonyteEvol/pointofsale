@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,12 +47,13 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, a.getUser_id());
             statement.setInt(2, a.getPrice());
             rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

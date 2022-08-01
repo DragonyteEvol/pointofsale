@@ -28,6 +28,7 @@ public class AccountingMenuController extends Controller implements ActionListen
         view.btnExpens.addActionListener(this);
         view.btnReports.addActionListener(this);
         view.btnSell.addActionListener(this);
+        view.btnPaymentMethod.addActionListener(this);
     }
 
     @Override
@@ -47,6 +48,9 @@ public class AccountingMenuController extends Controller implements ActionListen
         }
         if (source == this.view.btnSell) {
             SellController sell = new SellController(panelWindow);
+        }
+        if (source == this.view.btnPaymentMethod) {
+            PaymentMethodController payment = new PaymentMethodController(panelWindow);
         }
     }
 }

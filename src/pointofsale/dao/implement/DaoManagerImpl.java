@@ -9,6 +9,8 @@ import pointofsale.dao.AditionalInformationDao;
 import pointofsale.dao.AnnulmentDao;
 import pointofsale.dao.AtmDao;
 import pointofsale.dao.BillDao;
+import pointofsale.dao.BillRestockDao;
+import pointofsale.dao.BillRestockIngredientDao;
 import pointofsale.dao.BillRoomProductTmpDao;
 import pointofsale.dao.BillRoomTmpDao;
 import pointofsale.dao.BillTableProductTmpDao;
@@ -56,6 +58,8 @@ public class DaoManagerImpl implements DaoManager {
     private BillRoomTmpDao billRoomTmpDao;
     private BillRoomProductTmpDao billRoomProductTmpDao;
     private BillTableProductTmpDao billTableProductTmpDao;
+    private BillRestockDao billRestockDao;
+    private BillRestockIngredientDao billRestockIngredientDao;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -219,6 +223,22 @@ public class DaoManagerImpl implements DaoManager {
             this.billTableProductTmpDao = new BillTableProductTmpDaoImpl(connection);
         }
         return this.billTableProductTmpDao;
+    }
+
+    @Override
+    public BillRestockDao getBillRestockDao() {
+        if (billRestockDao == null) {
+            this.billRestockDao = new BillRestockDaoImpl(connection);
+        }
+        return this.billRestockDao;
+    }
+
+    @Override
+    public BillRestockIngredientDao getBillRestockIngredientDao() {
+        if (billRestockIngredientDao == null) {
+            this.billRestockIngredientDao = new BillRestockIngredientDaoImpl(connection);
+        }
+        return this.billRestockIngredientDao;
     }
 
 }

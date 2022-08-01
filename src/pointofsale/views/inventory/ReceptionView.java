@@ -32,7 +32,7 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        txtPrice = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -64,8 +64,8 @@ public class ReceptionView extends javax.swing.JPanel {
         jLabel2.setText("Informacion de recepcion");
         jPanel6.add(jLabel2);
 
-        jLabel1.setText("Price");
-        jPanel6.add(jLabel1);
+        txtPrice.setText("0");
+        jPanel6.add(txtPrice);
 
         jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
@@ -106,7 +106,6 @@ public class ReceptionView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSave;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -120,5 +119,6 @@ public class ReceptionView extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     public javax.swing.JPanel pnBase;
     public javax.swing.JPanel pnInfo;
+    public javax.swing.JLabel txtPrice;
     // End of variables declaration//GEN-END:variables
 }
