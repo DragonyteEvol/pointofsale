@@ -26,16 +26,37 @@ public class TableView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnXD = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnCreate = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pnTables = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setLayout(new java.awt.BorderLayout());
 
-        btnXD.setText("XD");
-        add(btnXD);
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnCreate.setText("+");
+        jPanel1.add(btnCreate);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        pnTables.setPreferredSize(size());
+        jScrollPane1.setViewportView(pnTables);
+
+        jPanel2.add(jScrollPane1);
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnXD;
+    public javax.swing.JButton btnCreate;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JPanel pnTables;
     // End of variables declaration//GEN-END:variables
 }

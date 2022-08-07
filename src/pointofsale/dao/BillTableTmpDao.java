@@ -4,7 +4,9 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.BillTableTmp;
+import pointofsale.objects.Product;
 
 /**
  *
@@ -12,4 +14,5 @@ import pointofsale.objects.BillTableTmp;
  */
 public interface BillTableTmpDao extends Dao<BillTableTmp, Long>{
     BillTableTmp selectByTableId(Integer id);
+    List<Product> selectProducts(Integer id);
 }

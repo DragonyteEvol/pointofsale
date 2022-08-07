@@ -29,7 +29,6 @@ public class SellMenu extends javax.swing.JPanel {
         btnTable = new javax.swing.JButton();
         btnRoom = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 51, 255));
         setLayout(new java.awt.GridLayout(2, 0, 0, 2));
 
         btnTable.setText("Mesas");

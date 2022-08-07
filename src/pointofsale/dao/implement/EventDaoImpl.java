@@ -23,7 +23,7 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
 
     // table config
     final String TABLE = "events";
-    final List<String> COLUMS = Arrays.asList("name", "description", "start_date", "end_date", "price");
+    final List<String> COLUMS = Arrays.asList("name", "description", "start_date", "end_date", "price","active");
 
     // queries
     String INSERT;
@@ -31,6 +31,7 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETACTIVE = "select * from " + TABLE + " where active=1";
 
     private Connection connection;
 
@@ -52,6 +53,7 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
             statement.setString(3, a.getStart_date());
             statement.setString(4, a.getEnd_date());
             statement.setInt(5, a.getPrice());
+            statement.setBoolean(6, a.isActive());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -100,7 +102,8 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
             statement.setString(3, a.getStart_date());
             statement.setString(4, a.getEnd_date());
             statement.setInt(5, a.getPrice());
-            statement.setInt(6, a.getId());
+            statement.setBoolean(6, a.isActive());
+            statement.setInt(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -171,6 +174,34 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
         return a;
     }
 
+    @Override
+    public Event selectActive(){
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        Event a = null;
+        try {
+            statement = this.connection.prepareStatement(GETACTIVE);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+    
+    
     // convert ResultSet to objects
     public Event convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
@@ -179,7 +210,8 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
         String end_date = set.getString("end_date");
         Integer price = set.getInt("price");
         String created_at = set.getString("created_at");
-        Event event = new Event(set.getInt("id"), name, description, start_date, end_date, price, created_at);
+        boolean active = set.getBoolean("active");
+        Event event = new Event(set.getInt("id"), name, description, start_date, end_date, price, active,created_at);
         return event;
     }
 

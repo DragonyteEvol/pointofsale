@@ -33,7 +33,6 @@ public class InventoryMenu extends javax.swing.JPanel {
         btnUnit = new javax.swing.JButton();
         btnReception = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 102, 255));
         setLayout(new java.awt.GridLayout(6, 1, 0, 2));
 
         btnInventory.setText("Inventario");

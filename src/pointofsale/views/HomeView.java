@@ -30,6 +30,7 @@ public class HomeView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnUser = new javax.swing.JButton();
+        btnCurrentEvent = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
         btnSell = new javax.swing.JButton();
@@ -47,6 +48,8 @@ public class HomeView extends javax.swing.JFrame {
 
         btnUser.setText("Name");
 
+        btnCurrentEvent.setText("Event");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -55,6 +58,8 @@ public class HomeView extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCurrentEvent)
+                .addGap(18, 18, 18)
                 .addComponent(btnUser)
                 .addGap(24, 24, 24))
         );
@@ -64,7 +69,8 @@ public class HomeView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(btnUser))
+                    .addComponent(btnUser)
+                    .addComponent(btnCurrentEvent))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -169,6 +175,7 @@ public class HomeView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAccounting;
     public javax.swing.JButton btnConfig;
+    public javax.swing.JButton btnCurrentEvent;
     public javax.swing.JButton btnDashboard;
     public javax.swing.JButton btnEvent;
     public javax.swing.JButton btnInventory;

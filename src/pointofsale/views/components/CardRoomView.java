@@ -42,15 +42,18 @@ public class CardRoomView extends javax.swing.JPanel {
 
         jLabel1.setText("jLabel1");
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnEdit.setText("E");
         jPanel5.add(btnEdit);
 
         add(jPanel5);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         txtNumber.setText("1");
 
@@ -72,6 +75,8 @@ public class CardRoomView extends javax.swing.JPanel {
 
         add(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel2.setText("Precio:");
         jPanel2.add(jLabel2);
@@ -82,6 +87,8 @@ public class CardRoomView extends javax.swing.JPanel {
 
         add(jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel3.setText("Capacidad: ");
         jPanel3.add(jLabel3);
@@ -91,6 +98,8 @@ public class CardRoomView extends javax.swing.JPanel {
         jPanel3.add(txtCapacity);
 
         add(jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         btnStatus.setText("Estado");
         jPanel4.add(btnStatus);

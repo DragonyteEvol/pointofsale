@@ -6,9 +6,6 @@ package pointofsale;
 
 import pointofsale.controllers.modal.LoginController;
 
-
-
-
 /**
  *
  * @author dragonyteevol
@@ -21,7 +18,9 @@ public class PointOfSale {
     public static void main(String[] args) {
         //HomeController a = new HomeController();
         String value = MoneyConverter.convertDouble(45500);
+        EventGlobal.setEvent(EventGlobal.getEventActive());
         System.out.print(value);
+
         LoginController a = new LoginController();
     }
 

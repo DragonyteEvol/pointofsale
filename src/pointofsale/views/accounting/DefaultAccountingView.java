@@ -26,11 +26,32 @@ public class DefaultAccountingView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        cbTime = new javax.swing.JComboBox<>();
+        pnReports = new javax.swing.JPanel();
+        scrollPane = new javax.swing.JScrollPane();
+
         setBackground(new java.awt.Color(255, 102, 153));
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
+        setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        cbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPECIFICO", "AGRUPADO", "MES", "AÑO" }));
+        jPanel1.add(cbTime);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        pnReports.setLayout(new java.awt.GridLayout(1, 0));
+        pnReports.add(scrollPane);
+
+        add(pnReports, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<String> cbTime;
+    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel pnReports;
+    public javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

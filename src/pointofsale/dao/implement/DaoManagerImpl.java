@@ -9,6 +9,7 @@ import pointofsale.dao.AditionalInformationDao;
 import pointofsale.dao.AnnulmentDao;
 import pointofsale.dao.AtmDao;
 import pointofsale.dao.BillDao;
+import pointofsale.dao.BillProductDao;
 import pointofsale.dao.BillRestockDao;
 import pointofsale.dao.BillRestockIngredientDao;
 import pointofsale.dao.BillRoomProductTmpDao;
@@ -18,6 +19,7 @@ import pointofsale.dao.BillTableTmpDao;
 import pointofsale.dao.CategorieDao;
 
 import pointofsale.dao.DaoManager;
+import pointofsale.dao.EventDao;
 import pointofsale.dao.IngredientDao;
 import pointofsale.dao.InventoryDao;
 import pointofsale.dao.MoneyBoxDao;
@@ -25,6 +27,7 @@ import pointofsale.dao.MovementInventoryDao;
 import pointofsale.dao.PaymentMethodDao;
 import pointofsale.dao.ProductDao;
 import pointofsale.dao.ProductIngredientDao;
+import pointofsale.dao.ReportDao;
 import pointofsale.dao.RoomDao;
 import pointofsale.dao.TableDao;
 import pointofsale.dao.UnitDao;
@@ -60,6 +63,9 @@ public class DaoManagerImpl implements DaoManager {
     private BillTableProductTmpDao billTableProductTmpDao;
     private BillRestockDao billRestockDao;
     private BillRestockIngredientDao billRestockIngredientDao;
+    private ReportDao reportDao;
+    private BillProductDao billProductDao;
+    private EventDao eventDao;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -239,6 +245,30 @@ public class DaoManagerImpl implements DaoManager {
             this.billRestockIngredientDao = new BillRestockIngredientDaoImpl(connection);
         }
         return this.billRestockIngredientDao;
+    }
+
+    @Override
+    public ReportDao getReportDao() {
+        if (reportDao == null) {
+            this.reportDao = new ReportDaoImpl(connection);
+        }
+        return this.reportDao;
+    }
+
+    @Override
+    public BillProductDao getBillProductDao() {
+        if (billProductDao == null) {
+            this.billProductDao = new BillProductDaoImpl(connection);
+        }
+        return this.billProductDao;
+    }
+
+    @Override
+    public EventDao getEventDao() {
+        if (eventDao == null) {
+            this.eventDao = new EventDaoImpl(connection);
+        }
+        return this.eventDao;
     }
 
 }

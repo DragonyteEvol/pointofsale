@@ -5,12 +5,20 @@
 package pointofsale.models;
 
 import java.util.List;
+import pointofsale.EventGlobal;
+import pointofsale.UserGlobal;
 import pointofsale.objects.Bill;
+import pointofsale.objects.BillProduct;
 import pointofsale.objects.BillRoomProductTmp;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableProductTmp;
 import pointofsale.objects.BillTableTmp;
+import pointofsale.objects.Event;
+import pointofsale.objects.Inventory;
+import pointofsale.objects.MovementInventory;
+import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Product;
+import pointofsale.objects.ProductIngredient;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
 
@@ -104,5 +112,96 @@ public class BillModel extends Model {
         BillTableTmp billTableTmp = this.dao.getBillTableTmpDao().selectByTableId(id);
         this.closeConnection();
         return billTableTmp;
+    }
+    
+    public List<Product> selectProductsTableTmp(Integer id){
+        List<Product> products = this.dao.getBillTableTmpDao().selectProducts(id);
+        this.closeConnection();
+        return products;
+    }
+    
+    public void sellProductTable(List<Product> products,Bill bill,BillTableTmp billTableTmp){
+        Integer bill_id = this.dao.getBillDao().insert(bill);
+        for(Product product : products){
+            BillProduct billProduct = new BillProduct();
+            billProduct.setBill_id(bill_id);
+            billProduct.setProduct_id(product.getId());
+            billProduct.setQuantity(product.getQuantity());
+            billProduct.setSubvalue(product.getPrice());
+            this.dao.getBillProductDao().insert(billProduct);
+            List<ProductIngredient> productIngredients = this.dao.getProductIngredientDao().selectWhere("product_id="+String.valueOf(product.getId()));
+            decrementInventory(productIngredients);
+        }
+        this.dao.getBillTableTmpDao().delete(billTableTmp);
+        this.dao.getBillTableProductTmpDao().deleteBill(billTableTmp.getId());
+        saveChanges();
+    }
+    
+    public void sellProductRoom(List<Product> products,Bill bill,BillRoomTmp billRoomTmp){
+        Integer bill_id = this.dao.getBillDao().insert(bill);
+        for(Product product : products){
+            BillProduct billProduct = new BillProduct();
+            billProduct.setBill_id(bill_id);
+            billProduct.setProduct_id(product.getId());
+            billProduct.setQuantity(product.getQuantity());
+            billProduct.setSubvalue(product.getPrice());
+            this.dao.getBillProductDao().insert(billProduct);
+        }
+        this.dao.getBillRoomTmpDao().delete(billRoomTmp);
+        this.dao.getBillRoomProductTmpDao().deleteBill(billRoomTmp.getId());
+        saveChanges();
+    }
+    
+    private void decrementInventory(List<ProductIngredient> productIngredients){
+        for(ProductIngredient productIngredient : productIngredients){
+            MovementInventory movementInventory = new MovementInventory();
+            movementInventory.setAddition(false);
+            movementInventory.setIngredient_id(productIngredient.getIngredient_id());
+            movementInventory.setQuantity(productIngredient.getQuantity());
+            movementInventory.setSubstraction(true);
+            this.dao.getMovementInventoryDao().insert(movementInventory);
+            
+            Inventory inventory= this.dao.getInventoryDao().selectWhereIngredient("ingredient_id="+String.valueOf(productIngredient.getIngredient_id()));
+            Integer quantity = inventory.getQuantity() - productIngredient.getQuantity();
+            inventory.setQuantity(quantity);
+            this.dao.getInventoryDao().modify(inventory);
+        }
+    }
+    
+    public List<Product> selectProductsByBill(Bill bill){
+        List<Product> products = this.dao.getBillProductDao().selectProductsByBillId(bill.getId());
+        this.closeConnection();
+        return products;
+    } 
+    
+    public List<Bill> selectByEvent(Event event){
+        List<Bill> bills = this.dao.getBillDao().selectByEvent(event.getId());
+        this.closeConnection();
+        return bills;
+    }
+    
+    public Bill selectCollectEvent(Event event){
+        Bill bill = this.dao.getBillDao().selectCollectEvent(event.getId());
+        this.closeConnection();
+        return bill;
+    }
+    
+     public void insertEvent(Event event, PaymentMethod paymentMethod, Integer total,Integer realTotal) {
+        Bill bill = new Bill();
+        bill.setClient_type(3);
+        bill.setClient_id(event.getId());
+        bill.setUser_id(UserGlobal.getUser().getId());
+        bill.setDescription("event");
+        bill.setPayment_method_id(paymentMethod.getId());
+        bill.setHousing(false);
+        if(EventGlobal.getEvent()!=null){
+            bill.setEvent_id(EventGlobal.getEvent().getId());
+        }
+        bill.setTotal(total);
+        bill.setTotal_real(realTotal);
+
+        this.dao.getBillDao().insert(bill);
+
+        saveChanges();
     }
 }

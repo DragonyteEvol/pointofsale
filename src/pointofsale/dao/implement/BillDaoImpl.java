@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,9 +30,11 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
-    final String GETALL = "select * from " + TABLE;
+    final String GETALL = "select * from " + TABLE + " limit 50";
     final String GETONE = "select * from " + TABLE + " where id=?";
-
+    final String GETBYEVENT = "select * from " + TABLE + " where event_id=?";
+    final String GETCOLLECTEVENT = "select id,description,client_type,client_id,user_id,people,discount,tip,courtesy,internal,payment_method_id,housing,printed,sum(total) as total,sum(total_real) as total_real,event_id, created_at from bills where event_id=?";
+    
     private Connection connection;
 
     public BillDaoImpl(Connection connection) {
@@ -46,7 +49,7 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getDescription());
             statement.setInt(2, a.getClient_type());
             statement.setInt(3, a.getClient_id());
@@ -63,8 +66,9 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
             statement.setInt(14, a.getTotal_real());
             statement.setInt(15, a.getEvent_id());
             rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -211,5 +215,61 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
         String created_at = set.getString("created_at");
         Bill bill = new Bill(set.getInt("id"), description, client_type, client_id, user_id, people, discount, tip, courtesy, internal, payment_method_id, housing, printed, total, total_real, event_id, created_at);
         return bill;
+    }
+
+    @Override
+    public List<Bill> selectByEvent(Integer event_id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Bill> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETBYEVENT);
+            statement.setLong(1, event_id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a.add(convert(set));
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public Bill selectCollectEvent(Integer event_id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        Bill a = null;
+        try {
+            statement = this.connection.prepareStatement(GETCOLLECTEVENT);
+            statement.setInt(1, event_id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 }

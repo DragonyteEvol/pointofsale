@@ -38,7 +38,7 @@ public class CardTableView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new java.awt.GridLayout(4, 0));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnEdit.setText("E");
@@ -46,7 +46,7 @@ public class CardTableView extends javax.swing.JPanel {
 
         add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         txtNumber.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtNumber.setText("1");
@@ -54,14 +54,14 @@ public class CardTableView extends javax.swing.JPanel {
 
         add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         btnSell.setText("Vender");
         jPanel3.add(btnSell);
 
         add(jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         btnPay.setText("Pagar");
         jPanel4.add(btnPay);

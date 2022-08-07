@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package pointofsale.views.modal;
 
@@ -8,12 +8,13 @@ package pointofsale.views.modal;
  *
  * @author dragonyte
  */
-public class ReceipMoneyView extends javax.swing.JPanel {
+public class ReceipMoneyView extends javax.swing.JDialog {
 
     /**
-     * Creates new form ReceipMoneyView
+     * Creates new form Money
      */
-    public ReceipMoneyView() {
+    public ReceipMoneyView(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -26,8 +27,25 @@ public class ReceipMoneyView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel6 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         txtTotal = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        txtExchange = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        txtError = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
         btn1000 = new javax.swing.JButton();
         btn2000 = new javax.swing.JButton();
         btn5000 = new javax.swing.JButton();
@@ -36,115 +54,163 @@ public class ReceipMoneyView extends javax.swing.JPanel {
         btn50000 = new javax.swing.JButton();
         btn100000 = new javax.swing.JButton();
         btn200000 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        txtExchange = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
         txtPrice = new javax.swing.JSpinner();
-        btnSave = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 102));
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
-        jLabel1.setText("Total a pagar");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        txtTotal.setText("100000");
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        btn1000.setText("1000");
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
-        btn2000.setText("2000");
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel1.setText("Total a pagar:");
+        jPanel4.add(jLabel1);
 
-        btn5000.setText("5000");
+        jPanel2.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
-        btn10000.setText("10000");
+        txtTotal.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        txtTotal.setText("txtPrice");
+        jPanel5.add(txtTotal);
 
-        btn20000.setText("20000");
+        jPanel2.add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        btn50000.setText("50000");
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        btn100000.setText("100000");
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
-        btn200000.setText("200000");
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
 
-        jLabel3.setText("Cambio");
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel3.setText("Cambio:");
+        jPanel12.add(jLabel3);
 
-        txtExchange.setText("100000");
+        jPanel7.add(jPanel12);
+
+        txtExchange.setText("0");
+        jPanel13.add(txtExchange);
+
+        jPanel7.add(jPanel13);
+
+        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel14.add(txtError);
 
         btnSave.setText("Aceptar");
+        jPanel14.add(btnSave);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        jPanel7.add(jPanel14);
+
+        jPanel3.add(jPanel7, java.awt.BorderLayout.PAGE_END);
+
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel3.add(jPanel8, java.awt.BorderLayout.PAGE_START);
+
+        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel10.setLayout(new java.awt.GridLayout(2, 0));
+
+        btn1000.setText("1,000");
+        jPanel10.add(btn1000);
+
+        btn2000.setText("2,000");
+        jPanel10.add(btn2000);
+
+        btn5000.setText("5,000");
+        jPanel10.add(btn5000);
+
+        btn10000.setText("10,000");
+        jPanel10.add(btn10000);
+
+        btn20000.setText("20,000");
+        jPanel10.add(btn20000);
+
+        btn50000.setText("50,000");
+        jPanel10.add(btn50000);
+
+        btn100000.setText("100,000");
+        jPanel10.add(btn100000);
+
+        btn200000.setText("200,000");
+        jPanel10.add(btn200000);
+
+        jPanel9.add(jPanel10);
+
+        jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel11.add(txtPrice);
+
+        jPanel9.add(jPanel11);
+
+        jPanel3.add(jPanel9, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(txtTotal))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn20000)
-                            .addComponent(btn1000))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn2000)
-                                .addGap(21, 21, 21)
-                                .addComponent(btn5000)
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn200000)
-                                    .addComponent(btn10000)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn50000)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn100000))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtExchange)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addGap(43, 43, 43))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTotal)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn1000)
-                    .addComponent(btn2000)
-                    .addComponent(btn5000)
-                    .addComponent(btn10000))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn20000)
-                    .addComponent(btn50000)
-                    .addComponent(btn100000)
-                    .addComponent(btn200000))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtExchange)
-                .addGap(18, 18, 18)
-                .addComponent(btnSave)
-                .addGap(40, 40, 40))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ReceipMoneyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ReceipMoneyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ReceipMoneyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ReceipMoneyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                ReceipMoneyView dialog = new ReceipMoneyView(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn1000;
@@ -158,6 +224,21 @@ public class ReceipMoneyView extends javax.swing.JPanel {
     public javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    public javax.swing.JLabel txtError;
     public javax.swing.JLabel txtExchange;
     public javax.swing.JSpinner txtPrice;
     public javax.swing.JLabel txtTotal;

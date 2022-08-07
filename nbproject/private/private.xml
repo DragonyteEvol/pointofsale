@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/modal/EditPaymentMethodController.java</file>
-            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardPaymentMethodController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/modal/NewEventController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/EventController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/event/EventView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardEventController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/modal/RoomManagerController.java</file>
         </group>
     </open-files>
 </project-private>

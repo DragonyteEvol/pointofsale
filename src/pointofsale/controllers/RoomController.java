@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -44,7 +45,7 @@ public class RoomController extends Controller implements ActionListener{
         RoomModel tableModel = new RoomModel();
         List<Room> rooms = tableModel.selectAll();
         for(Room room : rooms){
-            CardRoomController cardRoomController = new CardRoomController(this.view, room);
+            CardRoomController cardRoomController = new CardRoomController(this.view.pnRooms, room);
         }
     }
 

@@ -4,6 +4,8 @@
  */
 package pointofsale.views.sell;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -26,16 +28,39 @@ public class RoomView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        pnScroll = new javax.swing.JScrollPane();
+        pnRooms = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 153, 51));
+        setLayout(new java.awt.BorderLayout());
 
-        btnCreate.setText("New");
-        add(btnCreate);
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnCreate.setText("+");
+        jPanel1.add(btnCreate);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        pnRooms.setPreferredSize(new Dimension(pnRooms.getSize().width,0));
+        pnScroll.setViewportView(pnRooms);
+
+        jPanel2.add(pnScroll);
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCreate;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel pnRooms;
+    public javax.swing.JScrollPane pnScroll;
     // End of variables declaration//GEN-END:variables
 }

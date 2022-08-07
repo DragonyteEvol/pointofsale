@@ -11,5 +11,5 @@ import pointofsale.objects.Event;
  * @author dragonyte
  */
 public interface EventDao extends Dao<Event, Long>{
-    
+    Event selectActive();
 }

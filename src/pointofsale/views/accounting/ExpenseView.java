@@ -27,15 +27,31 @@ public class ExpenseView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pnBills = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        pnBills.setLayout(new javax.swing.BoxLayout(pnBills, javax.swing.BoxLayout.Y_AXIS));
+        jScrollPane1.setViewportView(pnBills);
+
+        jPanel3.add(jScrollPane1);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JPanel pnBills;
     // End of variables declaration//GEN-END:variables
 }

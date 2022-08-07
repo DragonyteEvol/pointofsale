@@ -6,6 +6,8 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import pointofsale.EventGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.modal.LoginController;
 import pointofsale.views.HomeView;
@@ -18,6 +20,8 @@ import pointofsale.views.layouts.MenuLayout;
 public class HomeController extends Controller implements ActionListener{
 
     HomeView view;
+    static JButton eventButton;
+    static HomeView staticView;
 
     public HomeController() {
         this.view = new HomeView();
@@ -29,9 +33,26 @@ public class HomeController extends Controller implements ActionListener{
         this.view.btnDashboard.addActionListener(this);
         this.view.btnUser.addActionListener(this);
         this.view.btnAccounting.addActionListener(this);
+        this.view.btnEvent.addActionListener(this);
+        this.view.btnCurrentEvent.addActionListener(this);
+        HomeController.eventButton = view.btnCurrentEvent;
+        HomeController.staticView = view;
+        
         this.view.btnUser.setText(UserGlobal.getUser().getName());
+        
+        checkEvent();
     }
     
+    public static void checkEvent(){
+        if(EventGlobal.getEvent()==null){
+            eventButton.setVisible(false);
+        }else{
+            eventButton.setVisible(true);
+            eventButton.setText(EventGlobal.getEvent().getName());
+        }
+        HomeController.staticView.repaint();
+        HomeController.staticView.revalidate();
+    }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -61,6 +82,10 @@ public class HomeController extends Controller implements ActionListener{
             if(loginController.logged){
                 this.view.dispose();
             }
+        }
+        
+        if(source== this.view.btnEvent){
+            EventController eventController = new EventController(this.view.pnDinamic);
         }
     }
     

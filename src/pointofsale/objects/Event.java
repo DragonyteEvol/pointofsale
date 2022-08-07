@@ -16,8 +16,9 @@ public class Event {
 	private String end_date;
 	private Integer price;
 	private String created_at;
+        private boolean active=false;
 
-    public Event(Integer id, String name, String description, String start_date, String end_date, Integer price, String created_at) {
+    public Event(Integer id, String name, String description, String start_date, String end_date, Integer price, boolean active,String created_at) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -25,6 +26,7 @@ public class Event {
         this.end_date = end_date;
         this.price = price;
         this.created_at = created_at;
+        this.active = active;
     }
 
     public Integer getId() {
@@ -82,6 +84,16 @@ public class Event {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -36,21 +36,21 @@ public class TableController extends Controller implements ActionListener{
     }
 
     private void initEvents() {
-        this.view.btnXD.addActionListener(this);
+        this.view.btnCreate.addActionListener(this);
     }
 
     private void setResources(){
         TableModel tableModel = new TableModel();
         List<Table> tables = tableModel.selectAll();
         for(Table table : tables){
-            CardTableController cardTableController = new CardTableController(this.view,table);
+            CardTableController cardTableController = new CardTableController(this.view.pnTables,table);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if(source== this.view.btnXD){
+        if(source== this.view.btnCreate){
             NewTableController newTableController = new NewTableController();
             initComponents(this.panel);
         }

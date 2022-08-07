@@ -4,12 +4,14 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.BillProduct;
+import pointofsale.objects.Product;
 
 /**
  *
  * @author dragonyte
  */
 public interface BillProductDao extends Dao<BillProduct, Long>{
-    
+    List<Product> selectProductsByBillId(Integer id);
 }

@@ -25,6 +25,11 @@ public class BillProduct {
         this.created_at = created_at;
     }
 
+    public BillProduct() {
+    }
+    
+    
+
     public Integer getId() {
         return id;
     }

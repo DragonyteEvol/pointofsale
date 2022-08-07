@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import pointofsale.controllers.Controller;
 import pointofsale.controllers.modal.EditTableController;
+import pointofsale.controllers.modal.OrderPayController;
 import pointofsale.controllers.modal.SellProductsController;
 import pointofsale.models.BillModel;
 import pointofsale.objects.BillTableTmp;
@@ -42,6 +43,7 @@ public class CardTableController extends Controller implements ActionListener {
     private void initEvents(){
         this.view.btnSell.addActionListener(this);
         this.view.btnEdit.addActionListener(this);
+        this.view.btnPay.addActionListener(this);
     }
     
     private void setInfo() {
@@ -74,6 +76,11 @@ public class CardTableController extends Controller implements ActionListener {
         Object source = ae.getSource();
         if(source == this.view.btnSell){
             SellProductsController sellProductsController = new SellProductsController(table);
+            setInfo();
+        }
+        
+        if(source == this.view.btnPay){
+            OrderPayController orderPayController = new OrderPayController(table);
             setInfo();
         }
         

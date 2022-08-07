@@ -31,6 +31,7 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String DELETEBILL = "delete from " + TABLE + " where bill_tmp_id=?";
 
     private Connection connection;
 
@@ -168,6 +169,27 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
             }
         }
         return a;
+    }
+    
+    
+    @Override
+    public void deleteBill(Integer id) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DELETEBILL);
+            statement.setInt(1, id);
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     // convert ResultSet to objects

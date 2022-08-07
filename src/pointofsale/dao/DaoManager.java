@@ -31,4 +31,7 @@ public interface DaoManager {
         BillTableProductTmpDao getBillTableProductTmpDao();
         BillRestockDao getBillRestockDao();
         BillRestockIngredientDao getBillRestockIngredientDao();
+        ReportDao getReportDao();
+        BillProductDao getBillProductDao();
+        EventDao getEventDao();
 }

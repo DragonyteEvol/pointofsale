@@ -11,5 +11,5 @@ import pointofsale.objects.BillRoomProductTmp;
  * @author dragonyte
  */
 public interface BillRoomProductTmpDao extends Dao<BillRoomProductTmp, Long>{
-    
+    void deleteBill(Integer id);
 }
