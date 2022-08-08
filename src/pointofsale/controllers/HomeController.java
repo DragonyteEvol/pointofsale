@@ -35,6 +35,7 @@ public class HomeController extends Controller implements ActionListener{
         this.view.btnAccounting.addActionListener(this);
         this.view.btnEvent.addActionListener(this);
         this.view.btnCurrentEvent.addActionListener(this);
+        this.view.btnConfig.addActionListener(this);
         HomeController.eventButton = view.btnCurrentEvent;
         HomeController.staticView = view;
         
@@ -86,6 +87,10 @@ public class HomeController extends Controller implements ActionListener{
         
         if(source== this.view.btnEvent){
             EventController eventController = new EventController(this.view.pnDinamic);
+        }
+        
+        if(source==this.view.btnConfig){
+            ConfigController configController = new ConfigController(this.view.pnDinamic);
         }
     }
     

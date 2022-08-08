@@ -181,4 +181,29 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
         return information;
     }
 
+    @Override
+    public AditionalInformation selectFirst() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        AditionalInformation a=null;
+        try {
+            statement = this.connection.prepareStatement(GETALL);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a = (convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
 }

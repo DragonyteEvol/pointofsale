@@ -120,6 +120,13 @@ public class BillModel extends Model {
         return products;
     }
     
+    
+     public List<Product> selectProductsRoomTmp(Integer id){
+        List<Product> products = this.dao.getBillRoomTmpDao().selectProducts(id);
+        this.closeConnection();
+        return products;
+    }
+    
     public void sellProductTable(List<Product> products,Bill bill,BillTableTmp billTableTmp){
         Integer bill_id = this.dao.getBillDao().insert(bill);
         for(Product product : products){

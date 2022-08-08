@@ -19,6 +19,7 @@ public class PointOfSale {
         //HomeController a = new HomeController();
         String value = MoneyConverter.convertDouble(45500);
         EventGlobal.setEvent(EventGlobal.getEventActive());
+        ConfigGlobal.setConfig(ConfigGlobal.getDefaultConfig());
         System.out.print(value);
 
         LoginController a = new LoginController();

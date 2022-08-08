@@ -89,6 +89,9 @@ public class CardRoomController implements ActionListener {
         if (source == this.view.btnStatus) {
             RoomManagerController roomManagerController = new RoomManagerController(this.room);
             isAllocatted();
+            refreshRoom();
+            view.repaint();
+            view.revalidate();
         }
 
         if (source == this.view.btnEdit) {

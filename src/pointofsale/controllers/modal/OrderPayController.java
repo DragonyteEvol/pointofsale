@@ -10,11 +10,13 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.models.BillModel;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
+import pointofsale.objects.AditionalInformation;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;
@@ -66,12 +68,19 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         initView();
     }
 
+    private void setDefaultTip() {
+        AditionalInformation aditionalInformation = ConfigGlobal.getConfig();
+        if (aditionalInformation != null) {
+            view.txtTipPercent.setValue(aditionalInformation.getDefault_tip());
+        }
+    }
+
     public void initView() {
         this.view = new OrderPayView(null, true);
         view.setResizable(false);
 
-            SetResourceThread setResourceThread = new SetResourceThread();
-            setResourceThread.start();
+        SetResourceThread setResourceThread = new SetResourceThread();
+        setResourceThread.start();
         if (allocate) {
             view.txtPrice.setText(String.valueOf(realPrice));
 
@@ -175,17 +184,17 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
         private void setTotal() {
             BillModel billModel = new BillModel();
-            if (room == null && event ==null) {
+            if (room == null && event == null) {
                 billTableTmp = billModel.checkBillTableTmp(table.getId());
                 view.txtPrice.setText(String.valueOf(billTableTmp.getTotal()));
                 realPrice = billTableTmp.getTotal();
                 price = billTableTmp.getTotal();
-            } else if(table==null && event ==null){
+            } else if (table == null && event == null) {
                 billRoomTmp = billModel.checkBillRoomTmp(room.getId());
                 view.txtPrice.setText(String.valueOf(billRoomTmp.getTotal()));
                 realPrice = billRoomTmp.getTotal();
-                price = billTableTmp.getTotal();
-            } else{
+                price = billRoomTmp.getTotal();
+            } else {
                 view.txtPrice.setText(String.valueOf(event.getPrice()));
                 realPrice = event.getPrice();
                 price = event.getPrice();
@@ -199,7 +208,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 products = billModel.selectProductsTableTmp(table.getId());
                 construcTable(products);
             } else {
-
+                products = billModel.selectProductsRoomTmp(room.getId());
+                construcTable(products);
             }
         }
 
@@ -230,15 +240,16 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         public void run() {
             if (allocate) {
                 setPaymentMethods();
-            } else if(table!=null || room !=null){
+            } else if (table != null || room != null) {
                 setTotal();
                 setProducts();
                 setPaymentMethods();
-
-            } else{
+            } else {
                 setPaymentMethods();
                 setTotal();
             }
+            setDefaultTip();
+
         }
     }
 

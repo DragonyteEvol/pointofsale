@@ -11,5 +11,5 @@ import pointofsale.objects.AditionalInformation;
  * @author dragonyte
  */
 public interface AditionalInformationDao extends Dao<AditionalInformation, Long>{
-    
+    AditionalInformation selectFirst();
 }

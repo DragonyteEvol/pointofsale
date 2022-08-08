@@ -15,6 +15,7 @@ import java.util.List;
 import pointofsale.dao.BillRoomTmpDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.BillRoomTmp;
+import pointofsale.objects.Product;
 
 /**
  *
@@ -33,6 +34,8 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHEREROOMID = "select * from " + TABLE + " where room_id=?";
+     final String GETPRODUCTS = "SELECT products.id,quantity,name,subvalue,bills_room_products_tmp.created_at as updated_at from bills_room_tmp inner join bills_room_products_tmp on bills_room_products_tmp.bill_tmp_id = bills_room_tmp.id inner join products on products.id = bills_room_products_tmp.product_id where bills_room_tmp.room_id=?";
+
 
     private Connection connection;
 
@@ -203,6 +206,49 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
             }
         }
         return a;
+    }
+    
+    @Override
+    public List<Product> selectProducts(Integer id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Product> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETPRODUCTS);
+            statement.setInt(1, id);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertProduct(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+
+    }
+    
+    // convert ResultSet to objects
+    public Product convertProduct(ResultSet set) throws SQLException {
+        Integer id = set.getInt("id");
+        String name = set.getString("name");
+        Integer quantity = set.getInt("quantity");
+        Integer subvalue = set.getInt("subvalue");
+        String created_at = set.getString("updated_at");
+        Product product = new Product();
+        product.setId(id);
+        product.setCreated_at(created_at);
+        product.setName(name);
+        product.setQuantity(quantity);
+        product.setPrice(subvalue);
+        return product;
     }
 
 }

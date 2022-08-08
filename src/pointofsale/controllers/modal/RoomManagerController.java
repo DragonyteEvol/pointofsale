@@ -9,14 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
-import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import pointofsale.controllers.ModalController;
-import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
-import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Room;
 import pointofsale.views.modal.RentRoomView;
 import pointofsale.views.modal.RoomManagerView;
@@ -37,14 +33,13 @@ public class RoomManagerController extends ModalController implements ActionList
 
     private void initComponents(Room room) {
         this.view = new RoomManagerView(null, true);
-        this.secondView = new RentRoomView();
+        this.secondView = new RentRoomView(null, true);
         this.room = room;
 
-        Dimension dimension = view.getToolkit().getScreenSize();
-        view.setSize(dimension.width / 2, dimension.height / 2);
-        secondView.setSize(dimension.width / 2, dimension.height / 2);
+        
 
         this.view.setResizable(false);
+        this.secondView.setResizable(false);
 
         setResource();
         setSecondResource();
@@ -55,6 +50,7 @@ public class RoomManagerController extends ModalController implements ActionList
     private void initEvents() {
         this.view.btnEnd.addActionListener(this);
         this.view.btnSell.addActionListener(this);
+        this.view.btnPay.addActionListener(this);
 
         this.secondView.txtChild.addChangeListener(this);
         this.secondView.txtOld.addChangeListener(this);
@@ -70,9 +66,11 @@ public class RoomManagerController extends ModalController implements ActionList
         if (room.isAllocatted()) {
             view.txtState.setText("Ocupado");
             view.btnSell.setText("Vender");
+            view.btnPay.setVisible(true);
         } else {
             view.txtState.setText("Libre");
             view.btnSell.setText("Rentar");
+            view.btnPay.setVisible(false);
         }
     }
 
@@ -82,12 +80,6 @@ public class RoomManagerController extends ModalController implements ActionList
         this.secondView.txtPrice.setText(String.valueOf(room.getPrice()));
     }
 
-    private void changeView(JPanel panel, JPanel view) {
-        panel.removeAll();
-        panel.add(view);
-        panel.revalidate();
-        panel.repaint();
-    }
 
     private Integer getPrice() {
         Integer childs = (Integer) this.secondView.txtChild.getValue();
@@ -103,20 +95,27 @@ public class RoomManagerController extends ModalController implements ActionList
             if (room.isAllocatted()) {
                 SellProductsController sellProductsController = new SellProductsController(room);
             } else {
-                changeView(this.view.pnDinamic, this.secondView);
+                this.view.dispose();
+                this.secondView.setVisible(true);
             }
         }
 
         if (source == this.secondView.btnPay) {
             Integer total = getPrice();
-            this.view.dispose();
+            this.secondView.dispose();
             OrderPayController orderPayController = new OrderPayController(room, total, true);
+            
         }
 
         if (source == this.view.btnEnd) {
             DislodgeThread dislodgeThread = new DislodgeThread(room);
             dislodgeThread.start();
             this.view.dispose();
+        }
+        
+        if(source == this.view.btnPay){
+            view.dispose();
+             OrderPayController orderPayController = new OrderPayController(room);
         }
     }
 
