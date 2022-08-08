@@ -36,6 +36,8 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     final String GETUNIT = "SELECT ingredients.*,units.name as unit from ingredients INNER join units on ingredients.unit_id = units.id";
     final String GETRELPRODUCT = "SELECT ingredients.*,units.name as unit,product_ingredient.quantity as quantity from ingredients INNER join units on ingredients.unit_id = units.id INNER JOIN product_ingredient on product_ingredient.ingredient_id = ingredients.id";
     final String GETUNITQUANTITY="SELECT ingredients.*,inventory.quantity,units.name as unit from ingredients INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id";
+    final String SEARCH = "SELECT ingredients.*,inventory.quantity,units.name as unit from "+TABLE+" INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id where ingredients.name like ";
+
 
     private Connection connection;
 
@@ -292,6 +294,31 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convertIngredientUnit(set, true));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public List<Ingredient> search(String search) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Ingredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(SEARCH + "'%" + search +"%'");
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertIngredientUnit(set,true));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

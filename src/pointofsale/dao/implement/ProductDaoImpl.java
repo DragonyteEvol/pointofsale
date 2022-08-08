@@ -33,6 +33,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHERE = "select * from " + TABLE + " where ";
+    final String SEARCH = "SELECT products.*,categories.name as unit from " + TABLE + " Inner join categories on categories.id=products.categorie_id where products.name like ";
 
     private Connection connection;
 
@@ -48,7 +49,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
+            statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setInt(2, a.getPrice());
             statement.setInt(3, a.getTime());
@@ -185,7 +186,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         Product product = new Product(set.getInt("id"), name, price, time, route_image, categorie_id, created_at);
         return product;
     }
-    
+
     @Override
     public List<Product> selectWhere(String where) {
         PreparedStatement statement = null;
@@ -210,6 +211,31 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         }
         return a;
 
+    }
+
+    @Override
+    public List<Product> search(String search) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Product> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(SEARCH + "'%" + search +"%'");
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

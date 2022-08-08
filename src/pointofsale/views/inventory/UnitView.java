@@ -30,7 +30,7 @@ public class UnitView extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         pnUnits = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(153, 102, 255));
@@ -48,8 +48,8 @@ public class UnitView extends javax.swing.JPanel {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField1.setText("Buscar");
-        jPanel3.add(jTextField1);
+        txtSearch.setText("Buscar");
+        jPanel3.add(txtSearch);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
         jPanel2.add(pnUnits, java.awt.BorderLayout.CENTER);
@@ -63,7 +63,7 @@ public class UnitView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JPanel pnUnits;
+    public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

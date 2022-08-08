@@ -13,4 +13,5 @@ import pointofsale.objects.Unit;
  */
 public interface UnitDao extends Dao<Unit, Long>{
 	List<Unit> selectWhere(String where);
+        List<Unit> search(String search);
 }

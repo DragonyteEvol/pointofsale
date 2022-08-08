@@ -31,6 +31,7 @@ public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMetho
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String SEARCH = "select * from " + TABLE + " where name like ";
 
     private Connection connection;
 
@@ -172,6 +173,31 @@ public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMetho
         String created_at = set.getString("created_at");
         PaymentMethod paymentMethod = new PaymentMethod(set.getInt("id"), name, virtual, created_at);
         return paymentMethod;
+    }
+
+    @Override
+    public List<PaymentMethod> search(String search) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<PaymentMethod> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(SEARCH + "'%" + search +"%'");
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

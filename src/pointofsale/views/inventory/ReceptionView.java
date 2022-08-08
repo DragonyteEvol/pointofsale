@@ -27,7 +27,7 @@ public class ReceptionView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -47,8 +47,8 @@ public class ReceptionView extends javax.swing.JPanel {
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField1.setText("Buscar");
-        jPanel1.add(jTextField1);
+        txtSearch.setText("Buscar");
+        jPanel1.add(txtSearch);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -116,9 +116,9 @@ public class ReceptionView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JPanel pnBase;
     public javax.swing.JPanel pnInfo;
     public javax.swing.JLabel txtPrice;
+    public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

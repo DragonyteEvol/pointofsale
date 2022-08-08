@@ -4,6 +4,7 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.PaymentMethod;
 
 /**
@@ -11,5 +12,5 @@ import pointofsale.objects.PaymentMethod;
  * @author dragonyte
  */
 public interface PaymentMethodDao extends Dao<PaymentMethod, Long>{
-    
+    List<PaymentMethod> search(String search);
 }

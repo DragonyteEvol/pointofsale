@@ -62,4 +62,10 @@ public class ProductModel extends Model{
         this.saveChanges();
     }
     
+    public List<Product> searchProducts(String search){
+        List<Product> products = this.dao.getProductDao().search(search);
+        this.closeConnection();
+        return products;
+    }
+    
 }

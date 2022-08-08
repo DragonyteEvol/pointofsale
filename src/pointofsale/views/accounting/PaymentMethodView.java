@@ -28,14 +28,23 @@ public class PaymentMethodView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        txtSearch = new javax.swing.JTextField();
         pnPayments = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         btnCreate.setText("+");
-        jPanel1.add(btnCreate);
+        jPanel1.add(btnCreate, java.awt.BorderLayout.LINE_END);
+
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtSearch.setText("Buscar");
+        jPanel2.add(txtSearch);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
         add(pnPayments, java.awt.BorderLayout.CENTER);
@@ -45,6 +54,8 @@ public class PaymentMethodView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCreate;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel pnPayments;
+    public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

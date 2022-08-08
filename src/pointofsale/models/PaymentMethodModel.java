@@ -24,6 +24,12 @@ public class PaymentMethodModel extends Model {
         return paymentMethods;
     }
     
+    public List<PaymentMethod> search(String search) {
+        List<PaymentMethod> paymentMethods = this.dao.getPaymentMethodDao().search(search);
+        this.closeConnection();
+        return paymentMethods;
+    }
+    
     public PaymentMethod selectById(Integer id){
         PaymentMethod paymentMethod = this.dao.getPaymentMethodDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
@@ -39,4 +45,5 @@ public class PaymentMethodModel extends Model {
         this.dao.getPaymentMethodDao().modify(paymentMethod);
         this.saveChanges();
     }
+    
 }

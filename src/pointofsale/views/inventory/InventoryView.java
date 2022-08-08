@@ -28,7 +28,7 @@ public class InventoryView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -43,8 +43,8 @@ public class InventoryView extends javax.swing.JPanel {
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField1.setText("Buscar");
-        jPanel2.add(jTextField1);
+        txtSearch.setText("Buscar");
+        jPanel2.add(txtSearch);
 
         jPanel1.add(jPanel2);
 
@@ -88,7 +88,7 @@ public class InventoryView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JPanel pnTable;
+    public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

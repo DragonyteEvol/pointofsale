@@ -6,10 +6,13 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import pointofsale.controllers.components.CardCategorieController;
 import pointofsale.controllers.modal.NewCategorieController;
 import pointofsale.models.CategorieModel;
@@ -20,7 +23,7 @@ import pointofsale.views.inventory.CategorieView;
  *
  * @author dragonyte
  */
-public class CategorieController extends Controller implements ActionListener {
+public class CategorieController extends Controller implements ActionListener,FocusListener {
 
     private CategorieView view;
     private CategorieModel model;
@@ -43,6 +46,44 @@ public class CategorieController extends Controller implements ActionListener {
 
     private void initEvents() {
         this.view.btnCreate.addActionListener(this);
+        
+        this.view.txtSearch.addFocusListener(this);
+        
+        view.txtSearch.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void removeUpdate(DocumentEvent e) {
+                search(view.pnCategorie);
+            }
+
+            public void insertUpdate(DocumentEvent e) {
+                search(view.pnCategorie);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent de) {
+            }
+        });
+    }
+    
+    private void search(JPanel searchPanel) {
+        String search = view.txtSearch.getText();
+
+        CategorieModel categorieModel = new CategorieModel();
+        List<Categorie> categories = categorieModel.search(search);
+
+        searchPanel.removeAll();
+
+        if (categories.isEmpty()) {
+            searchPanel.repaint();
+            searchPanel.revalidate();
+        } else {
+
+            for (Categorie categorie : categories) {
+                CardCategorieController card = new CardCategorieController(categorie, searchPanel);
+                searchPanel.repaint();
+                searchPanel.revalidate();
+            }
+        }
     }
 
     private void setCategories() {
@@ -60,6 +101,18 @@ public class CategorieController extends Controller implements ActionListener {
             NewCategorieController newCategorie = new NewCategorieController();
             this.initComponents(this.panel);
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent fe) {
+        Object source = fe.getSource();
+        if (source == view.txtSearch) {
+            view.txtSearch.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent fe) {
     }
 
 }

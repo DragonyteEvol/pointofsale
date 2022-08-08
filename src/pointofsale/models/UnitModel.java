@@ -41,4 +41,10 @@ public class UnitModel extends Model {
         this.dao.getUnitDao().delete(unit);
         this.saveChanges();
     }
+    
+    public List<Unit> search(String search) {
+        List<Unit> units = this.dao.getUnitDao().search(search);
+        this.closeConnection();
+        return units;
+    }
 }

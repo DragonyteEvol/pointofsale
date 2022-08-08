@@ -27,152 +27,134 @@ public class SellProductView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        pnOrder = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
         txtPrice = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jPanel17 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pnOrder = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        txtTarget = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        tabbedPane = new javax.swing.JTabbedPane();
+        txtSearch = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        pnCategories = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        JPanel112 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        pnProducts = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel12.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 153));
-        jPanel3.setLayout(new java.awt.BorderLayout());
+        jPanel13.setLayout(new java.awt.BorderLayout());
 
-        pnOrder.setBackground(new java.awt.Color(255, 153, 153));
-        pnOrder.setLayout(new java.awt.GridLayout(7, 0));
-        jScrollPane1.setViewportView(pnOrder);
+        jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.Y_AXIS));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-        );
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel2.setText("Informacion del pedido");
+        jPanel18.add(jLabel2);
 
-        jPanel3.add(jPanel2, java.awt.BorderLayout.CENTER);
-
-        jPanel4.setLayout(new java.awt.GridLayout(2, 0));
-
-        jPanel10.setBackground(new java.awt.Color(255, 153, 153));
-
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabel1.setText("Informacion del pedido");
-        jPanel10.add(jLabel1);
-
-        jPanel4.add(jPanel10);
-
-        jPanel11.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel15.add(jPanel18);
 
         txtPrice.setText("0");
-        jPanel11.add(txtPrice);
+        jPanel19.add(txtPrice);
 
-        jPanel4.add(jPanel11);
+        jPanel15.add(jPanel19);
 
-        jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+        jPanel13.add(jPanel15, java.awt.BorderLayout.PAGE_START);
 
         btnSave.setText("Aceptar");
-        jPanel5.add(btnSave);
+        jPanel16.add(btnSave);
 
-        jCheckBox1.setText("Impirmir");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jCheckBox1);
+        jCheckBox1.setText("Imprimir");
+        jPanel16.add(jCheckBox1);
 
-        jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+        jPanel13.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
-        jPanel6.setBackground(new java.awt.Color(255, 153, 153));
-        jPanel6.setLayout(new java.awt.BorderLayout());
+        jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel7.setBackground(new java.awt.Color(255, 153, 153));
+        jScrollPane1.setViewportView(pnOrder);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
-        );
+        jPanel17.add(jScrollPane1);
 
-        jPanel6.add(jPanel7, java.awt.BorderLayout.CENTER);
+        jPanel13.add(jPanel17, java.awt.BorderLayout.CENTER);
 
-        jPanel8.setBackground(new java.awt.Color(255, 153, 153));
-        jPanel8.setLayout(new java.awt.GridLayout(2, 0, 10, 0));
+        jPanel12.add(jPanel13, java.awt.BorderLayout.LINE_START);
 
-        jPanel9.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel14.setLayout(new java.awt.BorderLayout());
 
-        jLabel3.setText("Mesa 1");
-        jPanel9.add(jLabel3);
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel8.add(jPanel9);
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel1.add(jPanel4);
 
-        jTextField1.setMargin(new java.awt.Insets(2, 15, 2, 15));
-        jPanel8.add(jTextField1);
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel6.add(jPanel8, java.awt.BorderLayout.PAGE_START);
+        txtTarget.setText("Mesa 1");
+        jPanel6.add(txtTarget);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel3.add(jPanel6);
+
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtSearch.setText("Buscar");
+        jPanel7.add(txtSearch);
+
+        jPanel3.add(jPanel7);
+
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane4.setViewportView(pnCategories);
+
+        jPanel8.add(jScrollPane4);
+
+        jPanel3.add(jPanel8);
+
+        jPanel1.add(jPanel3);
+
+        jPanel14.add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        JPanel112.setLayout(new javax.swing.BoxLayout(JPanel112, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane3.setViewportView(pnProducts);
+
+        JPanel112.add(jScrollPane3);
+
+        jPanel2.add(JPanel112, java.awt.BorderLayout.CENTER);
+
+        jPanel14.add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        jPanel12.add(jPanel14, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,25 +199,33 @@ public class SellProductView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel JPanel112;
     public javax.swing.JButton btnSave;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    public javax.swing.JPanel pnCategories;
     public javax.swing.JPanel pnOrder;
-    public javax.swing.JTabbedPane tabbedPane;
+    public javax.swing.JPanel pnProducts;
     public javax.swing.JLabel txtPrice;
+    public javax.swing.JTextField txtSearch;
+    public javax.swing.JLabel txtTarget;
     // End of variables declaration//GEN-END:variables
 }

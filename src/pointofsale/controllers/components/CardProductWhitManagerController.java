@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JPanel;
-import pointofsale.objects.Categorie;
 import pointofsale.objects.Product;
 import pointofsale.views.components.CardProductWhitManagerView;
 import pointofsale.views.modal.SellProductView;
@@ -23,20 +22,18 @@ public class CardProductWhitManagerController implements ActionListener {
     public CardProductWhitManagerView view;
     private SellProductView superView;
     private Product product;
-    private Categorie categorie;
     private List<Product> listProduct;
 
-    public CardProductWhitManagerController(SellProductView superView, Product product, Categorie categorie,List<Product> listProduct) {
-        initComponents(superView, product, categorie,listProduct);
+    public CardProductWhitManagerController(SellProductView superView, Product product, List<Product> listProduct) {
+        initComponents(superView, product,listProduct);
     }
 
-    private void initComponents(SellProductView superView,Product product, Categorie categorie,List<Product> listproduct) {
+    private void initComponents(SellProductView superView,Product product,List<Product> listproduct) {
         this.view = new CardProductWhitManagerView();
         this.superView = superView;
         this.listProduct = listproduct;
 
         this.product = product;
-        this.categorie = categorie;
         
         setInfo();
         initEvents();
@@ -44,7 +41,6 @@ public class CardProductWhitManagerController implements ActionListener {
     
     //ozuna
     private void setInfo(){
-        this.view.txtCategorie.setText(categorie.getName());
         this.view.txtName.setText("<html><p>"+ product.getName() +"</p></html>");
     }
 

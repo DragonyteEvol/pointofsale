@@ -31,7 +31,7 @@ public class CategorieView extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         pnDinamicc = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnCategorie = new javax.swing.JPanel();
@@ -56,13 +56,13 @@ public class CategorieView extends javax.swing.JPanel {
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        jTextField1.setText("Buscar");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtSearch.setText("Buscar");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtSearchActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1);
+        jPanel4.add(txtSearch);
 
         jPanel1.add(jPanel4);
 
@@ -96,9 +96,9 @@ public class CategorieView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -108,8 +108,8 @@ public class CategorieView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JPanel pnCategorie;
     public javax.swing.JPanel pnDinamicc;
+    public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

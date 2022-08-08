@@ -33,6 +33,7 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHERE = "select * from " + TABLE + " where ";
+    final String SEARCH = "select * from " + TABLE + " where name like ";
 
     private Connection connection;
 
@@ -185,6 +186,31 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
         List<Unit> a = new ArrayList<>();
         try {
             statement = this.connection.prepareStatement(GETWHERE + where);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public List<Unit> search(String search) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Unit> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(SEARCH + "'%" + search +"%'");
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convert(set));

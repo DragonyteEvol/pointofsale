@@ -98,4 +98,10 @@ public class IngredientModel extends Model {
         this.closeConnection();
         return ingredients;
     }
+    
+     public List<Ingredient> search(String search){
+        List<Ingredient> ingredients = this.dao.getIngredientDao().search(search);
+        this.closeConnection();
+        return ingredients;
+    }
 }

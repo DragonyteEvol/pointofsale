@@ -32,6 +32,7 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHERE = "select * from " + TABLE + " where ";
+    final String SEARCH = "SELECT * from " + TABLE + " where name like ";
 
     private Connection connection;
 
@@ -182,6 +183,31 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
         List<Categorie> a = new ArrayList<>();
         try {
             statement = this.connection.prepareStatement(GETWHERE + where);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public List<Categorie> search(String search) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Categorie> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(SEARCH + "'%" + search + "%'");
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convert(set));

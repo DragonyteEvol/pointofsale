@@ -59,4 +59,9 @@ public class CategorieModel extends Model {
         return categories;
     }
 
+    public List<Categorie> search(String search) {
+        List<Categorie> categories = this.dao.getCategorieDao().search(search);
+        this.closeConnection();
+        return categories;
+    }
 }

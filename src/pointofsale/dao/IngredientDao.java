@@ -11,9 +11,15 @@ import pointofsale.objects.Ingredient;
  *
  * @author dragonyte
  */
-public interface IngredientDao extends Dao<Ingredient, Long>{
+public interface IngredientDao extends Dao<Ingredient, Long> {
+
     List<Ingredient> selectWhere(String where);
+
     List<Ingredient> selectWhitUnit(String where);
+
     List<Ingredient> selectRelProduct(Integer id);
+
     List<Ingredient> selectUnitQuantity();
+
+    List<Ingredient> search(String search);
 }
