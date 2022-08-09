@@ -35,6 +35,7 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String SELECTWHERE = "select * from "+ TABLE + " where ";
+    final String GETMISSINGREDIENT = "select * from "+TABLE+" where quantity <= minimum and ingredient_id=?";
 
     private Connection connection;
 
@@ -229,5 +230,31 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
         }
     }
 
-    
+    @Override
+    public Inventory selectMissingIngredient(Integer ingredient_id){
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        Inventory a = null;
+        try {
+            statement = this.connection.prepareStatement(GETMISSINGREDIENT);
+            statement.setInt(1, ingredient_id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
 }

@@ -13,4 +13,5 @@ import pointofsale.objects.Inventory;
 public interface InventoryDao extends Dao<Inventory, Long>{
     void deleteWhere(String where);
     Inventory selectWhereIngredient(String where);
+    Inventory selectMissingIngredient(Integer ingredient_id);
 }

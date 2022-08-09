@@ -4,6 +4,7 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.MissingStock;
 
 /**
@@ -11,5 +12,6 @@ import pointofsale.objects.MissingStock;
  * @author dragonyte
  */
 public interface MissingStockDao extends Dao<MissingStock, Long>{
-    
+    List<MissingStock> selectNotification();
+    MissingStock selectWhereIngredient(Integer ingredient_id);
 }

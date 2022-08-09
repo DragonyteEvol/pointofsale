@@ -11,14 +11,53 @@ package pointofsale.objects;
 public class MissingStock {
 	private Integer id;    
 	private Integer ingredient_id;
+        private boolean showed;
+        private String name;
+        private String unit;
+        private Integer quantity;
 	private String created_at;
 
-    public MissingStock(Integer id, Integer ingredient_id, String created_at) {
+    public MissingStock(Integer id, Integer ingredient_id,boolean showed ,String created_at) {
         this.id = id;
         this.ingredient_id = ingredient_id;
+        this.showed = showed;
         this.created_at = created_at;
     }
 
+    public boolean isShowed() {
+        return showed;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    
+    
+    public void setShowed(boolean showed) {
+        this.showed = showed;
+    }
+    
     public Integer getId() {
         return id;
     }

@@ -11,6 +11,7 @@ import pointofsale.objects.BillRestock;
 import pointofsale.objects.BillRestockIngredient;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Inventory;
+import pointofsale.objects.MissingStock;
 import pointofsale.objects.MovementInventory;
 
 /**
@@ -52,8 +53,30 @@ public class InventoryModel extends Model {
             this.dao.getBillRestockIngredientDao().insert(billRestockIngredient);
             this.dao.getMovementInventoryDao().insert(movementInventory);
             this.dao.getInventoryDao().modify(inventory);
+            checkMissing(ingredient.getId());
         }
         this.saveChanges();
 
+    }
+    
+    private void checkMissing(Integer id){
+        MissingStock missingStock = this.dao.getMissingStockDao().selectWhereIngredient(id);
+        if(missingStock!=null){
+            Inventory inventory =this.dao.getInventoryDao().selectMissingIngredient(id);
+            if(inventory==null){
+                this.dao.getMissingStockDao().delete(missingStock);
+            }
+        }
+    }
+    
+    public List<MissingStock> selectMissing(){
+        List<MissingStock> missingStocks = this.dao.getMissingStockDao().selectNotification();
+        this.closeConnection();
+        return missingStocks;
+    }
+    
+    public void updateNotification(MissingStock missingStock){
+        this.dao.getMissingStockDao().modify(missingStock);
+        this.saveChanges();
     }
 }

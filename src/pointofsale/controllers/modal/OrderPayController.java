@@ -12,7 +12,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
+import pointofsale.MissingGlobal;
 import pointofsale.UserGlobal;
+import pointofsale.controllers.HomeController;
 import pointofsale.models.BillModel;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
@@ -144,6 +146,9 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 view.dispose();
                 ReceipMoneyController receipMoneyController = new ReceipMoneyController(price);
             }
+            MissingGlobal.showNotifications();
+
+            HomeController.checkNotifications();
         }
         if (source == view.btnPrint) {
 

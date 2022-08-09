@@ -35,10 +35,9 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     final String GETWHERE = "select * from " + TABLE + " where ";
     final String GETUNIT = "SELECT ingredients.*,units.name as unit from ingredients INNER join units on ingredients.unit_id = units.id";
     final String GETRELPRODUCT = "SELECT ingredients.*,units.name as unit,product_ingredient.quantity as quantity from ingredients INNER join units on ingredients.unit_id = units.id INNER JOIN product_ingredient on product_ingredient.ingredient_id = ingredients.id";
-    final String GETUNITQUANTITY="SELECT ingredients.*,inventory.quantity,units.name as unit from ingredients INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id";
-    final String SEARCH = "SELECT ingredients.*,inventory.quantity,units.name as unit from "+TABLE+" INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id where ingredients.name like ";
-
-
+    final String GETUNITQUANTITY = "SELECT ingredients.*,inventory.quantity,units.name as unit from ingredients INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id";
+    final String SEARCH = "SELECT ingredients.*,inventory.quantity,units.name as unit from " + TABLE + " INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id where ingredients.name like ";
+    final String GETMISSING = "select inventory.created_at as created_at,inventory.quantity,inventory.minimum,ingredients.*,units.name as unit from inventory INNER join ingredients on ingredients.id = inventory.ingredient_id INNER join units on units.id = ingredients.unit_id where quantity <= minimum and ingredient_id not in(SELECT ingredient_id from missing_stock)";
     private Connection connection;
 
     public IngredientDaoImpl(Connection connection) {
@@ -315,7 +314,32 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         ResultSet set = null;
         List<Ingredient> a = new ArrayList<>();
         try {
-            statement = this.connection.prepareStatement(SEARCH + "'%" + search +"%'");
+            statement = this.connection.prepareStatement(SEARCH + "'%" + search + "%'");
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertIngredientUnit(set, true));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public List<Ingredient> selectMissing() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Ingredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETMISSING);
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convertIngredientUnit(set,true));
@@ -332,6 +356,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
             }
         }
         return a;
+
     }
 
 }

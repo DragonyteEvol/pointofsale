@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import pointofsale.MissingGlobal;
 import pointofsale.controllers.components.CardReceptionController;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.InventoryModel;
@@ -23,7 +24,7 @@ import pointofsale.views.inventory.ReceptionView;
  *
  * @author dragonyte
  */
-public class ReceptionController extends Controller implements ActionListener,FocusListener {
+public class ReceptionController extends Controller implements ActionListener, FocusListener {
 
     private List<Ingredient> listIngredients = new ArrayList<>();
     private ReceptionView view;
@@ -45,9 +46,9 @@ public class ReceptionController extends Controller implements ActionListener,Fo
 
     private void initEvents() {
         this.view.btnSave.addActionListener(this);
-        
+
         this.view.txtSearch.addFocusListener(this);
-        
+
         view.txtSearch.getDocument().addDocumentListener(new DocumentListener() {
 
             public void removeUpdate(DocumentEvent e) {
@@ -63,7 +64,7 @@ public class ReceptionController extends Controller implements ActionListener,Fo
             }
         });
     }
-    
+
     private void search(JPanel searchPanel) {
         String search = view.txtSearch.getText();
 
@@ -84,10 +85,8 @@ public class ReceptionController extends Controller implements ActionListener,Fo
             }
         }
     }
-    
-    
-    
-    private void revalidateView(){
+
+    private void revalidateView() {
         this.view.repaint();
         this.view.revalidate();
     }
@@ -103,12 +102,14 @@ public class ReceptionController extends Controller implements ActionListener,Fo
             SetResourceThread setResourceThread = new SetResourceThread();
             setResourceThread.start();
             revalidateView();
+
+            
         }
     }
 
     @Override
     public void focusGained(FocusEvent fe) {
-         Object source = fe.getSource();
+        Object source = fe.getSource();
         if (source == view.txtSearch) {
             view.txtSearch.selectAll();
         }
@@ -117,7 +118,7 @@ public class ReceptionController extends Controller implements ActionListener,Fo
     @Override
     public void focusLost(FocusEvent fe) {
     }
-    
+
     class SetResourceThread extends Thread {
 
         private List<Ingredient> getIngredients() {
@@ -141,8 +142,12 @@ public class ReceptionController extends Controller implements ActionListener,Fo
         public void run() {
             Integer price = Integer.valueOf(view.txtPrice.getText());
             InventoryModel inventoryModel = new InventoryModel();
-            inventoryModel.receiptInventory(listIngredients,price);
+            inventoryModel.receiptInventory(listIngredients, price);
             listIngredients.removeAll(listIngredients);
+            
+            MissingGlobal.showNotifications();
+
+            HomeController.checkNotifications();
         }
     }
 }

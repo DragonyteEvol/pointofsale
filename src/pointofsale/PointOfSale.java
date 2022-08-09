@@ -22,6 +22,8 @@ public class PointOfSale {
         ConfigGlobal.setConfig(ConfigGlobal.getDefaultConfig());
         System.out.print(value);
 
+        MissingGlobal.setMissingStocks(MissingGlobal.getMissing());
+        
         LoginController a = new LoginController();
     }
 

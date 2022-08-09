@@ -34,4 +34,5 @@ public interface DaoManager {
         ReportDao getReportDao();
         BillProductDao getBillProductDao();
         EventDao getEventDao();
+        MissingStockDao getMissingStockDao();
 }

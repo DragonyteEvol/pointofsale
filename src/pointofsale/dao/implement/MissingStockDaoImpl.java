@@ -23,7 +23,7 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
 
     // table config
     final String TABLE = "missing_stock";
-    final List<String> COLUMS = Arrays.asList("ingredient_id");
+    final List<String> COLUMS = Arrays.asList("ingredient_id", "showed");
 
     // queries
     String INSERT;
@@ -31,6 +31,9 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETWHERE = "select * from " + TABLE + " where ingredient_id=?";
+
+    final String GETNOTIFICATION = "SELECT missing_stock.id,ingredients.created_at,ingredients.id as ingredient_id,ingredients.name,inventory.quantity,units.name as unit,missing_stock.showed from missing_stock INNER JOIN ingredients on ingredients.id = missing_stock.ingredient_id INNER join units on units.id = ingredients.unit_id INNER join inventory on inventory.ingredient_id = ingredients.id";
 
     private Connection connection;
 
@@ -48,6 +51,8 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getIngredient_id());
+            statement.setBoolean(2, a.isShowed());
+            rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -91,7 +96,8 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getIngredient_id());
-            statement.setInt(2, a.getId());
+            statement.setBoolean(2, a.isShowed());
+            statement.setInt(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -166,8 +172,76 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
     public MissingStock convert(ResultSet set) throws SQLException {
         Integer ingredient_id = set.getInt("ingredient_id");
         String created_at = set.getString("created_at");
-        MissingStock missingStock = new MissingStock(set.getInt("id"), ingredient_id, created_at);
+        boolean showed = set.getBoolean("showed");
+        MissingStock missingStock = new MissingStock(set.getInt("id"), ingredient_id, showed, created_at);
         return missingStock;
+    }
+
+    public MissingStock convertNotification(ResultSet set) throws SQLException {
+        Integer ingredient_id = set.getInt("ingredient_id");
+        String created_at = set.getString("created_at");
+        String name = set.getString("name");
+        String unit = set.getString("unit");
+        Integer quantity = set.getInt("quantity");
+        boolean showed = set.getBoolean("showed");
+        MissingStock missingStock = new MissingStock(set.getInt("id"), ingredient_id, showed, created_at);
+        missingStock.setName(name);
+        missingStock.setQuantity(quantity);
+        missingStock.setUnit(unit);
+        return missingStock;
+    }
+
+    @Override
+    public List<MissingStock> selectNotification() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<MissingStock> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETNOTIFICATION);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convertNotification(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public MissingStock selectWhereIngredient(Integer ingredient_id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        MissingStock a = null;
+        try {
+            statement = this.connection.prepareStatement(GETWHERE);
+            statement.setInt(1, ingredient_id);
+            set = statement.executeQuery();
+            if (set.next()) {
+                a = convert(set);
+            } else {
+                System.out.println("empty set");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

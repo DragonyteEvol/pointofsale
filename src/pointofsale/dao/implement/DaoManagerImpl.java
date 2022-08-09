@@ -22,6 +22,7 @@ import pointofsale.dao.DaoManager;
 import pointofsale.dao.EventDao;
 import pointofsale.dao.IngredientDao;
 import pointofsale.dao.InventoryDao;
+import pointofsale.dao.MissingStockDao;
 import pointofsale.dao.MoneyBoxDao;
 import pointofsale.dao.MovementInventoryDao;
 import pointofsale.dao.PaymentMethodDao;
@@ -66,6 +67,7 @@ public class DaoManagerImpl implements DaoManager {
     private ReportDao reportDao;
     private BillProductDao billProductDao;
     private EventDao eventDao;
+    private MissingStockDao missingStockDao;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -269,6 +271,14 @@ public class DaoManagerImpl implements DaoManager {
             this.eventDao = new EventDaoImpl(connection);
         }
         return this.eventDao;
+    }
+
+    @Override
+    public MissingStockDao getMissingStockDao() {
+        if (missingStockDao == null) {
+            this.missingStockDao = new MissingStockDaoImpl(connection);
+        }
+        return this.missingStockDao;
     }
 
 }

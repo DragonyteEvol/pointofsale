@@ -28,6 +28,12 @@ public class IngredientModel extends Model {
     
     public void update(Ingredient ingredient){
         this.dao.getIngredientDao().modify(ingredient);
+        Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id=" + ingredient.getId());
+        inventory.setQuantity(ingredient.getQuantity());
+        inventory.setMinimum(ingredient.getMinimum());
+        this.dao.getInventoryDao().modify(inventory);
+        MovementInventory movementInventory = new MovementInventory(null, ingredient.getId(), ingredient.getQuantity(), false, false, null);
+        this.dao.getMovementInventoryDao().insert(movementInventory);
         this.saveChanges();
     }
 
@@ -99,8 +105,14 @@ public class IngredientModel extends Model {
         return ingredients;
     }
     
-     public List<Ingredient> search(String search){
+    public List<Ingredient> search(String search){
         List<Ingredient> ingredients = this.dao.getIngredientDao().search(search);
+        this.closeConnection();
+        return ingredients;
+    }
+    
+    public List<Ingredient> selectMissing(){
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectMissing();
         this.closeConnection();
         return ingredients;
     }

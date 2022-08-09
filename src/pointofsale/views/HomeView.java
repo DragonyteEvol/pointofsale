@@ -31,6 +31,7 @@ public class HomeView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnUser = new javax.swing.JButton();
         btnCurrentEvent = new javax.swing.JButton();
+        btnNotifications = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
         btnSell = new javax.swing.JButton();
@@ -50,6 +51,8 @@ public class HomeView extends javax.swing.JFrame {
 
         btnCurrentEvent.setText("Event");
 
+        btnNotifications.setText("0");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -58,6 +61,8 @@ public class HomeView extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNotifications)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCurrentEvent)
                 .addGap(18, 18, 18)
                 .addComponent(btnUser)
@@ -70,7 +75,8 @@ public class HomeView extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnUser)
-                    .addComponent(btnCurrentEvent))
+                    .addComponent(btnCurrentEvent)
+                    .addComponent(btnNotifications))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -179,6 +185,7 @@ public class HomeView extends javax.swing.JFrame {
     public javax.swing.JButton btnDashboard;
     public javax.swing.JButton btnEvent;
     public javax.swing.JButton btnInventory;
+    public javax.swing.JButton btnNotifications;
     public javax.swing.JButton btnSell;
     public javax.swing.JButton btnUser;
     private javax.swing.JLabel jLabel1;
