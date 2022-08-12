@@ -23,7 +23,7 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
 // table config
 
     final String TABLE = "aditional_information";
-    final List<String> COLUMS = Arrays.asList("nit", "name", "logo_path", "default_tip");
+    final List<String> COLUMS = Arrays.asList("nit", "name", "address", "phone", "logo_path", "default_tip");
 
     // queries
     String INSERT;
@@ -49,8 +49,10 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getNit());
             statement.setString(2, a.getName());
-            statement.setString(3, a.getLogo_path());
-            statement.setInt(4, a.getDefault_tip());
+            statement.setString(3, a.getAddress());
+            statement.setInt(4, a.getPhone());
+            statement.setString(5, a.getLogo_path());
+            statement.setInt(6, a.getDefault_tip());
             rowId = statement.executeUpdate();
 
             if (rowId == 0) {
@@ -97,9 +99,11 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getNit());
             statement.setString(2, a.getName());
-            statement.setString(3, a.getLogo_path());
-            statement.setInt(4, a.getDefault_tip());
-            statement.setInt(5, a.getId());
+            statement.setString(3, a.getAddress());
+            statement.setInt(4, a.getPhone());
+            statement.setString(5, a.getLogo_path());
+            statement.setInt(6, a.getDefault_tip());
+            statement.setInt(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -177,7 +181,11 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
         String logo_path = set.getString("logo_path");
         Integer default_tip = set.getInt("default_tip");
         String created_at = set.getString("created_at");
+        String address = set.getString("address");
+        Integer phone = set.getInt("phone");
         AditionalInformation information = new AditionalInformation(set.getInt("id"), nit, name, logo_path, default_tip, created_at);
+        information.setAddress(address);
+        information.setPhone(phone);
         return information;
     }
 
@@ -185,7 +193,7 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
     public AditionalInformation selectFirst() {
         PreparedStatement statement = null;
         ResultSet set = null;
-        AditionalInformation a=null;
+        AditionalInformation a = null;
         try {
             statement = this.connection.prepareStatement(GETALL);
             set = statement.executeQuery();

@@ -4,17 +4,23 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.table.JTableHeader;
 import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.HomeController;
+import pointofsale.controllers.PrintFunctions;
 import pointofsale.models.BillModel;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
@@ -27,6 +33,7 @@ import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
+import pointofsale.views.components.PrintBill;
 import pointofsale.views.modal.OrderPayView;
 
 /**
@@ -151,8 +158,49 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             HomeController.checkNotifications();
         }
         if (source == view.btnPrint) {
+            PrintBill printBill = new PrintBill(null, true);
+            printBill.txtWorker.setText("Atendido por: " + UserGlobal.getUser().getName());
+            PrintFunctions pf = new PrintFunctions();
+            String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+            printBill.txtDate.setText(timeStamp);
+            printBill.txtSubtotal.setText(realPrice+"");
+            printBill.txtTotal.setText(price +"");
+            printBill.txtAddress.setText(ConfigGlobal.getConfig().getAddress());
+            printBill.txtPhone.setText(ConfigGlobal.getConfig().getPhone()+"");
+            printBill.txtBill.setText(ConfigGlobal.getConfig().getName());
+            printBill.txtBill.setText("Factura de compra");
 
+            JTable tables = construcTable(products);
+            JTableHeader header = tables.getTableHeader();
+            
+            printBill.pnTable.add(header,BorderLayout.NORTH);
+            printBill.pnTable.add(tables,BorderLayout.CENTER);
+            printBill.pnTable.repaint();
+            printBill.pnTable.revalidate();
+
+            printBill.setVisible(true);
+            pf.print(printBill);
         }
+    }
+
+    private JTable construcTable(List<Product> products) {
+        String rowTitle[] = {"Nombre", "Cantidad", "Subvalor"};
+        String arrayData[][] = modelTable(products);
+
+        JTable inventoryTable = new JTable(arrayData, rowTitle);
+        return inventoryTable;
+    }
+
+    private String[][] modelTable(List<Product> products) {
+        String arrayData[][] = new String[products.size()][3];
+
+        for (int i = 0; i < products.size(); i++) {
+            arrayData[i][0] = products.get(i).getName() + "";
+            arrayData[i][1] = products.get(i).getPrice() + "";
+            arrayData[i][2] = products.get(i).getQuantity() + "";
+        }
+
+        return arrayData;
     }
 
     @Override

@@ -26,42 +26,86 @@ public class DashboardView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        pnSellDay = new javax.swing.JPanel();
+        pnSellMonth = new javax.swing.JPanel();
+        pnSellYear = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        pnRooms = new javax.swing.JPanel();
+        pnTables = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        pnProducts = new javax.swing.JPanel();
+        pnPeople = new javax.swing.JPanel();
+        pnUsers = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jLabel1.setText("Dashboard");
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        add(jPanel1);
 
-        jButton1.setText("Crear");
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(jLabel1)
-                .addContainerGap(263, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(255, 255, 255))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(235, Short.MAX_VALUE))
-        );
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
+
+        pnSellDay.setLayout(new javax.swing.BoxLayout(pnSellDay, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel3.add(pnSellDay);
+
+        pnSellMonth.setLayout(new javax.swing.BoxLayout(pnSellMonth, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel3.add(pnSellMonth);
+
+        pnSellYear.setLayout(new javax.swing.BoxLayout(pnSellYear, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel3.add(pnSellYear);
+
+        jPanel2.add(jPanel3);
+
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+
+        pnRooms.setLayout(new javax.swing.BoxLayout(pnRooms, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel4.add(pnRooms);
+
+        pnTables.setLayout(new javax.swing.BoxLayout(pnTables, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel4.add(pnTables);
+
+        jPanel2.add(jPanel4);
+
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
+
+        pnProducts.setLayout(new javax.swing.BoxLayout(pnProducts, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel5.add(pnProducts);
+
+        pnPeople.setLayout(new javax.swing.BoxLayout(pnPeople, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel5.add(pnPeople);
+
+        pnUsers.setLayout(new javax.swing.BoxLayout(pnUsers, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel5.add(pnUsers);
+
+        jPanel2.add(jPanel5);
+
+        jScrollPane1.setViewportView(jPanel2);
+
+        add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JPanel pnPeople;
+    public javax.swing.JPanel pnProducts;
+    public javax.swing.JPanel pnRooms;
+    public javax.swing.JPanel pnSellDay;
+    public javax.swing.JPanel pnSellMonth;
+    public javax.swing.JPanel pnSellYear;
+    public javax.swing.JPanel pnTables;
+    public javax.swing.JPanel pnUsers;
     // End of variables declaration//GEN-END:variables
 }

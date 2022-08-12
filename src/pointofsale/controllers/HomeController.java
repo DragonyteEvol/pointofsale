@@ -46,6 +46,8 @@ public class HomeController extends Controller implements ActionListener {
         HomeController.staticView = view;
 
         this.view.btnUser.setText(UserGlobal.getUser().getName());
+        
+        DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
 
         checkEvent();
         checkNotifications();

@@ -27,6 +27,7 @@ public class DefaultAccountingView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnExport = new javax.swing.JButton();
         cbTime = new javax.swing.JComboBox<>();
         pnReports = new javax.swing.JPanel();
         scrollPane = new javax.swing.JScrollPane();
@@ -35,6 +36,9 @@ public class DefaultAccountingView extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnExport.setText("X");
+        jPanel1.add(btnExport);
 
         cbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPECIFICO", "AGRUPADO", "MES", "AÑO" }));
         jPanel1.add(cbTime);
@@ -49,6 +53,7 @@ public class DefaultAccountingView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnExport;
     public javax.swing.JComboBox<String> cbTime;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel pnReports;

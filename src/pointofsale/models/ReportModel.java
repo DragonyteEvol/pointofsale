@@ -23,7 +23,8 @@ public class ReportModel extends Model{
     public String SELLMONTH = "SELECT bills_products.id as id, products.name as name,sum(bills_products.quantity) as quantity, sum(bills_products.subvalue) as subvalue, strftime(\"%Y-%m\", bills_products.created_at) as updated_at from bills_products inner join products on products.id = bills_products.product_id GROUP by updated_at,name";
     public String SELLUNIQUE = "SELECT bills_products.id as id, products.name as name,bills_products.quantity as quantity, bills_products.subvalue as subvalue,bills_products.created_at as updated_at from bills_products inner join products on products.id = bills_products.product_id";
     public String SELLPRODUCT = "SELECT bills_products.id as id, products.name as name,sum(bills_products.quantity) as quantity, sum(bills_products.subvalue) as subvalue,bills_products.created_at as updated_at from bills_products inner join products on products.id = bills_products.product_id GROUP BY products.id;";
-
+    
+   
     public List<Report> select(String sql){
         List<Report> reports = this.dao.getReportDao().select(sql);
         this.closeConnection();

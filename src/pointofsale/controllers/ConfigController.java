@@ -35,6 +35,8 @@ public class ConfigController extends Controller implements ActionListener {
             view.txtName.setText(aditionalInformation.getName());
             view.txtNit.setText(aditionalInformation.getNit() + "");
             view.txtTip.setValue(aditionalInformation.getDefault_tip());
+            view.txtAddress.setText(aditionalInformation.getAddress());
+            view.txtPhone.setText(aditionalInformation.getPhone() + "");
         }
     }
 
@@ -58,6 +60,8 @@ public class ConfigController extends Controller implements ActionListener {
             String name = view.txtName.getText();
             Integer nit = Integer.parseInt(view.txtNit.getText());
             Integer tip = Integer.parseInt(String.valueOf(view.txtTip.getValue()));
+            Integer phone = Integer.parseInt(view.txtPhone.getText());
+            String address = view.txtAddress.getText();
             if (validateRequest(name, nit, tip)) {
                 ConfigModel configModel = new ConfigModel();
                 AditionalInformation aditionalInformation = ConfigGlobal.getConfig();
@@ -68,6 +72,8 @@ public class ConfigController extends Controller implements ActionListener {
                     aditionalInformation.setDefault_tip(tip);
                     aditionalInformation.setName(name);
                     aditionalInformation.setNit(nit);
+                    aditionalInformation.setAddress(address);
+                    aditionalInformation.setPhone(phone);
                     aditionalInformation.setLogo_path("");
                     configModel.update(aditionalInformation);
                 }

@@ -4,24 +4,25 @@
  */
 package pointofsale.controllers.modal;
 
-import java.awt.Button;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
-import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.plaf.basic.BasicArrowButton;
+import javax.swing.table.JTableHeader;
 import pointofsale.controllers.Controller;
-import pointofsale.controllers.components.CardIngredientController;
-import pointofsale.controllers.components.CardProductController;
+import pointofsale.controllers.PrintFunctions;
 import pointofsale.controllers.components.CardProductWhitManagerController;
 import pointofsale.models.BillModel;
 import pointofsale.models.CategorieModel;
@@ -32,6 +33,7 @@ import pointofsale.objects.Ingredient;
 import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
+import pointofsale.views.components.PrintCommand;
 import pointofsale.views.modal.SellProductView;
 
 /**
@@ -144,8 +146,51 @@ public class SellProductsController extends Controller implements ActionListener
                     this.view.dispose();
                 }
             }
+            if (view.chPrint.isSelected()) {
+                PrintCommand printCommand = new PrintCommand(null, true);
+                if (room == null) {
+                    printCommand.txtTarget.setText("Mesa " + table.getId());
+                } else {
+                    printCommand.txtTarget.setText("Habitacion " + room.getId());
+                }
+                PrintFunctions pf = new PrintFunctions();
+                String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+                printCommand.txtDate.setText(timeStamp);
+
+                JTable tables = construcTable(listProduct);
+                JTableHeader header = tables.getTableHeader();
+
+                printCommand.pnTable.add(header, BorderLayout.NORTH);
+                printCommand.pnTable.add(tables, BorderLayout.CENTER);
+                printCommand.pnTable.repaint();
+                printCommand.pnTable.revalidate();
+                
+                printCommand.setVisible(true);
+
+                pf.print(printCommand);
+            }
         }
 
+    }
+
+    private JTable construcTable(List<Product> products) {
+        String rowTitle[] = {"Nombre", "Cantidad", "Subvalor"};
+        String arrayData[][] = modelTable(products);
+
+        JTable inventoryTable = new JTable(arrayData, rowTitle);
+        return inventoryTable;
+    }
+
+    private String[][] modelTable(List<Product> products) {
+        String arrayData[][] = new String[products.size()][3];
+
+        for (int i = 0; i < products.size(); i++) {
+            arrayData[i][0] = products.get(i).getName() + "";
+            arrayData[i][1] = products.get(i).getPrice() + "";
+            arrayData[i][2] = products.get(i).getQuantity() + "";
+        }
+
+        return arrayData;
     }
 
     @Override

@@ -13,4 +13,5 @@ import pointofsale.objects.Report;
  */
 public interface ReportDao {
     List<Report> select(String SQL);
+    Report selectReport(String SQL);
 }

@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import pointofsale.views.menu.AcountingMenu;
-
 /**
  *
  * @author dragonyte

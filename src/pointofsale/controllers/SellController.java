@@ -6,7 +6,10 @@ package pointofsale.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import pointofsale.models.ReportModel;
@@ -20,14 +23,16 @@ import pointofsale.views.accounting.DefaultAccountingView;
 public class SellController extends Controller implements ActionListener{
     private DefaultAccountingView view;
     private JTable table;
+    private List<Report> reports;
 
     public SellController(JPanel panel) {
         this.view = new DefaultAccountingView();
         ReportModel reportModel = new ReportModel();
-        List<Report> reports = reportModel.select(reportModel.SELLUNIQUE);
+        reports = reportModel.select(reportModel.SELLUNIQUE);
         construcTable(reports);
 
         view.cbTime.addActionListener(this);
+        view.btnExport.addActionListener(this);
 
         this.addView(this.view, panel);
     }
@@ -61,26 +66,36 @@ public class SellController extends Controller implements ActionListener{
         if (source == view.cbTime) {
             if (view.cbTime.getSelectedItem().equals("AÑO")) {
                 ReportModel reportModel = new ReportModel();
-                List<Report> reports = reportModel.select(reportModel.SELLYEAR);
+                reports = reportModel.select(reportModel.SELLYEAR);
                 construcTable(reports);
             }
             
             if (view.cbTime.getSelectedItem().equals("AGRUPADO")) {
                 ReportModel reportModel = new ReportModel();
-                List<Report> reports = reportModel.select(reportModel.SELLPRODUCT);
+                reports = reportModel.select(reportModel.SELLPRODUCT);
                 construcTable(reports);
             }
             
             if (view.cbTime.getSelectedItem().equals("MES")) {
                 ReportModel reportModel = new ReportModel();
-                List<Report> reports = reportModel.select(reportModel.SELLMONTH);
+                reports = reportModel.select(reportModel.SELLMONTH);
                 construcTable(reports);
             }
             
             if (view.cbTime.getSelectedItem().equals("ESPECIFICO")) {
                 ReportModel reportModel = new ReportModel();
-                List<Report> reports = reportModel.select(reportModel.SELLUNIQUE);
+                reports = reportModel.select(reportModel.SELLUNIQUE);
                 construcTable(reports);
+            }
+        }
+        
+        if(source == view.btnExport){
+            ExportController ec = new ExportController();
+            try {
+                String[] headers = new String[]{"id","nombre","ventas","cantidad","fecha"};
+                ec.createExcel(headers,reports);
+            } catch (IOException ex) {
+                Logger.getLogger(ExpenseController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

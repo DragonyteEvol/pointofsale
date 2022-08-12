@@ -36,7 +36,7 @@ public class SellProductView extends javax.swing.JDialog {
         txtPrice = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        chPrint = new javax.swing.JCheckBox();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnOrder = new javax.swing.JPanel();
@@ -80,8 +80,8 @@ public class SellProductView extends javax.swing.JDialog {
         btnSave.setText("Aceptar");
         jPanel16.add(btnSave);
 
-        jCheckBox1.setText("Imprimir");
-        jPanel16.add(jCheckBox1);
+        chPrint.setText("Imprimir");
+        jPanel16.add(chPrint);
 
         jPanel13.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
@@ -201,7 +201,7 @@ public class SellProductView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanel112;
     public javax.swing.JButton btnSave;
-    private javax.swing.JCheckBox jCheckBox1;
+    public javax.swing.JCheckBox chPrint;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;

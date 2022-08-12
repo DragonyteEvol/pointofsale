@@ -22,7 +22,6 @@ public class ReportDaoImpl extends SqlConstructor implements ReportDao {
 
     private Connection connection;
 
-    
     public ReportDaoImpl(Connection connection) {
         this.connection = connection;
     }
@@ -51,7 +50,32 @@ public class ReportDaoImpl extends SqlConstructor implements ReportDao {
         }
         return a;
     }
-    
+
+    @Override
+    public Report selectReport(String SQL) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        Report a = null;
+        try {
+            statement = this.connection.prepareStatement(SQL);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a = (convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+    }
+
     // convert ResultSet to objects
     public Report convert(ResultSet set) throws SQLException {
         Integer id = set.getInt("id");

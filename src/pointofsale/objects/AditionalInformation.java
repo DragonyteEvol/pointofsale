@@ -12,6 +12,8 @@ public class AditionalInformation {
 	private Integer id;    
 	private Integer nit;
 	private String name;
+        private String address ="";
+        private Integer phone =null;
 	private String logo_path;
 	private Integer default_tip;
 	private String created_at;
@@ -29,6 +31,23 @@ public class AditionalInformation {
         return id;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    
     public void setId(Integer id) {
         this.id = id;
     }
