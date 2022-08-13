@@ -4,6 +4,7 @@
  */
 package pointofsale.models;
 
+import java.util.List;
 import pointofsale.objects.User;
 
 /**
@@ -20,6 +21,22 @@ public class UserModel extends Model{
 	User user = this.dao.getUserDao().selectByMail(mail);
         this.closeConnection();
         return user;
+    }
+    
+    public void delete(User user){
+        this.dao.getUserDao().delete(user);
+        this.saveChanges();
+    }
+    
+    public void update(User user){
+        this.dao.getUserDao().modify(user);
+        this.saveChanges();
+    }
+    
+    public List<User> selectAll(){
+        List<User> users = this.dao.getUserDao().selectAll();
+        this.closeConnection();
+        return users;
     }
 
 }

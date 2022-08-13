@@ -7,11 +7,13 @@ package pointofsale.models;
 import java.util.ArrayList;
 import java.util.List;
 import pointofsale.UserGlobal;
+import pointofsale.objects.Atm;
 import pointofsale.objects.BillRestock;
 import pointofsale.objects.BillRestockIngredient;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Inventory;
 import pointofsale.objects.MissingStock;
+import pointofsale.objects.MoneyBox;
 import pointofsale.objects.MovementInventory;
 
 /**
@@ -77,6 +79,27 @@ public class InventoryModel extends Model {
     
     public void updateNotification(MissingStock missingStock){
         this.dao.getMissingStockDao().modify(missingStock);
+        this.saveChanges();
+    }
+    
+    public Atm selectAtm(){
+        List<Atm> atms = this.dao.getAtmDao().selectAll();
+        Atm box=null;
+        for(Atm atm : atms){
+            box = atm;
+        }
+        this.closeConnection();
+        return box;
+    }
+    
+    public List<MoneyBox> selectMovementBox(){
+        List<MoneyBox> moneyBoxs = this.dao.getMoneyBoxDao().selectAll();
+        this.closeConnection();
+        return moneyBoxs;
+    }
+    
+    public void updateAtm(Atm atm){
+        this.dao.getAtmDao().modify(atm);
         this.saveChanges();
     }
 }

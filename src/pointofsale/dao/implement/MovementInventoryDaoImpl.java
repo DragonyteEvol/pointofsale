@@ -30,7 +30,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String DELETEWHERE = "delete from " + TABLE + " where ";
-    final String GETALL = "select * from " + TABLE;
+    final String GETALL = "select id,entry,out,required,user_id,strftime(\"%Y-%m-%d\",created_at) as created_at from "+TABLE+" ORDER by created_at DESC Limit 200;";
     final String GETONE = "select * from " + TABLE + " where id=?";
 
     private Connection connection;
