@@ -10,10 +10,11 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import javax.swing.JScrollPane;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
@@ -21,10 +22,12 @@ import pointofsale.MissingGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.PrintFunctions;
+import pointofsale.models.AnnulmentModel;
 import pointofsale.models.BillModel;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
 import pointofsale.objects.AditionalInformation;
+import pointofsale.objects.Annulment;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;
@@ -34,6 +37,7 @@ import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
 import pointofsale.views.components.PrintBill;
+import pointofsale.views.modal.ConfirmAnnulmentView;
 import pointofsale.views.modal.OrderPayView;
 
 /**
@@ -43,6 +47,7 @@ import pointofsale.views.modal.OrderPayView;
 public final class OrderPayController implements ActionListener, ChangeListener {
 
     private OrderPayView view;
+    private ConfirmAnnulmentView annulmentView;
     private Room room = null;
     private Table table = null;
     private Integer realPrice;
@@ -54,6 +59,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
     private BillRoomTmp billRoomTmp;
     private boolean allocate = false;
     private Event event = null;
+    private JTable tableProducts;
 
     public OrderPayController(Table table) {
         this.table = table;
@@ -86,6 +92,9 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
     public void initView() {
         this.view = new OrderPayView(null, true);
+        this.annulmentView = new ConfirmAnnulmentView(null, true);
+
+        annulmentView.setResizable(false);
         view.setResizable(false);
 
         SetResourceThread setResourceThread = new SetResourceThread();
@@ -101,8 +110,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
             String rowTitle[] = {"Habitacion no", "Descripcion", "Precio", "Capacidad"};
 
-            JTable table = new JTable(arrayData, rowTitle);
-            view.pnScroll.setViewportView(table);
+            tableProducts = new JTable(arrayData, rowTitle);
+            view.pnScroll.setViewportView(tableProducts);
         }
 
         if (event != null) {
@@ -116,8 +125,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
             String rowTitle[] = {"Event no", "Descripcion", "Fecha de inicio"};
 
-            JTable table = new JTable(arrayData, rowTitle);
-            view.pnScroll.setViewportView(table);
+            tableProducts = new JTable(arrayData, rowTitle);
+            view.pnScroll.setViewportView(tableProducts);
         }
 
         view.btnPay.addActionListener(this);
@@ -126,6 +135,9 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         view.txtDiscountPrice.addChangeListener(this);
         view.txtTipPercent.addChangeListener(this);
         view.txtTipPrice.addChangeListener(this);
+        view.btnDelete.addActionListener(this);
+        annulmentView.btnSave.addActionListener(this);
+        annulmentView.btnCancel.addActionListener(this);
 
         view.setVisible(true);
     }
@@ -163,31 +175,69 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             PrintFunctions pf = new PrintFunctions();
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             printBill.txtDate.setText(timeStamp);
-            printBill.txtSubtotal.setText(realPrice+"");
-            printBill.txtTotal.setText(price +"");
+            printBill.txtSubtotal.setText(realPrice + "");
+            printBill.txtTotal.setText(price + "");
             printBill.txtAddress.setText(ConfigGlobal.getConfig().getAddress());
-            printBill.txtPhone.setText(ConfigGlobal.getConfig().getPhone()+"");
+            printBill.txtPhone.setText(ConfigGlobal.getConfig().getPhone() + "");
             printBill.txtBill.setText(ConfigGlobal.getConfig().getName());
             printBill.txtBill.setText("Factura de compra");
 
             JTable tables = construcTable(products);
             JTableHeader header = tables.getTableHeader();
-            
-            printBill.pnTable.add(header,BorderLayout.NORTH);
-            printBill.pnTable.add(tables,BorderLayout.CENTER);
+
+            printBill.pnTable.add(header, BorderLayout.NORTH);
+            printBill.pnTable.add(tables, BorderLayout.CENTER);
             printBill.pnTable.repaint();
             printBill.pnTable.revalidate();
 
             printBill.setVisible(true);
             pf.print(printBill);
         }
+
+        if (source == view.btnDelete) {
+            if (tableProducts.getSelectedRow() == -1) {
+                JOptionPane jOptionPane = new JOptionPane("Elige un producto a eliminar");
+                jOptionPane.setVisible(true);
+            } else {
+                annulmentView.setVisible(true);
+
+            }
+        }
+
+        if (source == annulmentView.btnSave) {
+            deleteProduct();
+        }
+    }
+
+    private void deleteProduct() {
+        Integer rowSelected = tableProducts.getSelectedRow();
+        if (rowSelected != -1) {
+            Product productSelected = products.get(rowSelected);
+            String reason = annulmentView.txtReason.getText();
+            Annulment annulment = new Annulment(null, reason, UserGlobal.getUser().getId(), null);
+            annulment.setProduct_id(productSelected.getId());
+            annulment.setQuantity(productSelected.getQuantity());
+
+            AnnulmentModel am = new AnnulmentModel();
+            am.insert(annulment);
+            products.remove(productSelected);
+
+            DefaultTableModel m = (DefaultTableModel) tableProducts.getModel();
+
+            m.removeRow(rowSelected);
+            annulmentView.dispose();
+            realPrice = realPrice - productSelected.getPrice();
+            updatePrice();
+        }
+
     }
 
     private JTable construcTable(List<Product> products) {
         String rowTitle[] = {"Nombre", "Cantidad", "Subvalor"};
         String arrayData[][] = modelTable(products);
+        DefaultTableModel defaultTableModel = new DefaultTableModel(arrayData, rowTitle);
 
-        JTable inventoryTable = new JTable(arrayData, rowTitle);
+        JTable inventoryTable = new JTable(defaultTableModel);
         return inventoryTable;
     }
 
@@ -205,6 +255,10 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
     @Override
     public void stateChanged(ChangeEvent ce) {
+        updatePrice();
+    }
+
+    private void updatePrice() {
         Integer discountPrice = Integer.parseInt(String.valueOf(view.txtDiscountPrice.getValue()));
         Integer discountPercent = Integer.parseInt(String.valueOf(view.txtDiscountPercent.getValue()));
         Integer tipPrice = Integer.parseInt(String.valueOf(view.txtTipPrice.getValue()));
@@ -270,8 +324,10 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             String rowTitle[] = {"Id", "Nombre", "Precio", "Cantidad", "Fecha"};
             String arrayData[][] = modelTable(products);
 
-            JTable table = new JTable(arrayData, rowTitle);
-            view.pnScroll.setViewportView(table);
+            DefaultTableModel defaultTableModel = new DefaultTableModel(arrayData, rowTitle);
+
+            tableProducts = new JTable(defaultTableModel);
+            view.pnScroll.setViewportView(tableProducts);
 
         }
 

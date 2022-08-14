@@ -29,7 +29,10 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel27 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -76,9 +79,22 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel27.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel1.setText("Informacion de la factura");
-        jPanel2.add(jLabel1);
+        jPanel27.add(jLabel1);
+
+        jPanel2.add(jPanel27);
+
+        jPanel28.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnDelete.setText("D");
+        jPanel28.add(btnDelete);
+
+        jPanel2.add(jPanel28);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
@@ -211,7 +227,7 @@ public class OrderPayView extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,6 +283,7 @@ public class OrderPayView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnPay;
     public javax.swing.JButton btnPrint;
     public javax.swing.JComboBox<Object> cbPaymentMethod;
@@ -298,6 +315,8 @@ public class OrderPayView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
