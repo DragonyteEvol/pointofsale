@@ -41,6 +41,7 @@ public class NewProductView extends javax.swing.JDialog {
         btnNext = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
+        chPolimorphism = new javax.swing.JCheckBox();
 
         jTextField2.setText("jTextField2");
 
@@ -75,6 +76,8 @@ public class NewProductView extends javax.swing.JDialog {
 
         btnDelete.setText("Eliminar");
 
+        chPolimorphism.setText("Polimorfismo");
+
         javax.swing.GroupLayout pnDinamicLayout = new javax.swing.GroupLayout(pnDinamic);
         pnDinamic.setLayout(pnDinamicLayout);
         pnDinamicLayout.setHorizontalGroup(
@@ -83,22 +86,27 @@ public class NewProductView extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnDinamicLayout.createSequentialGroup()
-                        .addComponent(btnDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNext))
-                    .addComponent(cbCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPrice)
-                    .addComponent(txtTime)
-                    .addComponent(txtName)
-                    .addGroup(pnDinamicLayout.createSequentialGroup()
                         .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(txtTitle))
-                        .addGap(0, 197, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                            .addComponent(cbCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPrice)
+                            .addComponent(txtTime)
+                            .addComponent(txtName)
+                            .addGroup(pnDinamicLayout.createSequentialGroup()
+                                .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(txtTitle))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnDinamicLayout.createSequentialGroup()
+                                .addComponent(btnDelete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                                .addComponent(btnNext)))
+                        .addGap(18, 18, 18))
+                    .addGroup(pnDinamicLayout.createSequentialGroup()
+                        .addComponent(chPolimorphism)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnDinamicLayout.setVerticalGroup(
@@ -122,11 +130,13 @@ public class NewProductView extends javax.swing.JDialog {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addComponent(chPolimorphism)
+                .addGap(26, 26, 26)
                 .addGroup(pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNext)
-                    .addComponent(btnDelete))
-                .addContainerGap(109, Short.MAX_VALUE))
+                    .addComponent(btnDelete)
+                    .addComponent(btnNext))
+                .addContainerGap(75, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -190,6 +200,7 @@ public class NewProductView extends javax.swing.JDialog {
     public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnNext;
     public javax.swing.JComboBox<Object> cbCategorie;
+    public javax.swing.JCheckBox chPolimorphism;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
