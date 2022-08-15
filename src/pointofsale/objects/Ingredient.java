@@ -19,6 +19,7 @@ public class Ingredient {
         private Integer minimum;
 	private String route_image;
 	private String created_at;
+        private boolean amenitie;
 
     public Ingredient(Integer id, String name, Integer price, Integer unit_id, Integer categorie_id,Integer quantity,Integer minimum ,String route_image, String created_at) {
         this.id = id;
@@ -50,6 +51,14 @@ public class Ingredient {
         return id;
     }
 
+    public boolean isAmenitie() {
+        return amenitie;
+    }
+
+    public void setAmenitie(boolean amenitie) {
+        this.amenitie = amenitie;
+    }
+    
     public void setId(Integer id) {
         this.id = id;
     }

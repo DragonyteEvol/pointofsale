@@ -24,4 +24,6 @@ public interface IngredientDao extends Dao<Ingredient, Long> {
     List<Ingredient> search(String search);
 
     List<Ingredient> selectMissing();
+
+    List<Ingredient> selectAmenities();
 }

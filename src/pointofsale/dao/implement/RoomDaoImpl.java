@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +32,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
-    final String GETONEWHITCATEGORIE = "select "+ TABLE +".*,categories.name as categorie from rooms INNER join categories on categories.id = rooms.categorie_id where rooms.id=?";
+    final String GETONEWHITCATEGORIE = "select " + TABLE + ".*,categories.name as categorie from rooms INNER join categories on categories.id = rooms.categorie_id where rooms.id=?";
 
     private Connection connection;
 
@@ -47,7 +48,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getRoute_image());
             statement.setInt(2, a.getCapacity());
             statement.setString(3, a.getDescription());
@@ -56,8 +57,9 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
             statement.setInt(6, a.getCategorie_id());
 
             rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -174,7 +176,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
         }
         return a;
     }
-    
+
     @Override
     public Room selectByIdWhitCategorie(Long id) {
         PreparedStatement statement = null;

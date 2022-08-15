@@ -45,8 +45,15 @@ public class NewIngredientController extends ModalController implements ActionLi
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            InsertThread insertThread = new InsertThread(this.view);
-            insertThread.start();
+            if (view.chAmenitie.isSelected()) {
+                InsertAmenitie insertAmenitie = new InsertAmenitie();
+                insertAmenitie.start();
+                view.dispose();
+            } else {
+                InsertThread insertThread = new InsertThread(this.view);
+                insertThread.start();
+                view.dispose();
+            }
         }
     }
 
@@ -75,9 +82,9 @@ public class NewIngredientController extends ModalController implements ActionLi
                 this.cbCategorie.addItem(categorie);
             }
         }
-        
-        private void setIngredients(){
-        
+
+        private void setIngredients() {
+
         }
 
         @Override
@@ -107,13 +114,13 @@ public class NewIngredientController extends ModalController implements ActionLi
         private Ingredient createIngredient() {
             String name = this.view.txtName.getText();
             Integer price = (Integer) this.view.txtPrice.getValue();
-            Unit unit =(Unit) this.view.cbUnit.getSelectedItem();
+            Unit unit = (Unit) this.view.cbUnit.getSelectedItem();
             Integer unit_id = unit.getId();
             Integer quantity = (Integer) this.view.txtStock.getValue();
             Integer minimum = (Integer) this.view.txtMinimum.getValue();
-            Categorie categorie =(Categorie) this.view.cbCategorie.getSelectedItem();
+            Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
             Integer categorie_id = categorie.getId();
-            
+
             //CREATE INGREDIENT
             Ingredient ingredient = new Ingredient();
             ingredient.setName(name);
@@ -123,23 +130,72 @@ public class NewIngredientController extends ModalController implements ActionLi
             ingredient.setMinimum(minimum);
             ingredient.setCategorie_id(categorie_id);
             ingredient.setRoute_image("");
+            ingredient.setAmenitie(false);
             return ingredient;
         }
-        
-       
 
         private void insertIngredient() {
             IngredientModel model = new IngredientModel();
             if (validateRequest()) {
                 Ingredient ingredient = createIngredient();
-                model.insert(ingredient,true);
+                model.insert(ingredient, true);
             }
         }
 
         @Override
         public void run() {
             this.insertIngredient();
-            this.view.dispose();
+        }
+    }
+    
+    class InsertAmenitie extends Thread{
+        
+        private Ingredient createIngredient() {
+            String name = view.txtName.getText();
+            Integer price = (Integer) view.txtPrice.getValue();
+            Unit unit = (Unit) view.cbUnit.getSelectedItem();
+            Integer unit_id = unit.getId();
+            Integer quantity = (Integer) view.txtStock.getValue();
+            Integer minimum = (Integer) view.txtMinimum.getValue();
+            Categorie categorie = (Categorie) view.cbCategorie.getSelectedItem();
+            Integer categorie_id = categorie.getId();
+
+            //CREATE INGREDIENT
+            Ingredient ingredient = new Ingredient();
+            ingredient.setName(name);
+            ingredient.setPrice(price);
+            ingredient.setUnit_id(unit_id);
+            ingredient.setQuantity(quantity);
+            ingredient.setMinimum(minimum);
+            ingredient.setCategorie_id(categorie_id);
+            ingredient.setAmenitie(true);
+            ingredient.setRoute_image("");
+            if(view.chAmenitie.isSelected()){
+                ingredient.setAmenitie(true);
+            }
+            return ingredient;
+        }
+        
+         private boolean validateRequest() {
+            String name = view.txtName.getText();
+            if (name.isBlank() || name.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+         private void insertIngredient() {
+            IngredientModel model = new IngredientModel();
+            if (validateRequest()) {
+                Ingredient ingredient = createIngredient();
+                model.insert(ingredient, true);
+            }
+        }
+        
+        @Override
+        public void run(){
+            this.insertIngredient();
         }
     }
 }

@@ -19,7 +19,8 @@ import pointofsale.views.modal.NewRoomView;
  *
  * @author dragonyte
  */
-public class NewRoomController extends ModalController implements ActionListener{
+public class NewRoomController extends ModalController implements ActionListener {
+
     private NewRoomView view;
 
     public NewRoomController() {
@@ -27,19 +28,29 @@ public class NewRoomController extends ModalController implements ActionListener
         this.view.setResizable(false);
 
         this.view.btnSave.addActionListener(this);
-        
+
         SetResource setResource = new SetResource(this.view.cbCategorie);
         setResource.start();
 
         this.view.setVisible(true);
     }
 
-    public boolean validRequest(Integer capacity,Integer price) {
-        if (capacity <= 0 || price <=0) {
+    public boolean validRequest(Integer capacity, Integer price) {
+        if (capacity <= 0 || price <= 0) {
             return false;
         } else {
             return true;
         }
+    }
+
+    public Room createRoom(Integer price, Integer capacity, String description, Categorie categorie) {
+        Room room_n = new Room();
+        room_n.setCapacity(capacity);
+        room_n.setRoute_image("");
+        room_n.setDescription(description);
+        room_n.setPrice(price);
+        room_n.setCategorie_id(categorie.getId());
+        return room_n;
     }
 
     @Override
@@ -47,52 +58,49 @@ public class NewRoomController extends ModalController implements ActionListener
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             Integer price = (Integer) this.view.txtPrice.getValue();
-            Integer capacity =(Integer) this.view.txtCapacity.getValue();
-            if(validRequest(capacity, price)){
+            Integer capacity = (Integer) this.view.txtCapacity.getValue();
+            if (validRequest(capacity, price)) {
                 String description = this.view.txtDescription.getText();
-                Categorie categorie =(Categorie) this.view.cbCategorie.getSelectedItem();
-                InsertThread insertThread = new InsertThread(price, capacity,description, categorie);
+                Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
+                InsertThread insertThread = new InsertThread(createRoom(price, capacity, description, categorie));
                 insertThread.start();
                 this.view.dispose();
             }
         }
     }
-    
-    class SetResource extends Thread{
-        
+
+    class SetResource extends Thread {
+
         private JComboBox<Object> cbCategorie;
 
         public SetResource(JComboBox<Object> cbCategorie) {
             this.cbCategorie = cbCategorie;
         }
-        
-        private void setResource(){
+
+        private void setResource() {
             CategorieModel categorieModel = new CategorieModel();
             List<Categorie> categories = categorieModel.selectCategoriesRooms();
-            for(Categorie categorie: categories){
+            for (Categorie categorie : categories) {
                 this.cbCategorie.addItem(categorie);
             }
         }
-        
+
         @Override
-        public void run(){
+        public void run() {
             setResource();
         }
     }
 
+    
     class InsertThread extends Thread {
-
+        
         private Room room;
 
-        public InsertThread(Integer price, Integer capacity,String description,Categorie categorie) {
-            Room room_n = new Room();
-            room_n.setCapacity(capacity);
-            room_n.setRoute_image("");
-            room_n.setDescription(description);
-            room_n.setPrice(price);
-            room_n.setCategorie_id(categorie.getId());
-            this.room = room_n;
+        public InsertThread(Room room) {
+            this.room = room;
         }
+        
+        
 
         private void insertRoom() {
             RoomModel roomModel = new RoomModel();
@@ -104,5 +112,5 @@ public class NewRoomController extends ModalController implements ActionListener
             insertRoom();
         }
     }
-
+    
 }

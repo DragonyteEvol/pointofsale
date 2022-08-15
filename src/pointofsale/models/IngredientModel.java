@@ -27,6 +27,12 @@ public class IngredientModel extends Model {
         this.closeConnection();
         return ingredients;
     }
+    
+    public List<Ingredient> selectAmenities(){
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectAmenities();
+        this.closeConnection();
+        return ingredients;
+    }
 
     public void update(Ingredient ingredient) {
         this.dao.getIngredientDao().modify(ingredient);

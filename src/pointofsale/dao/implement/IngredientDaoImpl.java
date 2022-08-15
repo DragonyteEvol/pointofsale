@@ -24,7 +24,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
 
     // table config
     final String TABLE = "ingredients";
-    final List<String> COLUMS = Arrays.asList("name", "price", "unit_id", "categorie_id", "route_image");
+    final List<String> COLUMS = Arrays.asList("name", "price", "unit_id", "categorie_id", "route_image","amenitie");
 
     // queries
     String INSERT;
@@ -38,6 +38,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     final String GETUNITQUANTITY = "SELECT ingredients.*,inventory.quantity,units.name as unit from ingredients INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id";
     final String SEARCH = "SELECT ingredients.*,inventory.quantity,units.name as unit from " + TABLE + " INNER join inventory on ingredients.id=inventory.ingredient_id INNER join units On units.id = ingredients.unit_id where ingredients.name like ";
     final String GETMISSING = "select inventory.created_at as created_at,inventory.quantity,inventory.minimum,ingredients.*,units.name as unit from inventory INNER join ingredients on ingredients.id = inventory.ingredient_id INNER join units on units.id = ingredients.unit_id where quantity <= minimum and ingredient_id not in(SELECT ingredient_id from missing_stock)";
+    final String GETAMENITIES = "select ingredients.*,categories.name as categorie, units.name as unit from "+ TABLE +" inner join units on units.id=ingredients.unit_id INNER join categories on categories.id = ingredients.categorie_id where amenitie=1";
     private Connection connection;
 
     public IngredientDaoImpl(Connection connection) {
@@ -58,6 +59,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
             statement.setInt(3, a.getUnit_id());
             statement.setInt(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
+            statement.setBoolean(6, a.isAmenitie());
             statement.executeUpdate();
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
@@ -107,7 +109,8 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
             statement.setInt(3, a.getUnit_id());
             statement.setInt(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
-            statement.setInt(6, a.getId());
+            statement.setBoolean(6, a.isAmenitie());
+            statement.setInt(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -197,6 +200,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         Integer categorie_id = set.getInt("categorie_id");
         String route_image = set.getString("route_image");
         String created_at = set.getString("created_at");
+        boolean amenitie = set.getBoolean("amenitie");
         Ingredient ingredient = new Ingredient(set.getInt("id"), name, price, unit_id, categorie_id, route_image, created_at);
         return ingredient;
     }
@@ -357,6 +361,31 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         }
         return a;
 
+    }
+
+    @Override
+    public List<Ingredient> selectAmenities() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<Ingredient> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETAMENITIES);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

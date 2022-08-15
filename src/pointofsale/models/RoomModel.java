@@ -9,7 +9,10 @@ import pointofsale.EventGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.objects.Atm;
 import pointofsale.objects.Bill;
+import pointofsale.objects.Ingredient;
+import pointofsale.objects.Inventory;
 import pointofsale.objects.MoneyBox;
+import pointofsale.objects.MovementInventory;
 import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Room;
 
@@ -49,6 +52,7 @@ public class RoomModel extends Model {
 
     public void insert(Room room) {
         this.dao.getRoomDao().insert(room);
+        
         this.saveChanges();
     }
 
@@ -78,6 +82,17 @@ public class RoomModel extends Model {
         bill.setTotal_real(realTotal);
 
         this.dao.getBillDao().insert(bill);
+        
+        List<Ingredient> ingredients = this.dao.getIngredientDao().selectAmenities();
+        for(Ingredient ingredient : ingredients){
+            System.out.print(ingredient.getName());
+            MovementInventory movementInventory = new MovementInventory(null, ingredient.getId() ,room.getCapacity(), false, true, null);
+            this.dao.getMovementInventoryDao().insert(movementInventory);
+            
+            Inventory inventory= this.dao.getInventoryDao().selectWhereIngredient("ingredient_id="+ ingredient.getId());
+            inventory.setQuantity(inventory.getQuantity()- room.getCapacity());
+            this.dao.getInventoryDao().modify(inventory);
+        }
 
         setAllocatted(room);
         saveChanges();
