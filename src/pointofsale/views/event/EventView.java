@@ -4,6 +4,8 @@
  */
 package pointofsale.views.event;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -32,10 +34,14 @@ public class EventView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         pnEvents = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnCreate.setBackground(new java.awt.Color(102, 153, 255));
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
         jPanel1.add(btnCreate);
 
@@ -43,6 +49,7 @@ public class EventView extends javax.swing.JPanel {
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
+        pnEvents.setPreferredSize(new Dimension(400,pnEvents.getMaximumSize().height));
         jScrollPane1.setViewportView(pnEvents);
 
         jPanel2.add(jScrollPane1);

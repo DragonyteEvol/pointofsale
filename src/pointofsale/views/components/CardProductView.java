@@ -32,6 +32,7 @@ public class CardProductView extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         txtName = new javax.swing.JLabel();
@@ -45,29 +46,26 @@ public class CardProductView extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(51, 102, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
+        btnEdit.setToolTipText("");
         jPanel2.add(btnEdit);
 
-        btnDelete.setText("D");
+        btnDelete.setBackground(new java.awt.Color(51, 102, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
         jPanel2.add(btnDelete);
 
         jPanel1.add(jPanel2);
 
-        jPanel7.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/bowl-rice-solid-24.png"))); // NOI18N
+        jPanel8.add(jLabel1);
 
         jPanel7.add(jPanel8);
 
@@ -77,7 +75,7 @@ public class CardProductView extends javax.swing.JPanel {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel4.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         txtName.setText("Name");
@@ -85,14 +83,14 @@ public class CardProductView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel4);
 
-        jPanel5.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         txtPrice.setText("10,000");
         jPanel5.add(txtPrice);
 
         jPanel3.add(jPanel5);
 
-        jPanel6.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         txtCategorie.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         txtCategorie.setText("Categorie");
@@ -107,6 +105,7 @@ public class CardProductView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnEdit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

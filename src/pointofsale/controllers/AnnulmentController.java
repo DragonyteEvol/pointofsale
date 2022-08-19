@@ -32,7 +32,7 @@ public class AnnulmentController extends Controller implements ActionListener {
         SetAnnulments setAnnulments = new SetAnnulments();
         setAnnulments.start();
 
-        this.addView(this.view, panel);
+        panel.add(view);
     }
 
     @Override

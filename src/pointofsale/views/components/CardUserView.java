@@ -37,39 +37,40 @@ public class CardUserView extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         txtMail = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
-        pnnnnnn.setBackground(new java.awt.Color(204, 204, 204));
-
+        txtAdmin.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        txtAdmin.setForeground(new java.awt.Color(153, 153, 153));
         txtAdmin.setText("Admin");
         pnnnnnn.add(txtAdmin);
 
         jPanel1.add(pnnnnnn);
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
-
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(51, 102, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel5.add(btnEdit);
 
-        btnDelete.setText("D");
+        btnDelete.setBackground(new java.awt.Color(51, 102, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
         jPanel5.add(btnDelete);
 
         jPanel1.add(jPanel5);
 
         add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
         jPanel2.add(txtName);
 
         add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
-
+        txtMail.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        txtMail.setForeground(new java.awt.Color(153, 153, 153));
         txtMail.setText("Email");
         jPanel3.add(txtMail);
 

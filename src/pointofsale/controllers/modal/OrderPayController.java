@@ -19,6 +19,7 @@ import javax.swing.table.JTableHeader;
 import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;
+import pointofsale.MoneyConverter;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.PrintFunctions;
@@ -32,6 +33,7 @@ import pointofsale.objects.Bill;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;
 import pointofsale.objects.Event;
+import pointofsale.objects.MoneyBox;
 import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Product;
 import pointofsale.objects.Room;
@@ -100,12 +102,12 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         SetResourceThread setResourceThread = new SetResourceThread();
         setResourceThread.start();
         if (allocate) {
-            view.txtPrice.setText(String.valueOf(realPrice));
+            view.txtPrice.setText(MoneyConverter.convertDouble(realPrice));
 
             String arrayData[][] = new String[1][5];
             arrayData[0][0] = room.getId() + "";
             arrayData[0][1] = room.getDescription() + "";
-            arrayData[0][2] = realPrice + "";
+            arrayData[0][2] = MoneyConverter.convertDouble(realPrice) + "";
             arrayData[0][3] = room.getCapacity() + "";
 
             String rowTitle[] = {"Habitacion no", "Descripcion", "Precio", "Capacidad"};
@@ -115,7 +117,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         }
 
         if (event != null) {
-            view.txtPrice.setText(String.valueOf(realPrice));
+            view.txtPrice.setText(MoneyConverter.convertDouble(realPrice));
 
             String arrayData[][] = new String[1][5];
             arrayData[0][0] = event.getId() + "";
@@ -246,7 +248,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
         for (int i = 0; i < products.size(); i++) {
             arrayData[i][0] = products.get(i).getName() + "";
-            arrayData[i][1] = products.get(i).getPrice() + "";
+            arrayData[i][1] = MoneyConverter.convertDouble(products.get(i).getPrice()) + "";
             arrayData[i][2] = products.get(i).getQuantity() + "";
         }
 
@@ -271,9 +273,9 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         price -= discount;
 
         if (price < 0) {
-            view.txtPrice.setText("0");
+            view.txtPrice.setText("$0");
         } else {
-            view.txtPrice.setText(String.valueOf(price));
+            view.txtPrice.setText(MoneyConverter.convertDouble(price));
         }
 
     }
@@ -293,16 +295,16 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             BillModel billModel = new BillModel();
             if (room == null && event == null) {
                 billTableTmp = billModel.checkBillTableTmp(table.getId());
-                view.txtPrice.setText(String.valueOf(billTableTmp.getTotal()));
+                view.txtPrice.setText(MoneyConverter.convertDouble(billTableTmp.getTotal()));
                 realPrice = billTableTmp.getTotal();
                 price = billTableTmp.getTotal();
             } else if (table == null && event == null) {
                 billRoomTmp = billModel.checkBillRoomTmp(room.getId());
-                view.txtPrice.setText(String.valueOf(billRoomTmp.getTotal()));
+                view.txtPrice.setText(MoneyConverter.convertDouble(billRoomTmp.getTotal()));
                 realPrice = billRoomTmp.getTotal();
                 price = billRoomTmp.getTotal();
             } else {
-                view.txtPrice.setText(String.valueOf(event.getPrice()));
+                view.txtPrice.setText(MoneyConverter.convertDouble(event.getPrice()));
                 realPrice = event.getPrice();
                 price = event.getPrice();
             }
@@ -337,7 +339,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             for (int i = 0; i < reports.size(); i++) {
                 arrayData[i][0] = reports.get(i).getId() + "";
                 arrayData[i][1] = reports.get(i).getName() + "";
-                arrayData[i][2] = reports.get(i).getPrice() + "";
+                arrayData[i][2] = MoneyConverter.convertDouble(reports.get(i).getPrice()) + "";
                 arrayData[i][3] = reports.get(i).getQuantity() + "";
                 arrayData[i][4] = reports.get(i).getCreated_at() + "";
             }

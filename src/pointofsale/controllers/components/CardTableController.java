@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import pointofsale.MoneyConverter;
 import pointofsale.controllers.Controller;
 import pointofsale.controllers.modal.EditTableController;
 import pointofsale.controllers.modal.OrderPayController;
@@ -54,7 +55,7 @@ public class CardTableController extends Controller implements ActionListener {
             this.view.btnSell.setText("Vender");
             this.view.btnPay.setVisible(false);
         }else{
-            this.view.btnSell.setText(String.valueOf(billTableTmp.getTotal()));
+            this.view.btnSell.setText(MoneyConverter.convertDouble(billTableTmp.getTotal()));
             this.view.btnPay.setVisible(true);
         }
     }

@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import pointofsale.MoneyConverter;
 import pointofsale.models.RoomModel;
 import pointofsale.views.modal.ReceipMoneyView;
 
@@ -28,7 +29,7 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
 
     private void setResource() {
         this.view = new ReceipMoneyView(null, true);
-        view.txtTotal.setText(String.valueOf(total));
+        view.txtTotal.setText(MoneyConverter.convertDouble(total));
         initEvents();
 
         view.setResizable(false);
@@ -110,7 +111,7 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
             if (total >= pay) {
                 this.view.txtExchange.setText("0");
             } else {
-                this.view.txtExchange.setText(String.valueOf(pay - total));
+                this.view.txtExchange.setText(MoneyConverter.convertDouble(pay - total));
             }
         }
     }

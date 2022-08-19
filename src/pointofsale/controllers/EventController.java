@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -31,7 +32,9 @@ public class EventController extends Controller implements ActionListener {
 
         view.btnCreate.addActionListener(this);
 
-        this.addViewFirstPlane(this.view, panel);
+        panel.add(view,BorderLayout.CENTER);
+        panel.repaint();
+        panel.revalidate();
     }
 
     @Override

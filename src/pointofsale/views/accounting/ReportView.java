@@ -35,31 +35,43 @@ public class ReportView extends javax.swing.JPanel {
         btnEdit = new javax.swing.JButton();
         pnTable = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
+        pnGraph.setBackground(new java.awt.Color(255, 255, 255));
         pnGraph.setLayout(new javax.swing.BoxLayout(pnGraph, javax.swing.BoxLayout.LINE_AXIS));
         jPanel1.add(pnGraph);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
 
         txtTotal.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        txtTotal.setForeground(new java.awt.Color(102, 102, 102));
         txtTotal.setText("Total");
         jPanel5.add(txtTotal);
 
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("Dinero en caja");
         jPanel5.add(jLabel1);
 
         jPanel4.add(jPanel5);
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(102, 153, 255));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel4.add(btnEdit);
 
         jPanel1.add(jPanel4);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
+        pnTable.setBackground(new java.awt.Color(255, 255, 255));
         pnTable.setLayout(new javax.swing.BoxLayout(pnTable, javax.swing.BoxLayout.LINE_AXIS));
         add(pnTable, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

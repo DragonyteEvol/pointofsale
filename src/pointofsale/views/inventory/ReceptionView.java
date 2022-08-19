@@ -33,16 +33,16 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnInfo = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnBase = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(153, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
@@ -57,29 +57,19 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel2.setText("Informacion de recepcion");
         jPanel6.add(jLabel2);
-
-        txtPrice.setText("0");
         jPanel6.add(txtPrice);
 
         jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
-        jPanel5.setBackground(new java.awt.Color(255, 153, 153));
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
-
-        btnSave.setText("Aceptar");
-        jPanel5.add(btnSave);
-
-        jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_END);
-
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        pnInfo.setBackground(new java.awt.Color(255, 153, 153));
+        pnInfo.setBackground(new java.awt.Color(255, 255, 255));
         pnInfo.setLayout(new javax.swing.BoxLayout(pnInfo, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(pnInfo);
 
@@ -87,12 +77,22 @@ public class ReceptionView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel7, java.awt.BorderLayout.CENTER);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnSave.setBackground(new java.awt.Color(102, 153, 255));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Aceptar");
+        jPanel5.add(btnSave);
+
+        jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+
         jPanel2.add(jPanel3, java.awt.BorderLayout.LINE_END);
 
         jPanel4.setBackground(new java.awt.Color(255, 204, 204));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        pnBase.setBackground(new java.awt.Color(255, 204, 204));
+        pnBase.setBackground(new java.awt.Color(255, 255, 255));
         pnBase.setLayout(new javax.swing.BoxLayout(pnBase, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(pnBase);
 

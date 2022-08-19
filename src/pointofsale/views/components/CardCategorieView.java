@@ -36,10 +36,14 @@ public class CardCategorieView extends javax.swing.JPanel {
         txtTarget = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnEdit.setBackground(new java.awt.Color(102, 153, 255));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("E");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,18 +52,25 @@ public class CardCategorieView extends javax.swing.JPanel {
         });
         jPanel1.add(btnEdit);
 
+        btnDelete.setBackground(new java.awt.Color(255, 153, 153));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("D");
         jPanel1.add(btnDelete);
 
         add(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         txtName.setText("Name");
         jPanel3.add(txtName);
 
         jPanel2.add(jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         txtTarget.setText("Target");
         jPanel4.add(txtTarget);

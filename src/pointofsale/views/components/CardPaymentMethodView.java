@@ -37,20 +37,22 @@ public class CardPaymentMethodView extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(51, 102, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel1.add(btnEdit);
 
-        btnDelete.setText("D");
+        btnDelete.setBackground(new java.awt.Color(51, 102, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
         jPanel1.add(btnDelete);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         txtName.setText("Name");
@@ -58,7 +60,7 @@ public class CardPaymentMethodView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         txtVirtual.setText("Virtual");
         jPanel4.add(txtVirtual);

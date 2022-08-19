@@ -26,25 +26,22 @@ public class UserView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        psssss = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnUsers = new javax.swing.JPanel();
 
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        psssss.setLayout(new javax.swing.BoxLayout(psssss, javax.swing.BoxLayout.LINE_AXIS));
+        jScrollPane1.setBorder(null);
 
+        pnUsers.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(pnUsers);
 
-        psssss.add(jScrollPane1);
-
-        add(psssss, java.awt.BorderLayout.CENTER);
+        add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnUsers;
-    public javax.swing.JPanel psssss;
     // End of variables declaration//GEN-END:variables
 }

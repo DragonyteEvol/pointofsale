@@ -39,7 +39,7 @@ public class ReceptionController extends Controller implements ActionListener, F
         SetResourceThread setResourceThread = new SetResourceThread();
         setResourceThread.start();
 
-        this.addView(this.view, panel);
+        panel.add(view);
 
         this.initEvents();
     }

@@ -4,6 +4,8 @@
  */
 package pointofsale.views.inventory;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -31,15 +33,19 @@ public class IngredientView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
+        pnnn1234 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         pnIngredients = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(255, 51, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(204, 255, 204));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnCreate.setBackground(new java.awt.Color(102, 153, 255));
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
         jPanel1.add(btnCreate);
 
@@ -54,9 +60,18 @@ public class IngredientView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
-        pnIngredients.setBackground(new java.awt.Color(0, 204, 153));
-        pnIngredients.setForeground(new java.awt.Color(204, 255, 204));
-        jPanel2.add(pnIngredients, java.awt.BorderLayout.CENTER);
+        pnnn1234.setBackground(new java.awt.Color(204, 204, 204));
+        pnnn1234.setForeground(new java.awt.Color(204, 255, 204));
+        pnnn1234.setLayout(new javax.swing.BoxLayout(pnnn1234, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        pnIngredients.setPreferredSize(new Dimension(400,pnIngredients.getMaximumSize().height));
+        jScrollPane1.setViewportView(pnIngredients);
+
+        pnnn1234.add(jScrollPane1);
+
+        jPanel2.add(pnnn1234, java.awt.BorderLayout.CENTER);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -67,7 +82,9 @@ public class IngredientView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnIngredients;
+    public javax.swing.JPanel pnnn1234;
     public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

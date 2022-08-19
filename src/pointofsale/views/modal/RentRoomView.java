@@ -36,6 +36,7 @@ public class RentRoomView extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         txtDate = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -45,11 +46,13 @@ public class RentRoomView extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         txtOld = new javax.swing.JSpinner();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel13 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         txtChild = new javax.swing.JSpinner();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel10 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -64,12 +67,15 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Resumen de hospedaje");
         jPanel4.add(jLabel2);
 
@@ -77,15 +83,21 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel7.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("Fecha de ingreso");
         jPanel2.add(jLabel7);
 
         jPanel5.add(jPanel2);
 
-        jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.Y_AXIS));
+
+        txtDate.setBorder(null);
         jPanel20.add(txtDate);
+        jPanel20.add(jSeparator3);
 
         jPanel5.add(jPanel20);
 
@@ -94,8 +106,11 @@ public class RentRoomView extends javax.swing.JDialog {
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
         jPanel3.add(jPanel6);
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Exceso de inquilinos");
         jPanel7.add(jLabel3);
 
@@ -105,13 +120,22 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel12.setLayout(new javax.swing.BoxLayout(jPanel12, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Adultos");
         jPanel15.add(jLabel4);
 
         jPanel12.add(jPanel15);
 
-        jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.Y_AXIS));
+
+        txtOld.setBorder(null);
         jPanel16.add(txtOld);
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.add(jSeparator1);
 
         jPanel12.add(jPanel16);
 
@@ -119,13 +143,20 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Niños");
         jPanel17.add(jLabel5);
 
         jPanel13.add(jPanel17);
 
-        jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.Y_AXIS));
+
+        txtChild.setBorder(null);
         jPanel18.add(txtChild);
+        jPanel18.add(jSeparator2);
 
         jPanel13.add(jPanel18);
 
@@ -133,12 +164,19 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel3.add(jPanel9);
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Total");
         jPanel10.add(jLabel6);
 
         jPanel3.add(jPanel10);
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtPrice.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtPrice.setForeground(new java.awt.Color(102, 102, 102));
         txtPrice.setText("0");
         jPanel11.add(txtPrice);
 
@@ -146,12 +184,22 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel14.setLayout(new javax.swing.BoxLayout(jPanel14, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnPay.setBackground(new java.awt.Color(235, 71, 71));
+        btnPay.setForeground(new java.awt.Color(255, 255, 255));
         btnPay.setText("Pagar");
+        btnPay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel8.add(btnPay);
 
         jPanel14.add(jPanel8);
 
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnPrint.setBackground(new java.awt.Color(235, 71, 71));
+        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
         btnPrint.setText("Imprimir");
+        btnPrint.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel19.add(btnPrint);
 
         jPanel14.add(jPanel19);
@@ -168,7 +216,7 @@ public class RentRoomView extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
         );
 
         pack();
@@ -246,6 +294,9 @@ public class RentRoomView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     public javax.swing.JSpinner txtChild;
     public javax.swing.JTextField txtDate;
     public javax.swing.JSpinner txtOld;

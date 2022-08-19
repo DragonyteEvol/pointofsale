@@ -33,8 +33,12 @@ public class InventoryMenu extends javax.swing.JPanel {
         btnUnit = new javax.swing.JButton();
         btnReception = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridLayout(6, 1, 0, 2));
 
+        btnInventory.setBackground(new java.awt.Color(102, 153, 255));
+        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
         btnInventory.setText("Inventario");
         btnInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,18 +47,28 @@ public class InventoryMenu extends javax.swing.JPanel {
         });
         add(btnInventory);
 
+        btnProduct.setBackground(new java.awt.Color(102, 153, 255));
+        btnProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnProduct.setText("Productos");
         add(btnProduct);
 
+        btnIngredient.setBackground(new java.awt.Color(102, 153, 255));
+        btnIngredient.setForeground(new java.awt.Color(255, 255, 255));
         btnIngredient.setText("Ingredientes");
         add(btnIngredient);
 
+        btnCategorie.setBackground(new java.awt.Color(102, 153, 255));
+        btnCategorie.setForeground(new java.awt.Color(255, 255, 255));
         btnCategorie.setText("Categorias");
         add(btnCategorie);
 
+        btnUnit.setBackground(new java.awt.Color(102, 153, 255));
+        btnUnit.setForeground(new java.awt.Color(255, 255, 255));
         btnUnit.setText("Unidades");
         add(btnUnit);
 
+        btnReception.setBackground(new java.awt.Color(102, 153, 255));
+        btnReception.setForeground(new java.awt.Color(255, 255, 255));
         btnReception.setText("Recepcion");
         add(btnReception);
     }// </editor-fold>//GEN-END:initComponents

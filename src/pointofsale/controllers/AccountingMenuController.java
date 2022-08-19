@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -15,12 +16,12 @@ import pointofsale.views.menu.AcountingMenu;
 public class AccountingMenuController extends Controller implements ActionListener {
 
     public AcountingMenu view;
-    private JPanel panelWindow;
+    private JPanel panel;
 
-    public AccountingMenuController(JPanel panelMenu, JPanel panelWindow) {
+    public AccountingMenuController(JPanel panel) {
         this.view = new AcountingMenu();
-        this.panelWindow = panelWindow;
-        this.addMenu(this.view, panelMenu);
+        this.panel = panel;
+        addMenu();
 
         view.btnAnnulments.addActionListener(this);
         view.btnBills.addActionListener(this);
@@ -29,27 +30,45 @@ public class AccountingMenuController extends Controller implements ActionListen
         view.btnSell.addActionListener(this);
         view.btnPaymentMethod.addActionListener(this);
     }
+    
+       public final void addMenu(){
+        panel.removeAll();
+        panel.add(view, BorderLayout.WEST);
+        revalidate();
+    }
+    
+    public void revalidate(){
+        panel.repaint();
+        panel.revalidate();
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnAnnulments) {
-            AnnulmentController annulment = new AnnulmentController(panelWindow);
+            addMenu();
+            AnnulmentController annulment = new AnnulmentController(panel);
         }
         if (source == this.view.btnBills) {
-            BillController bill = new BillController(panelWindow);
+            addMenu();
+            BillController bill = new BillController(panel);
         }
         if (source == this.view.btnExpens) {
-            ExpenseController expense = new ExpenseController(panelWindow);
+            addMenu();
+            ExpenseController expense = new ExpenseController(panel);
         }
         if (source == this.view.btnReports) {
-            ReportController report = new ReportController(panelWindow);
+            addMenu();
+            ReportController report = new ReportController(panel);
         }
         if (source == this.view.btnSell) {
-            SellController sell = new SellController(panelWindow);
+            addMenu();
+            SellController sell = new SellController(panel);
         }
         if (source == this.view.btnPaymentMethod) {
-            PaymentMethodController payment = new PaymentMethodController(panelWindow);
+            addMenu();
+            PaymentMethodController payment = new PaymentMethodController(panel);
         }
     }
 }

@@ -32,19 +32,32 @@ public class ConfigView extends javax.swing.JPanel {
         btnAbout = new javax.swing.JButton();
         pnConfig = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnInfo.setBackground(new java.awt.Color(51, 102, 255));
+        btnInfo.setForeground(new java.awt.Color(255, 255, 255));
         btnInfo.setText("Informacion");
+        btnInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         jPanel5.add(btnInfo);
 
+        btnUsers.setBackground(new java.awt.Color(51, 102, 255));
+        btnUsers.setForeground(new java.awt.Color(255, 255, 255));
         btnUsers.setText("Usuarios");
+        btnUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         jPanel5.add(btnUsers);
 
+        btnAbout.setBackground(new java.awt.Color(51, 102, 255));
+        btnAbout.setForeground(new java.awt.Color(255, 255, 255));
         btnAbout.setText("Acerca de");
+        btnAbout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         jPanel5.add(btnAbout);
 
         add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
+        pnConfig.setBackground(new java.awt.Color(255, 255, 255));
         pnConfig.setLayout(new javax.swing.BoxLayout(pnConfig, javax.swing.BoxLayout.LINE_AXIS));
         add(pnConfig, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

@@ -35,11 +35,13 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         cbVirtual = new javax.swing.JComboBox<>();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -48,57 +50,85 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         setBackground(new java.awt.Color(255, 102, 255));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
         jPanel1.setLayout(new java.awt.GridLayout(4, 0));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtTitle.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        txtTitle.setForeground(new java.awt.Color(102, 102, 102));
         txtTitle.setText("Crear metodo de pago");
         jPanel2.add(txtTitle);
 
         jPanel1.add(jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Nombre");
         jPanel6.add(jLabel2);
 
         jPanel3.add(jPanel6);
 
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new java.awt.GridLayout(2, 0));
+
+        txtName.setBorder(null);
         jPanel7.add(txtName);
+        jPanel7.add(jSeparator1);
 
         jPanel3.add(jPanel7);
 
         jPanel1.add(jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Tipo");
         jPanel8.add(jLabel3);
 
         jPanel4.add(jPanel8);
 
-        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new java.awt.GridLayout(2, 0));
 
+        cbVirtual.setBackground(new java.awt.Color(252, 252, 252));
+        cbVirtual.setForeground(new java.awt.Color(102, 102, 102));
         cbVirtual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "fisico", "virtual" }));
+        cbVirtual.setBorder(null);
         jPanel9.add(cbVirtual);
+        jPanel9.add(jSeparator2);
 
         jPanel4.add(jPanel9);
 
         jPanel1.add(jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
+        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
         jPanel5.add(btnSave);
 
+        btnDelete.setBackground(new java.awt.Color(235, 71, 71));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Eliminar");
+        btnDelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
         jPanel5.add(btnDelete);
 
         jPanel1.add(jPanel5);
@@ -165,6 +195,8 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTextField txtName;
     public javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables

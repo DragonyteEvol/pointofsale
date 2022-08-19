@@ -37,16 +37,22 @@ public class OrderProductView extends javax.swing.JPanel {
         txtName.setFont(new java.awt.Font("sansserif", 1, 8)); // NOI18N
         txtName.setText("Name");
 
+        btnLess.setBackground(new java.awt.Color(51, 102, 255));
         btnLess.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        btnLess.setForeground(new java.awt.Color(255, 255, 255));
         btnLess.setText("-");
 
+        btnPlus.setBackground(new java.awt.Color(51, 102, 255));
         btnPlus.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        btnPlus.setForeground(new java.awt.Color(255, 255, 255));
         btnPlus.setText("+");
 
         txtQuantity.setText("0");
         txtQuantity.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
 
+        btnClose.setBackground(new java.awt.Color(51, 102, 255));
         btnClose.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("X");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

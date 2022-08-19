@@ -35,11 +35,11 @@ public class UserController {
             List<User> users = userModel.selectAll();
             
             for(User user: users){
-                CardUserController card = new CardUserController(view.psssss, user);
+                CardUserController card = new CardUserController(view.pnUsers, user);
             }
             
-            view.psssss.repaint();
-            view.psssss.revalidate();
+            view.pnUsers.repaint();
+            view.pnUsers.revalidate();
         }
     }
     

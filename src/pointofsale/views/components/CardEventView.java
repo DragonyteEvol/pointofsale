@@ -49,72 +49,88 @@ public class CardEventView extends javax.swing.JPanel {
 
         jLabel1.setText("jLabel1");
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel10.setBackground(new java.awt.Color(204, 204, 204));
-
-        txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
         jPanel10.add(txtName);
 
         jPanel1.add(jPanel10);
 
-        jPanel11.setBackground(new java.awt.Color(204, 204, 204));
         jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(51, 102, 255));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
+        btnEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         jPanel11.add(btnEdit);
 
         jPanel1.add(jPanel11);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtDescription.setForeground(new java.awt.Color(153, 153, 153));
         txtDescription.setText("Description");
         jPanel4.add(txtDescription);
 
         jPanel3.add(jPanel4);
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel4.setText("Price: ");
         jPanel5.add(jLabel4);
 
+        txtPrice.setForeground(new java.awt.Color(153, 153, 153));
         txtPrice.setText("Price");
         jPanel5.add(txtPrice);
 
         jPanel3.add(jPanel5);
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel5.setText("Recaudo:");
         jPanel6.add(jLabel5);
 
+        txtCollect.setForeground(new java.awt.Color(153, 153, 153));
         txtCollect.setText("Collect");
         jPanel6.add(txtCollect);
 
         jPanel3.add(jPanel6);
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtDate.setBackground(new java.awt.Color(153, 153, 153));
         txtDate.setText("Date");
         jPanel8.add(txtDate);
 
         jPanel7.add(jPanel8);
 
-        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnEnd.setBackground(new java.awt.Color(51, 102, 255));
+        btnEnd.setForeground(new java.awt.Color(255, 255, 255));
         btnEnd.setText("Finalizar Evento");
+        btnEnd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         jPanel9.add(btnEnd);
 
         jPanel7.add(jPanel9);

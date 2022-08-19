@@ -33,7 +33,7 @@ public class ProductController extends Controller implements ActionListener, Foc
     private void initComponents(JPanel panel) {
         this.view = new ProductView();
         setProducts();
-        this.addView(this.view, panel);
+        panel.add(view);
 
         this.initEvents();
 

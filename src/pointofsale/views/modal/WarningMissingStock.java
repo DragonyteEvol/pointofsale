@@ -28,69 +28,108 @@ public class WarningMissingStock extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        txtTitle = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         txtMessage = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        txtProduct = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        txtQuantity = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabel1.setText("Advertencia");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
-        txtMessage.setText("Message");
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/error-solid-24.png"))); // NOI18N
+        jPanel7.add(jLabel1);
+
+        jPanel1.add(jPanel7);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtTitle.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtTitle.setForeground(new java.awt.Color(102, 102, 102));
+        txtTitle.setText("Advertencia");
+        jPanel2.add(txtTitle);
+
+        jPanel1.add(jPanel2);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtMessage.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        txtMessage.setForeground(new java.awt.Color(153, 153, 153));
+        txtMessage.setText("Falta de stock");
+        jPanel4.add(txtMessage);
+
+        jPanel1.add(jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtProduct.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtProduct.setForeground(new java.awt.Color(102, 102, 102));
+        txtProduct.setText("Product");
+        jPanel5.add(txtProduct);
+
+        jPanel1.add(jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtQuantity.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        txtQuantity.setForeground(new java.awt.Color(153, 153, 153));
+        txtQuantity.setText("Quantity");
+        txtQuantity.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtQuantityInputMethodTextChanged(evt);
+            }
+        });
+        jPanel6.add(txtQuantity);
+
+        jPanel1.add(jPanel6);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
+        btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        jPanel3.add(btnSave);
 
+        btnClose.setBackground(new java.awt.Color(235, 71, 71));
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("Cerrar");
+        btnClose.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        jPanel3.add(btnClose);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtMessage)
-                .addGap(223, 223, 223))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(btnSave)
-                        .addGap(85, 85, 85)
-                        .addComponent(btnClose)))
-                .addContainerGap(144, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addComponent(txtMessage)
-                .addGap(64, 64, 64)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnClose))
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtQuantityInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtQuantityInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQuantityInputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -139,6 +178,15 @@ public class WarningMissingStock extends javax.swing.JDialog {
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel txtMessage;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    public javax.swing.JLabel txtMessage;
+    public javax.swing.JLabel txtProduct;
+    public javax.swing.JLabel txtQuantity;
+    private javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }

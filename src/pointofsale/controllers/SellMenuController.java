@@ -4,8 +4,10 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JApplet;
 import javax.swing.JPanel;
 import pointofsale.views.menu.SellMenu;
 
@@ -13,28 +15,43 @@ import pointofsale.views.menu.SellMenu;
  *
  * @author dragonyte
  */
-public class SellMenuController extends Controller implements ActionListener{
-    public SellMenu view;
-    private JPanel panelWindow;
+public class SellMenuController implements ActionListener {
 
-    public SellMenuController(JPanel panelMenu,JPanel panelWindow) {
+    public SellMenu view;
+    private JPanel panel;
+
+    public SellMenuController(JPanel panel) {
         this.view = new SellMenu();
-        this.panelWindow = panelWindow;
-        
+        this.panel = panel;
+
+        panel.removeAll();
         this.view.btnRoom.addActionListener(this);
         this.view.btnTable.addActionListener(this);
-        
-        this.addMenu(this.view, panelMenu);
+
+        addMenu();
+    }
+    
+    public final void addMenu(){
+        panel.removeAll();
+        panel.add(view, BorderLayout.WEST);
+        revalidate();
+    }
+    
+    public void revalidate(){
+        panel.repaint();
+        panel.revalidate();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if(source==this.view.btnTable){
-            TableController tableController = new TableController(panelWindow);
+        if (source == this.view.btnTable) {
+            addMenu();
+            TableController tableController = new TableController(panel);
         }
-        if(source==this.view.btnRoom){
-            RoomController roomController = new RoomController(panelWindow);
+        if (source == this.view.btnRoom) {
+            addMenu();
+            RoomController roomController = new RoomController(panel);
         }
-    }   
+    }
 }

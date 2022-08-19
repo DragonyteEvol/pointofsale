@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import pointofsale.MoneyConverter;
 import pointofsale.controllers.modal.EditRoomController;
 import pointofsale.controllers.modal.RoomManagerController;
 import pointofsale.models.BillModel;
@@ -46,7 +47,7 @@ public class CardRoomController implements ActionListener {
 
     private void setInfo() {
         this.view.txtNumber.setText(String.valueOf(this.room.getId()));
-        this.view.txtPrice.setText(String.valueOf(this.room.getPrice()));
+        this.view.txtPrice.setText(MoneyConverter.convertDouble(this.room.getPrice()));
         this.view.txtCapacity.setText(String.valueOf(this.room.getCapacity()));
         isAllocatted();
     }
@@ -68,12 +69,12 @@ public class CardRoomController implements ActionListener {
             BillModel billModel = new BillModel();
             BillRoomTmp billRoomTmp = billModel.checkBillRoomTmp(room.getId());
             if (billRoomTmp == null) {
-                this.view.btnStatus.setText("Allocated");
+                this.view.btnStatus.setText("Ocupado");
             } else {
-                this.view.btnStatus.setText(String.valueOf(billRoomTmp.getTotal()));
+                this.view.btnStatus.setText(MoneyConverter.convertDouble(billRoomTmp.getTotal()));
             }
         } else {
-            this.view.btnStatus.setText("Rent");
+            this.view.btnStatus.setText("Rentar");
         }
     }
 

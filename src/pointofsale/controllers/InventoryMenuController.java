@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -13,16 +14,14 @@ import pointofsale.views.menu.InventoryMenu;
  *
  * @author dragonyte
  */
-public class InventoryMenuController extends Controller implements ActionListener{
+public class InventoryMenuController implements ActionListener{
     
     public InventoryMenu view;
-    private JPanel panelWindow;
+    private JPanel panel;
 
-    public InventoryMenuController(JPanel panelMenu,JPanel panelWindow) {
+    public InventoryMenuController(JPanel panel) {
         this.view = new InventoryMenu();
-        this.panelWindow = panelWindow;
-        this.addMenu(this.view, panelMenu);
-        
+        this.panel = panel;
         
         
         this.view.btnInventory.addActionListener(this);
@@ -31,28 +30,48 @@ public class InventoryMenuController extends Controller implements ActionListene
         this.view.btnIngredient.addActionListener(this);
         this.view.btnProduct.addActionListener(this);
         this.view.btnReception.addActionListener(this);
+        
+        addMenu();
     }
+    
+      public final void addMenu(){
+        panel.removeAll();
+        panel.add(view, BorderLayout.WEST);
+        revalidate();
+    }
+    
+    public void revalidate(){
+        panel.repaint();
+        panel.revalidate();
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if(source==this.view.btnInventory){
-            InventoryController inventoryController = new InventoryController(this.panelWindow);
+            addMenu();
+            InventoryController inventoryController = new InventoryController(panel);
         }
         if(source==this.view.btnUnit){
-            UnitController unitController= new UnitController(this.panelWindow);
+            addMenu();
+            UnitController unitController= new UnitController(panel);
         }
 	if(source==this.view.btnCategorie){
-            CategorieController categorieController = new CategorieController(this.panelWindow);
+            addMenu();
+            CategorieController categorieController = new CategorieController(panel);
 	}
         if(source==this.view.btnIngredient){
-            IngredientController ingredientController = new IngredientController(this.panelWindow);
+            addMenu();
+            IngredientController ingredientController = new IngredientController(panel);
         }
         if(source==this.view.btnProduct){
-            ProductController productController = new ProductController(this.panelWindow);
+            addMenu();
+            ProductController productController = new ProductController(panel);
         }
         if(source==this.view.btnReception){
-            ReceptionController receptionController = new ReceptionController(this.panelWindow);
+            addMenu();
+            ReceptionController receptionController = new ReceptionController(panel);
         }
     }   
 }

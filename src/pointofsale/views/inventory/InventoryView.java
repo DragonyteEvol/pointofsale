@@ -36,7 +36,7 @@ public class InventoryView extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         pnTable = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(255, 102, 102));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
@@ -47,6 +47,8 @@ public class InventoryView extends javax.swing.JPanel {
         jPanel2.add(txtSearch);
 
         jPanel1.add(jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Categorias");
         jPanel3.add(jLabel2);
@@ -59,6 +61,8 @@ public class InventoryView extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -73,6 +77,7 @@ public class InventoryView extends javax.swing.JPanel {
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.LINE_START);
 
+        pnTable.setBackground(new java.awt.Color(255, 255, 255));
         pnTable.setLayout(new javax.swing.BoxLayout(pnTable, javax.swing.BoxLayout.LINE_AXIS));
         jPanel4.add(pnTable, java.awt.BorderLayout.CENTER);
 

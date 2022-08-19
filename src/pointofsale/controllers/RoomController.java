@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,7 @@ public class RoomController extends Controller implements ActionListener{
         this.view = new RoomView();
         this.panel = panel;
         setResources();
-        this.addView(this.view, panel);
+        panel.add(view,BorderLayout.CENTER);
         this.initEvents();
     }
 

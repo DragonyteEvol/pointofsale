@@ -38,31 +38,38 @@ public class CardTableView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new java.awt.GridLayout(4, 0));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(51, 102, 255));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel1.add(btnEdit);
 
         add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         txtNumber.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/knife-regular-24.png"))); // NOI18N
         txtNumber.setText("1");
         jPanel2.add(txtNumber);
 
         add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnSell.setBackground(new java.awt.Color(51, 102, 255));
+        btnSell.setForeground(new java.awt.Color(255, 255, 255));
         btnSell.setText("Vender");
         jPanel3.add(btnSell);
 
         add(jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnPay.setBackground(new java.awt.Color(51, 102, 255));
+        btnPay.setForeground(new java.awt.Color(255, 255, 255));
         btnPay.setText("Pagar");
         jPanel4.add(btnPay);
 

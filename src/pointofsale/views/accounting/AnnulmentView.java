@@ -32,13 +32,17 @@ public class AnnulmentView extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnDelete.setBackground(new java.awt.Color(102, 153, 255));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("D");
         jPanel1.add(btnDelete);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
+        pnAnnulments.setBackground(new java.awt.Color(255, 255, 255));
         pnAnnulments.setLayout(new javax.swing.BoxLayout(pnAnnulments, javax.swing.BoxLayout.LINE_AXIS));
         add(pnAnnulments, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

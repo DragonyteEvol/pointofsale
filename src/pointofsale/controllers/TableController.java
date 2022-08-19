@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -31,7 +32,7 @@ public class TableController extends Controller implements ActionListener{
         this.panel = panel;
         this.view = new TableView();
         setResources();
-        this.addView(this.view, panel);
+        panel.add(view,BorderLayout.CENTER);
         this.initEvents();
     }
 

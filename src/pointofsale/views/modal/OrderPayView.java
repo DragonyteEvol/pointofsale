@@ -77,40 +77,53 @@ public class OrderPayView extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel27.setBackground(new java.awt.Color(255, 255, 255));
         jPanel27.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("Informacion de la factura");
         jPanel27.add(jLabel1);
 
         jPanel2.add(jPanel27);
 
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
         jPanel28.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnDelete.setText("D");
+        btnDelete.setBackground(new java.awt.Color(235, 71, 71));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
+        btnDelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
         jPanel28.add(btnDelete);
 
         jPanel2.add(jPanel28);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(4, 0));
 
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel9.setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
         jLabel9.setText("Descuento $");
         jPanel17.add(jLabel9);
 
         jPanel9.add(jPanel17);
 
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtDiscountPrice.setBorder(null);
         jPanel18.add(txtDiscountPrice);
 
         jPanel9.add(jPanel18);
@@ -119,12 +132,18 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel10.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 153, 153));
         jLabel10.setText("Descuento %");
         jPanel19.add(jLabel10);
 
         jPanel10.add(jPanel19);
 
         jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtDiscountPercent.setBorder(null);
         jPanel20.add(txtDiscountPercent);
 
         jPanel10.add(jPanel20);
@@ -135,28 +154,42 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 153, 153));
         jLabel11.setText("Propina $");
         jPanel23.add(jLabel11);
 
         jPanel11.add(jPanel23);
 
         jPanel24.setLayout(new javax.swing.BoxLayout(jPanel24, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtTipPrice.setBorder(null);
         jPanel24.add(txtTipPrice);
 
         jPanel11.add(jPanel24);
 
         jPanel6.add(jPanel11);
 
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel12.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("Propina %");
         jPanel21.add(jLabel12);
 
         jPanel12.add(jPanel21);
 
         jPanel22.setLayout(new javax.swing.BoxLayout(jPanel22, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtTipPercent.setBorder(null);
         jPanel22.add(txtTipPercent);
 
         jPanel12.add(jPanel22);
@@ -165,11 +198,18 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel3.add(jPanel6);
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+
+        chCourtesy.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        chCourtesy.setForeground(new java.awt.Color(153, 153, 153));
         chCourtesy.setText("Cortesia");
         jPanel13.add(chCourtesy);
 
+        chInternalExpense.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        chInternalExpense.setForeground(new java.awt.Color(153, 153, 153));
         chInternalExpense.setText("Consumo interno");
         jPanel13.add(chInternalExpense);
 
@@ -177,6 +217,10 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel14.setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel25.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel13.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setText("Metodo de pago");
         jPanel25.add(jLabel13);
 
@@ -184,6 +228,8 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel26.setLayout(new javax.swing.BoxLayout(jPanel26, javax.swing.BoxLayout.LINE_AXIS));
 
+        cbPaymentMethod.setBackground(new java.awt.Color(252, 252, 252));
+        cbPaymentMethod.setBorder(null);
         jPanel26.add(cbPaymentMethod);
 
         jPanel14.add(jPanel26);
@@ -192,24 +238,35 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel3.add(jPanel7);
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel7.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel7.setText("Total: ");
         jPanel15.add(jLabel7);
 
+        txtPrice.setForeground(new java.awt.Color(51, 51, 51));
         txtPrice.setText("50000");
         jPanel15.add(txtPrice);
 
         jPanel8.add(jPanel15);
 
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnPrint.setBackground(new java.awt.Color(235, 71, 71));
+        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
         btnPrint.setText("Imprimir");
+        btnPrint.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel16.add(btnPrint);
 
+        btnPay.setBackground(new java.awt.Color(235, 71, 71));
+        btnPay.setForeground(new java.awt.Color(255, 255, 255));
         btnPay.setText("Pagar");
+        btnPay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel16.add(btnPay);
 
         jPanel8.add(jPanel16);
@@ -218,7 +275,11 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+
+        pnScroll.setBackground(new java.awt.Color(252, 252, 252));
+        pnScroll.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.add(pnScroll);
 
         jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);

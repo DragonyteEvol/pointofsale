@@ -29,11 +29,17 @@ public class SellMenu extends javax.swing.JPanel {
         btnTable = new javax.swing.JButton();
         btnRoom = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridLayout(2, 0, 0, 2));
 
+        btnTable.setBackground(new java.awt.Color(102, 153, 255));
+        btnTable.setForeground(new java.awt.Color(255, 255, 255));
         btnTable.setText("Mesas");
         add(btnTable);
 
+        btnRoom.setBackground(new java.awt.Color(102, 153, 255));
+        btnRoom.setForeground(new java.awt.Color(255, 255, 255));
         btnRoom.setText("Habitaciones");
         btnRoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

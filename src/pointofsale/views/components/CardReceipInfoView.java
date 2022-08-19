@@ -55,6 +55,8 @@ public class CardReceipInfoView extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnDrop.setBackground(new java.awt.Color(102, 153, 255));
+        btnDrop.setForeground(new java.awt.Color(255, 255, 255));
         btnDrop.setText("X");
         jPanel5.add(btnDrop);
 

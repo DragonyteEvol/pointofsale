@@ -4,6 +4,8 @@
  */
 package pointofsale.views.accounting;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -30,12 +32,17 @@ public class PaymentMethodView extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         pnPayments = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        btnCreate.setBackground(new java.awt.Color(102, 153, 255));
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
         jPanel1.add(btnCreate, java.awt.BorderLayout.LINE_END);
 
@@ -47,7 +54,15 @@ public class PaymentMethodView extends javax.swing.JPanel {
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
-        add(pnPayments, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        pnPayments.setPreferredSize(new Dimension(400,pnPayments.getMaximumSize().height));
+        jScrollPane1.setViewportView(pnPayments);
+
+        jPanel3.add(jScrollPane1);
+
+        add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -55,6 +70,8 @@ public class PaymentMethodView extends javax.swing.JPanel {
     public javax.swing.JButton btnCreate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnPayments;
     public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables

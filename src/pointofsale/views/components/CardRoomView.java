@@ -45,16 +45,18 @@ public class CardRoomView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(102, 153, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel5.add(btnEdit);
 
         add(jPanel5);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/bed-solid-24.png"))); // NOI18N
         txtNumber.setText("1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,7 +77,7 @@ public class CardRoomView extends javax.swing.JPanel {
 
         add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel2.setText("Precio:");
@@ -87,7 +89,7 @@ public class CardRoomView extends javax.swing.JPanel {
 
         add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel3.setText("Capacidad: ");
@@ -99,8 +101,10 @@ public class CardRoomView extends javax.swing.JPanel {
 
         add(jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnStatus.setBackground(new java.awt.Color(102, 153, 255));
+        btnStatus.setForeground(new java.awt.Color(255, 255, 255));
         btnStatus.setText("Estado");
         jPanel4.add(btnStatus);
 

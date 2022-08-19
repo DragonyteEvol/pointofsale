@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -29,8 +30,9 @@ public class HomeController extends Controller implements ActionListener {
 
     public HomeController() {
         this.view = new HomeView();
-        this.view.setResizable(false);
-        this.view.setVisible(true);
+        Dimension dimension = view.getToolkit().getScreenSize();
+        view.setSize(dimension.width / 2, dimension.height / 2);
+        this.view.setResizable(true);
 
         this.view.btnInventory.addActionListener(this);
         this.view.btnSell.addActionListener(this);
@@ -46,11 +48,14 @@ public class HomeController extends Controller implements ActionListener {
         HomeController.staticView = view;
 
         this.view.btnUser.setText(UserGlobal.getUser().getName());
-        
+
         DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
 
         checkEvent();
         checkNotifications();
+
+        this.view.setVisible(true);
+
     }
 
     public static void checkEvent() {
@@ -78,23 +83,22 @@ public class HomeController extends Controller implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnInventory) {
-            MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
-            InventoryMenuController menuController = new InventoryMenuController(layout.pnPanel, layout.pnWindow);
-            InventoryController inventoryController = new InventoryController(layout.pnWindow);
+            InventoryMenuController menuController = new InventoryMenuController(view.pnDinamic);
+            InventoryController inventoryController = new InventoryController(view.pnDinamic);
         }
         if (source == this.view.btnSell) {
-            MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
-            SellMenuController sellMenuController = new SellMenuController(layout.pnPanel, layout.pnWindow);
-            TableController tableController = new TableController(layout.pnWindow);
+            view.pnDinamic.removeAll();
+            SellMenuController sellMenuController = new SellMenuController(view.pnDinamic);
+            TableController tableController = new TableController(view.pnDinamic);
         }
         if (source == this.view.btnDashboard) {
+            view.pnDinamic.removeAll();
             DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
         }
 
         if (source == this.view.btnAccounting) {
-            MenuLayout layout = this.setMenuLayout(this.view.pnDinamic);
-            AccountingMenuController accountingMenuController = new AccountingMenuController(layout.pnPanel, layout.pnWindow);
-            ExpenseController expenseController = new ExpenseController(layout.pnWindow);
+            AccountingMenuController accountingMenuController = new AccountingMenuController(view.pnDinamic);
+            ExpenseController expenseController = new ExpenseController(view.pnDinamic);
         }
 
         if (source == this.view.btnUser) {
@@ -105,10 +109,12 @@ public class HomeController extends Controller implements ActionListener {
         }
 
         if (source == this.view.btnEvent) {
+            view.pnDinamic.removeAll();
             EventController eventController = new EventController(this.view.pnDinamic);
         }
 
         if (source == this.view.btnConfig) {
+            view.pnDinamic.removeAll();
             ConfigController configController = new ConfigController(this.view.pnDinamic);
         }
 

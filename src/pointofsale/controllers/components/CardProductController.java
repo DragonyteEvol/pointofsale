@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import pointofsale.MoneyConverter;
 import pointofsale.controllers.modal.EditProductController;
 import pointofsale.models.ProductModel;
 import pointofsale.objects.Product;
@@ -34,7 +35,7 @@ public class CardProductController implements ActionListener{
 
     private void setInfo() {
         this.view.txtName.setText(product.getName());
-        this.view.txtPrice.setText(String.valueOf(product.getPrice()));
+        this.view.txtPrice.setText(MoneyConverter.convertDouble(product.getPrice()));
         this.view.txtCategorie.setText(String.valueOf(product.getTime()));
         
     }

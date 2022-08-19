@@ -39,7 +39,7 @@ public class CategorieController extends Controller implements ActionListener,Fo
         this.model = new CategorieModel();
 
         this.setCategories();
-        this.addView(this.view, panel);
+        panel.add(view);
 
         this.initEvents();
     }

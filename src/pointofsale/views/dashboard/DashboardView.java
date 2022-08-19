@@ -52,12 +52,15 @@ public class DashboardView extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
+        pnSellDay.setBackground(new java.awt.Color(255, 255, 255));
         pnSellDay.setLayout(new javax.swing.BoxLayout(pnSellDay, javax.swing.BoxLayout.LINE_AXIS));
         jPanel3.add(pnSellDay);
 
+        pnSellMonth.setBackground(new java.awt.Color(255, 255, 255));
         pnSellMonth.setLayout(new javax.swing.BoxLayout(pnSellMonth, javax.swing.BoxLayout.LINE_AXIS));
         jPanel3.add(pnSellMonth);
 
+        pnSellYear.setBackground(new java.awt.Color(255, 255, 255));
         pnSellYear.setLayout(new javax.swing.BoxLayout(pnSellYear, javax.swing.BoxLayout.LINE_AXIS));
         jPanel3.add(pnSellYear);
 
@@ -65,9 +68,11 @@ public class DashboardView extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
+        pnRooms.setBackground(new java.awt.Color(255, 255, 255));
         pnRooms.setLayout(new javax.swing.BoxLayout(pnRooms, javax.swing.BoxLayout.LINE_AXIS));
         jPanel4.add(pnRooms);
 
+        pnTables.setBackground(new java.awt.Color(255, 255, 255));
         pnTables.setLayout(new javax.swing.BoxLayout(pnTables, javax.swing.BoxLayout.LINE_AXIS));
         jPanel4.add(pnTables);
 
@@ -75,12 +80,15 @@ public class DashboardView extends javax.swing.JPanel {
 
         jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
+        pnProducts.setBackground(new java.awt.Color(255, 255, 255));
         pnProducts.setLayout(new javax.swing.BoxLayout(pnProducts, javax.swing.BoxLayout.LINE_AXIS));
         jPanel5.add(pnProducts);
 
+        pnPeople.setBackground(new java.awt.Color(255, 255, 255));
         pnPeople.setLayout(new javax.swing.BoxLayout(pnPeople, javax.swing.BoxLayout.LINE_AXIS));
         jPanel5.add(pnPeople);
 
+        pnUsers.setBackground(new java.awt.Color(255, 255, 255));
         pnUsers.setLayout(new javax.swing.BoxLayout(pnUsers, javax.swing.BoxLayout.LINE_AXIS));
         jPanel5.add(pnUsers);
 

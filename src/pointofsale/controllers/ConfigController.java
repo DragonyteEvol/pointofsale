@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +29,9 @@ public class ConfigController extends Controller implements ActionListener {
         view.btnInfo.addActionListener(this);
         view.btnUsers.addActionListener(this);
 
-        this.addViewFirstPlane(this.view, panel);
+        panel.add(view,BorderLayout.CENTER);
+        panel.repaint();
+        panel.revalidate();
     }
 
     private void revalidateView(Component component) {

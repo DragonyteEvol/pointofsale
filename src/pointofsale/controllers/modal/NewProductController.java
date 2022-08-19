@@ -75,7 +75,7 @@ public class NewProductController extends Controller implements ActionListener {
 
     private void changeView(JPanel panel,Component component) {
         panel.removeAll();
-        component.setSize(dimension.width / 2, dimension.height / 2);
+        component.setSize(view.getSize());
         panel.add(component);
         panel.revalidate();
         panel.repaint();
@@ -213,6 +213,8 @@ public class NewProductController extends Controller implements ActionListener {
                 }
                 scrollPanel.setViewportView(panel);
                 this.view.tabbedPane.add(categorie.getName(), scrollPanel);
+                this.view.repaint();
+                this.view.revalidate();
             }
         }
 

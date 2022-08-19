@@ -18,6 +18,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import pointofsale.MoneyConverter;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.components.CardBillController;
 import pointofsale.models.BillModel;
@@ -53,7 +54,7 @@ public class ReportController extends Controller implements ActionListener {
         SetResource setResource = new SetResource();
         setResource.start();
 
-        this.addView(this.view, panel);
+        panel.add(view);
 
     }
 
@@ -131,9 +132,9 @@ public class ReportController extends Controller implements ActionListener {
 
         for (int i = 0; i < reports.size(); i++) {
             arrayData[i][0] = reports.get(i).getId() + "";
-            arrayData[i][1] = reports.get(i).getEntry()+ "";
-            arrayData[i][2] = reports.get(i).getOut()+ "";
-            arrayData[i][3] = reports.get(i).getRequired()+ "";
+            arrayData[i][1] = MoneyConverter.convertDouble(reports.get(i).getEntry()) + "";
+            arrayData[i][2] = MoneyConverter.convertDouble(reports.get(i).getOut())+ "";
+            arrayData[i][3] = MoneyConverter.convertDouble(reports.get(i).getRequired()) + "";
             arrayData[i][4] = reports.get(i).getCreated_at() + "";
         }
 
@@ -149,7 +150,7 @@ public class ReportController extends Controller implements ActionListener {
             view.pnTable.removeAll();
             InventoryModel inventoryModel = new InventoryModel();
             atm = inventoryModel.selectAtm();
-            view.txtTotal.setText(atm.getValue() + "");
+            view.txtTotal.setText(MoneyConverter.convertDouble(atm.getValue()) + "");
             createMovementLineChart();
             construcTable(moneyBoxs);
         }

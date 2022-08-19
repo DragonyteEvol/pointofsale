@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import pointofsale.MoneyConverter;
 import pointofsale.models.ReportModel;
 import pointofsale.objects.Report;
 import pointofsale.views.accounting.DefaultAccountingView;
@@ -34,7 +35,7 @@ public class SellController extends Controller implements ActionListener{
         view.cbTime.addActionListener(this);
         view.btnExport.addActionListener(this);
 
-        this.addView(this.view, panel);
+        panel.add(view);
     }
 
     private void construcTable(List<Report> reports) {
@@ -52,7 +53,7 @@ public class SellController extends Controller implements ActionListener{
         for (int i = 0; i < reports.size(); i++) {
             arrayData[i][0] = reports.get(i).getId() + "";
             arrayData[i][1] = reports.get(i).getName() + "";
-            arrayData[i][2] = reports.get(i).getSubvalue() + "";
+            arrayData[i][2] = MoneyConverter.convertDouble(reports.get(i).getSubvalue()) + "";
             arrayData[i][3] = reports.get(i).getQuantity() + "";
             arrayData[i][4] = reports.get(i).getCreated_at() + "";
         }

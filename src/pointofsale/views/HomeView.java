@@ -26,13 +26,17 @@ public class HomeView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnUser = new javax.swing.JButton();
-        btnCurrentEvent = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
         btnNotifications = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        btnCurrentEvent = new javax.swing.JButton();
+        btnUser = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
         btnSell = new javax.swing.JButton();
         btnInventory = new javax.swing.JButton();
@@ -42,103 +46,123 @@ public class HomeView extends javax.swing.JFrame {
         pnDinamic = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(jPanel4);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Point Of Sale");
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        btnUser.setText("Name");
+        jPanel5.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnCurrentEvent.setText("Event");
+        jPanel7.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("PointOfSale");
+        jPanel7.add(jLabel1);
+
+        jPanel5.add(jPanel7);
+
+        jPanel8.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnNotifications.setBackground(new java.awt.Color(102, 153, 255));
+        btnNotifications.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnNotifications.setForeground(new java.awt.Color(255, 255, 255));
+        btnNotifications.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/notification-solid-24.png"))); // NOI18N
         btnNotifications.setText("0");
+        btnNotifications.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        jPanel8.add(btnNotifications);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNotifications)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCurrentEvent)
-                .addGap(18, 18, 18)
-                .addComponent(btnUser)
-                .addGap(24, 24, 24))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnUser)
-                    .addComponent(btnCurrentEvent)
-                    .addComponent(btnNotifications))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        btnCurrentEvent.setBackground(new java.awt.Color(102, 153, 255));
+        btnCurrentEvent.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnCurrentEvent.setForeground(new java.awt.Color(255, 255, 255));
+        btnCurrentEvent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/calendar-check-regular-24.png"))); // NOI18N
+        btnCurrentEvent.setText("Event");
+        btnCurrentEvent.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        jPanel8.add(btnCurrentEvent);
 
+        btnUser.setBackground(new java.awt.Color(102, 153, 255));
+        btnUser.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/user-solid-24.png"))); // NOI18N
+        btnUser.setText("User");
+        btnUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        jPanel8.add(btnUser);
+
+        jPanel5.add(jPanel8);
+
+        jPanel2.add(jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
+
+        btnDashboard.setBackground(new java.awt.Color(252, 252, 252));
+        btnDashboard.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnDashboard.setForeground(new java.awt.Color(102, 102, 102));
+        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/line-chart-regular-24.png"))); // NOI18N
         btnDashboard.setText("Dashboard");
-        jPanel3.add(btnDashboard);
+        btnDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        jPanel6.add(btnDashboard);
 
+        btnSell.setBackground(new java.awt.Color(252, 252, 252));
+        btnSell.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnSell.setForeground(new java.awt.Color(102, 102, 102));
+        btnSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/cart-regular-24.png"))); // NOI18N
         btnSell.setText("Vender");
-        jPanel3.add(btnSell);
+        btnSell.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        jPanel6.add(btnSell);
 
+        btnInventory.setBackground(new java.awt.Color(252, 252, 252));
+        btnInventory.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnInventory.setForeground(new java.awt.Color(102, 102, 102));
+        btnInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/package-regular-24.png"))); // NOI18N
         btnInventory.setText("Inventario");
-        jPanel3.add(btnInventory);
+        btnInventory.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        jPanel6.add(btnInventory);
 
+        btnAccounting.setBackground(new java.awt.Color(252, 252, 252));
+        btnAccounting.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnAccounting.setForeground(new java.awt.Color(102, 102, 102));
+        btnAccounting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/credit-card-solid-24.png"))); // NOI18N
         btnAccounting.setText("Contabilidad");
-        jPanel3.add(btnAccounting);
+        btnAccounting.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        jPanel6.add(btnAccounting);
 
+        btnEvent.setBackground(new java.awt.Color(252, 252, 252));
+        btnEvent.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnEvent.setForeground(new java.awt.Color(102, 102, 102));
+        btnEvent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/calendar-regular-24.png"))); // NOI18N
         btnEvent.setText("Eventos");
-        jPanel3.add(btnEvent);
+        btnEvent.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        jPanel6.add(btnEvent);
 
+        btnConfig.setBackground(new java.awt.Color(252, 252, 252));
+        btnConfig.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnConfig.setForeground(new java.awt.Color(102, 102, 102));
+        btnConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/cog-regular-24.png"))); // NOI18N
         btnConfig.setText("Configuracion");
-        jPanel3.add(btnConfig);
+        btnConfig.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        jPanel6.add(btnConfig);
 
-        pnDinamic.setSize(814,382);
+        jPanel2.add(jPanel6);
 
-        javax.swing.GroupLayout pnDinamicLayout = new javax.swing.GroupLayout(pnDinamic);
-        pnDinamic.setLayout(pnDinamicLayout);
-        pnDinamicLayout.setHorizontalGroup(
-            pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 814, Short.MAX_VALUE)
-        );
-        pnDinamicLayout.setVerticalGroup(
-            pnDinamicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
-            .addComponent(pnDinamic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnDinamic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pnDinamic.setBackground(new java.awt.Color(255, 255, 255));
+        pnDinamic.setForeground(new java.awt.Color(51, 51, 51));
+        pnDinamic.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(pnDinamic, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,7 +215,11 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     public javax.swing.JPanel pnDinamic;
     // End of variables declaration//GEN-END:variables
 }

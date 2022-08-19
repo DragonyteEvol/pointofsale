@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -28,12 +30,27 @@ public class AddIngredientProduct extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        pnBaseInfo = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnInfo = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         tabbedPane = new javax.swing.JTabbedPane();
-        jLabel1 = new javax.swing.JLabel();
 
         jScrollPane1.setBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setForeground(new java.awt.Color(153, 153, 255));
@@ -52,70 +69,100 @@ public class AddIngredientProduct extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jPanel2);
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        pnBaseInfo.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel7.add(jPanel9);
+        jPanel7.add(jPanel10);
+        jPanel7.add(jPanel13);
+        jPanel7.add(jPanel11);
+        jPanel7.add(jPanel14);
+        jPanel7.add(jPanel12);
+        jPanel7.add(jPanel15);
+        jPanel7.add(jPanel17);
+        jPanel7.add(jPanel18);
+
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
+        btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        jPanel7.add(btnSave);
 
-        pnInfo.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel3.add(jPanel7, java.awt.BorderLayout.PAGE_END);
+
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane2.setBorder(null);
+
+        pnInfo.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfo.setPreferredSize(new Dimension(10,this.getPreferredSize().height));
         jScrollPane2.setViewportView(pnInfo);
 
-        javax.swing.GroupLayout pnBaseInfoLayout = new javax.swing.GroupLayout(pnBaseInfo);
-        pnBaseInfo.setLayout(pnBaseInfoLayout);
-        pnBaseInfoLayout.setHorizontalGroup(
-            pnBaseInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBaseInfoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addContainerGap())
-            .addComponent(jScrollPane2)
-        );
-        pnBaseInfoLayout.setVerticalGroup(
-            pnBaseInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBaseInfoLayout.createSequentialGroup()
-                .addComponent(jScrollPane2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSave)
-                .addContainerGap())
-        );
+        jPanel8.add(jScrollPane2);
 
-        tabbedPane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.add(jPanel8, java.awt.BorderLayout.CENTER);
 
-        jLabel1.setText("Selecciona Ingredientes");
+        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_END);
+
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel2.setText("Seleccion de ingredientes:");
+        jPanel5.add(jLabel2);
+
+        jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_START);
+
+        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
+
+        tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(tabbedPane);
+
+        jPanel4.add(jPanel6, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnBaseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnBaseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSave;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JPanel pnBaseInfo;
     public javax.swing.JPanel pnInfo;
     public javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables

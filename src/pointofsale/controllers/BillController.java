@@ -23,7 +23,7 @@ public class BillController extends Controller implements ActionListener{
 
     public BillController(JPanel panel) {
         this.view = new ExpenseView();
-        this.addView(this.view, panel);
+        panel.add(view);
         SetResource setResource = new SetResource();
         setResource.start();
     }

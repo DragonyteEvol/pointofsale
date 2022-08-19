@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import pointofsale.MoneyConverter;
 import pointofsale.objects.Product;
 import pointofsale.views.components.OrderProductView;
 import pointofsale.views.modal.SellProductView;
@@ -49,11 +50,11 @@ public class OrderProductController implements ActionListener{
     }
     
     private void setPrice(){
-        Double price=0.0;
+        Integer price=0;
         for(Product productp : listProduct){
             price += (productp.getPrice() * productp.getQuantity());
         }
-        this.txtPrice.setText(String.valueOf(price));
+        this.txtPrice.setText(MoneyConverter.convertDouble(price));
     }
     
     private void setInfo(){

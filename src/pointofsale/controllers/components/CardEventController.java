@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 import javax.swing.JPanel;
 import pointofsale.EventGlobal;
+import pointofsale.MoneyConverter;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.modal.EditEventController;
 import pointofsale.controllers.modal.OrderPayController;
@@ -98,8 +99,8 @@ public class CardEventController implements ActionListener {
 
         private void setInfo() {
             view.txtName.setText(String.valueOf(event.getName()));
-            view.txtPrice.setText(String.valueOf(event.getPrice()));
-            view.txtDescription.setText(String.valueOf(event.getDescription()));
+            view.txtPrice.setText(MoneyConverter.convertDouble(event.getPrice()));
+            view.txtDescription.setText((event.getDescription()));
             setCollect();
             setDate();
         }
@@ -111,7 +112,7 @@ public class CardEventController implements ActionListener {
             if (null != bill) {
                 value = bill.getTotal_real() + event.getPrice();
             }
-            view.txtCollect.setText(String.valueOf(value));
+            view.txtCollect.setText(MoneyConverter.convertDouble(value));
         }
 
         private void setDate() {

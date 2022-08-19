@@ -35,6 +35,8 @@ public class ConfirmEventMoney extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Confirmar precio");
 
         jLabel2.setText("Precio final del evento");

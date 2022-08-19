@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -32,7 +33,8 @@ public class DashboardController extends Controller implements ActionListener {
         this.view = new DashboardView();
         SetCharts setCharts = new SetCharts();
         setCharts.start();
-        this.addViewFirstPlane(this.view, panel);
+        panel.removeAll();
+        panel.add(view,BorderLayout.CENTER);
     }
     
     @Override

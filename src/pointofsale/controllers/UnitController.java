@@ -42,7 +42,7 @@ public class UnitController extends Controller implements ActionListener,FocusLi
 
         this.setResource(this.view);
         // print views
-        this.addView(this.view, panel);
+        panel.add(view);
 
         this.initEvents();
     }

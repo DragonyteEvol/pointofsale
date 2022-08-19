@@ -37,16 +37,25 @@ public class CardReceipView extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtCurrentQuantity = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
+
         txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         txtName.setText("Name");
         add(txtName);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnLess.setBackground(new java.awt.Color(102, 153, 255));
+        btnLess.setForeground(new java.awt.Color(255, 255, 255));
         btnLess.setText("-");
         jPanel1.add(btnLess);
 
         txtQuantity.setText("0");
         jPanel1.add(txtQuantity);
 
+        btnPlus.setBackground(new java.awt.Color(102, 153, 255));
+        btnPlus.setForeground(new java.awt.Color(255, 255, 255));
         btnPlus.setText("+");
         jPanel1.add(btnPlus);
 
@@ -55,9 +64,12 @@ public class CardReceipView extends javax.swing.JPanel {
         txtUnit.setText("Unidad");
         add(txtUnit);
 
+        btnSave.setBackground(new java.awt.Color(102, 153, 255));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText(">");
         add(btnSave);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N

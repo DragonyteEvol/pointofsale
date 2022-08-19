@@ -4,6 +4,8 @@
  */
 package pointofsale.views.inventory;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -31,11 +33,14 @@ public class UnitView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         pnUnits = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(153, 102, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnCreate.setText("+");
@@ -52,7 +57,15 @@ public class UnitView extends javax.swing.JPanel {
         jPanel3.add(txtSearch);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
-        jPanel2.add(pnUnits, java.awt.BorderLayout.CENTER);
+
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+
+        pnUnits.setPreferredSize(new Dimension(400,pnUnits.getMaximumSize().height));
+        jScrollPane1.setViewportView(pnUnits);
+
+        jPanel4.add(jScrollPane1);
+
+        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -63,6 +76,8 @@ public class UnitView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnUnits;
     public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables

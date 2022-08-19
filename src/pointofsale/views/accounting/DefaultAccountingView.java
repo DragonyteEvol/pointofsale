@@ -35,8 +35,11 @@ public class DefaultAccountingView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 102, 153));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnExport.setBackground(new java.awt.Color(102, 153, 255));
+        btnExport.setForeground(new java.awt.Color(255, 255, 255));
         btnExport.setText("X");
         jPanel1.add(btnExport);
 
@@ -46,6 +49,8 @@ public class DefaultAccountingView extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         pnReports.setLayout(new java.awt.GridLayout(1, 0));
+
+        scrollPane.setBackground(new java.awt.Color(255, 255, 255));
         pnReports.add(scrollPane);
 
         add(pnReports, java.awt.BorderLayout.CENTER);

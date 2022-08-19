@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import pointofsale.MoneyConverter;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.RoomModel;
 import pointofsale.objects.Room;
@@ -62,7 +63,7 @@ public class RoomManagerController extends ModalController implements ActionList
         view.txtCapacity.setText(String.valueOf(room.getCapacity()));
         view.txtCategorie.setText(room.getCategorie());
         view.txtNumber.setText(String.valueOf(room.getId()));
-        view.txtPrice.setText(String.valueOf(room.getPrice()));
+        view.txtPrice.setText(MoneyConverter.convertDouble(room.getPrice()));
         if (room.isAllocatted()) {
             view.txtState.setText("Ocupado");
             view.btnSell.setText("Vender");
@@ -77,7 +78,7 @@ public class RoomManagerController extends ModalController implements ActionList
     private void setSecondResource() {
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
         this.secondView.txtDate.setText(timeStamp);
-        this.secondView.txtPrice.setText(String.valueOf(room.getPrice()));
+        this.secondView.txtPrice.setText(MoneyConverter.convertDouble(room.getPrice()));
     }
 
 

@@ -36,13 +36,14 @@ public class CardUnitView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtPrefix = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 255, 102));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnEdit.setText("E");
+        btnEdit.setBackground(new java.awt.Color(51, 102, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -50,7 +51,8 @@ public class CardUnitView extends javax.swing.JPanel {
         });
         jPanel1.add(btnEdit);
 
-        btnDelete.setText("D");
+        btnDelete.setBackground(new java.awt.Color(51, 102, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
         jPanel1.add(btnDelete);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -58,7 +60,7 @@ public class CardUnitView extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 153, 153));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         txtName.setText("Name");
@@ -66,7 +68,7 @@ public class CardUnitView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setText("Prefijo:");
         jPanel4.add(jLabel2);

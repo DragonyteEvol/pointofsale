@@ -35,10 +35,16 @@ public class CardBillView extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         txtPrice = new javax.swing.JLabel();
         pnBill = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
 
-        setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
         setLayout(new java.awt.BorderLayout());
 
+        btnPrint.setBackground(new java.awt.Color(153, 153, 255));
+        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
         btnPrint.setText("Print");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,10 +53,11 @@ public class CardBillView extends javax.swing.JPanel {
         });
         add(btnPrint, java.awt.BorderLayout.LINE_END);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.GridLayout(1, 3));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -67,7 +74,7 @@ public class CardBillView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(null);
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         txtPrice.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -76,11 +83,24 @@ public class CardBillView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
-        pnBill.setBackground(new java.awt.Color(204, 204, 204));
+        pnBill.setBackground(null);
         pnBill.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 1, 3, 1));
+        pnBill.setForeground(new java.awt.Color(204, 204, 204));
         jPanel3.add(pnBill, java.awt.BorderLayout.CENTER);
 
         add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+        add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 1, 5, 1));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+
+        jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(jSeparator1);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
@@ -93,9 +113,12 @@ public class CardBillView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel pnBill;
     public javax.swing.JLabel txtPrice;
     // End of variables declaration//GEN-END:variables

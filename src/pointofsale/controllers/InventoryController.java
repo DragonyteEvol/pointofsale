@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import pointofsale.MoneyConverter;
 import pointofsale.models.IngredientModel;
 import pointofsale.objects.Ingredient;
 import pointofsale.views.inventory.InventoryView;
@@ -32,7 +33,7 @@ public class InventoryController extends Controller implements ActionListener,Fo
         initEvents();
         construcTable("");
 
-        this.addView(this.view, panel);
+        panel.add(view);
     }
     
     private void initEvents(){
@@ -77,7 +78,7 @@ public class InventoryController extends Controller implements ActionListener,Fo
 
         for (int i = 0; i < ingredients.size(); i++) {
             arrayData[i][0] = ingredients.get(i).getName() + "";
-            arrayData[i][1] = ingredients.get(i).getPrice()+ "";
+            arrayData[i][1] = MoneyConverter.convertDouble(ingredients.get(i).getPrice()) + "";
             arrayData[i][2] = ingredients.get(i).getQuantity()+ "";
             arrayData[i][3] = ingredients.get(i).getUnit()+ "";
             arrayData[i][4] = ingredients.get(i).getCreated_at()+ "";

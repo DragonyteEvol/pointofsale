@@ -55,10 +55,14 @@ public class InfoView extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jPanel31 = new javax.swing.JPanel();
         txtRoute = new javax.swing.JTextField();
+        btnSelectRoute = new javax.swing.JButton();
         jPanel32 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -68,10 +72,12 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
+            .addGap(0, 354, Short.MAX_VALUE)
         );
 
         add(jPanel6, java.awt.BorderLayout.LINE_START);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -81,13 +87,14 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 346, Short.MAX_VALUE)
+            .addGap(0, 354, Short.MAX_VALUE)
         );
 
         add(jPanel7, java.awt.BorderLayout.LINE_END);
 
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout1.setAlignOnBaseline(true);
         jPanel19.setLayout(flowLayout1);
@@ -98,6 +105,7 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel19);
 
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout2.setAlignOnBaseline(true);
         jPanel20.setLayout(flowLayout2);
@@ -112,6 +120,7 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel21);
 
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout3 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout3.setAlignOnBaseline(true);
         jPanel22.setLayout(flowLayout3);
@@ -126,6 +135,7 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel23);
 
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout4 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout4.setAlignOnBaseline(true);
         jPanel24.setLayout(flowLayout4);
@@ -140,6 +150,7 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel25);
 
+        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout5 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout5.setAlignOnBaseline(true);
         jPanel26.setLayout(flowLayout5);
@@ -154,6 +165,7 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel27);
 
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout6 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout6.setAlignOnBaseline(true);
         jPanel28.setLayout(flowLayout6);
@@ -168,6 +180,7 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel29);
 
+        jPanel30.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout7 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout7.setAlignOnBaseline(true);
         jPanel30.setLayout(flowLayout7);
@@ -180,13 +193,23 @@ public class InfoView extends javax.swing.JPanel {
         jPanel31.setLayout(new javax.swing.BoxLayout(jPanel31, javax.swing.BoxLayout.LINE_AXIS));
         jPanel31.add(txtRoute);
 
+        btnSelectRoute.setBackground(new java.awt.Color(51, 102, 255));
+        btnSelectRoute.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelectRoute.setText("Seleccionar");
+        btnSelectRoute.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
+        jPanel31.add(btnSelectRoute);
+
         jPanel18.add(jPanel31);
 
+        jPanel32.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout8 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout8.setAlignOnBaseline(true);
         jPanel32.setLayout(flowLayout8);
 
+        btnSave.setBackground(new java.awt.Color(51, 102, 255));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Guardar");
+        btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         jPanel32.add(btnSave);
 
         jPanel18.add(jPanel32);
@@ -197,6 +220,7 @@ public class InfoView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnSave;
+    public javax.swing.JButton btnSelectRoute;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

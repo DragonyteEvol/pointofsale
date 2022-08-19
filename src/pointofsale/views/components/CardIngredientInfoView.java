@@ -31,7 +31,7 @@ public class CardIngredientInfoView extends javax.swing.JPanel {
         txtUnit = new javax.swing.JLabel();
         btnDrop = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 51, 51));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setText("Nombre");
         add(txtName);
@@ -42,6 +42,8 @@ public class CardIngredientInfoView extends javax.swing.JPanel {
         txtUnit.setText("Unidad");
         add(txtUnit);
 
+        btnDrop.setBackground(new java.awt.Color(255, 102, 102));
+        btnDrop.setForeground(new java.awt.Color(255, 255, 255));
         btnDrop.setText("X");
         add(btnDrop);
     }// </editor-fold>//GEN-END:initComponents

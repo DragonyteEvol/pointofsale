@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -48,6 +50,7 @@ public class SellProductView extends javax.swing.JDialog {
         txtTarget = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         pnCategories = new javax.swing.JPanel();
@@ -64,22 +67,32 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Informacion del pedido");
         jPanel18.add(jLabel2);
 
         jPanel15.add(jPanel18);
 
-        txtPrice.setText("0");
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.add(txtPrice);
 
         jPanel15.add(jPanel19);
 
         jPanel13.add(jPanel15, java.awt.BorderLayout.PAGE_START);
 
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
+        btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel16.add(btnSave);
 
+        chPrint.setBackground(new java.awt.Color(255, 255, 255));
+        chPrint.setForeground(new java.awt.Color(153, 153, 153));
         chPrint.setText("Imprimir");
         jPanel16.add(chPrint);
 
@@ -87,6 +100,10 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane1.setBorder(null);
+
+        pnOrder.setBackground(new java.awt.Color(255, 255, 255));
+        pnOrder.setPreferredSize(new Dimension(5,pnOrder.getMaximumSize().height));
         jScrollPane1.setViewportView(pnOrder);
 
         jPanel17.add(jScrollPane1);
@@ -95,6 +112,8 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel12.add(jPanel13, java.awt.BorderLayout.LINE_START);
 
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel14.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
@@ -104,20 +123,31 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtTarget.setBackground(new java.awt.Color(102, 102, 102));
+        txtTarget.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtTarget.setForeground(new java.awt.Color(102, 102, 102));
         txtTarget.setText("Mesa 1");
         jPanel6.add(txtTarget);
 
         jPanel3.add(jPanel6);
 
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
 
+        txtSearch.setForeground(new java.awt.Color(102, 102, 102));
         txtSearch.setText("Buscar");
+        txtSearch.setBorder(null);
         jPanel7.add(txtSearch);
+        jPanel7.add(jSeparator1);
 
         jPanel3.add(jPanel7);
 
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane4.setBorder(null);
+
+        pnCategories.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane4.setViewportView(pnCategories);
 
         jPanel8.add(jScrollPane4);
@@ -132,6 +162,10 @@ public class SellProductView extends javax.swing.JDialog {
 
         JPanel112.setLayout(new javax.swing.BoxLayout(JPanel112, javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane3.setBorder(null);
+
+        pnProducts.setBackground(new java.awt.Color(255, 255, 255));
+        pnProducts.setPreferredSize(new Dimension(400,pnProducts.getMaximumSize().height));
         jScrollPane3.setViewportView(pnProducts);
 
         JPanel112.add(jScrollPane3);
@@ -221,6 +255,7 @@ public class SellProductView extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel pnCategories;
     public javax.swing.JPanel pnOrder;
     public javax.swing.JPanel pnProducts;

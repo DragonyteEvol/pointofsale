@@ -52,7 +52,7 @@ public class PaymentMethodController extends Controller implements ActionListene
             }
         });
 
-        this.addView(this.view, panel);
+        panel.add(view);
     }
     
     private void search(JPanel searchPanel) {

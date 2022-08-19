@@ -4,6 +4,8 @@
  */
 package pointofsale.views.inventory;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author dragonyte
@@ -36,11 +38,11 @@ public class CategorieView extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         pnCategorie = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(0, 0, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setForeground(new java.awt.Color(51, 51, 255));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
@@ -70,8 +72,8 @@ public class CategorieView extends javax.swing.JPanel {
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(550, 600));
 
-        pnCategorie.setBackground(new java.awt.Color(51, 51, 255));
-        pnCategorie.setPreferredSize(new java.awt.Dimension(500, 3000));
+        pnCategorie.setBackground(new java.awt.Color(255, 255, 255));
+        pnCategorie.setPreferredSize(new Dimension(400,pnCategorie.getMaximumSize().height));
         jScrollPane2.setViewportView(pnCategorie);
 
         pnDinamicc.add(jScrollPane2);
