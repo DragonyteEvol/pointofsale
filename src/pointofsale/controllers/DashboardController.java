@@ -5,16 +5,23 @@
 package pointofsale.controllers;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Paint;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import pointofsale.models.ChartController;
@@ -34,9 +41,9 @@ public class DashboardController extends Controller implements ActionListener {
         SetCharts setCharts = new SetCharts();
         setCharts.start();
         panel.removeAll();
-        panel.add(view,BorderLayout.CENTER);
+        panel.add(view, BorderLayout.CENTER);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
     }
@@ -108,25 +115,34 @@ public class DashboardController extends Controller implements ActionListener {
 
         private ChartPanel createPie(DefaultPieDataset data, String title) {
             JFreeChart jFreeChart = ChartFactory.createPieChart(title, data, true, true, true);
+            jFreeChart.setBackgroundPaint(Color.WHITE);
+            jFreeChart.getPlot().setBackgroundPaint(Color.WHITE);
 
             ChartPanel chartPanel = new ChartPanel(jFreeChart);
             chartPanel.setMouseWheelEnabled(true);
             chartPanel.setPreferredSize(new Dimension(400, 200));
-
             return chartPanel;
         }
 
-        private ChartPanel createBar(DefaultCategoryDataset data) {
+        private ChartPanel createBar(DefaultCategoryDataset data,String title) {
 
-            JFreeChart jFreeChart = ChartFactory.createBarChart("ventas por mesas",
-                    "Mesa",
+            JFreeChart jFreeChart = ChartFactory.createBarChart3D(title,
+                    "",
                     "Valor",
                     data,
                     PlotOrientation.VERTICAL,
-                    false,
-                    false,
-                    false);
-
+                    true,
+                    true,
+                    true);
+            jFreeChart.setBackgroundPaint(Color.WHITE);
+            jFreeChart.getPlot().setBackgroundPaint(Color.WHITE);
+            CategoryPlot plot = jFreeChart.getCategoryPlot();
+            plot.setBackgroundPaint(Color.WHITE);
+            plot.setDomainGridlinePaint(Color.WHITE);
+            plot.setRangeGridlinePaint(Color.WHITE);
+            //plot.setOutlineVisible(true);
+            //plot.setShadowGenerator(null);
+            
             ChartPanel chartPanel = new ChartPanel(jFreeChart);
             chartPanel.setMouseWheelEnabled(true);
             chartPanel.setPreferredSize(new Dimension(400, 200));
@@ -136,15 +152,21 @@ public class DashboardController extends Controller implements ActionListener {
 
         private ChartPanel createLine(DefaultCategoryDataset data) {
 
-            JFreeChart jFreeChart = ChartFactory.createWaterfallChart("ventas por mesas",
-                    "Mesa",
+            JFreeChart jFreeChart = ChartFactory.createWaterfallChart("Rendimiento de usuario",
+                    "",
                     "Valor",
                     data,
-                    PlotOrientation.VERTICAL,
+                    PlotOrientation.HORIZONTAL,
                     false,
                     false,
                     false);
 
+            jFreeChart.setBackgroundPaint(Color.WHITE);
+            jFreeChart.getPlot().setBackgroundPaint(Color.WHITE);
+            CategoryPlot plot = jFreeChart.getCategoryPlot();
+            plot.setBackgroundPaint(Color.WHITE);
+            plot.setDomainGridlinePaint(Color.WHITE);
+            plot.setRangeGridlinePaint(Color.WHITE); 
             ChartPanel chartPanel = new ChartPanel(jFreeChart);
             chartPanel.setMouseWheelEnabled(true);
             chartPanel.setPreferredSize(new Dimension(400, 200));
@@ -158,14 +180,14 @@ public class DashboardController extends Controller implements ActionListener {
             ChartController sell = new ChartController();
             List<Report> reports = sell.selectReports(sell.TABLES);
             for (Report report : reports) {
-                data.setValue(report.getSubvalue(), "tables", report.getName());
+                data.setValue(report.getSubvalue(), "mesas", report.getName());
             }
 
-            view.pnTables.add(createBar(data));
+            view.pnTables.add(createBar(data,"Ventas por mesa"));
             refreshView(view);
         }
-        
-        private void refreshView(Component view){
+
+        private void refreshView(Component view) {
             view.repaint();
             view.revalidate();
         }
@@ -176,9 +198,9 @@ public class DashboardController extends Controller implements ActionListener {
             ChartController sell = new ChartController();
             List<Report> reports = sell.selectReports(sell.USERSELL);
             for (Report report : reports) {
-                data.setValue(report.getSubvalue(), "tables", report.getName());
+                data.setValue(report.getSubvalue(), "ventas", report.getName());
             }
-            data.setValue(1000000, "tables", "Pepe suarez");
+            data.setValue(1000000, "ventas", "Pepe suarez");
 
             view.pnUsers.add(createLine(data));
             refreshView(view);
@@ -193,10 +215,10 @@ public class DashboardController extends Controller implements ActionListener {
                 data.setValue(report.getSubvalue(), "Habitacion", report.getName());
             }
 
-            view.pnRooms.add(createBar(data));
+            view.pnRooms.add(createBar(data,"Ventas por habitacion"));
             refreshView(view);
         }
-        
+
         @Override
         public void run() {
             createPieDaySell();
