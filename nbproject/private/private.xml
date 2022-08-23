@@ -12,17 +12,26 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardProductController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardUnitController.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardIngredientController.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/SellController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardUserController.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/components/CardIngredientView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardBillController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/SellProductView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/accounting/ReportView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/additional/ConfigView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/components/CardUserView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/additional/InfoView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/ExpenseController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/ConfirmDeleteView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardPaymentMethodController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardTableController.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/ReportController.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/UserController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/ConfirmReceipView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardRoomController.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/components/CardEventView.java</file>
             <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/components/CardEventController.java</file>
         </group>

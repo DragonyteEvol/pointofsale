@@ -17,7 +17,7 @@ import pointofsale.views.components.CardUserView;
  *
  * @author dragonyte
  */
-public class CardUserController implements ActionListener{
+public class CardUserController extends CardController implements ActionListener{
 
     private CardUserView view;
     private User user;
@@ -30,6 +30,7 @@ public class CardUserController implements ActionListener{
         
         view.btnDelete.addActionListener(this);
         view.btnEdit.addActionListener(this);
+        deleteView.btnYes.addActionListener(this);
         setUser();
         
         panel.add(view);
@@ -55,14 +56,19 @@ public class CardUserController implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if(source==view.btnDelete){
-            DeleteUser deleteUser = new DeleteUser();
-            deleteUser.start();
-            deleteComponent(view);
+            deleteView.setVisible(true);
         }
         
         if(source==view.btnEdit){
             EditUserController e = new EditUserController(user);
             setUser();
+        }
+        
+        if(source == deleteView.btnYes){
+            DeleteUser deleteUser = new DeleteUser();
+            deleteUser.start();
+            deleteComponent(view);
+            deleteView.dispose();
         }
     }
     

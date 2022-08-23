@@ -77,7 +77,7 @@ public class CardReceptionController implements ActionListener {
             }
         }
         if (source == confirmView.btnSave) {
-            Integer price = Integer.valueOf(confirmView.txtPrice.getText());
+            Integer price = Integer.valueOf(String.valueOf(confirmView.txtPrice.getValue()));
             confirmView.dispose();
             ingredient.setQuantity(value);
             ingredient.setPrice(price);

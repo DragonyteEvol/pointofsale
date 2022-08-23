@@ -6,11 +6,13 @@ package pointofsale.controllers.modal;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import pointofsale.controllers.Controller;
@@ -23,6 +25,7 @@ import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Product;
 import pointofsale.objects.Unit;
+import pointofsale.views.additional.FileSelector;
 import pointofsale.views.modal.AddIngredientProduct;
 import pointofsale.views.modal.NewProductView;
 import pointofsale.views.modal.PolimorphismView;
@@ -39,6 +42,7 @@ public class NewProductController extends Controller implements ActionListener {
     private Ingredient ingredientPolimorphism;
     private Product product;
     private Dimension dimension;
+    private FileSelector selectorView;
     private List<Ingredient> listQuatitys = new ArrayList<>();
 
     public NewProductController() {
@@ -48,15 +52,23 @@ public class NewProductController extends Controller implements ActionListener {
         this.view.setResizable(false);
 
         dimension = view.getToolkit().getScreenSize();
-        view.setSize(dimension.width / 2, dimension.height / 2);
 
         this.secondView = new AddIngredientProduct();
         this.thirdView = new PolimorphismView();
 
+        this.selectorView = new FileSelector(null, true);
+        
+        selectorView.setSize(dimension.width / 2, dimension.height / 2);
+        selectorView.setResizable(false);
+
+        selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        
         //events
         this.view.btnNext.addActionListener(this);
         this.thirdView.btnSave.addActionListener(this);
+        this.view.btnImage.addActionListener(this);
         this.view.btnDelete.setVisible(false);
+        selectorView.fileChooser.addActionListener(this);
         this.secondView.btnSave.addActionListener(this);
 
         //threads
@@ -105,7 +117,7 @@ public class NewProductController extends Controller implements ActionListener {
         productv.setPrice(price);
         productv.setTime(time);
         productv.setCategorie_id(categorie_id);
-        productv.setRoute_image("");
+        productv.setRoute_image(view.txtImage.getText());
         return productv;
 
     }
@@ -131,6 +143,7 @@ public class NewProductController extends Controller implements ActionListener {
         if (source == this.secondView.btnSave) {
             InsertThread insertThread = new InsertThread(this.product, listQuatitys);
             insertThread.start();
+            view.dispose();
         }
         
         if(source == this.thirdView.btnSave){
@@ -141,12 +154,30 @@ public class NewProductController extends Controller implements ActionListener {
             if(validatePolimorphismRequest(price, required, quantity, minimum)){
                 Categorie categorie = (Categorie) thirdView.cbCategorie.getSelectedItem();
                 Unit unit = (Unit) thirdView.cbUnit.getSelectedItem();
-                ingredientPolimorphism = new Ingredient(null, product.getName(), price, unit.getId(), categorie.getId(), quantity, minimum, "", null);
+                ingredientPolimorphism = new Ingredient(null, product.getName(), price, unit.getId(), categorie.getId(), quantity, minimum,view.txtImage.getText(), null);
                 InsertPolimorphis ip = new InsertPolimorphis(required);
                 ip.start();
                 view.dispose();
             }
         }
+        
+          if(source == view.btnImage){
+            selectorView.setVisible(true);
+        }
+        
+        if (source == selectorView.fileChooser) {
+            String command = ae.getActionCommand();
+            if (command.equals(JFileChooser.APPROVE_SELECTION)) {
+                String path = String.valueOf(selectorView.fileChooser.getSelectedFile());
+                view.txtImage.setText(path);
+                System.out.print(path);
+                selectorView.dispose();
+            }else if(command.equals(JFileChooser.CANCEL_SELECTION)){
+                selectorView.dispose();
+            }
+
+        }
+        
     }
 
     class InsertThread extends Thread {
@@ -205,11 +236,12 @@ public class NewProductController extends Controller implements ActionListener {
             for (Categorie categorie : categories) {
                 JScrollPane scrollPanel = new JScrollPane();
                 JPanel panel = new JPanel();
+                panel.setLayout(new GridLayout(0, 3));
                 IngredientModel ingredientModel = new IngredientModel();
                 String where = "ingredients.categorie_id=" + String.valueOf(categorie.getId());
                 List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
                 for (Ingredient ingredient : ingredients) {
-                    CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfo, this.listQuantitys);
+                    CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfoo, this.listQuantitys);
                 }
                 scrollPanel.setViewportView(panel);
                 this.view.tabbedPane.add(categorie.getName(), scrollPanel);

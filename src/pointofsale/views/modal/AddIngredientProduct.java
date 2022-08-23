@@ -45,7 +45,7 @@ public class AddIngredientProduct extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        pnInfo = new javax.swing.JPanel();
+        pnInfoo = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -99,9 +99,9 @@ public class AddIngredientProduct extends javax.swing.JPanel {
 
         jScrollPane2.setBorder(null);
 
-        pnInfo.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfo.setPreferredSize(new Dimension(10,this.getPreferredSize().height));
-        jScrollPane2.setViewportView(pnInfo);
+        pnInfoo.setBackground(new java.awt.Color(255, 255, 255));
+        pnInfoo.setLayout(new java.awt.GridLayout(100, 1));
+        jScrollPane2.setViewportView(pnInfoo);
 
         jPanel8.add(jScrollPane2);
 
@@ -163,7 +163,7 @@ public class AddIngredientProduct extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JPanel pnInfo;
+    public javax.swing.JPanel pnInfoo;
     public javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }

@@ -70,10 +70,16 @@ public class ConfirmAnnulmentView extends javax.swing.JDialog {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
+        btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel5.add(btnSave);
 
+        btnCancel.setBackground(new java.awt.Color(235, 71, 71));
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancelar");
+        btnCancel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel5.add(btnCancel);
 
         jPanel1.add(jPanel5);

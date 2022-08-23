@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -33,7 +34,6 @@ import pointofsale.objects.Bill;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;
 import pointofsale.objects.Event;
-import pointofsale.objects.MoneyBox;
 import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Product;
 import pointofsale.objects.Room;
@@ -56,7 +56,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
     private Integer discount = 0;
     private Integer tip = 0;
     public Integer price = 0;
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
     private BillTableTmp billTableTmp;
     private BillRoomTmp billRoomTmp;
     private boolean allocate = false;
@@ -109,11 +109,14 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             arrayData[0][1] = room.getDescription() + "";
             arrayData[0][2] = MoneyConverter.convertDouble(realPrice) + "";
             arrayData[0][3] = room.getCapacity() + "";
+            
+            products.add(new Product(null, room.getDescription(),realPrice,0, "", realPrice, null));
 
             String rowTitle[] = {"Habitacion no", "Descripcion", "Precio", "Capacidad"};
 
             tableProducts = new JTable(arrayData, rowTitle);
             view.pnScroll.setViewportView(tableProducts);
+            updatePrice();
         }
 
         if (event != null) {
@@ -174,6 +177,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         if (source == view.btnPrint) {
             PrintBill printBill = new PrintBill(null, true);
             printBill.txtWorker.setText("Atendido por: " + UserGlobal.getUser().getName());
+            printBill.txtCompany.setText(ConfigGlobal.getConfig().getName());
             PrintFunctions pf = new PrintFunctions();
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             printBill.txtDate.setText(timeStamp);

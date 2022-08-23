@@ -4,10 +4,12 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
@@ -15,6 +17,7 @@ import pointofsale.models.UnitModel;
 import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Unit;
+import pointofsale.views.additional.FileSelector;
 import pointofsale.views.modal.NewIngredientView;
 
 /**
@@ -24,16 +27,26 @@ import pointofsale.views.modal.NewIngredientView;
 public class NewIngredientController extends ModalController implements ActionListener {
 
     private NewIngredientView view;
+    private FileSelector selectorView;
 
     public NewIngredientController() {
 
         // view config
         this.view = new NewIngredientView(null, true);
         this.view.setResizable(false);
+        this.selectorView = new FileSelector(null, true);
+        
+        Dimension dimension = view.getToolkit().getScreenSize();
+        selectorView.setSize(dimension.width / 2, dimension.height / 2);
+        selectorView.setResizable(false);
 
+        selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        
         //events
         this.view.btnSave.addActionListener(this);
         this.view.btnDelete.setVisible(false);
+        this.view.btnImage.addActionListener(this);
+        selectorView.fileChooser.addActionListener(this);
 
         SetResourceThread setResourceThread = new SetResourceThread(this.view.cbUnit, this.view.cbCategorie);
         setResourceThread.start();
@@ -55,6 +68,25 @@ public class NewIngredientController extends ModalController implements ActionLi
                 view.dispose();
             }
         }
+        
+        if(source == view.btnImage){
+            selectorView.setVisible(true);
+        }
+        
+        if (source == selectorView.fileChooser) {
+            String command = ae.getActionCommand();
+            if (command.equals(JFileChooser.APPROVE_SELECTION)) {
+                String path = String.valueOf(selectorView.fileChooser.getSelectedFile());
+                view.txtImage.setText(path);
+                System.out.print(path);
+                selectorView.dispose();
+            }else if(command.equals(JFileChooser.CANCEL_SELECTION)){
+                selectorView.dispose();
+            }
+
+        }
+        
+        
     }
 
     class SetResourceThread extends Thread {
@@ -118,6 +150,7 @@ public class NewIngredientController extends ModalController implements ActionLi
             Integer unit_id = unit.getId();
             Integer quantity = (Integer) this.view.txtStock.getValue();
             Integer minimum = (Integer) this.view.txtMinimum.getValue();
+            String image_route = this.view.txtImage.getText();
             Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
             Integer categorie_id = categorie.getId();
 
@@ -129,7 +162,7 @@ public class NewIngredientController extends ModalController implements ActionLi
             ingredient.setQuantity(quantity);
             ingredient.setMinimum(minimum);
             ingredient.setCategorie_id(categorie_id);
-            ingredient.setRoute_image("");
+            ingredient.setRoute_image(image_route);
             ingredient.setAmenitie(false);
             return ingredient;
         }
@@ -147,9 +180,9 @@ public class NewIngredientController extends ModalController implements ActionLi
             this.insertIngredient();
         }
     }
-    
-    class InsertAmenitie extends Thread{
-        
+
+    class InsertAmenitie extends Thread {
+
         private Ingredient createIngredient() {
             String name = view.txtName.getText();
             Integer price = (Integer) view.txtPrice.getValue();
@@ -170,13 +203,13 @@ public class NewIngredientController extends ModalController implements ActionLi
             ingredient.setCategorie_id(categorie_id);
             ingredient.setAmenitie(true);
             ingredient.setRoute_image("");
-            if(view.chAmenitie.isSelected()){
+            if (view.chAmenitie.isSelected()) {
                 ingredient.setAmenitie(true);
             }
             return ingredient;
         }
-        
-         private boolean validateRequest() {
+
+        private boolean validateRequest() {
             String name = view.txtName.getText();
             if (name.isBlank() || name.isEmpty()) {
                 return false;
@@ -184,17 +217,17 @@ public class NewIngredientController extends ModalController implements ActionLi
                 return true;
             }
         }
-        
-         private void insertIngredient() {
+
+        private void insertIngredient() {
             IngredientModel model = new IngredientModel();
             if (validateRequest()) {
                 Ingredient ingredient = createIngredient();
                 model.insert(ingredient, true);
             }
         }
-        
+
         @Override
-        public void run(){
+        public void run() {
             this.insertIngredient();
         }
     }

@@ -37,7 +37,7 @@ public class AnnulmentView extends javax.swing.JPanel {
 
         btnDelete.setBackground(new java.awt.Color(102, 153, 255));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("D");
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
         jPanel1.add(btnDelete);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);

@@ -60,6 +60,7 @@ public class OrderProductController implements ActionListener{
     private void setInfo(){
         this.view.txtName.setText(product.getName());
         this.view.txtQuantity.setText(String.valueOf(product.getQuantity()));
+        
         this.listProduct.add(product);
         setPrice();
     }

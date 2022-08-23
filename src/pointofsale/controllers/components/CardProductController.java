@@ -5,8 +5,10 @@
 package pointofsale.controllers.components;
 
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.modal.EditProductController;
@@ -18,7 +20,7 @@ import pointofsale.views.components.CardProductView;
  *
  * @author dragonyte
  */
-public class CardProductController implements ActionListener{
+public class CardProductController extends CardController implements ActionListener{
      private Product product;
     public CardProductView view;
     private JPanel panel;
@@ -37,6 +39,13 @@ public class CardProductController implements ActionListener{
         this.view.txtName.setText(product.getName());
         this.view.txtPrice.setText(MoneyConverter.convertDouble(product.getPrice()));
         this.view.txtCategorie.setText(String.valueOf(product.getTime()));
+        if (!"".equals(product.getRoute_image())) {
+            ImageIcon icon = new ImageIcon(product.getRoute_image());
+            Image img = icon.getImage();
+            Image img_r = img.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img_r);
+            view.txtImage.setIcon(icon);
+        }
         
     }
 
@@ -55,20 +64,26 @@ public class CardProductController implements ActionListener{
     private void initEvents() {
         this.view.btnDelete.addActionListener(this);
         this.view.btnEdit.addActionListener(this);
+        deleteView.btnYes.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnDelete) {
-            DeleteThread deleteThread = new DeleteThread(product);
-            deleteThread.start();
-            removeComponent(this.view);
+            deleteView.setVisible(true);
         }
 
         if (source == this.view.btnEdit) {
             EditProductController editProductController = new EditProductController(product);
             refreshCategorie();
+        }
+        
+        if(source == deleteView.btnYes){
+        DeleteThread deleteThread = new DeleteThread(product);
+            deleteThread.start();
+            removeComponent(this.view);
+            deleteView.dispose();
         }
     }
 

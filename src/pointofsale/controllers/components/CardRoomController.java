@@ -26,6 +26,8 @@ public class CardRoomController implements ActionListener {
     private CardRoomView view;
     private JPanel panel;
     private Room room;
+    private BillRoomTmp billRoomTmp;
+    private boolean billActive;
 
     public CardRoomController(JPanel panel, Room room) {
         initComponents(panel, room);
@@ -67,12 +69,15 @@ public class CardRoomController implements ActionListener {
     private void isAllocatted() {
         if (this.room.isAllocatted()) {
             BillModel billModel = new BillModel();
-            BillRoomTmp billRoomTmp = billModel.checkBillRoomTmp(room.getId());
+            billRoomTmp = billModel.checkBillRoomTmp(room.getId());
             if (billRoomTmp == null) {
                 this.view.btnStatus.setText("Ocupado");
+                this.billActive = false;
             } else {
                 this.view.btnStatus.setText(MoneyConverter.convertDouble(billRoomTmp.getTotal()));
+                this.billActive = true;
             }
+            System.out.print(room.getId() + " " + billActive);
         } else {
             this.view.btnStatus.setText("Rentar");
         }
@@ -88,7 +93,15 @@ public class CardRoomController implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnStatus) {
-            RoomManagerController roomManagerController = new RoomManagerController(this.room);
+            if (billRoomTmp == null) {
+                System.out.println(billActive + "CFFASSDASDASDSAD");
+                RoomManagerController roomManagerController = new RoomManagerController(this.room, billActive);
+
+            } else {
+                System.out.println(billActive + "CFFASSDASDASDSAD");
+                RoomManagerController roomManagerController = new RoomManagerController(this.room, billActive);
+
+            }
             isAllocatted();
             refreshRoom();
             view.repaint();

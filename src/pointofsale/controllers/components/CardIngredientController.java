@@ -5,8 +5,10 @@
 package pointofsale.controllers.components;
 
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.modal.EditCategorieController;
@@ -22,7 +24,7 @@ import pointofsale.views.components.CardIngredientView;
  *
  * @author dragonyte
  */
-public class CardIngredientController implements ActionListener{
+public class CardIngredientController extends CardController implements ActionListener {
 
     private Ingredient ingredient;
     public CardIngredientView view;
@@ -42,7 +44,14 @@ public class CardIngredientController implements ActionListener{
         this.view.txtName.setText(ingredient.getName());
         this.view.txtPrice.setText(MoneyConverter.convertDouble(ingredient.getPrice()));
         this.view.txtUnit.setText(String.valueOf(ingredient.getUnit_id()));
-        
+        if (!"".equals(ingredient.getRoute_image())) {
+            ImageIcon icon = new ImageIcon(ingredient.getRoute_image());
+            Image img = icon.getImage();
+            Image img_r = img.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img_r);
+            view.txtImage.setIcon(icon);
+        }
+
     }
 
     private void removeComponent(Component component) {
@@ -60,20 +69,26 @@ public class CardIngredientController implements ActionListener{
     private void initEvents() {
         this.view.btnDelete.addActionListener(this);
         this.view.btnEdit.addActionListener(this);
+        deleteView.btnYes.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnDelete) {
-            DeleteThread deleteThread = new DeleteThread(ingredient);
-            deleteThread.start();
-            removeComponent(this.view);
+            deleteView.setVisible(true);
         }
 
         if (source == this.view.btnEdit) {
             EditIngredientController editIngredientController = new EditIngredientController(ingredient);
             refreshCategorie();
+        }
+
+        if (source == deleteView.btnYes) {
+            DeleteThread deleteThread = new DeleteThread(ingredient);
+            deleteThread.start();
+            removeComponent(this.view);
+            deleteView.dispose();
         }
     }
 

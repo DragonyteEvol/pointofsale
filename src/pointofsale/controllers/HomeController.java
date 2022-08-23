@@ -31,8 +31,10 @@ public class HomeController extends Controller implements ActionListener {
     public HomeController() {
         this.view = new HomeView();
         Dimension dimension = view.getToolkit().getScreenSize();
-        view.setSize(dimension.width / 2, dimension.height / 2);
-        this.view.setResizable(true);
+        Integer width = (dimension.width * 4) /5;
+        Integer height = (dimension.height * 4) /5;
+        view.setSize(width,height);
+        this.view.setResizable(false);
 
         this.view.btnInventory.addActionListener(this);
         this.view.btnSell.addActionListener(this);

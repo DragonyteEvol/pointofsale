@@ -35,7 +35,7 @@ public class CardIngredientView extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtImage = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -82,8 +82,8 @@ public class CardIngredientView extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/cheese-solid-24.png"))); // NOI18N
-        jPanel6.add(jLabel1);
+        txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/cheese-solid-24.png"))); // NOI18N
+        jPanel6.add(txtImage);
 
         jPanel5.add(jPanel6);
 
@@ -130,7 +130,6 @@ public class CardIngredientView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnEdit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -142,6 +141,7 @@ public class CardIngredientView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    public javax.swing.JLabel txtImage;
     public javax.swing.JLabel txtName;
     public javax.swing.JLabel txtPrice;
     public javax.swing.JLabel txtUnit;

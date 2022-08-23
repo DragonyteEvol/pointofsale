@@ -14,9 +14,11 @@ import javax.swing.event.ChangeListener;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.RoomModel;
+import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.Room;
 import pointofsale.views.modal.RentRoomView;
 import pointofsale.views.modal.RoomManagerView;
+import pointofsale.views.modal.WarningUser;
 
 /**
  *
@@ -27,17 +29,17 @@ public class RoomManagerController extends ModalController implements ActionList
     private RoomManagerView view;
     private RentRoomView secondView;
     private Room room;
+    private boolean billActive;
 
-    public RoomManagerController(Room room) {
-        initComponents(room);
+    public RoomManagerController(Room room, boolean billActive) {
+        initComponents(room, billActive);
     }
 
-    private void initComponents(Room room) {
+    private void initComponents(Room room, boolean billActive) {
         this.view = new RoomManagerView(null, true);
         this.secondView = new RentRoomView(null, true);
         this.room = room;
-
-        
+        this.billActive = billActive;
 
         this.view.setResizable(false);
         this.secondView.setResizable(false);
@@ -81,7 +83,6 @@ public class RoomManagerController extends ModalController implements ActionList
         this.secondView.txtPrice.setText(MoneyConverter.convertDouble(room.getPrice()));
     }
 
-
     private Integer getPrice() {
         Integer childs = (Integer) this.secondView.txtChild.getValue();
         Integer old = (Integer) this.secondView.txtOld.getValue();
@@ -95,6 +96,7 @@ public class RoomManagerController extends ModalController implements ActionList
         if (source == this.view.btnSell) {
             if (room.isAllocatted()) {
                 SellProductsController sellProductsController = new SellProductsController(room);
+                this.view.dispose();
             } else {
                 this.view.dispose();
                 this.secondView.setVisible(true);
@@ -105,18 +107,31 @@ public class RoomManagerController extends ModalController implements ActionList
             Integer total = getPrice();
             this.secondView.dispose();
             OrderPayController orderPayController = new OrderPayController(room, total, true);
-            
+
         }
 
         if (source == this.view.btnEnd) {
-            DislodgeThread dislodgeThread = new DislodgeThread(room);
-            dislodgeThread.start();
-            this.view.dispose();
+            System.out.println("DESDE");
+            if (billActive) {
+                System.out.println(billActive);
+                WarningUser warningUser = new WarningUser(null, true);
+                warningUser.txtWarning.setText("Debe pagar los productos");
+                warningUser.setResizable(false);
+                warningUser.setVisible(true);
+            } else {
+                System.out.println(billActive);
+
+                DislodgeThread dislodgeThread = new DislodgeThread(room);
+                dislodgeThread.start();
+                this.view.dispose();
+            }
+            System.out.println("FIN");
+
         }
-        
-        if(source == this.view.btnPay){
+
+        if (source == this.view.btnPay) {
             view.dispose();
-             OrderPayController orderPayController = new OrderPayController(room);
+            OrderPayController orderPayController = new OrderPayController(room);
         }
     }
 

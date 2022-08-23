@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import pointofsale.MoneyConverter;
 import pointofsale.objects.Ingredient;
 import pointofsale.views.components.CardReceipInfoView;
 import pointofsale.views.inventory.ReceptionView;
@@ -49,7 +50,7 @@ public class CardReceipInfoController implements ActionListener{
         for(Ingredient ingredientp: listIngredient){
             value += ingredientp.getPrice();
         }
-        label.setText(String.valueOf(value));
+        label.setText(MoneyConverter.convertDouble(value));
     }
 
      private void addComponent(Component component) {

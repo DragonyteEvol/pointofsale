@@ -17,7 +17,7 @@ import pointofsale.views.components.CardUnitView;
  *
  * @author dragonyte
  */
-public class CardUnitController implements ActionListener {
+public class CardUnitController extends CardController implements ActionListener {
 
     private Unit unit;
     public CardUnitView view;
@@ -53,20 +53,26 @@ public class CardUnitController implements ActionListener {
     private void initEvents() {
         this.view.btnDelete.addActionListener(this);
         this.view.btnEdit.addActionListener(this);
+        deleteView.btnYes.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnDelete) {
-            DeleteThread deleteThread = new DeleteThread(unit);
-            deleteThread.start();
-            removeComponent(this.view);
+            deleteView.setVisible(true);
         }
 
         if (source == this.view.btnEdit) {
             EditUnitController editUnitController = new EditUnitController(unit);
             refreshUnit();
+        }
+        
+        if(source == deleteView.btnYes){
+            DeleteThread deleteThread = new DeleteThread(unit);
+            deleteThread.start();
+            removeComponent(this.view);
+            deleteView.dispose();
         }
     }
 

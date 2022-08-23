@@ -12,12 +12,13 @@ import pointofsale.controllers.modal.EditCategorieController;
 import pointofsale.models.CategorieModel;
 import pointofsale.objects.Categorie;
 import pointofsale.views.components.CardCategorieView;
+import pointofsale.views.modal.ConfirmDeleteView;
 
 /**
  *
  * @author dragonyte
  */
-public class CardCategorieController implements ActionListener {
+public class CardCategorieController extends CardController implements ActionListener {
     
     private Categorie categorie;
     public CardCategorieView view;
@@ -26,11 +27,13 @@ public class CardCategorieController implements ActionListener {
     public CardCategorieController(Categorie categorie, JPanel panel) {
         this.categorie = categorie;
         this.panel = panel;
+        
         this.view = new CardCategorieView();
         setInfo();
         initEvents();
         
         this.panel.add(view);
+        
     }
     
     private void setInfo() {
@@ -63,20 +66,26 @@ public class CardCategorieController implements ActionListener {
     private void initEvents() {
         this.view.btnDelete.addActionListener(this);
         this.view.btnEdit.addActionListener(this);
+        deleteView.btnYes.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnDelete) {
-            DeleteThread deleteThread = new DeleteThread(categorie);
-            deleteThread.start();
-            removeComponent(this.view);
+            deleteView.setVisible(true);
         }
         
         if (source == this.view.btnEdit) {
             EditCategorieController editCategorieController = new EditCategorieController(categorie);
             refreshCategorie();
+        }
+        
+        if(source == deleteView.btnYes){
+            DeleteThread deleteThread = new DeleteThread(categorie);
+            deleteThread.start();
+            removeComponent(this.view);
+            deleteView.dispose();
         }
     }
     

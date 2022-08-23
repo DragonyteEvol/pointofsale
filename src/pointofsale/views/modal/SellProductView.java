@@ -50,7 +50,6 @@ public class SellProductView extends javax.swing.JDialog {
         txtTarget = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         pnCategories = new javax.swing.JPanel();
@@ -103,7 +102,7 @@ public class SellProductView extends javax.swing.JDialog {
         jScrollPane1.setBorder(null);
 
         pnOrder.setBackground(new java.awt.Color(255, 255, 255));
-        pnOrder.setPreferredSize(new Dimension(5,pnOrder.getMaximumSize().height));
+        pnOrder.setLayout(new java.awt.GridLayout(100, 1));
         jScrollPane1.setViewportView(pnOrder);
 
         jPanel17.add(jScrollPane1);
@@ -135,11 +134,10 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
 
-        txtSearch.setForeground(new java.awt.Color(102, 102, 102));
+        txtSearch.setForeground(new java.awt.Color(153, 153, 153));
         txtSearch.setText("Buscar");
         txtSearch.setBorder(null);
         jPanel7.add(txtSearch);
-        jPanel7.add(jSeparator1);
 
         jPanel3.add(jPanel7);
 
@@ -165,7 +163,7 @@ public class SellProductView extends javax.swing.JDialog {
         jScrollPane3.setBorder(null);
 
         pnProducts.setBackground(new java.awt.Color(255, 255, 255));
-        pnProducts.setPreferredSize(new Dimension(400,pnProducts.getMaximumSize().height));
+        pnProducts.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
         jScrollPane3.setViewportView(pnProducts);
 
         JPanel112.add(jScrollPane3);
@@ -255,7 +253,6 @@ public class SellProductView extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel pnCategories;
     public javax.swing.JPanel pnOrder;
     public javax.swing.JPanel pnProducts;

@@ -103,12 +103,22 @@ public class WarningMissingStock extends javax.swing.JDialog {
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
         btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnSave);
 
         btnClose.setBackground(new java.awt.Color(235, 71, 71));
         btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("Cerrar");
         btnClose.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnClose);
 
         jPanel1.add(jPanel3);
@@ -130,6 +140,16 @@ public class WarningMissingStock extends javax.swing.JDialog {
     private void txtQuantityInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtQuantityInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQuantityInputMethodTextChanged
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCloseActionPerformed
 
     /**
      * @param args the command line arguments

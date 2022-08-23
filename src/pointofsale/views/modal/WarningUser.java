@@ -32,7 +32,7 @@ public class WarningUser extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtWarning = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
@@ -53,10 +53,10 @@ public class WarningUser extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Se necesita administrador");
-        jPanel4.add(jLabel1);
+        txtWarning.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtWarning.setForeground(new java.awt.Color(102, 102, 102));
+        txtWarning.setText("Se necesita administrador");
+        jPanel4.add(txtWarning);
 
         jPanel1.add(jPanel4);
 
@@ -79,13 +79,13 @@ public class WarningUser extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 299, Short.MAX_VALUE)
+            .addGap(0, 524, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGap(0, 273, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE))
         );
@@ -152,12 +152,12 @@ public class WarningUser extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    public javax.swing.JLabel txtWarning;
     // End of variables declaration//GEN-END:variables
 }

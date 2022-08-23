@@ -30,7 +30,7 @@ public class ConfirmReceipView extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtPrice = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JSpinner();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
@@ -39,35 +39,49 @@ public class ConfirmReceipView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel2.setText("Digite el precio:");
         jPanel1.add(jLabel2);
 
         getContentPane().add(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        txtPrice.setText("0");
+        txtPrice.setBorder(null);
         jPanel2.add(txtPrice);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 367, Short.MAX_VALUE)
+            .addGap(0, 337, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 84, Short.MAX_VALUE)
+            .addGap(0, 79, Short.MAX_VALUE)
         );
 
         jPanel2.add(jPanel4);
 
         getContentPane().add(jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
+        btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel3.add(btnSave);
 
+        btnClose.setBackground(new java.awt.Color(235, 71, 71));
+        btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("Cancelar");
+        btnClose.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel3.add(btnClose);
 
         getContentPane().add(jPanel3);
@@ -125,6 +139,6 @@ public class ConfirmReceipView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    public javax.swing.JTextField txtPrice;
+    public javax.swing.JSpinner txtPrice;
     // End of variables declaration//GEN-END:variables
 }

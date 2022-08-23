@@ -28,12 +28,12 @@ public class FileSelector extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jFileChooser1 = new javax.swing.JFileChooser();
+        fileChooser = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel1.add(jFileChooser1);
+        jPanel1.add(fileChooser);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +92,7 @@ public class FileSelector extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFileChooser jFileChooser1;
+    public javax.swing.JFileChooser fileChooser;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

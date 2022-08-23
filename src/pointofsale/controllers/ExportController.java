@@ -11,7 +11,9 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -22,6 +24,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Workbook;
+import pointofsale.ConfigGlobal;
 import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Report;
 
@@ -31,8 +34,11 @@ import pointofsale.objects.Report;
  */
 public class ExportController {
 
-    public void createExcel(String[] headers,List<Report> reports) throws FileNotFoundException, IOException {
-        CSVWriter writer = new CSVWriter(new FileWriter("data.csv"));
+    public void createExcel(String[] headers,List<Report> reports,String file_name) throws FileNotFoundException, IOException {
+        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        String time  = timeStamp.replace("/","_");
+        String route = ConfigGlobal.getConfig().getLogo_path() + "/" + file_name + "_" + time +".csv";
+        CSVWriter writer = new CSVWriter(new FileWriter(route));
         writer.writeNext(headers);
 
         System.out.println();

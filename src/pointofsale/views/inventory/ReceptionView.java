@@ -70,7 +70,7 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
 
         pnInfo.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfo.setLayout(new javax.swing.BoxLayout(pnInfo, javax.swing.BoxLayout.Y_AXIS));
+        pnInfo.setLayout(new java.awt.GridLayout(20, 1));
         jScrollPane2.setViewportView(pnInfo);
 
         jPanel7.add(jScrollPane2);
@@ -93,7 +93,7 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
         pnBase.setBackground(new java.awt.Color(255, 255, 255));
-        pnBase.setLayout(new javax.swing.BoxLayout(pnBase, javax.swing.BoxLayout.Y_AXIS));
+        pnBase.setLayout(new java.awt.GridLayout(0, 2));
         jScrollPane1.setViewportView(pnBase);
 
         jPanel4.add(jScrollPane1);

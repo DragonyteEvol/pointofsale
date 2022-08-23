@@ -27,6 +27,7 @@ public class NewIngredientView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         txtTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,6 +51,17 @@ public class NewIngredientView extends javax.swing.JDialog {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jSeparator7 = new javax.swing.JSeparator();
+        btnImage = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtImage = new javax.swing.JTextField();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +89,7 @@ public class NewIngredientView extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Unidad de medida");
 
+        cbUnit.setBackground(new java.awt.Color(252, 252, 252));
         cbUnit.setForeground(new java.awt.Color(102, 102, 102));
         cbUnit.setBorder(null);
 
@@ -110,24 +123,49 @@ public class NewIngredientView extends javax.swing.JDialog {
         btnDelete.setText("Eliminar");
         btnDelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
 
+        chAmenitie.setBackground(new java.awt.Color(255, 255, 255));
         chAmenitie.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
         chAmenitie.setForeground(new java.awt.Color(102, 102, 102));
         chAmenitie.setText("Amenitie");
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.add(jPanel7, java.awt.BorderLayout.LINE_END);
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new java.awt.GridLayout(2, 0));
+        jPanel4.add(jPanel8, java.awt.BorderLayout.CENTER);
+
+        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        btnImage.setBackground(new java.awt.Color(235, 71, 71));
+        btnImage.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/image-add-solid-24.png"))); // NOI18N
+        btnImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("Imagen");
+
+        txtImage.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chAmenitie)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnSave)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnDelete))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator5)
                                 .addComponent(jSeparator3)
@@ -139,19 +177,35 @@ public class NewIngredientView extends javax.swing.JDialog {
                                 .addComponent(txtPrice, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtStock, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel5)
-                                .addComponent(cbCategorie, 0, 218, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4))
-                                .addComponent(cbUnit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtMinimum)
-                                .addComponent(jSeparator2)
-                                .addComponent(jSeparator4)
-                                .addComponent(jSeparator6)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                            .addComponent(chAmenitie)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                        .addComponent(btnSave)
+                        .addGap(21, 21, 21)
+                        .addComponent(btnDelete))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtImage)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnImage))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cbCategorie, javax.swing.GroupLayout.Alignment.LEADING, 0, 218, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4))
+                        .addComponent(cbUnit, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtMinimum, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,12 +254,25 @@ public class NewIngredientView extends javax.swing.JDialog {
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chAmenitie)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnDelete))
-                .addGap(18, 18, 18))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(chAmenitie)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtImage, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImage))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSave)
+                            .addComponent(btnDelete))
+                        .addGap(18, 18, 18))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -266,10 +333,12 @@ public class NewIngredientView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
+    public javax.swing.JButton btnImage;
     public javax.swing.JButton btnSave;
     public javax.swing.JComboBox<Object> cbCategorie;
     public javax.swing.JComboBox<Object> cbUnit;
     public javax.swing.JCheckBox chAmenitie;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -277,12 +346,20 @@ public class NewIngredientView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField txtImage;
     public javax.swing.JSpinner txtMinimum;
     public javax.swing.JTextField txtName;
     public javax.swing.JSpinner txtPrice;

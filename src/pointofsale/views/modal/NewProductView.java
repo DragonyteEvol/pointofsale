@@ -51,6 +51,11 @@ public class NewProductView extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         cbCategorie = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        txtImage = new javax.swing.JTextField();
+        btnImage = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JSeparator();
         jPanel12 = new javax.swing.JPanel();
         chPolimorphism = new javax.swing.JCheckBox();
         jPanel13 = new javax.swing.JPanel();
@@ -152,6 +157,29 @@ public class NewProductView extends javax.swing.JDialog {
 
         jPanel2.add(jPanel11);
 
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setText("Imagen:");
+        jPanel14.add(jLabel7);
+
+        txtImage.setBorder(null);
+        jPanel14.add(txtImage);
+
+        btnImage.setBackground(new java.awt.Color(235, 71, 71));
+        btnImage.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/image-add-solid-24.png"))); // NOI18N
+        btnImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        jPanel14.add(btnImage);
+
+        jPanel2.add(jPanel14);
+
+        jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator5);
+
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
@@ -196,7 +224,7 @@ public class NewProductView extends javax.swing.JDialog {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 351, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 471, Short.MAX_VALUE)
         );
 
         jPanel5.add(jPanel7);
@@ -272,6 +300,7 @@ public class NewProductView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
+    public javax.swing.JButton btnImage;
     public javax.swing.JButton btnNext;
     public javax.swing.JComboBox<Object> cbCategorie;
     public javax.swing.JCheckBox chPolimorphism;
@@ -280,11 +309,13 @@ public class NewProductView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
@@ -296,8 +327,10 @@ public class NewProductView extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JPanel pnDinamic;
+    public javax.swing.JTextField txtImage;
     public javax.swing.JTextField txtName;
     public javax.swing.JSpinner txtPrice;
     public javax.swing.JSpinner txtTime;

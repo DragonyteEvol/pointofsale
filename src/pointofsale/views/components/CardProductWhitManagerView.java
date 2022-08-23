@@ -28,7 +28,7 @@ public class CardProductWhitManagerView extends javax.swing.JPanel {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        txtImage = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         txtName = new javax.swing.JLabel();
@@ -41,47 +41,39 @@ public class CardProductWhitManagerView extends javax.swing.JPanel {
         btnPlus = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 153, 255));
-        setLayout(new java.awt.BorderLayout());
+        setBackground(new java.awt.Color(221, 221, 221));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jPanel3.setBackground(new java.awt.Color(51, 102, 255));
         jPanel3.setForeground(new java.awt.Color(51, 102, 255));
 
-        jPanel5.setBackground(new java.awt.Color(51, 102, 255));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/dish-regular-24.png"))); // NOI18N
-        jPanel5.add(jLabel2);
+        txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/dish-regular-24.png"))); // NOI18N
+        jPanel5.add(txtImage);
 
         jPanel3.add(jPanel5);
 
-        add(jPanel3, java.awt.BorderLayout.PAGE_START);
-
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
         jPanel1.setForeground(new java.awt.Color(51, 102, 255));
 
+        txtName.setBackground(new java.awt.Color(102, 102, 102));
         txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        txtName.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
         jPanel1.add(txtName);
 
         jPanel4.add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(51, 102, 255));
         jPanel2.setForeground(new java.awt.Color(51, 102, 255));
 
+        txtCategorie.setBackground(new java.awt.Color(102, 102, 102));
         txtCategorie.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        txtCategorie.setForeground(new java.awt.Color(255, 255, 255));
+        txtCategorie.setForeground(new java.awt.Color(102, 102, 102));
         txtCategorie.setText("Categorie");
         jPanel2.add(txtCategorie);
 
         jPanel4.add(jPanel2);
 
-        jPanel6.setBackground(new java.awt.Color(51, 102, 255));
         jPanel6.setForeground(new java.awt.Color(51, 102, 255));
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         btnLess.setBackground(new java.awt.Color(51, 102, 255));
         btnLess.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
@@ -114,7 +106,20 @@ public class CardProductWhitManagerView extends javax.swing.JPanel {
 
         jPanel4.add(jPanel6);
 
-        add(jPanel4, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessActionPerformed
@@ -126,7 +131,6 @@ public class CardProductWhitManagerView extends javax.swing.JPanel {
     public javax.swing.JButton btnAdd;
     public javax.swing.JButton btnLess;
     public javax.swing.JButton btnPlus;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -135,6 +139,7 @@ public class CardProductWhitManagerView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JLabel txtCategorie;
+    public javax.swing.JLabel txtImage;
     public javax.swing.JLabel txtName;
     public javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables

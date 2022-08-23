@@ -32,7 +32,7 @@ public class CardProductView extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtImage = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         txtName = new javax.swing.JLabel();
@@ -64,8 +64,8 @@ public class CardProductView extends javax.swing.JPanel {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/bowl-rice-solid-24.png"))); // NOI18N
-        jPanel8.add(jLabel1);
+        txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/bowl-rice-solid-24.png"))); // NOI18N
+        jPanel8.add(txtImage);
 
         jPanel7.add(jPanel8);
 
@@ -105,7 +105,6 @@ public class CardProductView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnEdit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -115,6 +114,7 @@ public class CardProductView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     public javax.swing.JLabel txtCategorie;
+    public javax.swing.JLabel txtImage;
     public javax.swing.JLabel txtName;
     public javax.swing.JLabel txtPrice;
     // End of variables declaration//GEN-END:variables

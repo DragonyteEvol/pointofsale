@@ -94,7 +94,7 @@ public class SellController extends Controller implements ActionListener{
             ExportController ec = new ExportController();
             try {
                 String[] headers = new String[]{"id","nombre","ventas","cantidad","fecha"};
-                ec.createExcel(headers,reports);
+                ec.createExcel(headers,reports,"ventas");
             } catch (IOException ex) {
                 Logger.getLogger(ExpenseController.class.getName()).log(Level.SEVERE, null, ex);
             }

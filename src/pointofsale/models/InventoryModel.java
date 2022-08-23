@@ -45,6 +45,7 @@ public class InventoryModel extends Model {
         for (Ingredient ingredient : listIngredients) {
             //inventory
             Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id=" + String.valueOf(ingredient.getId()));
+            System.out.println("ASDLKJASLK" + String.valueOf(inventory.getId()));
             Integer value = inventory.getQuantity() + ingredient.getQuantity();
             inventory.setQuantity(value);
             //movement

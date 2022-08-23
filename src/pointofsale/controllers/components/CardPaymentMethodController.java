@@ -17,7 +17,7 @@ import pointofsale.views.components.CardPaymentMethodView;
  *
  * @author dragonyte
  */
-public class CardPaymentMethodController implements ActionListener{
+public class CardPaymentMethodController extends CardController implements ActionListener{
 
     private PaymentMethod paymentMethod;
     public CardPaymentMethodView view;
@@ -57,20 +57,26 @@ public class CardPaymentMethodController implements ActionListener{
     private void initEvents() {
         this.view.btnDelete.addActionListener(this);
         this.view.btnEdit.addActionListener(this);
+        deleteView.btnYes.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnDelete) {
-            DeleteThread deleteThread = new DeleteThread();
-            deleteThread.start();
-            removeComponent(this.view);
+            deleteView.setVisible(true);
         }
 
         if (source == this.view.btnEdit) {
             EditPaymentMethodController editPaymentMethodController = new EditPaymentMethodController(paymentMethod);
             refreshCategorie();
+        }
+        
+        if(source == deleteView.btnYes){
+            DeleteThread deleteThread = new DeleteThread();
+            deleteThread.start();
+            removeComponent(this.view);
+            deleteView.dispose();
         }
     }
 

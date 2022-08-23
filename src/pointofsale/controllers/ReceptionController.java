@@ -101,9 +101,7 @@ public class ReceptionController extends Controller implements ActionListener, F
             this.view.pnBase.removeAll();
             SetResourceThread setResourceThread = new SetResourceThread();
             setResourceThread.start();
-            revalidateView();
 
-            
         }
     }
 
@@ -140,14 +138,20 @@ public class ReceptionController extends Controller implements ActionListener, F
 
         @Override
         public void run() {
-            Integer price = Integer.valueOf(view.txtPrice.getText());
+            Integer value = 0;
+            for (Ingredient ingredientp : listIngredients) {
+                value += ingredientp.getPrice();
+            }
             InventoryModel inventoryModel = new InventoryModel();
-            inventoryModel.receiptInventory(listIngredients, price);
+            inventoryModel.receiptInventory(listIngredients, value);
+            System.out.print(value +"");
             listIngredients.removeAll(listIngredients);
-            
+
             MissingGlobal.showNotifications();
 
             HomeController.checkNotifications();
+            view.txtPrice.setText("");
+            revalidateView();
         }
     }
 }

@@ -43,7 +43,11 @@ public class UnitView extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnCreate.setBackground(new java.awt.Color(0, 102, 255));
+        btnCreate.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
+        btnCreate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 5));
         jPanel1.add(btnCreate);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);

@@ -46,7 +46,11 @@ public class CategorieView extends javax.swing.JPanel {
         jPanel3.setForeground(new java.awt.Color(51, 51, 255));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnCreate.setBackground(new java.awt.Color(0, 102, 255));
+        btnCreate.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
+        btnCreate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
@@ -90,7 +94,7 @@ public class CategorieView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnDinamicc, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
+                .addComponent(pnDinamicc, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

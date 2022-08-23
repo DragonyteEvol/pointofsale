@@ -178,7 +178,7 @@ public class EditProductController implements ActionListener {
                 String where = "ingredients.categorie_id=" + String.valueOf(categorie.getId());
                 List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
                 for (Ingredient ingredient : ingredients) {
-                    CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfo, this.listQuantitys);
+                    CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfoo, this.listQuantitys);
                 }
                 scrollPanel.setViewportView(panel);
                 this.view.tabbedPane.add(categorie.getName(), scrollPanel);
@@ -191,7 +191,7 @@ public class EditProductController implements ActionListener {
             }
             
             for(Ingredient ingredient : ingredients){
-                CardIngredientInfoController card = new CardIngredientInfoController(listQuantitys, ingredient, view.pnInfo);
+                CardIngredientInfoController card = new CardIngredientInfoController(listQuantitys, ingredient, view.pnInfoo);
             }
         }
 

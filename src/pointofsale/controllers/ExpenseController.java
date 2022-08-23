@@ -95,7 +95,7 @@ public class ExpenseController extends Controller implements ActionListener {
             ExportController ec = new ExportController();
             try {
                 String[] headers = new String[]{"id","nombre","perdidas","cantidad","fecha"};
-                ec.createExcel(headers,reports);
+                ec.createExcel(headers,reports,"gastos");
             } catch (IOException ex) {
                 Logger.getLogger(ExpenseController.class.getName()).log(Level.SEVERE, null, ex);
             }
