@@ -4,7 +4,6 @@
  */
 package pointofsale.controllers;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -56,12 +55,12 @@ public class EventController extends Controller implements ActionListener {
     class SetResource extends Thread {
 
         private void setEvent() {
-            view.pnEvents.removeAll();
             EventModel eventModel = new EventModel();
             List<Event> events = eventModel.selectAll();
             for (Event event : events) {
-                System.out.print(event.getName());
                 CardEventController card = new CardEventController(event, view.pnEvents);
+                view.pnEvents.repaint();
+                view.pnEvents.revalidate();
             }
             view.pnEvents.repaint();
             view.pnEvents.revalidate();

@@ -4,7 +4,6 @@
  */
 package pointofsale.models;
 
-import java.util.Arrays;
 import java.util.List;
 import pointofsale.objects.AditionalInformation;
 

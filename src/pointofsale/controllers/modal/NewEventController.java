@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import pointofsale.controllers.HomeController;
 import pointofsale.models.EventModel;
 import pointofsale.objects.Event;
 import pointofsale.views.modal.NewEventView;
@@ -26,7 +25,7 @@ public class NewEventController implements ActionListener{
         view.btnDelete.setVisible(false);
         view.btnSave.addActionListener(this);
         
-        view.setResizable(false);
+        view.setResizable(true);
         view.setVisible(true);
     }
     

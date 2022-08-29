@@ -4,24 +4,21 @@
  */
 package pointofsale.controllers.components;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 import javax.swing.JPanel;
 import pointofsale.EventGlobal;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.modal.EditEventController;
 import pointofsale.controllers.modal.OrderPayController;
-import pointofsale.controllers.modal.ReceipMoneyController;
 import pointofsale.models.BillModel;
 import pointofsale.models.EventModel;
-import pointofsale.models.PaymentMethodModel;
 import pointofsale.objects.Bill;
 import pointofsale.objects.Event;
-import pointofsale.objects.PaymentMethod;
 import pointofsale.views.components.CardEventView;
 import pointofsale.views.modal.ConfirmEventMoney;
 
@@ -101,6 +98,7 @@ public class CardEventController implements ActionListener {
             view.txtName.setText(String.valueOf(event.getName()));
             view.txtPrice.setText(MoneyConverter.convertDouble(event.getPrice()));
             view.txtDescription.setText((event.getDescription()));
+            view.txtDescription.setPreferredSize(new Dimension(150,20));
             setCollect();
             setDate();
         }

@@ -4,7 +4,6 @@
  */
 package pointofsale.views.accounting;
 
-import pointofsale.controllers.components.ScrollBarCustom;
 
 /**
  *

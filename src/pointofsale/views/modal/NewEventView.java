@@ -59,6 +59,7 @@ public class NewEventView extends javax.swing.JDialog {
 
         txtDescription.setColumns(20);
         txtDescription.setForeground(new java.awt.Color(102, 102, 102));
+        txtDescription.setLineWrap(true);
         txtDescription.setRows(5);
 
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
@@ -98,7 +99,7 @@ public class NewEventView extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addComponent(txtName)
                         .addComponent(jSeparator3)
-                        .addComponent(txtDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
+                        .addComponent(txtDescription))
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );

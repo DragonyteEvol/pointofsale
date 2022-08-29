@@ -4,7 +4,6 @@
  */
 package pointofsale.views.inventory;
 
-import java.awt.Dimension;
 
 /**
  *

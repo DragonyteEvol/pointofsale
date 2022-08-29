@@ -4,7 +4,6 @@
  */
 package pointofsale.models;
 
-import java.util.ArrayList;
 import java.util.List;
 import pointofsale.UserGlobal;
 import pointofsale.objects.Atm;

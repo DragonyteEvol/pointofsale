@@ -6,7 +6,6 @@ package pointofsale.models;
 
 import java.util.List;
 import pointofsale.EventGlobal;
-import pointofsale.MissingGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillProduct;

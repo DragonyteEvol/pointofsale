@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import pointofsale.controllers.components.CardBillController;
 import pointofsale.models.BillModel;
 import pointofsale.objects.Bill;
-import pointofsale.views.accounting.DefaultAccountingView;
 import pointofsale.views.accounting.ExpenseView;
 
 /**

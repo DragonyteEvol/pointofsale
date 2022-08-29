@@ -4,7 +4,6 @@
  */
 package pointofsale.controllers.modal;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -14,7 +13,6 @@ import javax.swing.event.ChangeListener;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.RoomModel;
-import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.Room;
 import pointofsale.views.modal.RentRoomView;
 import pointofsale.views.modal.RoomManagerView;

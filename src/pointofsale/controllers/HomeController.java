@@ -15,7 +15,6 @@ import pointofsale.UserGlobal;
 import pointofsale.controllers.modal.LoginController;
 import pointofsale.objects.MissingStock;
 import pointofsale.views.HomeView;
-import pointofsale.views.layouts.MenuLayout;
 
 /**
  *

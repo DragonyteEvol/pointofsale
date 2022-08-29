@@ -17,7 +17,6 @@ import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Inventory;
 import pointofsale.objects.Unit;
-import pointofsale.views.menu.InventoryMenu;
 import pointofsale.views.modal.NewIngredientView;
 
 /**

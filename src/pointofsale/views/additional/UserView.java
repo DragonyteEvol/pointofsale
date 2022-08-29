@@ -4,7 +4,6 @@
  */
 package pointofsale.views.additional;
 
-import pointofsale.controllers.components.ScrollBarCustom;
 
 /**
  *
@@ -17,7 +16,6 @@ public class UserView extends javax.swing.JPanel {
      */
     public UserView() {
         initComponents();
-        ScrollBarCustom.setCustomScroll(scrollPane);
     }
 
     /**

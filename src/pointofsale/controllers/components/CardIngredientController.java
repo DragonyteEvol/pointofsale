@@ -11,13 +11,9 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import pointofsale.MoneyConverter;
-import pointofsale.controllers.modal.EditCategorieController;
 import pointofsale.controllers.modal.EditIngredientController;
-import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
-import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
-import pointofsale.views.components.CardCategorieView;
 import pointofsale.views.components.CardIngredientView;
 
 /**

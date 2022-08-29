@@ -12,7 +12,6 @@ import pointofsale.controllers.modal.EditCategorieController;
 import pointofsale.models.CategorieModel;
 import pointofsale.objects.Categorie;
 import pointofsale.views.components.CardCategorieView;
-import pointofsale.views.modal.ConfirmDeleteView;
 
 /**
  *

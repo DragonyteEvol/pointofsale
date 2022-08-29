@@ -4,8 +4,6 @@
  */
 package pointofsale.views.accounting;
 
-import java.awt.Dimension;
-import pointofsale.controllers.components.ScrollBarCustom;
 
 /**
  *

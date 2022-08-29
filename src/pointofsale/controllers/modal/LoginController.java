@@ -6,7 +6,6 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.ModalController;

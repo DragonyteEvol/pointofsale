@@ -6,9 +6,6 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pointofsale.controllers.ModalController;
 import pointofsale.controllers.UnitController;
 import pointofsale.models.UnitModel;

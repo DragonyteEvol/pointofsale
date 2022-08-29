@@ -20,16 +20,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 import pointofsale.MoneyConverter;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.InventoryModel;
 import pointofsale.objects.Ingredient;
-import pointofsale.objects.MoneyBox;
 import pointofsale.objects.MovementInventory;
 import pointofsale.views.inventory.InventoryView;
 

@@ -4,7 +4,6 @@
  */
 package pointofsale.views.inventory;
 
-import pointofsale.controllers.components.ScrollBarCustom;
 
 /**
  *
@@ -17,7 +16,6 @@ public class ProductView extends javax.swing.JPanel {
      */
     public ProductView() {
         initComponents();
-        ScrollBarCustom.setCustomScroll(scrollPane);
     }
     
     

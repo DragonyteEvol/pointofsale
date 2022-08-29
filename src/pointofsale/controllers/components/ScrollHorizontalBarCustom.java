@@ -23,11 +23,9 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  *
  * @author dragonyte
  */
-public class ScrollBarCustom {
-    
-    public static void setCustomScroll(JScrollPane scrollPane){
+public class ScrollHorizontalBarCustom {
+   public static void setCustomScroll(JScrollPane scrollPane){
         scrollPane.setComponentZOrder(scrollPane.getViewport(), 1);
-        scrollPane.getVerticalScrollBar().setOpaque(false);
         scrollPane.getHorizontalScrollBar().setOpaque(false);
 
         scrollPane.setLayout(new ScrollPaneLayout() {
@@ -39,8 +37,8 @@ public class ScrollBarCustom {
                 availR.x = availR.y = 0;
 
                 Insets parentInsets = parent.getInsets();
-                availR.x = parentInsets.left;
-                availR.y = parentInsets.top;
+                availR.x = parentInsets.right;
+                availR.y = parentInsets.bottom;
                 availR.width -= parentInsets.left + parentInsets.right;
                 availR.height -= parentInsets.top + parentInsets.bottom;
 
@@ -59,7 +57,7 @@ public class ScrollBarCustom {
                 }
             }
         });
-        scrollPane.getVerticalScrollBar().setUI(new MyScrollBarUI());
+        scrollPane.getHorizontalScrollBar().setUI(new MyScrollBarUI());
     }
     
 }
@@ -100,7 +98,6 @@ class MyScrollBarUI extends BasicScrollBarUI {
         Color color = null;
         JScrollBar sb = (JScrollBar) c;
         if (!sb.isEnabled() || r.width > r.height) {
-            return;
         } else if (isDragging) {
             color = Color.DARK_GRAY;
         } else if (isThumbRollover()) {
