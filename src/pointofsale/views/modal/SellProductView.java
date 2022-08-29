@@ -132,11 +132,12 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel3.add(jPanel6);
 
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new java.awt.GridLayout());
 
         txtSearch.setForeground(new java.awt.Color(153, 153, 153));
         txtSearch.setText("Buscar");
-        txtSearch.setBorder(null);
+        txtSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         jPanel7.add(txtSearch);
 
         jPanel3.add(jPanel7);

@@ -20,40 +20,60 @@ import pointofsale.views.sell.TableView;
  *
  * @author dragonyte
  */
-public class TableController extends Controller implements ActionListener{
+public class TableController extends Controller implements ActionListener {
+
     private TableView view;
     private JPanel panel;
 
     public TableController(JPanel panel) {
+        this.view = new TableView();
         this.initComponents(panel);
     }
 
     private void initComponents(JPanel panel) {
+
         this.panel = panel;
-        this.view = new TableView();
-        setResources();
-        panel.add(view,BorderLayout.CENTER);
+
+        panel.add(view, BorderLayout.CENTER);
+        
+        setTables();
         this.initEvents();
+    }
+
+    private void setTables() {
+        view.pnTables.removeAll();
+        SetResource sr = new SetResource();
+        sr.start();
     }
 
     private void initEvents() {
         this.view.btnCreate.addActionListener(this);
     }
 
-    private void setResources(){
-        TableModel tableModel = new TableModel();
-        List<Table> tables = tableModel.selectAll();
-        for(Table table : tables){
-            CardTableController cardTableController = new CardTableController(this.view.pnTables,table);
-        }
-    }
-
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if(source== this.view.btnCreate){
+        if (source == this.view.btnCreate) {
             NewTableController newTableController = new NewTableController();
-            initComponents(this.panel);
+            setTables();
+        }
+    }
+
+    class SetResource extends Thread {
+
+        private void setResources() {
+            TableModel tableModel = new TableModel();
+            List<Table> tables = tableModel.selectAll();
+            for (Table table : tables) {
+                CardTableController cardTableController = new CardTableController(view.pnTables, table);
+                view.pnTables.repaint();
+                view.pnTables.revalidate();
+            }
+        }
+
+        @Override
+        public void run() {
+            setResources();
         }
     }
 }

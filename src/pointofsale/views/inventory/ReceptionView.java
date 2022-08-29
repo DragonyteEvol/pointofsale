@@ -54,13 +54,15 @@ public class ReceptionView extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Informacion de recepcion");
         jPanel6.add(jLabel2);
         jPanel6.add(txtPrice);
@@ -68,6 +70,8 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane2.setBorder(null);
 
         pnInfo.setBackground(new java.awt.Color(255, 255, 255));
         pnInfo.setLayout(new java.awt.GridLayout(20, 1));
@@ -92,8 +96,9 @@ public class ReceptionView extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 204, 204));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        pnBase.setBackground(new java.awt.Color(255, 255, 255));
-        pnBase.setLayout(new java.awt.GridLayout(0, 2));
+        jScrollPane1.setBorder(null);
+
+        pnBase.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
         jScrollPane1.setViewportView(pnBase);
 
         jPanel4.add(jScrollPane1);

@@ -18,7 +18,8 @@ import pointofsale.views.accounting.ExpenseView;
  *
  * @author dragonyte
  */
-public class BillController extends Controller implements ActionListener{
+public class BillController extends Controller implements ActionListener {
+
     private ExpenseView view;
 
     public BillController(JPanel panel) {
@@ -27,33 +28,25 @@ public class BillController extends Controller implements ActionListener{
         SetResource setResource = new SetResource();
         setResource.start();
     }
-    
-    private void setBill(){
-            BillModel billModel = new BillModel();
-            List<Bill> bills = billModel.selectAll();
-            for(Bill bill : bills){
-                CardBillController card = new CardBillController(bill, view.pnBills);
-            }
-        }
+
 
     @Override
     public void actionPerformed(ActionEvent ae) {
     }
-    
+
     //THREADS
-    
-    class SetResource extends Thread{
-        
-        private void setBill(){
+    class SetResource extends Thread {
+
+        private void setBill() {
             BillModel billModel = new BillModel();
             List<Bill> bills = billModel.selectAll();
-            for(Bill bill : bills){
+            for (Bill bill : bills) {
                 CardBillController card = new CardBillController(bill, view.pnBills);
             }
         }
-        
+
         @Override
-        public void run(){
+        public void run() {
             setBill();
         }
     }

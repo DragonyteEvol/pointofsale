@@ -29,11 +29,33 @@ public class InventoryView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        txtName = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        jPanel24 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        txtImage = new javax.swing.JLabel();
+        jPanel25 = new javax.swing.JPanel();
+        jPanel30 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        txtQuanity = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        txtUnit = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        txtCategorie = new javax.swing.JLabel();
+        pnMovementTable = new javax.swing.JPanel();
         pnTable = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -48,32 +70,116 @@ public class InventoryView extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setText("Categorias");
-        jPanel3.add(jLabel2);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBox1);
-
-        jPanel1.add(jPanel3);
-
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
+        jScrollPane1.setBorder(null);
+
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
+        txtName.setText("Name");
+        jPanel7.add(txtName);
+
+        jPanel6.add(jPanel7, java.awt.BorderLayout.PAGE_START);
+
+        jPanel23.setLayout(new java.awt.GridLayout(3, 0));
+
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel29.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtImage.setBackground(new java.awt.Color(255, 255, 255));
+        txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/barcode-regular-24.png"))); // NOI18N
+        jPanel29.add(txtImage);
+
+        jPanel24.add(jPanel29);
+
+        jPanel23.add(jPanel24);
+
+        jPanel25.setLayout(new java.awt.GridLayout());
+
+        jPanel30.setLayout(new javax.swing.BoxLayout(jPanel30, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setText("Cantidad");
+        jPanel10.add(jLabel3);
+
+        jPanel30.add(jPanel10);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtQuanity.setBackground(new java.awt.Color(102, 102, 102));
+        txtQuanity.setText("Quantity");
+        jPanel11.add(txtQuanity);
+
+        jPanel30.add(jPanel11);
+
+        jPanel25.add(jPanel30);
+
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("Unidad");
+        jPanel12.add(jLabel5);
+
+        jPanel8.add(jPanel12);
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtUnit.setBackground(new java.awt.Color(102, 102, 102));
+        txtUnit.setText("Unit");
+        jPanel13.add(txtUnit);
+
+        jPanel8.add(jPanel13);
+
+        jPanel25.add(jPanel8);
+
+        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setText("Categoria");
+        jPanel14.add(jLabel7);
+
+        jPanel9.add(jPanel14);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtCategorie.setBackground(new java.awt.Color(102, 102, 102));
+        txtCategorie.setText("Categorie");
+        jPanel15.add(txtCategorie);
+
+        jPanel9.add(jPanel15);
+
+        jPanel25.add(jPanel9);
+
+        jPanel23.add(jPanel25);
+
+        pnMovementTable.setBackground(new java.awt.Color(255, 255, 255));
+        pnMovementTable.setLayout(new java.awt.BorderLayout());
+        jPanel23.add(pnMovementTable);
+
+        jPanel6.add(jPanel23, java.awt.BorderLayout.CENTER);
+
+        jScrollPane1.setViewportView(jPanel6);
+
+        jPanel5.add(jScrollPane1);
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.LINE_START);
 
@@ -86,14 +192,36 @@ public class InventoryView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JPanel pnMovementTable;
     public javax.swing.JPanel pnTable;
+    public javax.swing.JLabel txtCategorie;
+    public javax.swing.JLabel txtImage;
+    public javax.swing.JLabel txtName;
+    public javax.swing.JLabel txtQuanity;
     public javax.swing.JTextField txtSearch;
+    public javax.swing.JLabel txtUnit;
     // End of variables declaration//GEN-END:variables
 }

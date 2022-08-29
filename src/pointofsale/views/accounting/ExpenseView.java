@@ -4,6 +4,8 @@
  */
 package pointofsale.views.accounting;
 
+import pointofsale.controllers.components.ScrollBarCustom;
+
 /**
  *
  * @author dragonyte
@@ -28,7 +30,7 @@ public class ExpenseView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         pnBills = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -39,9 +41,9 @@ public class ExpenseView extends javax.swing.JPanel {
 
         pnBills.setBackground(new java.awt.Color(255, 255, 255));
         pnBills.setLayout(new javax.swing.BoxLayout(pnBills, javax.swing.BoxLayout.Y_AXIS));
-        jScrollPane1.setViewportView(pnBills);
+        scrollPane.setViewportView(pnBills);
 
-        jPanel3.add(jScrollPane1);
+        jPanel3.add(scrollPane);
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -52,7 +54,7 @@ public class ExpenseView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnBills;
+    private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

@@ -103,4 +103,10 @@ public class InventoryModel extends Model {
         this.dao.getAtmDao().modify(atm);
         this.saveChanges();
     }
+    
+    public List<MovementInventory> getMovementInventory(int id){
+        List<MovementInventory> movementInventorys = this.dao.getMovementInventoryDao().getByIngredient(id);
+        this.closeConnection();
+        return movementInventorys;
+    }
 }

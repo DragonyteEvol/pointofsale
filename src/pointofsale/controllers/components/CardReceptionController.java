@@ -5,9 +5,11 @@
 package pointofsale.controllers.components;
 
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import pointofsale.objects.Ingredient;
 import pointofsale.views.components.CardReceipView;
@@ -37,6 +39,14 @@ public class CardReceptionController implements ActionListener {
         view.txtName.setText(ingredient.getName());
         view.txtUnit.setText(ingredient.getUnit());
         view.txtCurrentQuantity.setText(String.valueOf(ingredient.getQuantity()));
+        if (!"".equals(ingredient.getRoute_image())) {
+            ImageIcon icon = new ImageIcon(ingredient.getRoute_image());
+            Image img = icon.getImage();
+            Image img_r = img.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img_r);
+            view.txtImage.setIcon(icon);
+        }
+        
 
         view.btnLess.addActionListener(this);
         view.btnPlus.addActionListener(this);

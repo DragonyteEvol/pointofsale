@@ -27,16 +27,23 @@ public class ProductController extends Controller implements ActionListener, Foc
     private ProductView view;
 
     public ProductController(JPanel panel) {
+        this.view = new ProductView();
+
         this.initComponents(panel);
     }
 
     private void initComponents(JPanel panel) {
-        this.view = new ProductView();
-        setProducts();
-        panel.add(view);
 
+        panel.add(view);
+        setProducts();
         this.initEvents();
 
+    }
+
+    public void setProducts() {
+        view.pnProducts.removeAll();
+        SetResource sr = new SetResource();
+        sr.start();
     }
 
     private void initEvents() {
@@ -47,11 +54,11 @@ public class ProductController extends Controller implements ActionListener, Foc
         view.txtSearch.getDocument().addDocumentListener(new DocumentListener() {
 
             public void removeUpdate(DocumentEvent e) {
-                search(view.pnProducts);
+                search();
             }
 
             public void insertUpdate(DocumentEvent e) {
-                search(view.pnProducts);
+                search();
             }
 
             @Override
@@ -60,33 +67,9 @@ public class ProductController extends Controller implements ActionListener, Foc
         });
     }
 
-    private void setProducts() {
-        ProductModel productModel = new ProductModel();
-        List<Product> products = productModel.selectAll();
-        for (Product product : products) {
-            CardProductController cardProductController = new CardProductController(product, this.view.pnProducts);
-        }
-    }
-
-    private void search(JPanel searchPanel) {
-        String search = view.txtSearch.getText();
-
-        ProductModel productModel = new ProductModel();
-        List<Product> products = productModel.searchProducts(search);
-
-        searchPanel.removeAll();
-
-        if (products.isEmpty()) {
-            searchPanel.repaint();
-            searchPanel.revalidate();
-        } else {
-
-            for (Product product : products) {
-                CardProductController cardProductController = new CardProductController(product, searchPanel);
-                searchPanel.repaint();
-                searchPanel.revalidate();
-            }
-        }
+    private void search() {
+        SearchThread st = new SearchThread();
+        st.start();
     }
 
     @Override
@@ -94,6 +77,7 @@ public class ProductController extends Controller implements ActionListener, Foc
         Object source = ae.getSource();
         if (source == this.view.btnCreate) {
             NewProductController newProduct = new NewProductController();
+            setProducts();
         }
     }
 
@@ -107,5 +91,52 @@ public class ProductController extends Controller implements ActionListener, Foc
 
     @Override
     public void focusLost(FocusEvent fe) {
+    }
+
+    class SetResource extends Thread {
+
+        private void setProducts() {
+            ProductModel productModel = new ProductModel();
+            List<Product> products = productModel.selectAll();
+            for (Product product : products) {
+                CardProductController cardProductController = new CardProductController(product, view.pnProducts);
+                view.pnProducts.repaint();
+                view.pnProducts.revalidate();
+            }
+        }
+
+        @Override
+        public void run() {
+            setProducts();
+        }
+    }
+
+    class SearchThread extends Thread {
+
+        private void search(JPanel searchPanel) {
+            String search = view.txtSearch.getText();
+
+            ProductModel productModel = new ProductModel();
+            List<Product> products = productModel.searchProducts(search);
+
+            searchPanel.removeAll();
+
+            if (products.isEmpty()) {
+                searchPanel.repaint();
+                searchPanel.revalidate();
+            } else {
+
+                for (Product product : products) {
+                    CardProductController cardProductController = new CardProductController(product, searchPanel);
+                    searchPanel.repaint();
+                    searchPanel.revalidate();
+                }
+            }
+        }
+
+        @Override
+        public void run() {
+            search(view.pnProducts);
+        }
     }
 }

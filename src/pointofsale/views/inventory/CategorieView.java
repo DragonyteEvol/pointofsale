@@ -74,10 +74,12 @@ public class CategorieView extends javax.swing.JPanel {
 
         pnDinamicc.setLayout(new javax.swing.BoxLayout(pnDinamicc, javax.swing.BoxLayout.LINE_AXIS));
 
+        jScrollPane2.setBorder(null);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(550, 600));
 
         pnCategorie.setBackground(new java.awt.Color(255, 255, 255));
-        pnCategorie.setPreferredSize(new Dimension(400,pnCategorie.getMaximumSize().height));
+        pnCategorie.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        pnCategorie.setLayout(new java.awt.GridLayout(0, 6, 5, 5));
         jScrollPane2.setViewportView(pnCategorie);
 
         pnDinamicc.add(jScrollPane2);

@@ -5,6 +5,7 @@
 package pointofsale.views.accounting;
 
 import java.awt.Dimension;
+import pointofsale.controllers.components.ScrollBarCustom;
 
 /**
  *
@@ -33,7 +34,7 @@ public class PaymentMethodView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         pnPayments = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -57,10 +58,10 @@ public class PaymentMethodView extends javax.swing.JPanel {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
-        pnPayments.setPreferredSize(new Dimension(400,pnPayments.getMaximumSize().height));
-        jScrollPane1.setViewportView(pnPayments);
+        pnPayments.setLayout(new java.awt.GridLayout(0, 5, 5, 5));
+        scrollPane.setViewportView(pnPayments);
 
-        jPanel3.add(jScrollPane1);
+        jPanel3.add(scrollPane);
 
         add(jPanel3, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -71,8 +72,8 @@ public class PaymentMethodView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnPayments;
+    private javax.swing.JScrollPane scrollPane;
     public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

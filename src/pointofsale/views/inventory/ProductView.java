@@ -4,7 +4,7 @@
  */
 package pointofsale.views.inventory;
 
-import java.awt.Dimension;
+import pointofsale.controllers.components.ScrollBarCustom;
 
 /**
  *
@@ -17,7 +17,10 @@ public class ProductView extends javax.swing.JPanel {
      */
     public ProductView() {
         initComponents();
+        ScrollBarCustom.setCustomScroll(scrollPane);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,7 +37,7 @@ public class ProductView extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         pnProducts = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -61,10 +64,13 @@ public class ProductView extends javax.swing.JPanel {
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        pnProducts.setPreferredSize(new Dimension(400,pnProducts.getMaximumSize().height));
-        jScrollPane1.setViewportView(pnProducts);
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
-        jPanel4.add(jScrollPane1);
+        pnProducts.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        pnProducts.setLayout(new java.awt.GridLayout(0, 5, 5, 5));
+        scrollPane.setViewportView(pnProducts);
+
+        jPanel4.add(scrollPane);
 
         jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -78,8 +84,9 @@ public class ProductView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnProducts;
+    private javax.swing.JScrollPane scrollPane;
     public javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
+

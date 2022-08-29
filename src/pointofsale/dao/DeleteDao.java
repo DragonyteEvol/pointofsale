@@ -4,14 +4,10 @@
  */
 package pointofsale.dao;
 
-import java.util.List;
-import pointofsale.objects.MovementInventory;
-
 /**
  *
  * @author dragonyte
  */
-public interface MovementInventoryDao extends Dao<MovementInventory, Long>{
-    void deleteWhere(String where);
-    List<MovementInventory> getByIngredient(int id);
+public interface DeleteDao {
+    void deleteAllTables();
 }

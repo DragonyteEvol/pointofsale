@@ -64,7 +64,7 @@ public class UnitView extends javax.swing.JPanel {
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
-        pnUnits.setPreferredSize(new Dimension(400,pnUnits.getMaximumSize().height));
+        pnUnits.setLayout(new java.awt.GridLayout(0, 6, 5, 5));
         jScrollPane1.setViewportView(pnUnits);
 
         jPanel4.add(jScrollPane1);

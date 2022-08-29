@@ -120,6 +120,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         }
 
         if (event != null) {
+            realPrice = event.getPrice();
+            System.out.print(realPrice);
             view.txtPrice.setText(MoneyConverter.convertDouble(realPrice));
 
             String arrayData[][] = new String[1][5];

@@ -29,6 +29,9 @@ public class CardEventView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         txtName = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
@@ -56,11 +59,25 @@ public class CardEventView extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel10.setLayout(new java.awt.GridLayout());
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/time-five-solid-24.png"))); // NOI18N
+        jPanel12.add(jLabel2);
+
+        jPanel10.add(jPanel12);
+
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         txtName.setBackground(new java.awt.Color(102, 102, 102));
         txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
-        jPanel10.add(txtName);
+        jPanel2.add(txtName);
+
+        jPanel10.add(jPanel2);
 
         jPanel1.add(jPanel10);
 
@@ -145,11 +162,14 @@ public class CardEventView extends javax.swing.JPanel {
     public javax.swing.JButton btnEdit;
     public javax.swing.JButton btnEnd;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

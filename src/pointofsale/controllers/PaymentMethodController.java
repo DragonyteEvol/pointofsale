@@ -23,7 +23,7 @@ import pointofsale.views.accounting.PaymentMethodView;
  *
  * @author dragonyte
  */
-public class PaymentMethodController extends Controller implements ActionListener,FocusListener {
+public class PaymentMethodController extends Controller implements ActionListener, FocusListener {
 
     private PaymentMethodView view;
     private JTable inventoryTable;
@@ -31,20 +31,19 @@ public class PaymentMethodController extends Controller implements ActionListene
     public PaymentMethodController(JPanel panel) {
         this.view = new PaymentMethodView();
 
-        SetResourceThread setResourceThread = new SetResourceThread();
-        setResourceThread.start();
+        setPayments();
 
         view.btnCreate.addActionListener(this);
         this.view.txtSearch.addFocusListener(this);
-        
+
         view.txtSearch.getDocument().addDocumentListener(new DocumentListener() {
 
             public void removeUpdate(DocumentEvent e) {
-                search(view.pnPayments);
+                search();
             }
 
             public void insertUpdate(DocumentEvent e) {
-                search(view.pnPayments);
+                search();
             }
 
             @Override
@@ -55,25 +54,16 @@ public class PaymentMethodController extends Controller implements ActionListene
         panel.add(view);
     }
     
-    private void search(JPanel searchPanel) {
-        String search = view.txtSearch.getText();
+    
+    private void setPayments(){
+        view.pnPayments.removeAll();
+        SetResourceThread setResourceThread = new SetResourceThread();
+        setResourceThread.start();
+    }
 
-        PaymentMethodModel paymentMethodModel = new PaymentMethodModel();
-        List<PaymentMethod> payments = paymentMethodModel.search(search);
-
-        searchPanel.removeAll();
-
-        if (payments.isEmpty()) {
-            searchPanel.repaint();
-            searchPanel.revalidate();
-        } else {
-
-            for (PaymentMethod paymentMethod : payments) {
-                CardPaymentMethodController card = new CardPaymentMethodController(paymentMethod, searchPanel);
-                searchPanel.repaint();
-                searchPanel.revalidate();
-            }
-        }
+    private void search() {
+        SearchThread st = new SearchThread();
+        st.start();
     }
 
     @Override
@@ -114,6 +104,35 @@ public class PaymentMethodController extends Controller implements ActionListene
         @Override
         public void run() {
             setPayments();
+        }
+    }
+
+    class SearchThread extends Thread {
+
+        private void search(JPanel searchPanel) {
+            String search = view.txtSearch.getText();
+
+            PaymentMethodModel paymentMethodModel = new PaymentMethodModel();
+            List<PaymentMethod> payments = paymentMethodModel.search(search);
+
+            searchPanel.removeAll();
+
+            if (payments.isEmpty()) {
+                searchPanel.repaint();
+                searchPanel.revalidate();
+            } else {
+
+                for (PaymentMethod paymentMethod : payments) {
+                    CardPaymentMethodController card = new CardPaymentMethodController(paymentMethod, searchPanel);
+                    searchPanel.repaint();
+                    searchPanel.revalidate();
+                }
+            }
+        }
+
+        @Override
+        public void run() {
+            search(view.pnPayments);
         }
     }
 }

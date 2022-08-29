@@ -31,6 +31,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String DELETEWHERE = "delete from " + TABLE + " where ";
     final String GETALL = "select id,entry,out,required,user_id,strftime(\"%Y-%m-%d\",created_at) as created_at from "+TABLE+" ORDER by created_at DESC Limit 200;";
+    final String GETBYINGREDIENT = "select * from "+TABLE+" WHERE ingredient_id=? ORDER by created_at DESC Limit 200";
     final String GETONE = "select * from " + TABLE + " where id=?";
 
     private Connection connection;
@@ -198,6 +199,32 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    @Override
+    public List<MovementInventory> getByIngredient(int id) {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<MovementInventory> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETBYINGREDIENT);
+            statement.setLong(1, id);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 
 }

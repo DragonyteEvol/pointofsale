@@ -6,6 +6,7 @@ package pointofsale;
 
 import pointofsale.controllers.modal.LoginController;
 
+
 /**
  *
  * @author dragonyteevol
@@ -26,5 +27,5 @@ public class PointOfSale {
         
         LoginController a = new LoginController();
     }
-
 }
+

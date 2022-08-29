@@ -5,6 +5,7 @@
 package pointofsale.controllers.modal;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -176,7 +177,7 @@ public class SellProductsController extends Controller implements ActionListener
     }
 
     private JTable construcTable(List<Product> products) {
-        String rowTitle[] = {"Nombre", "Cantidad", "Subvalor"};
+        String rowTitle[] = {"Nombre", "Subvalor", "Cantidad"};
         String arrayData[][] = modelTable(products);
 
         JTable inventoryTable = new JTable(arrayData, rowTitle);
@@ -221,6 +222,8 @@ public class SellProductsController extends Controller implements ActionListener
             List<Categorie> categories = categorieModel.selectCategoriesProducts();
             for (Categorie categorie : categories) {
                 JButton button1 = new JButton(categorie.getName());
+                button1.setBackground(Color.BLUE);
+                button1.setForeground(Color.WHITE);
                 view.pnCategories.add(button1);
                 view.pnCategories.repaint();
                 view.pnCategories.revalidate();

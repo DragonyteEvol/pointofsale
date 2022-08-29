@@ -4,6 +4,8 @@
  */
 package pointofsale.views.additional;
 
+import pointofsale.controllers.components.ScrollBarCustom;
+
 /**
  *
  * @author dragonyte
@@ -15,6 +17,7 @@ public class UserView extends javax.swing.JPanel {
      */
     public UserView() {
         initComponents();
+        ScrollBarCustom.setCustomScroll(scrollPane);
     }
 
     /**
@@ -26,22 +29,22 @@ public class UserView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         pnUsers = new javax.swing.JPanel();
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jScrollPane1.setBorder(null);
+        scrollPane.setBorder(null);
 
         pnUsers.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(pnUsers);
+        scrollPane.setViewportView(pnUsers);
 
-        add(jScrollPane1);
+        add(scrollPane);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnUsers;
+    private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

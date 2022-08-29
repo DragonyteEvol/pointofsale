@@ -55,11 +55,11 @@ public class DashboardController extends Controller implements ActionListener {
             DefaultPieDataset data = new DefaultPieDataset();
 
             ChartController chartController = new ChartController();
-            data.setValue("ventas", chartController.selectReport(chartController.SELLCHARTDAY).getSubvalue());
+            data.setValue("Ventas", chartController.selectReport(chartController.SELLCHARTDAY).getSubvalue());
             chartController = new ChartController();
-            data.setValue("gastos", chartController.selectReport(chartController.EXPENSECHARTDAY).getSubvalue());
+            data.setValue("Gastos", chartController.selectReport(chartController.EXPENSECHARTDAY).getSubvalue());
 
-            view.pnSellDay.add(createPie(data, "ventas diarias"));
+            view.pnSellDay.add(createPie(data, "Ventas Diarias"));
             refreshView(view);
         }
 
@@ -67,11 +67,11 @@ public class DashboardController extends Controller implements ActionListener {
             DefaultPieDataset data = new DefaultPieDataset();
 
             ChartController chartController = new ChartController();
-            data.setValue("ventas", chartController.selectReport(chartController.SELLCHARTMONTH).getSubvalue());
+            data.setValue("Ventas", chartController.selectReport(chartController.SELLCHARTMONTH).getSubvalue());
             chartController = new ChartController();
-            data.setValue("gastos", chartController.selectReport(chartController.EXPENSEMONTH).getSubvalue());
+            data.setValue("Gastos", chartController.selectReport(chartController.EXPENSEMONTH).getSubvalue());
 
-            view.pnSellMonth.add(createPie(data, "ventas mensuales"));
+            view.pnSellMonth.add(createPie(data, "Ventas Mensuales"));
             refreshView(view);
         }
 
@@ -79,11 +79,11 @@ public class DashboardController extends Controller implements ActionListener {
             DefaultPieDataset data = new DefaultPieDataset();
 
             ChartController chartController = new ChartController();
-            data.setValue("ventas", chartController.selectReport(chartController.SELLCHARTYEAR).getSubvalue());
+            data.setValue("Ventas", chartController.selectReport(chartController.SELLCHARTYEAR).getSubvalue());
             chartController = new ChartController();
-            data.setValue("gastos", chartController.selectReport(chartController.EXPENSEYEAR).getSubvalue());
+            data.setValue("Gastos", chartController.selectReport(chartController.EXPENSEYEAR).getSubvalue());
 
-            view.pnSellYear.add(createPie(data, "ventas anuales"));
+            view.pnSellYear.add(createPie(data, "Ventas Anuales"));
             refreshView(view);
         }
 
@@ -97,7 +97,7 @@ public class DashboardController extends Controller implements ActionListener {
             for (Report report : reports) {
                 data.setValue(report.getName(), report.getSubvalue());
             }
-            view.pnProducts.add(createPie(data, "productos mas vendidos"));
+            view.pnProducts.add(createPie(data, "Productos Mas Vendidos"));
             refreshView(view);
         }
 
@@ -107,9 +107,9 @@ public class DashboardController extends Controller implements ActionListener {
             ChartController chartController = new ChartController();
 
             Report report = chartController.selectReport(chartController.PEOPLE);
-            data.setValue("personas", report.getSubvalue());
+            data.setValue("Personas", report.getSubvalue());
 
-            view.pnPeople.add(createPie(data, "abundancia"));
+            view.pnPeople.add(createPie(data, "Abundancia"));
             refreshView(view);
         }
 
@@ -150,13 +150,13 @@ public class DashboardController extends Controller implements ActionListener {
             return chartPanel;
         }
 
-        private ChartPanel createLine(DefaultCategoryDataset data) {
+        private ChartPanel createLine(DefaultCategoryDataset data,String title) {
 
-            JFreeChart jFreeChart = ChartFactory.createWaterfallChart("Rendimiento de usuario",
+            JFreeChart jFreeChart = ChartFactory.createWaterfallChart(title,
                     "",
                     "Valor",
                     data,
-                    PlotOrientation.HORIZONTAL,
+                    PlotOrientation.VERTICAL,
                     false,
                     false,
                     false);
@@ -180,10 +180,10 @@ public class DashboardController extends Controller implements ActionListener {
             ChartController sell = new ChartController();
             List<Report> reports = sell.selectReports(sell.TABLES);
             for (Report report : reports) {
-                data.setValue(report.getSubvalue(), "mesas", report.getName());
+                data.setValue(report.getSubvalue(), "Mesas", report.getName());
             }
 
-            view.pnTables.add(createBar(data,"Ventas por mesa"));
+            view.pnTables.add(createBar(data,"Ventas Por Mesa"));
             refreshView(view);
         }
 
@@ -198,11 +198,11 @@ public class DashboardController extends Controller implements ActionListener {
             ChartController sell = new ChartController();
             List<Report> reports = sell.selectReports(sell.USERSELL);
             for (Report report : reports) {
-                data.setValue(report.getSubvalue(), "ventas", report.getName());
+                data.setValue(report.getSubvalue(), "Ventas", report.getName());
             }
-            data.setValue(1000000, "ventas", "Pepe suarez");
+            data.setValue(1000000, "Ventas", "Pepe Suarez");
 
-            view.pnUsers.add(createLine(data));
+            view.pnUsers.add(createLine(data,"Rendimiento De Usuarios"));
             refreshView(view);
         }
 
@@ -215,7 +215,7 @@ public class DashboardController extends Controller implements ActionListener {
                 data.setValue(report.getSubvalue(), "Habitacion", report.getName());
             }
 
-            view.pnRooms.add(createBar(data,"Ventas por habitacion"));
+            view.pnRooms.add(createBar(data,"Ventas Por Habitacion"));
             refreshView(view);
         }
 

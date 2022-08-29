@@ -42,8 +42,6 @@ public class EditProductController implements ActionListener {
         this.view.setResizable(false);
         this.product = product;
 
-        dimension = view.getToolkit().getScreenSize();
-        view.setSize(dimension.width / 2, dimension.height / 2);
 
         this.secondView = new AddIngredientProduct();
 
@@ -74,7 +72,6 @@ public class EditProductController implements ActionListener {
 
     private void changeView(JPanel panel) {
         panel.removeAll();
-        this.secondView.setSize(dimension.width / 2, dimension.height / 2);
         panel.add(this.secondView);
         panel.revalidate();
         panel.repaint();

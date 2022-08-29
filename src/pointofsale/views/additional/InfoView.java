@@ -56,6 +56,8 @@ public class InfoView extends javax.swing.JPanel {
         jPanel31 = new javax.swing.JPanel();
         txtRoute = new javax.swing.JTextField();
         btnSelectRoute = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnDeleteAll = new javax.swing.JButton();
         jPanel32 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
 
@@ -72,7 +74,7 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
         add(jPanel6, java.awt.BorderLayout.LINE_START);
@@ -87,7 +89,7 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
         add(jPanel7, java.awt.BorderLayout.LINE_END);
@@ -201,6 +203,11 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel31);
 
+        btnDeleteAll.setText("Borrar Todo ");
+        jPanel1.add(btnDeleteAll);
+
+        jPanel18.add(jPanel1);
+
         jPanel32.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout8 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
         flowLayout8.setAlignOnBaseline(true);
@@ -219,6 +226,7 @@ public class InfoView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnDeleteAll;
     public javax.swing.JButton btnSave;
     public javax.swing.JButton btnSelectRoute;
     private javax.swing.JLabel jLabel2;
@@ -228,6 +236,7 @@ public class InfoView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel20;

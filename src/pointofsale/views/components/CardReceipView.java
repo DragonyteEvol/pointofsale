@@ -26,60 +26,118 @@ public class CardReceipView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtName = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         btnLess = new javax.swing.JButton();
         txtQuantity = new javax.swing.JTextField();
         btnPlus = new javax.swing.JButton();
-        txtUnit = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        txtUnit = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtCurrentQuantity = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        pnImage = new javax.swing.JPanel();
+        txtImage = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txtName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
-
-        txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        txtName.setText("Name");
-        add(txtName);
+        setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         btnLess.setBackground(new java.awt.Color(102, 153, 255));
         btnLess.setForeground(new java.awt.Color(255, 255, 255));
         btnLess.setText("-");
-        jPanel1.add(btnLess);
+        jPanel7.add(btnLess);
 
         txtQuantity.setText("0");
-        jPanel1.add(txtQuantity);
+        jPanel7.add(txtQuantity);
 
         btnPlus.setBackground(new java.awt.Color(102, 153, 255));
         btnPlus.setForeground(new java.awt.Color(255, 255, 255));
         btnPlus.setText("+");
-        jPanel1.add(btnPlus);
-
-        add(jPanel1);
-
-        txtUnit.setText("Unidad");
-        add(txtUnit);
+        jPanel7.add(btnPlus);
 
         btnSave.setBackground(new java.awt.Color(102, 153, 255));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText(">");
-        add(btnSave);
+        jPanel7.add(btnSave);
+
+        jPanel4.add(jPanel7);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtUnit.setForeground(new java.awt.Color(153, 153, 153));
+        txtUnit.setText("Unidad");
+        jPanel9.add(txtUnit);
+
+        jPanel4.add(jPanel9);
+
+        jPanel1.add(jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Disponible");
         jPanel2.add(jLabel3);
 
+        txtCurrentQuantity.setForeground(new java.awt.Color(153, 153, 153));
         txtCurrentQuantity.setText("Quantity");
         jPanel2.add(txtCurrentQuantity);
 
-        add(jPanel2);
+        jPanel6.add(jPanel2);
+
+        jPanel1.add(jPanel6);
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnImage.setBackground(new java.awt.Color(255, 255, 255));
+        pnImage.add(txtImage);
+
+        jPanel11.add(pnImage);
+
+        add(jPanel11, java.awt.BorderLayout.LINE_START);
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
+        txtName.setText("Name");
+        jPanel3.add(txtName);
+
+        jPanel8.add(jPanel3);
+
+        jPanel12.add(jPanel8);
+
+        add(jPanel12, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -89,8 +147,20 @@ public class CardReceipView extends javax.swing.JPanel {
     public javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel pnImage;
     public javax.swing.JLabel txtCurrentQuantity;
+    public javax.swing.JLabel txtImage;
     public javax.swing.JLabel txtName;
     public javax.swing.JTextField txtQuantity;
     public javax.swing.JLabel txtUnit;

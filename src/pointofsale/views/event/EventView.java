@@ -30,7 +30,6 @@ public class EventView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnEvents = new javax.swing.JPanel();
 
@@ -47,21 +46,20 @@ public class EventView extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
+        jScrollPane1.setBorder(null);
 
-        pnEvents.setPreferredSize(new Dimension(400,pnEvents.getMaximumSize().height));
+        pnEvents.setBackground(new java.awt.Color(255, 255, 255));
+        pnEvents.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        pnEvents.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
         jScrollPane1.setViewportView(pnEvents);
 
-        jPanel2.add(jScrollPane1);
-
-        add(jPanel2, java.awt.BorderLayout.CENTER);
+        add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCreate;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnEvents;
     // End of variables declaration//GEN-END:variables

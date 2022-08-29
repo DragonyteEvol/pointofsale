@@ -30,7 +30,7 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
-    final String GETALL = "select * from " + TABLE + " limit 50";
+    final String GETALL = "select * from " + TABLE + " order by created_at desc limit 50";
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETBYEVENT = "select * from " + TABLE + " where event_id=?";
     final String GETCOLLECTEVENT = "select id,description,client_type,client_id,user_id,people,discount,tip,courtesy,internal,payment_method_id,housing,printed,sum(total) as total,sum(total_real) as total_real,event_id, created_at from bills where event_id=?";

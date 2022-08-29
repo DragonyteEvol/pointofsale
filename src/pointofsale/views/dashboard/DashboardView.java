@@ -4,6 +4,7 @@
  */
 package pointofsale.views.dashboard;
 
+
 /**
  *
  * @author dragonyte
@@ -27,7 +28,7 @@ public class DashboardView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         pnSellDay = new javax.swing.JPanel();
@@ -41,16 +42,18 @@ public class DashboardView extends javax.swing.JPanel {
         pnPeople = new javax.swing.JPanel();
         pnUsers = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
         add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0, 5, 5));
 
         pnSellDay.setBackground(new java.awt.Color(255, 255, 255));
         pnSellDay.setLayout(new javax.swing.BoxLayout(pnSellDay, javax.swing.BoxLayout.LINE_AXIS));
@@ -66,7 +69,8 @@ public class DashboardView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3);
 
-        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0, 5, 5));
 
         pnRooms.setBackground(new java.awt.Color(255, 255, 255));
         pnRooms.setLayout(new javax.swing.BoxLayout(pnRooms, javax.swing.BoxLayout.LINE_AXIS));
@@ -78,7 +82,8 @@ public class DashboardView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel4);
 
-        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0, 5, 5));
 
         pnProducts.setBackground(new java.awt.Color(255, 255, 255));
         pnProducts.setLayout(new javax.swing.BoxLayout(pnProducts, javax.swing.BoxLayout.LINE_AXIS));
@@ -94,9 +99,9 @@ public class DashboardView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel5);
 
-        jScrollPane1.setViewportView(jPanel2);
+        scrollPane.setViewportView(jPanel2);
 
-        add(jScrollPane1);
+        add(scrollPane);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -106,7 +111,6 @@ public class DashboardView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnPeople;
     public javax.swing.JPanel pnProducts;
     public javax.swing.JPanel pnRooms;
@@ -115,5 +119,6 @@ public class DashboardView extends javax.swing.JPanel {
     public javax.swing.JPanel pnSellYear;
     public javax.swing.JPanel pnTables;
     public javax.swing.JPanel pnUsers;
+    private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,7 +26,11 @@ public class CardCategorieView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -36,33 +40,45 @@ public class CardCategorieView extends javax.swing.JPanel {
         txtTarget = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
+        setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
 
-        btnEdit.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setLayout(new java.awt.GridLayout());
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/purchase-tag-solid-24.png"))); // NOI18N
+        jPanel6.add(jLabel1);
+
+        jPanel1.add(jPanel6);
+
+        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnEdit.setBackground(new java.awt.Color(0, 102, 255));
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("E");
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
+        btnEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 5));
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEdit);
+        jPanel7.add(btnEdit);
 
-        btnDelete.setBackground(new java.awt.Color(255, 153, 153));
+        btnDelete.setBackground(new java.awt.Color(0, 102, 255));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("D");
-        jPanel1.add(btnDelete);
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
+        btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 5));
+        jPanel7.add(btnDelete);
 
-        add(jPanel1);
+        jPanel1.add(jPanel7);
+
+        jPanel5.add(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         txtName.setText("Name");
@@ -70,14 +86,14 @@ public class CardCategorieView extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
         txtTarget.setText("Target");
         jPanel4.add(txtTarget);
 
         jPanel2.add(jPanel4);
 
-        add(jPanel2);
+        jPanel5.add(jPanel2);
+
+        add(jPanel5, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -88,10 +104,14 @@ public class CardCategorieView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnEdit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     public javax.swing.JLabel txtName;
     public javax.swing.JLabel txtTarget;
     // End of variables declaration//GEN-END:variables

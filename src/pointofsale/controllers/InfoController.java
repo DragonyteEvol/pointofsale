@@ -7,6 +7,8 @@ package pointofsale.controllers;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import pointofsale.ConfigGlobal;
@@ -20,6 +22,7 @@ import pointofsale.views.additional.InfoView;
  * @author dragonyte
  */
 public class InfoController implements ActionListener {
+    
 
     private InfoView view;
     private FileSelector selectorView;
@@ -37,6 +40,7 @@ public class InfoController implements ActionListener {
         setConfig();
         view.btnSave.addActionListener(this);
         view.btnSelectRoute.addActionListener(this);
+        view.btnDeleteAll.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);
 
         panel.add(this.view);
@@ -82,6 +86,12 @@ public class InfoController implements ActionListener {
             }
 
         }
+        if(source== view.btnDeleteAll){
+            
+            ConfigModel configModel = new ConfigModel();
+            configModel.deleteAllTables();
+            System.exit(0);
+        }
     }
 
     class InsertConfig extends Thread {
@@ -99,6 +109,7 @@ public class InfoController implements ActionListener {
                 AditionalInformation aditionalInformation = ConfigGlobal.getConfig();
                 if (aditionalInformation == null) {
                     aditionalInformation = new AditionalInformation(null, nit, name, route, tip, null);
+                    aditionalInformation.setPhone(phone);
                     configModel.insert(aditionalInformation);
                 } else {
                     aditionalInformation.setDefault_tip(tip);

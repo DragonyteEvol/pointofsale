@@ -66,7 +66,8 @@ public class IngredientView extends javax.swing.JPanel {
 
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        pnIngredients.setPreferredSize(new Dimension(400,pnIngredients.getMaximumSize().height));
+        pnIngredients.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        pnIngredients.setLayout(new java.awt.GridLayout(0, 5, 5, 5));
         jScrollPane1.setViewportView(pnIngredients);
 
         pnnn1234.add(jScrollPane1);

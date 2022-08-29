@@ -27,14 +27,19 @@ public class EventController extends Controller implements ActionListener {
     public EventController(JPanel panel) {
         this.view = new EventView();
 
-        SetResource setResource = new SetResource();
-        setResource.start();
-
         view.btnCreate.addActionListener(this);
 
-        panel.add(view,BorderLayout.CENTER);
+        panel.add(view);
+        setEvent();
         panel.repaint();
         panel.revalidate();
+    }
+
+
+    private void setEvent() {
+        view.pnEvents.removeAll();
+        SetResource setResource = new SetResource();
+        setResource.start();
     }
 
     @Override
@@ -43,10 +48,8 @@ public class EventController extends Controller implements ActionListener {
         if (source == view.btnCreate) {
             NewEventController controller = new NewEventController();
             EventGlobal.setEvent(EventGlobal.getEventActive());
-            SetResource setResource = new SetResource();
-            setResource.start();
+            setEvent();
             HomeController.checkEvent();
-
         }
     }
 
