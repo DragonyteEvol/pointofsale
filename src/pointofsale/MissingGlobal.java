@@ -31,7 +31,6 @@ public class MissingGlobal {
     public static List<MissingStock> getMissing() {
         InventoryModel inventoryModel = new InventoryModel();
         List<MissingStock> missingStockss = inventoryModel.selectMissing();
-        System.out.println("pepe");
         return missingStockss;
     }
 

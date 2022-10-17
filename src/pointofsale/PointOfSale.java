@@ -18,10 +18,8 @@ public class PointOfSale {
      */
     public static void main(String[] args) {
         //HomeController a = new HomeController();
-        String value = MoneyConverter.convertDouble(45500);
         EventGlobal.setEvent(EventGlobal.getEventActive());
         ConfigGlobal.setConfig(ConfigGlobal.getDefaultConfig());
-        System.out.print(value);
 
         MissingGlobal.setMissingStocks(MissingGlobal.getMissing());
         

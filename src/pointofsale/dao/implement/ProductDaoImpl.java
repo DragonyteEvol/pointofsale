@@ -30,7 +30,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
-    final String GETALL = "select * from " + TABLE;
+    final String GETALL = "select products.*,categories.name as categorie from " + TABLE + " inner join categories on categories.id=products.categorie_id";
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHERE = "select * from " + TABLE + " where ";
     final String SEARCH = "SELECT products.*,categories.name as unit from " + TABLE + " Inner join categories on categories.id=products.categorie_id where products.name like ";

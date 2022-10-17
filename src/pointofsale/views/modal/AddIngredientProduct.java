@@ -50,7 +50,12 @@ public class AddIngredientProduct extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        tabbedPane = new javax.swing.JTabbedPane();
+        jPanel19 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        pnCategories = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        pnIngredients = new javax.swing.JPanel();
 
         jScrollPane1.setBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setForeground(new java.awt.Color(153, 153, 255));
@@ -100,7 +105,7 @@ public class AddIngredientProduct extends javax.swing.JPanel {
         jScrollPane2.setBorder(null);
 
         pnInfoo.setBackground(new java.awt.Color(255, 255, 255));
-        pnInfoo.setLayout(new java.awt.GridLayout(100, 1));
+        pnInfoo.setLayout(new java.awt.GridLayout(100, 1, 0, 5));
         jScrollPane2.setViewportView(pnInfoo);
 
         jPanel8.add(jScrollPane2);
@@ -119,10 +124,32 @@ public class AddIngredientProduct extends javax.swing.JPanel {
 
         jPanel4.add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
-        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel6.setLayout(new java.awt.BorderLayout());
 
-        tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.add(tabbedPane);
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setLayout(new javax.swing.BoxLayout(jPanel19, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        pnCategories.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setViewportView(pnCategories);
+
+        jPanel19.add(jScrollPane3);
+
+        jPanel6.add(jPanel19, java.awt.BorderLayout.PAGE_START);
+
+        jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.LINE_AXIS));
+
+        jScrollPane4.setBorder(null);
+
+        pnIngredients.setBackground(new java.awt.Color(255, 255, 255));
+        pnIngredients.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
+        jScrollPane4.setViewportView(pnIngredients);
+
+        jPanel20.add(jScrollPane4);
+
+        jPanel6.add(jPanel20, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel6, java.awt.BorderLayout.CENTER);
 
@@ -132,11 +159,11 @@ public class AddIngredientProduct extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -153,7 +180,9 @@ public class AddIngredientProduct extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -163,7 +192,10 @@ public class AddIngredientProduct extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    public javax.swing.JPanel pnCategories;
     public javax.swing.JPanel pnInfoo;
-    public javax.swing.JTabbedPane tabbedPane;
+    public javax.swing.JPanel pnIngredients;
     // End of variables declaration//GEN-END:variables
 }

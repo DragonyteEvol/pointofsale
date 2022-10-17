@@ -4,11 +4,13 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -42,14 +44,13 @@ public class EditProductController implements ActionListener {
         this.view.setResizable(false);
         this.product = product;
 
-
         this.secondView = new AddIngredientProduct();
 
         //events
         this.view.btnNext.addActionListener(this);
         this.view.btnDelete.setVisible(false);
         this.secondView.btnSave.addActionListener(this);
-        
+
         setInfo();
 
         //threads
@@ -62,8 +63,8 @@ public class EditProductController implements ActionListener {
         this.view.setVisible(true);
 
     }
-    
-    private void setInfo(){
+
+    private void setInfo() {
         this.view.txtTitle.setText("Editar producto");
         this.view.txtName.setText(product.getName());
         this.view.txtPrice.setValue(product.getPrice());
@@ -169,32 +170,57 @@ public class EditProductController implements ActionListener {
 
             List<Categorie> categories = categorieModel.selectCategoriesIngredients();
             for (Categorie categorie : categories) {
-                JScrollPane scrollPanel = new JScrollPane();
-                JPanel panel = new JPanel();
-                IngredientModel ingredientModel = new IngredientModel();
-                String where = "ingredients.categorie_id=" + String.valueOf(categorie.getId());
-                List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
-                for (Ingredient ingredient : ingredients) {
-                    CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, panel, this.view.pnInfoo, this.listQuantitys);
-                }
-                scrollPanel.setViewportView(panel);
-                this.view.tabbedPane.add(categorie.getName(), scrollPanel);
+                JButton button1 = new JButton(categorie.getName());
+                button1.setBackground(Color.BLUE);
+                button1.setForeground(Color.WHITE);
+                view.pnCategories.add(button1);
+                view.pnCategories.repaint();
+                view.pnCategories.revalidate();
+                button1.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        IngredientModel ingredientModel = new IngredientModel();
+                        String where = " categorie_id=" + categorie.getId();
+                        List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
+                        view.pnIngredients.removeAll();
+                        view.pnIngredients.repaint();
+                        view.pnIngredients.revalidate();
+                        for (Ingredient ingredient : ingredients) {
+                            CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, view.pnIngredients, view.pnInfoo, listQuantitys);
+                        }
+                    }
+                });
             }
-            
+        }
+
+        private void setIngredients() {
+            IngredientModel ingredientModel = new IngredientModel();
+            List<Ingredient> ingredients = ingredientModel.selectAll();
+            for (Ingredient ingredient : ingredients) {
+                CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, view.pnIngredients, view.pnInfoo, listQuantitys);
+                view.pnIngredients.repaint();
+                view.pnIngredients.revalidate();
+            }
+        }
+
+        private void setInfoProduct() {
             IngredientModel ingredientModel = new IngredientModel();
             List<Ingredient> ingredients = ingredientModel.selectRelProduct(product.getId());
-            for(Ingredient ingredient : ingredients){
+            for (Ingredient ingredient : ingredients) {
                 listQuantitys.add(ingredient);
             }
-            
-            for(Ingredient ingredient : ingredients){
+
+            for (Ingredient ingredient : ingredients) {
                 CardIngredientInfoController card = new CardIngredientInfoController(listQuantitys, ingredient, view.pnInfoo);
             }
         }
 
+
         @Override
         public void run() {
             setCategories();
+            setInfoProduct();
+            setIngredients();
         }
     }
 

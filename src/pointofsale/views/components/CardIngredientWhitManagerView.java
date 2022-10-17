@@ -4,28 +4,17 @@
  */
 package pointofsale.views.components;
 
-import pointofsale.objects.Ingredient;
-
 /**
  *
  * @author dragonyte
  */
 public class CardIngredientWhitManagerView extends javax.swing.JPanel {
-    public Ingredient ingredient;
+
     /**
-    
-     * Creates new form AddIngredientCardView
-     * @param ingredient
+     * Creates new form CardProductView
      */
-    public CardIngredientWhitManagerView(Ingredient ingredient) {
+    public CardIngredientWhitManagerView() {
         initComponents();
-        this.ingredient = ingredient;
-        setIngredient(ingredient);
-    }
-    
-    private void setIngredient(Ingredient ingredient){
-        this.labelName.setText(ingredient.getName());
-        this.labelUnit.setText(ingredient.getUnit());
     }
 
     /**
@@ -37,60 +26,121 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelName = new javax.swing.JLabel();
-        labelUnit = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        txtImage = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        txtName = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        btnLess = new javax.swing.JButton();
+        txtQuantity = new javax.swing.JTextField();
+        btnPlus = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
-        txtQuantity = new javax.swing.JSpinner();
+        jPanel2 = new javax.swing.JPanel();
+        txtUnit = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(221, 221, 221));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        labelName.setText("IngredientName");
+        jPanel3.setForeground(new java.awt.Color(51, 102, 255));
 
-        labelUnit.setText("Unidad");
+        txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/cheese-solid-24.png"))); // NOI18N
+        jPanel5.add(txtImage);
+
+        jPanel3.add(jPanel5);
+
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel1.setForeground(new java.awt.Color(51, 102, 255));
+
+        txtName.setBackground(new java.awt.Color(102, 102, 102));
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
+        txtName.setText("Name");
+        jPanel1.add(txtName);
+
+        jPanel4.add(jPanel1);
+
+        jPanel6.setForeground(new java.awt.Color(51, 102, 255));
+
+        btnLess.setBackground(new java.awt.Color(51, 102, 255));
+        btnLess.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        btnLess.setForeground(new java.awt.Color(255, 255, 255));
+        btnLess.setText("-");
+        btnLess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLessActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnLess);
+
+        txtQuantity.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        txtQuantity.setText("0");
+        jPanel7.add(txtQuantity);
+
+        btnPlus.setBackground(new java.awt.Color(51, 102, 255));
+        btnPlus.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        btnPlus.setForeground(new java.awt.Color(255, 255, 255));
+        btnPlus.setText("+");
+        jPanel7.add(btnPlus);
 
         btnAdd.setBackground(new java.awt.Color(51, 102, 255));
+        btnAdd.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Agregar");
+        btnAdd.setText(">");
+        jPanel7.add(btnAdd);
+
+        jPanel6.add(jPanel7);
+
+        jPanel4.add(jPanel6);
+
+        jPanel2.setForeground(new java.awt.Color(51, 102, 255));
+
+        txtUnit.setBackground(new java.awt.Color(102, 102, 102));
+        txtUnit.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        txtUnit.setForeground(new java.awt.Color(102, 102, 102));
+        txtUnit.setText("Unit");
+        jPanel2.add(txtUnit);
+
+        jPanel4.add(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelUnit))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnAdd))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(labelName)))
-                .addContainerGap(9, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(labelName)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelUnit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAdd)
-                .addGap(19, 19, 19))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLessActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAdd;
-    public javax.swing.JLabel labelName;
-    private javax.swing.JLabel labelUnit;
-    public javax.swing.JSpinner txtQuantity;
+    public javax.swing.JButton btnLess;
+    public javax.swing.JButton btnPlus;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    public javax.swing.JLabel txtImage;
+    public javax.swing.JLabel txtName;
+    public javax.swing.JTextField txtQuantity;
+    public javax.swing.JLabel txtUnit;
     // End of variables declaration//GEN-END:variables
 }

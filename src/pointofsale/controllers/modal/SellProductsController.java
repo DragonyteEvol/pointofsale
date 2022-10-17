@@ -61,9 +61,9 @@ public class SellProductsController extends Controller implements ActionListener
         this.view.setResizable(false);
 
         dimension = view.getToolkit().getScreenSize();
-        Integer width = (dimension.width *2)/3;
-        Integer height = (dimension.height *2)/3;
-        view.setSize(width,height);
+        Integer width = (dimension.width * 2) / 3;
+        Integer height = (dimension.height * 2) / 3;
+        view.setSize(width, height);
 
         setInfo();
 
@@ -164,7 +164,7 @@ public class SellProductsController extends Controller implements ActionListener
                 printCommand.pnTable.add(tables, BorderLayout.CENTER);
                 printCommand.pnTable.repaint();
                 printCommand.pnTable.revalidate();
-                
+
                 printCommand.setVisible(true);
 
                 pf.print(printCommand);
@@ -248,6 +248,8 @@ public class SellProductsController extends Controller implements ActionListener
             for (Product product : products) {
                 CardProductWhitManagerController cardProductController = new CardProductWhitManagerController(view, product, listProduct);
                 cardProductController.addComponent(cardProductController.view, view.pnProducts);
+                view.pnProducts.repaint();
+                view.pnProducts.revalidate();
             }
         }
 
@@ -255,6 +257,8 @@ public class SellProductsController extends Controller implements ActionListener
         public void run() {
             setCategorie();
             setProduct();
+            view.pnCenter.repaint();
+            view.pnCenter.revalidate();
         }
     }
 

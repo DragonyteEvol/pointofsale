@@ -26,31 +26,71 @@ public class CardIngredientInfoView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtName = new javax.swing.JLabel();
-        txtQuantity = new javax.swing.JLabel();
-        txtUnit = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         btnDrop = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txtName = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        txtQuantity = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        txtUnit = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        setLayout(new java.awt.BorderLayout());
 
-        txtName.setText("Nombre");
-        add(txtName);
-
-        txtQuantity.setText("Cantidad");
-        add(txtQuantity);
-
-        txtUnit.setText("Unidad");
-        add(txtUnit);
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
         btnDrop.setBackground(new java.awt.Color(255, 102, 102));
+        btnDrop.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnDrop.setForeground(new java.awt.Color(255, 255, 255));
         btnDrop.setText("X");
-        add(btnDrop);
+        jPanel1.add(btnDrop);
+
+        add(jPanel1, java.awt.BorderLayout.LINE_END);
+
+        jPanel2.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(102, 102, 102));
+        txtName.setText("Name");
+        jPanel3.add(txtName);
+
+        jPanel2.add(jPanel3);
+
+        jPanel4.setLayout(new java.awt.GridLayout());
+
+        txtQuantity.setForeground(new java.awt.Color(153, 153, 153));
+        txtQuantity.setText("Quantity");
+        jPanel5.add(txtQuantity);
+
+        jPanel4.add(jPanel5);
+
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        txtUnit.setForeground(new java.awt.Color(153, 153, 153));
+        txtUnit.setText("Unit");
+        jPanel6.add(txtUnit);
+
+        jPanel4.add(jPanel6);
+
+        jPanel2.add(jPanel4);
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDrop;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     public javax.swing.JLabel txtName;
     public javax.swing.JLabel txtQuantity;
     public javax.swing.JLabel txtUnit;

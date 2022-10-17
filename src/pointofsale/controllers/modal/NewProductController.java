@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -11,12 +12,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import pointofsale.controllers.Controller;
 import pointofsale.controllers.components.CardIngredientWhitManagerController;
+import pointofsale.controllers.components.CardProductWhitManagerController;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.ProductModel;
@@ -57,12 +60,12 @@ public class NewProductController extends Controller implements ActionListener {
         this.thirdView = new PolimorphismView();
 
         this.selectorView = new FileSelector(null, true);
-        
+
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
         selectorView.setResizable(false);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
+
         //events
         this.view.btnNext.addActionListener(this);
         this.thirdView.btnSave.addActionListener(this);
@@ -85,7 +88,7 @@ public class NewProductController extends Controller implements ActionListener {
 
     }
 
-    private void changeView(JPanel panel,Component component) {
+    private void changeView(JPanel panel, Component component) {
         panel.removeAll();
         component.setSize(view.getSize());
         panel.add(component);
@@ -96,15 +99,14 @@ public class NewProductController extends Controller implements ActionListener {
     private boolean validateRequest(String name) {
         return !(name.isBlank() || name.isEmpty());
     }
-    
-     private boolean validatePolimorphismRequest(Integer price,Integer required,Integer quantity,Integer minimum) {
-        if(price==0 || required==0 || quantity==0 || minimum==0) {
+
+    private boolean validatePolimorphismRequest(Integer price, Integer required, Integer quantity, Integer minimum) {
+        if (price == 0 || required == 0 || quantity == 0 || minimum == 0) {
             return false;
         } else {
             return true;
         }
     }
-
 
     private Product createProduct() {
         String name = this.view.txtName.getText();
@@ -130,9 +132,9 @@ public class NewProductController extends Controller implements ActionListener {
             if (validateRequest(this.view.txtName.getText())) {
                 this.product = createProduct();
                 if (view.chPolimorphism.isSelected()) {
-                    this.changeView(this.view.pnDinamic,thirdView);
+                    this.changeView(this.view.pnDinamic, thirdView);
                 } else {
-                    this.changeView(this.view.pnDinamic,this.secondView);
+                    this.changeView(this.view.pnDinamic, this.secondView);
 
                 }
             } else {
@@ -145,26 +147,26 @@ public class NewProductController extends Controller implements ActionListener {
             insertThread.start();
             view.dispose();
         }
-        
-        if(source == this.thirdView.btnSave){
+
+        if (source == this.thirdView.btnSave) {
             Integer price = Integer.parseInt(String.valueOf(thirdView.txtPrice.getValue()));
             Integer required = Integer.parseInt(String.valueOf(thirdView.txtRequired.getValue()));
             Integer quantity = Integer.parseInt(String.valueOf(thirdView.txtQuantity.getValue()));
             Integer minimum = Integer.parseInt(String.valueOf(thirdView.txtMinimum.getValue()));
-            if(validatePolimorphismRequest(price, required, quantity, minimum)){
+            if (validatePolimorphismRequest(price, required, quantity, minimum)) {
                 Categorie categorie = (Categorie) thirdView.cbCategorie.getSelectedItem();
                 Unit unit = (Unit) thirdView.cbUnit.getSelectedItem();
-                ingredientPolimorphism = new Ingredient(null, product.getName(), price, unit.getId(), categorie.getId(), quantity, minimum,view.txtImage.getText(), null);
+                ingredientPolimorphism = new Ingredient(null, product.getName(), price, unit.getId(), categorie.getId(), quantity, minimum, view.txtImage.getText(), null);
                 InsertPolimorphis ip = new InsertPolimorphis(required);
                 ip.start();
                 view.dispose();
             }
         }
-        
-          if(source == view.btnImage){
+
+        if (source == view.btnImage) {
             selectorView.setVisible(true);
         }
-        
+
         if (source == selectorView.fileChooser) {
             String command = ae.getActionCommand();
             if (command.equals(JFileChooser.APPROVE_SELECTION)) {
@@ -172,12 +174,12 @@ public class NewProductController extends Controller implements ActionListener {
                 view.txtImage.setText(path);
                 System.out.print(path);
                 selectorView.dispose();
-            }else if(command.equals(JFileChooser.CANCEL_SELECTION)){
+            } else if (command.equals(JFileChooser.CANCEL_SELECTION)) {
                 selectorView.dispose();
             }
 
         }
-        
+
     }
 
     class InsertThread extends Thread {
@@ -234,6 +236,44 @@ public class NewProductController extends Controller implements ActionListener {
 
             List<Categorie> categories = categorieModel.selectCategoriesIngredients();
             for (Categorie categorie : categories) {
+                JButton button1 = new JButton(categorie.getName());
+                button1.setBackground(Color.BLUE);
+                button1.setForeground(Color.WHITE);
+                view.pnCategories.add(button1);
+                view.pnCategories.repaint();
+                view.pnCategories.revalidate();
+                button1.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        IngredientModel ingredientModel = new IngredientModel();
+                        String where = " categorie_id=" + categorie.getId();
+                        List<Ingredient> ingredients = ingredientModel.selectIngredientUnit(where);
+                        view.pnIngredients.removeAll();
+                        view.pnIngredients.repaint();
+                        view.pnIngredients.revalidate();
+                        for (Ingredient ingredient : ingredients) {
+                            CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, view.pnIngredients, view.pnInfoo, listQuantitys);
+                        }
+                    }
+                });
+            }
+        }
+
+        private void setIngredients() {
+            IngredientModel ingredientModel = new IngredientModel();
+            List<Ingredient> ingredients = ingredientModel.selectAll();
+            for (Ingredient ingredient : ingredients) {
+                CardIngredientWhitManagerController cardIngredientController = new CardIngredientWhitManagerController(ingredient, view.pnIngredients, view.pnInfoo, listQuantitys);
+                view.pnIngredients.repaint();
+                view.pnIngredients.revalidate();
+            }
+        }
+
+        /*private void setCategories() {
+            CategorieModel categorieModel = new CategorieModel();
+
+            List<Categorie> categories = categorieModel.selectCategoriesIngredients();
+            for (Categorie categorie : categories) {
                 JScrollPane scrollPanel = new JScrollPane();
                 JPanel panel = new JPanel();
                 panel.setLayout(new GridLayout(0, 3));
@@ -248,11 +288,11 @@ public class NewProductController extends Controller implements ActionListener {
                 this.view.repaint();
                 this.view.revalidate();
             }
-        }
-
+        }*/
         @Override
         public void run() {
             setCategories();
+            setIngredients();
         }
     }
 
@@ -281,23 +321,19 @@ public class NewProductController extends Controller implements ActionListener {
         }
     }
 
-    
     class InsertPolimorphis extends Thread {
-        
+
         private Integer required;
 
         public InsertPolimorphis(Integer required) {
             this.required = required;
         }
-        
 
         @Override
         public void run() {
             IngredientModel ingredientModel = new IngredientModel();
-            ingredientModel.insertPolimorphism(product, ingredientPolimorphism,required);
+            ingredientModel.insertPolimorphism(product, ingredientPolimorphism, required);
         }
     }
 
-
-    
 }

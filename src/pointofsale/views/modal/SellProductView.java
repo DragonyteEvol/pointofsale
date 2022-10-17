@@ -42,7 +42,7 @@ public class SellProductView extends javax.swing.JDialog {
         jPanel17 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnOrder = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
+        pnCenter = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -111,9 +111,9 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel12.add(jPanel13, java.awt.BorderLayout.LINE_START);
 
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel14.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel14.setLayout(new java.awt.BorderLayout());
+        pnCenter.setBackground(new java.awt.Color(255, 255, 255));
+        pnCenter.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pnCenter.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
@@ -133,7 +133,7 @@ public class SellProductView extends javax.swing.JDialog {
         jPanel3.add(jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setLayout(new java.awt.GridLayout());
+        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
         txtSearch.setForeground(new java.awt.Color(153, 153, 153));
         txtSearch.setText("Buscar");
@@ -155,7 +155,7 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel1.add(jPanel3);
 
-        jPanel14.add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        pnCenter.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
@@ -171,9 +171,9 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel2.add(JPanel112, java.awt.BorderLayout.CENTER);
 
-        jPanel14.add(jPanel2, java.awt.BorderLayout.CENTER);
+        pnCenter.add(jPanel2, java.awt.BorderLayout.CENTER);
 
-        jPanel12.add(jPanel14, java.awt.BorderLayout.CENTER);
+        jPanel12.add(pnCenter, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,7 +239,6 @@ public class SellProductView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -255,6 +254,7 @@ public class SellProductView extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JPanel pnCategories;
+    public javax.swing.JPanel pnCenter;
     public javax.swing.JPanel pnOrder;
     public javax.swing.JPanel pnProducts;
     public javax.swing.JLabel txtPrice;

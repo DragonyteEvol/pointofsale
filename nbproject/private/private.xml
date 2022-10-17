@@ -5,12 +5,23 @@
             <url>src/pointofsale/controllers/DashboardController.java</url>
             <bookmark id="1">
                 <name/>
-                <line>38</line>
+                <line>33</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/additional/InfoView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/modal/NewEventController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/modal/NewEventView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/dao/implement/EventDaoImpl.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/dao/EventDao.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/EventGlobal.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/controllers/ConfigController.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/PointOfSale.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/additional/ConfigView.java</file>
+            <file>file:/home/dragonyte/Documents/projects/poshotel/java/pointofsale/src/pointofsale/views/AboutView.java</file>
+        </group>
     </open-files>
 </project-private>

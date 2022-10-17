@@ -30,7 +30,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
-    final String GETALL = "select * from " + TABLE;
+    final String GETALL = "select ingredients.*,units.name as unit from " + TABLE +" inner join units on unit_id = units.id";
     final String GETONE = "select * from " + TABLE + " where id=?";
     final String GETWHERE = "select * from " + TABLE + " where ";
     final String GETUNIT = "SELECT ingredients.*,units.name as unit from ingredients INNER join units on ingredients.unit_id = units.id";
@@ -202,6 +202,9 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         String created_at = set.getString("created_at");
         boolean amenitie = set.getBoolean("amenitie");
         Ingredient ingredient = new Ingredient(set.getInt("id"), name, price, unit_id, categorie_id, route_image, created_at);
+        if(set.getString("unit")!=null){
+            ingredient.setUnit(set.getString("unit"));
+        }
         return ingredient;
     }
 
