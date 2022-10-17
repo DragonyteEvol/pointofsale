@@ -57,8 +57,8 @@ public class CardIngredientController extends CardController implements ActionLi
     }
 
     private void refreshCategorie() {
-        IngredientModel ingredientModel = new IngredientModel();
-        this.ingredient = ingredientModel.selectById(ingredient.getId());
+        //IngredientModel ingredientModel = new IngredientModel();
+        //this.ingredient = ingredientModel.selectById(ingredient.getId());
         setInfo();
     }
 

@@ -49,8 +49,8 @@ public class CardPaymentMethodController extends CardController implements Actio
     }
 
     private void refreshCategorie() {
-        PaymentMethodModel payment = new PaymentMethodModel();
-        this.paymentMethod = payment.selectById(paymentMethod.getId());
+        //PaymentMethodModel payment = new PaymentMethodModel();
+        //this.paymentMethod = payment.selectById(paymentMethod.getId());
         setInfo();
     }
 

@@ -57,8 +57,8 @@ public class CardCategorieController extends CardController implements ActionLis
     }
     
     private void refreshCategorie() {
-        CategorieModel categorieModel = new CategorieModel();
-        this.categorie = categorieModel.selectById(categorie.getId());
+        //CategorieModel categorieModel = new CategorieModel();
+        //this.categorie = categorieModel.selectById(categorie.getId());
         setInfo();
     }
     

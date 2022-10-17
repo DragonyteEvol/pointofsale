@@ -45,8 +45,8 @@ public class CardUnitController extends CardController implements ActionListener
     }
 
     private void refreshUnit() {
-        UnitModel unitModel = new UnitModel();
-        this.unit = unitModel.selectById(unit.getId());
+        //UnitModel unitModel = new UnitModel();
+        //this.unit = unitModel.selectById(unit.getId());
         setInfo();
     }
 

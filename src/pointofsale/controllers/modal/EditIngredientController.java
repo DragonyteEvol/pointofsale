@@ -4,11 +4,13 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Objects;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.IngredientModel;
 import pointofsale.models.InventoryModel;
@@ -17,6 +19,7 @@ import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Inventory;
 import pointofsale.objects.Unit;
+import pointofsale.views.additional.FileSelector;
 import pointofsale.views.modal.NewIngredientView;
 
 /**
@@ -28,14 +31,24 @@ public class EditIngredientController implements ActionListener {
     private NewIngredientView view;
     private Ingredient ingredient;
     public boolean removed = false;
+    private FileSelector selectorView;
 
     public EditIngredientController(Ingredient ingredient) {
         this.view = new NewIngredientView(null, true);
+        this.selectorView = new FileSelector(null, true);
         this.view.setResizable(false);
         this.ingredient = ingredient;
+        Dimension dimension = view.getToolkit().getScreenSize();
 
+        selectorView.setSize(dimension.width / 2, dimension.height / 2);
+        selectorView.setResizable(false);
+
+        selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        
         this.view.btnDelete.addActionListener(this);
         this.view.btnSave.addActionListener(this);
+        this.view.btnImage.addActionListener(this);
+        selectorView.fileChooser.addActionListener(this);
 
         setInfo();
 
@@ -50,6 +63,7 @@ public class EditIngredientController implements ActionListener {
         Inventory inventory = inventoryModel.selectWhereIngredient(ingredient.getId());
         this.view.txtStock.setValue(inventory.getQuantity());
         this.view.txtMinimum.setValue(inventory.getMinimum());
+        this.view.txtImage.setText(ingredient.getRoute_image());
         this.view.txtTitle.setText("Editar ingrediente");
         SetResourceThread setResourceThread = new SetResourceThread(this.view.cbUnit, this.view.cbCategorie, ingredient);
         setResourceThread.start();
@@ -64,6 +78,7 @@ public class EditIngredientController implements ActionListener {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             String name = this.view.txtName.getText();
+            String route_image= this.view.txtImage.getText();
             Integer price = (Integer) this.view.txtPrice.getValue();
             Integer stock = (Integer) this.view.txtStock.getValue();
             Integer minimum = (Integer) this.view.txtMinimum.getValue();
@@ -78,10 +93,27 @@ public class EditIngredientController implements ActionListener {
                 this.ingredient.setMinimum(minimum);
                 this.ingredient.setUnit_id(unit_id);
                 this.ingredient.setCategorie_id(categorie_id);
+                this.ingredient.setRoute_image(route_image);
                 UpdateThread updateThread = new UpdateThread(ingredient);
                 updateThread.start();
                 this.view.dispose();
             }
+        }
+        if(source == view.btnImage){
+            selectorView.setVisible(true);
+        }
+        
+        if (source == selectorView.fileChooser) {
+            String command = ae.getActionCommand();
+            if (command.equals(JFileChooser.APPROVE_SELECTION)) {
+                String path = String.valueOf(selectorView.fileChooser.getSelectedFile());
+                view.txtImage.setText(path);
+                System.out.print(path);
+                selectorView.dispose();
+            }else if(command.equals(JFileChooser.CANCEL_SELECTION)){
+                selectorView.dispose();
+            }
+
         }
     }
 

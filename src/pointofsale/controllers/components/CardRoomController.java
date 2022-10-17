@@ -84,8 +84,8 @@ public class CardRoomController implements ActionListener {
     }
 
     private void refreshRoom() {
-        RoomModel roomModel = new RoomModel();
-        this.room = roomModel.selectById(room.getId());
+        //RoomModel roomModel = new RoomModel();
+        //this.room = roomModel.selectById(room.getId());
         this.setInfo();
     }
 

@@ -56,8 +56,8 @@ public class CardProductController extends CardController implements ActionListe
     }
 
     private void refreshCategorie() {
-        ProductModel productModel = new ProductModel();
-        this.product = productModel.selectById(product.getId());
+        //ProductModel productModel = new ProductModel();
+        //this.product = productModel.selectById(product.getId());
         setInfo();
     }
 

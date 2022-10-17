@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import pointofsale.controllers.components.CardIngredientInfoController;
@@ -22,6 +23,7 @@ import pointofsale.models.ProductModel;
 import pointofsale.objects.Categorie;
 import pointofsale.objects.Ingredient;
 import pointofsale.objects.Product;
+import pointofsale.views.additional.FileSelector;
 import pointofsale.views.modal.AddIngredientProduct;
 import pointofsale.views.modal.NewProductView;
 
@@ -36,20 +38,32 @@ public class EditProductController implements ActionListener {
     private Product product;
     private Dimension dimension;
     private List<Ingredient> listQuatitys = new ArrayList<>();
+    private FileSelector selectorView;
 
     public EditProductController(Product product) {
 
         // view config
         this.view = new NewProductView(null, true);
         this.view.setResizable(false);
+        this.selectorView = new FileSelector(null, true);
         this.product = product;
+        
+        Dimension dimension = view.getToolkit().getScreenSize();
+
+        selectorView.setSize(dimension.width / 2, dimension.height / 2);
+        selectorView.setResizable(false);
+
+        selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        
 
         this.secondView = new AddIngredientProduct();
 
         //events
         this.view.btnNext.addActionListener(this);
+        this.view.btnImage.addActionListener(this);
         this.view.btnDelete.setVisible(false);
         this.secondView.btnSave.addActionListener(this);
+        selectorView.fileChooser.addActionListener(this);
 
         setInfo();
 
@@ -69,6 +83,7 @@ public class EditProductController implements ActionListener {
         this.view.txtName.setText(product.getName());
         this.view.txtPrice.setValue(product.getPrice());
         this.view.txtTime.setValue(product.getTime());
+        this.view.txtImage.setText(product.getRoute_image());
     }
 
     private void changeView(JPanel panel) {
@@ -87,12 +102,13 @@ public class EditProductController implements ActionListener {
         Integer price = (Integer) this.view.txtPrice.getValue();
         Integer time = (Integer) this.view.txtTime.getValue();
         Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
+        String route_image = this.view.txtImage.getText();
         Integer categorie_id = categorie.getId();
         productv.setName(name);
         productv.setPrice(price);
         productv.setTime(time);
         productv.setCategorie_id(categorie_id);
-        productv.setRoute_image("");
+        productv.setRoute_image(route_image);
         return productv;
 
     }
@@ -113,6 +129,23 @@ public class EditProductController implements ActionListener {
             UpdateThread updateThread = new UpdateThread(this.product, listQuatitys);
             updateThread.start();
             this.view.dispose();
+        }
+        
+        if(source == view.btnImage){
+            selectorView.setVisible(true);
+        }
+        
+        if (source == selectorView.fileChooser) {
+            String command = ae.getActionCommand();
+            if (command.equals(JFileChooser.APPROVE_SELECTION)) {
+                String path = String.valueOf(selectorView.fileChooser.getSelectedFile());
+                view.txtImage.setText(path);
+                System.out.print(path);
+                selectorView.dispose();
+            }else if(command.equals(JFileChooser.CANCEL_SELECTION)){
+                selectorView.dispose();
+            }
+
         }
     }
 
