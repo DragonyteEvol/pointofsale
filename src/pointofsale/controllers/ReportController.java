@@ -61,6 +61,8 @@ public class ReportController extends Controller implements ActionListener {
         
         if(source == editMoney.btnSave){
             if(UserGlobal.getUser().isAdmin()){
+                Integer value = Integer.parseInt(editMoney.txtValue.getText());
+                atm.setValue(value);
                 ModifyBox m = new ModifyBox();
                 m.start();
                 editMoney.dispose();
