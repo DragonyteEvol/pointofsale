@@ -26,7 +26,6 @@ public class EditUnitController implements ActionListener{
         this.unit = unit;
 
         this.view.btnSave.addActionListener(this);
-        this.view.btnDelete.addActionListener(this);
 
         setInfo();
 

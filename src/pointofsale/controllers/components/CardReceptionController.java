@@ -95,6 +95,9 @@ public class CardReceptionController implements ActionListener {
             CardReceipInfoController card = new CardReceipInfoController(listIngredients, ingredient,superView);
             card.setTotalPrice(superView.txtPrice);
         }
+        if(source == confirmView.btnClose){
+            confirmView.dispose();
+        }
     }
 
 }

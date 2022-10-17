@@ -50,6 +50,11 @@ public class ConfirmDeleteView extends javax.swing.JDialog {
         btnNo.setForeground(new java.awt.Color(255, 255, 255));
         btnNo.setText("No");
         btnNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        btnNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,6 +96,10 @@ public class ConfirmDeleteView extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnNoActionPerformed
 
     /**
      * @param args the command line arguments
