@@ -36,6 +36,7 @@ public class NewEventController implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
+        System.out.print(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(view.txtDate.getDate()));
         if(source == view.btnSave){
             String name = view.txtName.getText();
             String description = view.txtDescription.getText();
