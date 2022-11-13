@@ -21,7 +21,7 @@ import pointofsale.objects.Report;
 public class ExportController {
 
     public void createExcel(String[] headers,List<Report> reports,String file_name) throws FileNotFoundException, IOException {
-        String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HHmmss").format(Calendar.getInstance().getTime());
         String time  = timeStamp.replace("/","_");
         String route = ConfigGlobal.getConfig().getLogo_path() + "/" + file_name + "_" + time +".csv";
         CSVWriter writer = new CSVWriter(new FileWriter(route));
