@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pointofsale.models.UserModel;
@@ -20,6 +21,7 @@ public class EditUserController implements ActionListener{
 
     public EditUserController(User user) {
         this.view = new EditUserView(null, true);
+        view.setMinimumSize(new Dimension(350,0));
         this.user=user;
         
         setUser();

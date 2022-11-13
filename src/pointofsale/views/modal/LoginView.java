@@ -134,16 +134,17 @@ public class LoginView extends javax.swing.JDialog {
 
         jPanel6.setBackground(new java.awt.Color(255, 0, 99));
 
+        btnRegister.setBackground(new java.awt.Color(252, 252, 252));
         btnRegister.setForeground(new java.awt.Color(51, 51, 51));
-        btnRegister.setText("E");
-        btnRegister.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/user-plus-solid-24.png"))); // NOI18N
+        btnRegister.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
+                .addContainerGap(211, Short.MAX_VALUE)
                 .addComponent(btnRegister)
                 .addContainerGap())
         );
@@ -152,7 +153,7 @@ public class LoginView extends javax.swing.JDialog {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnRegister)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel6);

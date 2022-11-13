@@ -206,14 +206,18 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
+        chCourtesy.setBackground(new java.awt.Color(255, 255, 255));
         chCourtesy.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
         chCourtesy.setForeground(new java.awt.Color(153, 153, 153));
         chCourtesy.setText("Cortesia");
+        chCourtesy.setBorder(null);
         jPanel13.add(chCourtesy);
 
+        chInternalExpense.setBackground(new java.awt.Color(255, 255, 255));
         chInternalExpense.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
         chInternalExpense.setForeground(new java.awt.Color(153, 153, 153));
         chInternalExpense.setText("Consumo interno");
+        chInternalExpense.setBorder(null);
         jPanel13.add(chInternalExpense);
 
         jPanel7.add(jPanel13);

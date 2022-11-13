@@ -45,7 +45,7 @@ public class CardBillView extends javax.swing.JPanel {
 
         btnPrint.setBackground(new java.awt.Color(153, 153, 255));
         btnPrint.setForeground(new java.awt.Color(255, 255, 255));
-        btnPrint.setText("Print");
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/printer-solid-24.png"))); // NOI18N
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
@@ -74,7 +74,6 @@ public class CardBillView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
-        jPanel5.setBackground(null);
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         txtPrice.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -83,7 +82,6 @@ public class CardBillView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
-        pnBill.setBackground(null);
         pnBill.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 1, 3, 1));
         pnBill.setForeground(new java.awt.Color(204, 204, 204));
         jPanel3.add(pnBill, java.awt.BorderLayout.CENTER);

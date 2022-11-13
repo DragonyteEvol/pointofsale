@@ -32,26 +32,26 @@ public class EditUserView extends javax.swing.JDialog {
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMail = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cbType = new javax.swing.JComboBox<>();
-        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
@@ -59,22 +59,16 @@ public class EditUserView extends javax.swing.JDialog {
 
         jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.PAGE_AXIS));
 
         jPanel21.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Editar Usuario");
         jPanel21.add(jLabel6);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
-
-        btnSave.setBackground(new java.awt.Color(235, 71, 71));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Aceptar");
-        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
-        jPanel1.add(btnSave);
+        jPanel20.add(jPanel21);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
@@ -91,13 +85,10 @@ public class EditUserView extends javax.swing.JDialog {
         jLabel1.setText("Nombre:");
         jPanel5.add(jLabel1);
 
-        txtName.setForeground(new java.awt.Color(51, 51, 51));
+        txtName.setForeground(new java.awt.Color(153, 153, 153));
         txtName.setBorder(null);
         jPanel5.add(txtName);
-
-        jSeparator5.setBackground(new java.awt.Color(153, 153, 153));
-        jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
-        jPanel5.add(jSeparator5);
+        jPanel5.add(jSeparator1);
 
         jPanel3.add(jPanel5);
 
@@ -109,13 +100,10 @@ public class EditUserView extends javax.swing.JDialog {
         jLabel2.setText("Correo electronico:");
         jPanel6.add(jLabel2);
 
-        txtMail.setForeground(new java.awt.Color(51, 51, 51));
+        txtMail.setForeground(new java.awt.Color(153, 153, 153));
         txtMail.setBorder(null);
         jPanel6.add(txtMail);
-
-        jSeparator6.setBackground(new java.awt.Color(153, 153, 153));
-        jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
-        jPanel6.add(jSeparator6);
+        jPanel6.add(jSeparator2);
 
         jPanel3.add(jPanel6);
 
@@ -127,13 +115,10 @@ public class EditUserView extends javax.swing.JDialog {
         jLabel3.setText("Contraseña:");
         jPanel7.add(jLabel3);
 
-        txtPassword.setForeground(new java.awt.Color(51, 51, 51));
+        txtPassword.setForeground(new java.awt.Color(153, 153, 153));
         txtPassword.setBorder(null);
         jPanel7.add(txtPassword);
-
-        jSeparator7.setBackground(new java.awt.Color(153, 153, 153));
-        jSeparator7.setForeground(new java.awt.Color(153, 153, 153));
-        jPanel7.add(jSeparator7);
+        jPanel7.add(jSeparator3);
 
         jPanel3.add(jPanel7);
 
@@ -146,36 +131,28 @@ public class EditUserView extends javax.swing.JDialog {
         jPanel8.add(jLabel4);
 
         cbType.setBackground(new java.awt.Color(247, 247, 247));
-        cbType.setForeground(new java.awt.Color(51, 51, 51));
+        cbType.setForeground(new java.awt.Color(153, 153, 153));
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "usuario" }));
         cbType.setBorder(null);
         jPanel8.add(cbType);
-
-        jSeparator8.setBackground(new java.awt.Color(153, 153, 153));
-        jSeparator8.setForeground(new java.awt.Color(153, 153, 153));
-        jPanel8.add(jSeparator8);
+        jPanel8.add(jSeparator4);
 
         jPanel3.add(jPanel8);
 
         jPanel2.add(jPanel3);
 
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel20.add(jPanel2);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Aceptar");
+        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
+        jPanel1.add(btnSave);
+
+        jPanel20.add(jPanel1);
 
         getContentPane().add(jPanel20);
 
@@ -241,10 +218,10 @@ public class EditUserView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     public javax.swing.JTextField txtMail;
     public javax.swing.JTextField txtName;
     public javax.swing.JTextField txtPassword;

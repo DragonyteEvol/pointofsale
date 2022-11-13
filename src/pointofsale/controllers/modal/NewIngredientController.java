@@ -44,7 +44,6 @@ public class NewIngredientController extends ModalController implements ActionLi
         
         //events
         this.view.btnSave.addActionListener(this);
-        this.view.btnDelete.setVisible(false);
         this.view.btnImage.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);
 

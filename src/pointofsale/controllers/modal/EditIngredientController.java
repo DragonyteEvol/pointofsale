@@ -45,7 +45,6 @@ public class EditIngredientController implements ActionListener {
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         
-        this.view.btnDelete.addActionListener(this);
         this.view.btnSave.addActionListener(this);
         this.view.btnImage.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);

@@ -31,6 +31,7 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         txtTarget = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -51,6 +52,7 @@ public class PrintCommand extends javax.swing.JDialog {
         pnBase.add(jPanel1);
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
+        jPanel2.add(jSeparator1);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -131,6 +133,7 @@ public class PrintCommand extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel pnBase;
     public javax.swing.JPanel pnTable;
     public javax.swing.JLabel txtDate;

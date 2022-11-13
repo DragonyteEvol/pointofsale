@@ -51,6 +51,7 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 102, 255));
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
+        setMinimumSize(new java.awt.Dimension(300, 306));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,6 +84,7 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
+        txtName.setForeground(new java.awt.Color(153, 153, 153));
         txtName.setBorder(null);
         jPanel7.add(txtName);
         jPanel7.add(jSeparator1);

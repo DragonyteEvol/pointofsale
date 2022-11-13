@@ -44,6 +44,7 @@ public class DefaultAccountingView extends javax.swing.JPanel {
         btnExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/file-export-solid-24.png"))); // NOI18N
         jPanel1.add(btnExport);
 
+        cbTime.setBackground(new java.awt.Color(252, 252, 252));
         cbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPECIFICO", "AGRUPADO", "MES", "AÑO" }));
         jPanel1.add(cbTime);
 

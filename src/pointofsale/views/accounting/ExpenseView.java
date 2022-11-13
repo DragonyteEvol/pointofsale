@@ -32,6 +32,8 @@ public class ExpenseView extends javax.swing.JPanel {
         scrollPane = new javax.swing.JScrollPane();
         pnBills = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.BorderLayout());

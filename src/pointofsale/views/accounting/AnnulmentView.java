@@ -30,6 +30,8 @@ public class AnnulmentView extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         pnAnnulments = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

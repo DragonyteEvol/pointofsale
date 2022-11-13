@@ -28,6 +28,7 @@ public class NewRoomController extends ModalController implements ActionListener
         this.view.setLocationRelativeTo(null);
 
         this.view.btnSave.addActionListener(this);
+        this.view.btnRemove.setVisible(false);
 
         SetResource setResource = new SetResource(this.view.cbCategorie);
         setResource.start();

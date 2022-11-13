@@ -38,7 +38,6 @@ public class RentRoomView extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         txtDate = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,8 +61,6 @@ public class RentRoomView extends javax.swing.JDialog {
         jPanel14 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         btnPay = new javax.swing.JButton();
-        jPanel19 = new javax.swing.JPanel();
-        btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
@@ -96,11 +93,12 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel5.add(jPanel2);
 
-        jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.Y_AXIS));
+        jPanel20.setLayout(new java.awt.GridLayout());
 
+        txtDate.setForeground(new java.awt.Color(153, 153, 153));
+        txtDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDate.setBorder(null);
         jPanel20.add(txtDate);
-        jPanel20.add(jSeparator3);
 
         jPanel5.add(jPanel20);
 
@@ -188,6 +186,7 @@ public class RentRoomView extends javax.swing.JDialog {
         jPanel14.setLayout(new javax.swing.BoxLayout(jPanel14, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnPay.setBackground(new java.awt.Color(235, 71, 71));
         btnPay.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,16 +195,6 @@ public class RentRoomView extends javax.swing.JDialog {
         jPanel8.add(btnPay);
 
         jPanel14.add(jPanel8);
-
-        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnPrint.setBackground(new java.awt.Color(235, 71, 71));
-        btnPrint.setForeground(new java.awt.Color(255, 255, 255));
-        btnPrint.setText("Imprimir");
-        btnPrint.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
-        jPanel19.add(btnPrint);
-
-        jPanel14.add(jPanel19);
 
         jPanel3.add(jPanel14);
 
@@ -270,7 +259,6 @@ public class RentRoomView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnPay;
-    public javax.swing.JButton btnPrint;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -287,7 +275,6 @@ public class RentRoomView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
@@ -299,7 +286,6 @@ public class RentRoomView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     public javax.swing.JSpinner txtChild;
     public javax.swing.JTextField txtDate;
     public javax.swing.JSpinner txtOld;

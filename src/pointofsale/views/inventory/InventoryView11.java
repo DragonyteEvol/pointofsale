@@ -8,12 +8,12 @@ package pointofsale.views.inventory;
  *
  * @author dragonyte
  */
-public class InventoryView extends javax.swing.JPanel {
+public class InventoryView11 extends javax.swing.JPanel {
 
     /**
      * Creates new form InventoryView
      */
-    public InventoryView() {
+    public InventoryView11() {
         initComponents();
     }
 
@@ -34,8 +34,9 @@ public class InventoryView extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
-        jPanel18 = new javax.swing.JPanel();
         txtName = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel24 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         txtImage = new javax.swing.JLabel();
         jPanel25 = new javax.swing.JPanel();
@@ -54,8 +55,6 @@ public class InventoryView extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         txtCategorie = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         pnMovementTable = new javax.swing.JPanel();
         pnTable = new javax.swing.JPanel();
@@ -84,16 +83,17 @@ public class InventoryView extends javax.swing.JPanel {
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.PAGE_AXIS));
-
-        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
 
         txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setText("Name");
-        jPanel18.add(txtName);
+        jPanel16.add(txtName);
 
-        jPanel16.add(jPanel18);
+        jPanel3.add(jPanel16, java.awt.BorderLayout.PAGE_START);
+
+        jPanel17.setLayout(new java.awt.GridLayout(3, 0));
+
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel29.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -101,7 +101,9 @@ public class InventoryView extends javax.swing.JPanel {
         txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/barcode-regular-24.png"))); // NOI18N
         jPanel29.add(txtImage);
 
-        jPanel16.add(jPanel29);
+        jPanel24.add(jPanel29);
+
+        jPanel17.add(jPanel24);
 
         jPanel25.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -168,14 +170,7 @@ public class InventoryView extends javax.swing.JPanel {
 
         jPanel25.add(jPanel9);
 
-        jPanel16.add(jPanel25);
-
-        jPanel3.add(jPanel16, java.awt.BorderLayout.PAGE_START);
-
-        jPanel6.setLayout(new java.awt.BorderLayout());
-        jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_END);
-
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel17.add(jPanel25);
 
         jPanel23.setBackground(new java.awt.Color(255, 255, 255));
         jPanel23.setLayout(new java.awt.GridLayout(3, 0));
@@ -184,9 +179,9 @@ public class InventoryView extends javax.swing.JPanel {
         pnMovementTable.setLayout(new java.awt.BorderLayout());
         jPanel23.add(pnMovementTable);
 
-        jPanel7.add(jPanel23);
+        jPanel17.add(jPanel23);
 
-        jPanel3.add(jPanel7, java.awt.BorderLayout.CENTER);
+        jPanel3.add(jPanel17, java.awt.BorderLayout.CENTER);
 
         jScrollPane1.setViewportView(jPanel3);
 
@@ -214,17 +209,16 @@ public class InventoryView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;

@@ -31,258 +31,243 @@ public class NewIngredientView extends javax.swing.JDialog {
 
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        chAmenitie = new javax.swing.JCheckBox();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        txtImage = new javax.swing.JTextField();
+        btnImage = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         txtTitle = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel13 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jLabel4 = new javax.swing.JLabel();
-        cbUnit = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        cbCategorie = new javax.swing.JComboBox<>();
-        btnSave = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jPanel14 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtStock = new javax.swing.JSpinner();
+        jSeparator5 = new javax.swing.JSeparator();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtMinimum = new javax.swing.JSpinner();
-        btnDelete = new javax.swing.JButton();
-        chAmenitie = new javax.swing.JCheckBox();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        cbUnit = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jSeparator7 = new javax.swing.JSeparator();
-        btnImage = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        txtImage = new javax.swing.JTextField();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        cbCategorie = new javax.swing.JComboBox<>();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
+        setMinimumSize(new java.awt.Dimension(600, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
         jPanel1.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        txtTitle.setBackground(new java.awt.Color(102, 102, 102));
-        txtTitle.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        txtTitle.setForeground(new java.awt.Color(102, 102, 102));
-        txtTitle.setText("Crear Ingrediente");
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Nombre");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        txtName.setBorder(null);
-
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel3.setText("Precio");
-
-        txtPrice.setBorder(null);
-
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("Unidad de medida");
-
-        cbUnit.setBackground(new java.awt.Color(252, 252, 252));
-        cbUnit.setForeground(new java.awt.Color(102, 102, 102));
-        cbUnit.setBorder(null);
-
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Categoria");
-
-        cbCategorie.setBackground(new java.awt.Color(252, 252, 252));
-        cbCategorie.setForeground(new java.awt.Color(102, 102, 102));
-        cbCategorie.setBorder(null);
-
-        btnSave.setBackground(new java.awt.Color(235, 71, 71));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Aceptar");
-        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
-
-        jLabel6.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("Cantidad o stock");
-
-        txtStock.setBorder(null);
-
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel7.setText("Cantidad minima");
-
-        txtMinimum.setBorder(null);
-
-        btnDelete.setBackground(new java.awt.Color(235, 71, 71));
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Eliminar");
-        btnDelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         chAmenitie.setBackground(new java.awt.Color(255, 255, 255));
         chAmenitie.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        chAmenitie.setForeground(new java.awt.Color(102, 102, 102));
+        chAmenitie.setForeground(new java.awt.Color(153, 153, 153));
         chAmenitie.setText("Amenitie");
+        jPanel4.add(chAmenitie);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new java.awt.BorderLayout());
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new java.awt.BorderLayout());
+        jPanel2.add(jPanel4);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.add(jPanel7, java.awt.BorderLayout.LINE_END);
+        jPanel7.setLayout(new java.awt.GridLayout(2, 0));
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("Imagen");
+        jPanel7.add(jLabel1);
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel18.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new java.awt.GridLayout(2, 0));
-        jPanel4.add(jPanel8, java.awt.BorderLayout.CENTER);
 
-        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
+        txtImage.setForeground(new java.awt.Color(153, 153, 153));
+        txtImage.setBorder(null);
+        jPanel8.add(txtImage);
 
         btnImage.setBackground(new java.awt.Color(235, 71, 71));
         btnImage.setForeground(new java.awt.Color(255, 255, 255));
         btnImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/image-add-solid-24.png"))); // NOI18N
         btnImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
+        jPanel8.add(btnImage);
+        jPanel8.add(jSeparator7);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("Imagen");
+        jPanel18.add(jPanel8);
 
-        txtImage.setBorder(null);
+        jPanel7.add(jPanel18);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator5)
-                                .addComponent(jSeparator3)
-                                .addComponent(jSeparator1)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtTitle, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                                .addComponent(txtPrice, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtStock, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(chAmenitie)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                        .addComponent(btnSave)
-                        .addGap(21, 21, 21)
-                        .addComponent(btnDelete))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(txtImage)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnImage))
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cbCategorie, javax.swing.GroupLayout.Alignment.LEADING, 0, 218, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4))
-                        .addComponent(cbUnit, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtMinimum, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(txtTitle)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
-                            .addComponent(jSeparator1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(5, 5, 5)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(chAmenitie)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtImage, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnImage))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave)
-                            .addComponent(btnDelete))
-                        .addGap(18, 18, 18))))
-        );
+        jPanel2.add(jPanel7);
+
+        jPanel5.add(jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnSave.setBackground(new java.awt.Color(235, 71, 71));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Aceptar");
+        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 71, 71), 5, true));
+        jPanel3.add(btnSave);
+
+        jPanel5.add(jPanel3);
+
+        jPanel1.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        txtTitle.setBackground(new java.awt.Color(102, 102, 102));
+        txtTitle.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        txtTitle.setForeground(new java.awt.Color(102, 102, 102));
+        txtTitle.setText("Crear Ingrediente");
+        jPanel6.add(txtTitle);
+
+        jPanel1.add(jPanel6, java.awt.BorderLayout.PAGE_START);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        jPanel10.setLayout(new java.awt.GridLayout(3, 0));
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setText("Nombre");
+        jPanel12.add(jLabel2);
+
+        txtName.setForeground(new java.awt.Color(153, 153, 153));
+        txtName.setBorder(null);
+        jPanel12.add(txtName);
+        jPanel12.add(jSeparator1);
+
+        jPanel10.add(jPanel12);
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setText("Precio");
+        jPanel13.add(jLabel3);
+
+        txtPrice.setBorder(null);
+        jPanel13.add(txtPrice);
+        jPanel13.add(jSeparator3);
+
+        jPanel10.add(jPanel13);
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setText("Cantidad o stock");
+        jPanel14.add(jLabel6);
+
+        txtStock.setBorder(null);
+        jPanel14.add(txtStock);
+        jPanel14.add(jSeparator5);
+
+        jPanel10.add(jPanel14);
+
+        jPanel9.add(jPanel10);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        jPanel11.setLayout(new java.awt.GridLayout(3, 0));
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel7.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setText("Cantidad minima");
+        jPanel15.add(jLabel7);
+
+        txtMinimum.setBorder(null);
+        jPanel15.add(txtMinimum);
+        jPanel15.add(jSeparator2);
+
+        jPanel11.add(jPanel15);
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel4.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setText("Unidad de medida");
+        jPanel16.add(jLabel4);
+
+        cbUnit.setBackground(new java.awt.Color(252, 252, 252));
+        cbUnit.setForeground(new java.awt.Color(153, 153, 153));
+        cbUnit.setBorder(null);
+        jPanel16.add(cbUnit);
+        jPanel16.add(jSeparator4);
+
+        jPanel11.add(jPanel16);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setLayout(new java.awt.GridLayout(3, 0));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("Categoria");
+        jPanel17.add(jLabel5);
+
+        cbCategorie.setBackground(new java.awt.Color(252, 252, 252));
+        cbCategorie.setForeground(new java.awt.Color(153, 153, 153));
+        cbCategorie.setBorder(null);
+        jPanel17.add(cbCategorie);
+
+        jPanel11.add(jPanel17);
+
+        jPanel9.add(jPanel11);
+
+        jPanel1.add(jPanel9, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,6 +303,9 @@ public class NewIngredientView extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(NewIngredientView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -335,7 +323,6 @@ public class NewIngredientView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnDelete;
     public javax.swing.JButton btnImage;
     public javax.swing.JButton btnSave;
     public javax.swing.JComboBox<Object> cbCategorie;
@@ -349,17 +336,28 @@ public class NewIngredientView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JTextField txtImage;

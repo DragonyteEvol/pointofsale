@@ -74,7 +74,7 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         add(jPanel6, java.awt.BorderLayout.LINE_START);
@@ -89,7 +89,7 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         add(jPanel7, java.awt.BorderLayout.LINE_END);
@@ -203,7 +203,13 @@ public class InfoView extends javax.swing.JPanel {
 
         jPanel18.add(jPanel31);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnDeleteAll.setBackground(new java.awt.Color(235, 71, 71));
+        btnDeleteAll.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteAll.setText("Borrar Todo ");
+        btnDeleteAll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel1.add(btnDeleteAll);
 
         jPanel18.add(jPanel1);
@@ -214,6 +220,7 @@ public class InfoView extends javax.swing.JPanel {
         jPanel32.setLayout(flowLayout8);
 
         btnSave.setBackground(new java.awt.Color(51, 102, 255));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Guardar");
         btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 5));

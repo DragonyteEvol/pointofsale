@@ -35,6 +35,8 @@ public class PaymentMethodView extends javax.swing.JPanel {
         scrollPane = new javax.swing.JScrollPane();
         pnPayments = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -55,6 +57,8 @@ public class PaymentMethodView extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+
+        scrollPane.setBorder(null);
 
         pnPayments.setLayout(new java.awt.GridLayout(0, 5, 5, 5));
         scrollPane.setViewportView(pnPayments);

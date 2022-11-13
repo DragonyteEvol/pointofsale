@@ -368,6 +368,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JCheckBox" name="chCourtesy">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="sansserif" size="12" style="0"/>
                         </Property>
@@ -375,6 +378,9 @@
                           <Color blue="99" green="99" red="99" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cortesia"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -382,6 +388,9 @@
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chInternalExpense">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="sansserif" size="12" style="0"/>
                         </Property>
@@ -389,6 +398,9 @@
                           <Color blue="99" green="99" red="99" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Consumo interno"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
