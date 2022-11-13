@@ -5,6 +5,7 @@
 package pointofsale.controllers.modal;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -13,10 +14,12 @@ import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;
@@ -24,6 +27,7 @@ import pointofsale.MoneyConverter;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.PrintFunctions;
+import pointofsale.controllers.components.WordWrapCellRenderer;
 import pointofsale.models.AnnulmentModel;
 import pointofsale.models.BillModel;
 import pointofsale.models.PaymentMethodModel;
@@ -109,8 +113,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             arrayData[0][1] = room.getDescription() + "";
             arrayData[0][2] = MoneyConverter.convertDouble(realPrice) + "";
             arrayData[0][3] = room.getCapacity() + "";
-            
-            products.add(new Product(null, room.getDescription(),realPrice,0, "", realPrice, null));
+
+            products.add(new Product(null, room.getDescription(), realPrice, 0, "", realPrice, null));
 
             String rowTitle[] = {"Habitacion no", "Descripcion", "Precio", "Capacidad"};
 
@@ -148,6 +152,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
         view.setVisible(true);
     }
+
+   
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -246,6 +252,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         DefaultTableModel defaultTableModel = new DefaultTableModel(arrayData, rowTitle);
 
         JTable inventoryTable = new JTable(defaultTableModel);
+        inventoryTable.getColumnModel().getColumn(0).setCellRenderer(new WordWrapCellRenderer());
         return inventoryTable;
     }
 
@@ -335,6 +342,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             DefaultTableModel defaultTableModel = new DefaultTableModel(arrayData, rowTitle);
 
             tableProducts = new JTable(defaultTableModel);
+            tableProducts.getColumnModel().getColumn(1).setCellRenderer(new WordWrapCellRenderer());
             view.pnScroll.setViewportView(tableProducts);
 
         }

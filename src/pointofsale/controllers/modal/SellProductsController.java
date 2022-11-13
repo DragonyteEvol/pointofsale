@@ -24,6 +24,7 @@ import javax.swing.table.JTableHeader;
 import pointofsale.controllers.Controller;
 import pointofsale.controllers.PrintFunctions;
 import pointofsale.controllers.components.CardProductWhitManagerController;
+import pointofsale.controllers.components.WordWrapCellRenderer;
 import pointofsale.models.BillModel;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.ProductModel;
@@ -178,6 +179,7 @@ public class SellProductsController extends Controller implements ActionListener
         String arrayData[][] = modelTable(products);
 
         JTable inventoryTable = new JTable(arrayData, rowTitle);
+        inventoryTable.getColumnModel().getColumn(0).setCellRenderer(new WordWrapCellRenderer());
         return inventoryTable;
     }
 
