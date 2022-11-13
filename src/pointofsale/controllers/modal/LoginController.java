@@ -31,7 +31,7 @@ public class LoginController extends ModalController implements ActionListener {
     private void initComponents() {
         // view config
         this.view = new LoginView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         initEvents();
         this.view.setVisible(true);

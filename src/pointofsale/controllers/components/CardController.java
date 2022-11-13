@@ -16,7 +16,7 @@ public class CardController {
 
     public CardController() {
         deleteView = new ConfirmDeleteView(null, true);
-        deleteView.setResizable(false);
+        deleteView.setLocationRelativeTo(null);
     }
     
     

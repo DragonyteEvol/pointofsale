@@ -24,7 +24,7 @@ public class NewCategorieController extends ModalController implements ActionLis
         
 		// view config
         this.view = new NewCategorieView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         
         //events
         this.view.btnSave.addActionListener(this);

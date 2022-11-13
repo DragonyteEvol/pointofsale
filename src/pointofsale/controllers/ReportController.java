@@ -39,7 +39,7 @@ public class ReportController extends Controller implements ActionListener {
     public ReportController(JPanel panel) {
         this.view = new ReportView();
         this.editMoney = new EditMoney(null, true);
-        editMoney.setResizable(false);
+        editMoney.setLocationRelativeTo(null);
         
         view.btnEdit.addActionListener(this);
         editMoney.btnSave.addActionListener(this);
@@ -70,7 +70,7 @@ public class ReportController extends Controller implements ActionListener {
                 s.start();
             }else{
                 WarningUser u = new WarningUser(null, true);
-                u.setResizable(false);
+                u.setLocationRelativeTo(null);
                 u.setVisible(true);
             }
         }

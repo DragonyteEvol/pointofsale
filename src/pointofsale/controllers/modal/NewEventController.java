@@ -25,7 +25,7 @@ public class NewEventController implements ActionListener{
         view.btnDelete.setVisible(false);
         view.btnSave.addActionListener(this);
         
-        view.setResizable(false);
+        view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
     

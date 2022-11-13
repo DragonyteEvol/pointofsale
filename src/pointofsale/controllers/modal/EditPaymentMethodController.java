@@ -23,7 +23,7 @@ public class EditPaymentMethodController implements ActionListener{
         // view config
         this.view = new NewPaymentMethodView(null, true);
         this.paymentMethod = paymentMethod;
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         
         setInfo();
 

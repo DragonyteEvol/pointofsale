@@ -22,7 +22,7 @@ public class NewPaymentMethodController implements ActionListener{
 
         // view config
         this.view = new NewPaymentMethodView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         //events
         this.view.btnSave.addActionListener(this);

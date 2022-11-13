@@ -22,7 +22,7 @@ public class EditTableController implements ActionListener{
     
      public EditTableController(Table table) {
         this.view = new NewTableView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.table = table;
 
         this.view.btnSave.addActionListener(this);

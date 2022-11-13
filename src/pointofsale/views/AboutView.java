@@ -15,7 +15,7 @@ public class AboutView extends javax.swing.JDialog {
      */
     public AboutView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.setResizable(false);
+        this.setLocationRelativeTo(null);
         initComponents();
         
         this.setVisible(true);

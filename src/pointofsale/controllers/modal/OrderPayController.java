@@ -96,8 +96,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         this.view = new OrderPayView(null, true);
         this.annulmentView = new ConfirmAnnulmentView(null, true);
 
-        annulmentView.setResizable(false);
-        view.setResizable(false);
+        annulmentView.setLocationRelativeTo(null);
+        view.setLocationRelativeTo(null);
 
         SetResourceThread setResourceThread = new SetResourceThread();
         setResourceThread.start();

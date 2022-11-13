@@ -33,6 +33,7 @@ public class HomeView extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        btnCashDrawerUnlock = new javax.swing.JButton();
         btnNotifications = new javax.swing.JButton();
         btnCurrentEvent = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
@@ -73,6 +74,18 @@ public class HomeView extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(51, 153, 255));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        btnCashDrawerUnlock.setBackground(new java.awt.Color(102, 153, 255));
+        btnCashDrawerUnlock.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnCashDrawerUnlock.setForeground(new java.awt.Color(255, 255, 255));
+        btnCashDrawerUnlock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/lock-alt-regular-24.png"))); // NOI18N
+        btnCashDrawerUnlock.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        btnCashDrawerUnlock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCashDrawerUnlockActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnCashDrawerUnlock);
 
         btnNotifications.setBackground(new java.awt.Color(102, 153, 255));
         btnNotifications.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -167,6 +180,10 @@ public class HomeView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCashDrawerUnlockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCashDrawerUnlockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCashDrawerUnlockActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -204,6 +221,7 @@ public class HomeView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAccounting;
+    public javax.swing.JButton btnCashDrawerUnlock;
     public javax.swing.JButton btnConfig;
     public javax.swing.JButton btnCurrentEvent;
     public javax.swing.JButton btnDashboard;

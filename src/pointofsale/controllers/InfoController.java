@@ -31,7 +31,7 @@ public class InfoController implements ActionListener {
 
         Dimension dimension = view.getToolkit().getScreenSize();
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
-        selectorView.setResizable(false);
+        selectorView.setLocationRelativeTo(null);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 

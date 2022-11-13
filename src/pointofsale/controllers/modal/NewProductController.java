@@ -52,7 +52,7 @@ public class NewProductController extends Controller implements ActionListener {
 
         // view config
         this.view = new NewProductView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         dimension = view.getToolkit().getScreenSize();
 
@@ -62,7 +62,7 @@ public class NewProductController extends Controller implements ActionListener {
         this.selectorView = new FileSelector(null, true);
 
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
-        selectorView.setResizable(false);
+        selectorView.setLocationRelativeTo(null);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 

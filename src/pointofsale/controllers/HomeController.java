@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;
 import pointofsale.UserGlobal;
+import pointofsale.controllers.modal.CashDrawerController;
 import pointofsale.controllers.modal.LoginController;
 import pointofsale.objects.MissingStock;
 import pointofsale.views.HomeView;
@@ -30,10 +31,10 @@ public class HomeController extends Controller implements ActionListener {
     public HomeController() {
         this.view = new HomeView();
         Dimension dimension = view.getToolkit().getScreenSize();
-        Integer width = (dimension.width * 4) /5;
-        Integer height = (dimension.height * 4) /5;
+        Integer width = (dimension.width * 25) /26;
+        Integer height = (dimension.height * 25) /26;
         view.setSize(width,height);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         this.view.btnInventory.addActionListener(this);
         this.view.btnSell.addActionListener(this);
@@ -44,6 +45,7 @@ public class HomeController extends Controller implements ActionListener {
         this.view.btnCurrentEvent.addActionListener(this);
         this.view.btnConfig.addActionListener(this);
         this.view.btnNotifications.addActionListener(this);
+        this.view.btnCashDrawerUnlock.addActionListener(this);
         HomeController.eventButton = view.btnCurrentEvent;
         HomeController.notificationButton = view.btnNotifications;
         HomeController.staticView = view;
@@ -121,6 +123,10 @@ public class HomeController extends Controller implements ActionListener {
 
         if (source == this.view.btnNotifications) {
             MissingGlobal.showAllNotifications();
+        }
+        
+        if (source == this.view.btnCashDrawerUnlock) {
+            CashDrawerController cashDrawerController = new CashDrawerController();
         }
     }
 

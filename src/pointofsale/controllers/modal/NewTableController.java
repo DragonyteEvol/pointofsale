@@ -21,7 +21,7 @@ public class NewTableController extends ModalController implements ActionListene
 
     public NewTableController() {
         this.view = new NewTableView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         this.view.btnSave.addActionListener(this);
         this.view.btnRemove.setVisible(false);

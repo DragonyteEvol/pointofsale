@@ -32,7 +32,7 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
         view.txtTotal.setText(MoneyConverter.convertDouble(total));
         initEvents();
 
-        view.setResizable(false);
+        view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
 

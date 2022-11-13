@@ -24,7 +24,7 @@ public class NewUnitController extends ModalController implements ActionListener
     public NewUnitController(UnitController superClass) {
         // view config
         this.view = new NewUnitView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.superClass = superClass;
         //events
         this.view.btnSave.addActionListener(this);

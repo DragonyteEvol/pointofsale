@@ -36,12 +36,12 @@ public class EditIngredientController implements ActionListener {
     public EditIngredientController(Ingredient ingredient) {
         this.view = new NewIngredientView(null, true);
         this.selectorView = new FileSelector(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.ingredient = ingredient;
         Dimension dimension = view.getToolkit().getScreenSize();
 
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
-        selectorView.setResizable(false);
+        selectorView.setLocationRelativeTo(null);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         

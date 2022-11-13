@@ -4,6 +4,7 @@
  */
 package pointofsale.controllers.modal;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -39,8 +40,8 @@ public class RoomManagerController extends ModalController implements ActionList
         this.room = room;
         this.billActive = billActive;
 
-        this.view.setResizable(false);
-        this.secondView.setResizable(false);
+        this.view.setLocationRelativeTo(null);
+        this.secondView.setLocationRelativeTo(null);
 
         setResource();
         setSecondResource();
@@ -114,7 +115,8 @@ public class RoomManagerController extends ModalController implements ActionList
                 System.out.println(billActive);
                 WarningUser warningUser = new WarningUser(null, true);
                 warningUser.txtWarning.setText("Debe pagar los productos");
-                warningUser.setResizable(false);
+                warningUser.setSize(new Dimension(350,200));
+                warningUser.setLocationRelativeTo(null);
                 warningUser.setVisible(true);
             } else {
                 System.out.println(billActive);

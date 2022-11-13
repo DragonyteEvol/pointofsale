@@ -58,7 +58,7 @@ public class SellProductsController extends Controller implements ActionListener
 
     private void initComponents() {
         this.view = new SellProductView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         dimension = view.getToolkit().getScreenSize();
         Integer width = (dimension.width * 2) / 3;

@@ -53,7 +53,7 @@ public class CardReceptionController implements ActionListener {
         view.btnSave.addActionListener(this);
 
         this.confirmView = new ConfirmReceipView(null, true);
-        this.confirmView.setResizable(false);
+        this.confirmView.setLocationRelativeTo(null);
 
         this.confirmView.btnClose.addActionListener(this);
         this.confirmView.btnSave.addActionListener(this);

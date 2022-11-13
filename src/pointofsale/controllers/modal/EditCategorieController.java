@@ -22,7 +22,7 @@ public class EditCategorieController implements ActionListener {
 
     public EditCategorieController(Categorie categorie) {
         this.view = new NewCategorieView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.categorie = categorie;
 
         this.view.btnSave.addActionListener(this);

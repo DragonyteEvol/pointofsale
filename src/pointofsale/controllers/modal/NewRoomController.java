@@ -25,7 +25,7 @@ public class NewRoomController extends ModalController implements ActionListener
 
     public NewRoomController() {
         this.view = new NewRoomView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         this.view.btnSave.addActionListener(this);
 

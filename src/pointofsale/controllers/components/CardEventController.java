@@ -66,7 +66,7 @@ public class CardEventController implements ActionListener {
 
         if (source == view.btnEnd) {
             secondView.txtPrice.setValue(event.getPrice());
-            secondView.setResizable(false);
+            secondView.setLocationRelativeTo(null);
             secondView.setVisible(true);
         }
         

@@ -27,7 +27,7 @@ public class EditRoomController implements ActionListener {
 
     public EditRoomController(Room room) {
         this.view = new NewRoomView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.room = room;
 
         this.view.btnSave.addActionListener(this);

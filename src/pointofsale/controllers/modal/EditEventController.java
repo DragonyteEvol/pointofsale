@@ -31,7 +31,7 @@ public class EditEventController implements ActionListener {
         view.btnDelete.addActionListener(this);
         view.btnSave.addActionListener(this);
 
-        view.setResizable(false);
+        view.setLocationRelativeTo(null);
         view.setVisible(true);
 
     }

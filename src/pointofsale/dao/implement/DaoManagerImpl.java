@@ -16,6 +16,7 @@ import pointofsale.dao.BillRoomProductTmpDao;
 import pointofsale.dao.BillRoomTmpDao;
 import pointofsale.dao.BillTableProductTmpDao;
 import pointofsale.dao.BillTableTmpDao;
+import pointofsale.dao.CashDrawerDao;
 import pointofsale.dao.CategorieDao;
 
 import pointofsale.dao.DaoManager;
@@ -70,6 +71,7 @@ public class DaoManagerImpl implements DaoManager {
     private EventDao eventDao;
     private MissingStockDao missingStockDao;
     private DeleteDao deleteDao;
+    private CashDrawerDao cashDrawerDao;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -289,6 +291,14 @@ public class DaoManagerImpl implements DaoManager {
             this.deleteDao = new DeleteDaoImpl(connection);
         }
         return this.deleteDao;
+    }
+
+    @Override
+    public CashDrawerDao getCashDrawerDao() {
+        if (cashDrawerDao == null) {
+            this.cashDrawerDao = new CashDrawerDaoImpl(connection);
+        }
+        return this.cashDrawerDao;
     }
 
 }

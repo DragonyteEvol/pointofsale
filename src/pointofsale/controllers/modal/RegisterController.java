@@ -26,7 +26,7 @@ public class RegisterController extends ModalController implements ActionListene
     private void initComponents() {
         // view config
         this.view = new RegisterView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
 
         initEvents();
         this.view.setVisible(true);

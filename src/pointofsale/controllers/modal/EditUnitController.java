@@ -22,7 +22,7 @@ public class EditUnitController implements ActionListener{
 
     public EditUnitController(Unit unit) {
         this.view = new NewUnitView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.unit = unit;
 
         this.view.btnSave.addActionListener(this);

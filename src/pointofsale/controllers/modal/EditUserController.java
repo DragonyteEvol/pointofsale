@@ -26,7 +26,7 @@ public class EditUserController implements ActionListener{
         
         view.btnSave.addActionListener(this);
         
-        view.setResizable(false);
+        view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
     

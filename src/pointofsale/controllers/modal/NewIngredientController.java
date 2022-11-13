@@ -33,12 +33,12 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         // view config
         this.view = new NewIngredientView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.selectorView = new FileSelector(null, true);
         
         Dimension dimension = view.getToolkit().getScreenSize();
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
-        selectorView.setResizable(false);
+        selectorView.setLocationRelativeTo(null);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         

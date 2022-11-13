@@ -44,14 +44,14 @@ public class EditProductController implements ActionListener {
 
         // view config
         this.view = new NewProductView(null, true);
-        this.view.setResizable(false);
+        this.view.setLocationRelativeTo(null);
         this.selectorView = new FileSelector(null, true);
         this.product = product;
         
         Dimension dimension = view.getToolkit().getScreenSize();
 
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
-        selectorView.setResizable(false);
+        selectorView.setLocationRelativeTo(null);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         
