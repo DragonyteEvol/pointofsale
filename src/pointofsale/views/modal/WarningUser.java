@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -37,6 +39,7 @@ public class WarningUser extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 

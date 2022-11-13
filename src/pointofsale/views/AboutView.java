@@ -4,6 +4,8 @@
  */
 package pointofsale.views;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -17,7 +19,7 @@ public class AboutView extends javax.swing.JDialog {
         super(parent, modal);
         this.setLocationRelativeTo(null);
         initComponents();
-        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
         this.setVisible(true);
     }
 
@@ -42,6 +44,7 @@ public class AboutView extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

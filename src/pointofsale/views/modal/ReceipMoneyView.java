@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -70,6 +72,7 @@ public class ReceipMoneyView extends javax.swing.JDialog {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
 

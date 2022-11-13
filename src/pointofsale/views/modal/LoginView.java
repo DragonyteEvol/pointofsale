@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -53,6 +55,7 @@ public class LoginView extends javax.swing.JDialog {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 

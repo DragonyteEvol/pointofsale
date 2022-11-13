@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -64,6 +66,7 @@ public class RentRoomView extends javax.swing.JDialog {
         btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -216,7 +219,7 @@ public class RentRoomView extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, Short.MAX_VALUE)
         );
 
         pack();

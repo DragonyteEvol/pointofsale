@@ -4,6 +4,8 @@
  */
 package pointofsale.views.modal;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -67,6 +69,7 @@ public class NewProductView extends javax.swing.JDialog {
         jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         pnDinamic.setLayout(new javax.swing.BoxLayout(pnDinamic, javax.swing.BoxLayout.LINE_AXIS));
 

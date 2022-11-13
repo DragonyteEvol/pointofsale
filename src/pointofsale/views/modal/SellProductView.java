@@ -5,6 +5,7 @@
 package pointofsale.views.modal;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -59,6 +60,7 @@ public class SellProductView extends javax.swing.JDialog {
         pnProducts = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         jPanel12.setLayout(new java.awt.BorderLayout());
 

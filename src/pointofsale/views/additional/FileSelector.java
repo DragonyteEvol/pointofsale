@@ -4,6 +4,8 @@
  */
 package pointofsale.views.additional;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -31,6 +33,7 @@ public class FileSelector extends javax.swing.JDialog {
         fileChooser = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
         jPanel1.add(fileChooser);

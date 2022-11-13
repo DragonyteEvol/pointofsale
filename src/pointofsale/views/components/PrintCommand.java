@@ -28,6 +28,8 @@ public class PrintCommand extends javax.swing.JDialog {
     private void initComponents() {
 
         pnBase = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         txtTarget = new javax.swing.JLabel();
@@ -40,6 +42,13 @@ public class PrintCommand extends javax.swing.JDialog {
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         pnBase.setLayout(new javax.swing.BoxLayout(pnBase, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/casa_real.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+
+        pnBase.add(jPanel1);
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
@@ -116,7 +125,9 @@ public class PrintCommand extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

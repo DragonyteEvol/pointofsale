@@ -4,6 +4,8 @@
  */
 package pointofsale.views;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author dragonyte
@@ -47,6 +49,7 @@ public class HomeView extends javax.swing.JFrame {
         pnDinamic = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("pointofsale/images/casa_real_icon.png")));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -78,7 +81,7 @@ public class HomeView extends javax.swing.JFrame {
         btnCashDrawerUnlock.setBackground(new java.awt.Color(102, 153, 255));
         btnCashDrawerUnlock.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         btnCashDrawerUnlock.setForeground(new java.awt.Color(255, 255, 255));
-        btnCashDrawerUnlock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/lock-alt-regular-24.png"))); // NOI18N
+        btnCashDrawerUnlock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/lock-alt-solid-24_white.png"))); // NOI18N
         btnCashDrawerUnlock.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         btnCashDrawerUnlock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
