@@ -120,7 +120,7 @@ public class PrintCommand extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel pnBase;
+    public javax.swing.JPanel pnBase;
     public javax.swing.JPanel pnTable;
     public javax.swing.JLabel txtDate;
     public javax.swing.JLabel txtTarget;

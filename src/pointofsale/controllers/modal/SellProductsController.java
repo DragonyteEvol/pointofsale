@@ -167,7 +167,7 @@ public class SellProductsController extends Controller implements ActionListener
 
                 printCommand.setVisible(true);
 
-                pf.print(printCommand);
+                pf.print(printCommand.pnBase);
             }
         }
 

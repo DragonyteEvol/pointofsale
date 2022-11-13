@@ -82,14 +82,14 @@ public class CardBillController implements ActionListener {
             printBill.pnTable.revalidate();
 
             printBill.setVisible(true);
-            pf.print(printBill);
+            pf.print(printBill.pnBase);
         }
         }
     }
     
     
     private JTable construcTable(List<Product> products) {
-        String rowTitle[] = {"Nombre", "Cantidad", "Subvalor"};
+        String rowTitle[] = {"Nombre", "Precio", "Cantidad"};
         String arrayData[][] = modelTable(products);
         DefaultTableModel defaultTableModel = new DefaultTableModel(arrayData, rowTitle);
 

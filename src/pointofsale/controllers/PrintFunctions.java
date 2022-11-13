@@ -11,6 +11,12 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttribute;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.MediaSize;
+import javax.print.attribute.standard.MediaSizeName;
+import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JPanel;
 
 /**
@@ -49,9 +55,12 @@ public class PrintFunctions {
             }
         });
         boolean returningResult = printerJob.printDialog();
+        PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+        aset.add(OrientationRequested.PORTRAIT);
+        aset.add(MediaSizeName.INVOICE);
         if(returningResult){
             try{
-                printerJob.print();
+                printerJob.print(aset);
             }catch(PrinterException e){
                 System.out.print(e.getMessage());
             }
