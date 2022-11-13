@@ -93,7 +93,6 @@ public class CashDrawerController extends ModalController implements ActionListe
             if (validateRequest(password)) {
                 if (validatePassword(password)) {
                     openCashDrawer();
-                    System.out.print("oko");
                 }
             }
         }

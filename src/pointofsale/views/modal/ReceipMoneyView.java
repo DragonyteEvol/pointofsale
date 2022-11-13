@@ -90,7 +90,7 @@ public class ReceipMoneyView extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtTotal.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtTotal.setForeground(new java.awt.Color(102, 102, 102));
         txtTotal.setText("txtPrice");
         jPanel5.add(txtTotal);
@@ -144,66 +144,66 @@ public class ReceipMoneyView extends javax.swing.JDialog {
         jPanel10.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jPanel10.setLayout(new java.awt.GridLayout(2, 0));
 
-        btn1000.setBackground(new java.awt.Color(204, 255, 204));
+        btn1000.setBackground(new java.awt.Color(0, 204, 102));
         btn1000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn1000.setForeground(new java.awt.Color(102, 102, 102));
-        btn1000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn1000.setForeground(new java.awt.Color(255, 255, 255));
+        btn1000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn1000.setText("1,000");
         btn1000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn1000);
 
-        btn2000.setBackground(new java.awt.Color(204, 255, 204));
+        btn2000.setBackground(new java.awt.Color(0, 204, 102));
         btn2000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn2000.setForeground(new java.awt.Color(102, 102, 102));
-        btn2000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn2000.setForeground(new java.awt.Color(255, 255, 255));
+        btn2000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn2000.setText("2,000");
         btn2000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn2000);
 
-        btn5000.setBackground(new java.awt.Color(204, 255, 204));
+        btn5000.setBackground(new java.awt.Color(0, 204, 102));
         btn5000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn5000.setForeground(new java.awt.Color(102, 102, 102));
-        btn5000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn5000.setForeground(new java.awt.Color(255, 255, 255));
+        btn5000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn5000.setText("5,000");
         btn5000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn5000);
 
-        btn10000.setBackground(new java.awt.Color(204, 255, 204));
+        btn10000.setBackground(new java.awt.Color(0, 204, 102));
         btn10000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn10000.setForeground(new java.awt.Color(102, 102, 102));
-        btn10000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn10000.setForeground(new java.awt.Color(255, 255, 255));
+        btn10000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn10000.setText("10,000");
         btn10000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn10000);
 
-        btn20000.setBackground(new java.awt.Color(204, 255, 204));
+        btn20000.setBackground(new java.awt.Color(0, 204, 102));
         btn20000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn20000.setForeground(new java.awt.Color(102, 102, 102));
-        btn20000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn20000.setForeground(new java.awt.Color(255, 255, 255));
+        btn20000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn20000.setText("20,000");
         btn20000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn20000);
 
-        btn50000.setBackground(new java.awt.Color(204, 255, 204));
+        btn50000.setBackground(new java.awt.Color(0, 204, 102));
         btn50000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn50000.setForeground(new java.awt.Color(102, 102, 102));
-        btn50000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn50000.setForeground(new java.awt.Color(255, 255, 255));
+        btn50000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn50000.setText("50,000");
         btn50000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn50000);
 
-        btn100000.setBackground(new java.awt.Color(204, 255, 204));
+        btn100000.setBackground(new java.awt.Color(0, 204, 102));
         btn100000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn100000.setForeground(new java.awt.Color(102, 102, 102));
-        btn100000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn100000.setForeground(new java.awt.Color(255, 255, 255));
+        btn100000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn100000.setText("100,000");
         btn100000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn100000);
 
-        btn200000.setBackground(new java.awt.Color(204, 255, 204));
+        btn200000.setBackground(new java.awt.Color(0, 204, 102));
         btn200000.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btn200000.setForeground(new java.awt.Color(102, 102, 102));
-        btn200000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24.png"))); // NOI18N
+        btn200000.setForeground(new java.awt.Color(255, 255, 255));
+        btn200000.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/money-regular-24-white.png"))); // NOI18N
         btn200000.setText("200,000");
         btn200000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         jPanel10.add(btn200000);
@@ -234,7 +234,7 @@ public class ReceipMoneyView extends javax.swing.JDialog {
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGap(0, 327, Short.MAX_VALUE)
             .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel15Layout.createSequentialGroup()
                     .addContainerGap()

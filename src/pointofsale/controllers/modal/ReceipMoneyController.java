@@ -6,6 +6,15 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import pointofsale.MoneyConverter;
@@ -58,6 +67,7 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
             if (total <= receibed) {
                 RoomModel roomModel = new RoomModel();
                 roomModel.cashRegister(total, receibed);
+                openCashDrawer();
                 view.dispose();
             }
         }
@@ -100,6 +110,23 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
         if (source == this.view.btn200000) {
             Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 200000);
+        }
+    }
+
+    public void openCashDrawer() {
+
+        byte[] open = {27, 112, 0, 100, (byte) 250};
+//      byte[] cutter = {29, 86,49};
+        PrintService pservice
+                = PrintServiceLookup.lookupDefaultPrintService();
+        DocPrintJob job = pservice.createPrintJob();
+        DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
+        Doc doc = new SimpleDoc(open, flavor, null);
+        PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
+        try {
+            job.print(doc, aset);
+        } catch (PrintException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
