@@ -10,28 +10,33 @@ import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import pointofsale.ConfigGlobal;
+import pointofsale.models.CashDrawerModel;
 import pointofsale.models.ConfigModel;
 import pointofsale.objects.AditionalInformation;
+import pointofsale.objects.CashDrawer;
 import pointofsale.views.additional.FileSelector;
 import pointofsale.views.additional.InfoView;
+import pointofsale.views.modal.CashDrawerPasswordView;
 
 /**
  *
  * @author dragonyte
  */
 public class InfoController implements ActionListener {
-    
 
     private InfoView view;
+    private CashDrawerPasswordView passwordView;
     private FileSelector selectorView;
 
     public InfoController(JPanel panel) {
         this.view = new InfoView();
         this.selectorView = new FileSelector(null, true);
+        this.passwordView = new CashDrawerPasswordView(null, true);
 
         Dimension dimension = view.getToolkit().getScreenSize();
         selectorView.setSize(dimension.width / 2, dimension.height / 2);
         selectorView.setLocationRelativeTo(null);
+        passwordView.setLocationRelativeTo(null);
 
         selectorView.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
@@ -79,16 +84,23 @@ public class InfoController implements ActionListener {
                 view.txtRoute.setText(path);
                 System.out.print(path);
                 selectorView.dispose();
-            }else if(command.equals(JFileChooser.CANCEL_SELECTION)){
+            } else if (command.equals(JFileChooser.CANCEL_SELECTION)) {
                 selectorView.dispose();
             }
 
         }
-        if(source== view.btnDeleteAll){
-            
-            ConfigModel configModel = new ConfigModel();
-            configModel.deleteAllTables();
-            System.exit(0);
+        if (source == view.btnDeleteAll) {
+            String password = String.valueOf(passwordView.txtPassword.getPassword());
+            if (!password.isBlank()) {
+                CashDrawerModel cashDrawerModel = new CashDrawerModel();
+                CashDrawer cashDrawer = cashDrawerModel.selectPassword();
+                if (password.equals(cashDrawer.getPassword())) {
+                    ConfigModel configModel = new ConfigModel();
+                    configModel.deleteAllTables();
+                    System.exit(0);
+                }
+            }
+
         }
     }
 
