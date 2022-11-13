@@ -5,6 +5,7 @@
 package pointofsale.controllers;
 
 import com.opencsv.CSVWriter;
+import java.awt.Dimension;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 import pointofsale.ConfigGlobal;
 import pointofsale.objects.Report;
+import pointofsale.views.modal.WarningUser;
 
 /**
  *
@@ -20,10 +22,10 @@ import pointofsale.objects.Report;
  */
 public class ExportController {
 
-    public void createExcel(String[] headers,List<Report> reports,String file_name) throws FileNotFoundException, IOException {
+    public void createExcel(String[] headers, List<Report> reports, String file_name) throws FileNotFoundException, IOException {
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HHmmss").format(Calendar.getInstance().getTime());
-        String time  = timeStamp.replace("/","_");
-        String route = ConfigGlobal.getConfig().getLogo_path() + "/" + file_name + "_" + time +".csv";
+        String time = timeStamp.replace("/", "_");
+        String route = ConfigGlobal.getConfig().getLogo_path() + "/" + file_name + "_" + time + ".csv";
         CSVWriter writer = new CSVWriter(new FileWriter(route));
         writer.writeNext(headers);
 
@@ -36,11 +38,16 @@ public class ExportController {
             String quantity = String.valueOf(d.getQuantity());
             String created_at = d.getCreated_at();
 
-            String[] line = new String[]{id, name, price,quantity,created_at};
+            String[] line = new String[]{id, name, price, quantity, created_at};
             writer.writeNext(line);
         });
 
         writer.close();
         System.out.print("exported");
+        WarningUser warningUser = new WarningUser(null, true);
+        warningUser.txtWarning.setText("Informe exportado");
+        warningUser.setSize(new Dimension(350, 200));
+        warningUser.setLocationRelativeTo(null);
+        warningUser.setVisible(true);
     }
 }
