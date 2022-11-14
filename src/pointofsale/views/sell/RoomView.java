@@ -55,7 +55,7 @@ public class RoomView extends javax.swing.JPanel {
         pnRooms.setBackground(new java.awt.Color(255, 255, 255));
         pnRooms.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnRooms.setPreferredSize(new Dimension(pnRooms.getSize().width,0));
-        pnRooms.setLayout(new java.awt.GridLayout(0, 5, 5, 5));
+        pnRooms.setLayout(new java.awt.GridLayout(0, 6, 5, 5));
         pnScroll.setViewportView(pnRooms);
 
         jPanel2.add(pnScroll);

@@ -204,7 +204,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             printBill.pnTable.repaint();
             printBill.pnTable.revalidate();
 
-            printBill.setVisible(true);
+            printBill.setVisible(false);
             pf.print(printBill.pnBase);
         }
 

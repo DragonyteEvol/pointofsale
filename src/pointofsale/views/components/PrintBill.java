@@ -63,7 +63,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtCompany.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtCompany.setFont(new java.awt.Font("sansserif", 1, 23)); // NOI18N
         txtCompany.setText("Company Name");
         jPanel5.add(txtCompany);
 

@@ -50,7 +50,7 @@
                 <Component class="javax.swing.JLabel" name="txtCompany">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="sansserif" size="18" style="1"/>
+                      <Font name="sansserif" size="23" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Company Name"/>
                   </Properties>

@@ -56,7 +56,7 @@ public class PrintCommand extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtTarget.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        txtTarget.setFont(new java.awt.Font("sansserif", 1, 45)); // NOI18N
         txtTarget.setText("Table Room");
         jPanel4.add(txtTarget);
 
