@@ -186,9 +186,11 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             HomeController.checkNotifications();
         }
         if (source == view.btnPrint) {
+            User waiter = (User) view.cbWaiter.getSelectedItem();
             PrintBill printBill = new PrintBill(null, true);
             printBill.txtWorker.setText("Atendido por: " + UserGlobal.getUser().getName());
             printBill.txtCompany.setText(ConfigGlobal.getConfig().getName());
+            printBill.txtWaiter.setText("Mesero: " + waiter.getName());
             PrintFunctions pf = new PrintFunctions();
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             printBill.txtDate.setText(timeStamp);
@@ -207,7 +209,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             printBill.pnTable.repaint();
             printBill.pnTable.revalidate();
 
-            printBill.setVisible(false);
+            printBill.setVisible(true);
             pf.print(printBill.pnBase);
         }
 

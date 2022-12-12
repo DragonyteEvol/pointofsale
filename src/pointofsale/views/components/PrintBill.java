@@ -39,6 +39,8 @@ public class PrintBill extends javax.swing.JDialog {
         txtPhone = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         txtWorker = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txtWaiter = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         txtBill = new javax.swing.JLabel();
@@ -96,6 +98,13 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel9.add(txtWorker);
 
         jPanel2.add(jPanel9);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtWaiter.setText("Waiter");
+        jPanel1.add(txtWaiter);
+
+        jPanel2.add(jPanel1);
 
         pnBase.add(jPanel2);
 
@@ -207,6 +216,7 @@ public class PrintBill extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
@@ -229,6 +239,7 @@ public class PrintBill extends javax.swing.JDialog {
     public javax.swing.JLabel txtPhone;
     public javax.swing.JLabel txtSubtotal;
     public javax.swing.JLabel txtTotal;
+    public javax.swing.JLabel txtWaiter;
     public javax.swing.JLabel txtWorker;
     // End of variables declaration//GEN-END:variables
 }
