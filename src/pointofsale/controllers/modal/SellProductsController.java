@@ -28,10 +28,12 @@ import pointofsale.controllers.components.WordWrapCellRenderer;
 import pointofsale.models.BillModel;
 import pointofsale.models.CategorieModel;
 import pointofsale.models.ProductModel;
+import pointofsale.models.UserModel;
 import pointofsale.objects.Categorie;
 import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
+import pointofsale.objects.User;
 import pointofsale.views.components.PrintCommand;
 import pointofsale.views.modal.SellProductView;
 
@@ -154,6 +156,8 @@ public class SellProductsController extends Controller implements ActionListener
                 } else {
                     printCommand.txtTarget.setText("Habitacion " + room.getId());
                 }
+                User waiter = (User) view.cbWaiter.getSelectedItem();
+                printCommand.txtWaiter.setText(waiter.getName());
                 PrintFunctions pf = new PrintFunctions();
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 printCommand.txtDate.setText(timeStamp);
@@ -254,11 +258,20 @@ public class SellProductsController extends Controller implements ActionListener
                 view.pnProducts.revalidate();
             }
         }
+        
+        private void setWaiters() {
+            UserModel userModel = new UserModel();
+            List<User> users = userModel.selectWaiters();
+            for (User user : users) {
+                view.cbWaiter.addItem(user);
+            }
+        }
 
         @Override
         public void run() {
             setCategorie();
             setProduct();
+            setWaiters();
             view.pnCenter.repaint();
             view.pnCenter.revalidate();
         }

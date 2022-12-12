@@ -35,6 +35,10 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         txtTarget = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        txtWaiter = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtDate = new javax.swing.JLabel();
         pnTable = new javax.swing.JPanel();
@@ -63,13 +67,29 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel2.add(jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel5.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel3.setText("Mesero: ");
+        jPanel6.add(jLabel3);
+
+        txtWaiter.setText("Waiter");
+        jPanel6.add(txtWaiter);
+
+        jPanel5.add(jPanel6);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel2.setText("Fecha: ");
-        jPanel5.add(jLabel2);
+        jPanel3.add(jLabel2);
 
         txtDate.setText("Date");
-        jPanel5.add(txtDate);
+        jPanel3.add(txtDate);
+
+        jPanel5.add(jPanel3);
 
         jPanel2.add(jPanel5);
 
@@ -129,14 +149,18 @@ public class PrintCommand extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel pnBase;
     public javax.swing.JPanel pnTable;
     public javax.swing.JLabel txtDate;
     public javax.swing.JLabel txtTarget;
+    public javax.swing.JLabel txtWaiter;
     // End of variables declaration//GEN-END:variables
 }

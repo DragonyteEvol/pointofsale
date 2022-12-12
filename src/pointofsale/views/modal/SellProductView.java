@@ -38,6 +38,10 @@ public class SellProductView extends javax.swing.JDialog {
         jPanel19 = new javax.swing.JPanel();
         txtPrice = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        cbWaiter = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         chPrint = new javax.swing.JCheckBox();
         jPanel17 = new javax.swing.JPanel();
@@ -85,17 +89,35 @@ public class SellProductView extends javax.swing.JDialog {
         jPanel13.add(jPanel15, java.awt.BorderLayout.PAGE_START);
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("Mesero");
+        jPanel9.add(jLabel1);
+
+        cbWaiter.setBackground(new java.awt.Color(252, 252, 252));
+        cbWaiter.setForeground(new java.awt.Color(102, 102, 102));
+        cbWaiter.setBorder(null);
+        jPanel9.add(cbWaiter);
+
+        jPanel16.add(jPanel9);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         btnSave.setBackground(new java.awt.Color(235, 71, 71));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Aceptar");
         btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
-        jPanel16.add(btnSave);
+        jPanel5.add(btnSave);
 
         chPrint.setBackground(new java.awt.Color(255, 255, 255));
         chPrint.setForeground(new java.awt.Color(153, 153, 153));
         chPrint.setText("Imprimir");
-        jPanel16.add(chPrint);
+        jPanel5.add(chPrint);
+
+        jPanel16.add(jPanel5);
 
         jPanel13.add(jPanel16, java.awt.BorderLayout.PAGE_END);
 
@@ -236,7 +258,9 @@ public class SellProductView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanel112;
     public javax.swing.JButton btnSave;
+    public javax.swing.JComboBox<Object> cbWaiter;
     public javax.swing.JCheckBox chPrint;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
@@ -249,9 +273,11 @@ public class SellProductView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
