@@ -37,4 +37,5 @@ public interface DaoManager {
         MissingStockDao getMissingStockDao();
         DeleteDao getDeleteDao();
         CashDrawerDao getCashDrawerDao();
+        TipDao getTipDao();
 }

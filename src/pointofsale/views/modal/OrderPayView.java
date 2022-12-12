@@ -63,10 +63,16 @@ public class OrderPayView extends javax.swing.JDialog {
         chCourtesy = new javax.swing.JCheckBox();
         chInternalExpense = new javax.swing.JCheckBox();
         jPanel14 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
         jPanel25 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         cbPaymentMethod = new javax.swing.JComboBox<>();
+        jPanel31 = new javax.swing.JPanel();
+        jPanel32 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel33 = new javax.swing.JPanel();
+        cbWaiter = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -222,7 +228,11 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel7.add(jPanel13);
 
-        jPanel14.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel14.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel29.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel29.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 5));
+        jPanel29.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel25.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -231,7 +241,7 @@ public class OrderPayView extends javax.swing.JDialog {
         jLabel13.setText("Metodo de pago");
         jPanel25.add(jLabel13);
 
-        jPanel14.add(jPanel25);
+        jPanel29.add(jPanel25);
 
         jPanel26.setLayout(new javax.swing.BoxLayout(jPanel26, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -239,7 +249,32 @@ public class OrderPayView extends javax.swing.JDialog {
         cbPaymentMethod.setBorder(null);
         jPanel26.add(cbPaymentMethod);
 
-        jPanel14.add(jPanel26);
+        jPanel29.add(jPanel26);
+
+        jPanel14.add(jPanel29);
+
+        jPanel31.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel31.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 5));
+        jPanel31.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel32.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel14.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("Mesero");
+        jPanel32.add(jLabel14);
+
+        jPanel31.add(jPanel32);
+
+        jPanel33.setLayout(new javax.swing.BoxLayout(jPanel33, javax.swing.BoxLayout.LINE_AXIS));
+
+        cbWaiter.setBackground(new java.awt.Color(252, 252, 252));
+        cbWaiter.setBorder(null);
+        jPanel33.add(cbWaiter);
+
+        jPanel31.add(jPanel33);
+
+        jPanel14.add(jPanel31);
 
         jPanel7.add(jPanel14);
 
@@ -295,11 +330,11 @@ public class OrderPayView extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
         );
 
         pack();
@@ -355,6 +390,7 @@ public class OrderPayView extends javax.swing.JDialog {
     public javax.swing.JButton btnPay;
     public javax.swing.JButton btnPrint;
     public javax.swing.JComboBox<Object> cbPaymentMethod;
+    public javax.swing.JComboBox<Object> cbWaiter;
     public javax.swing.JCheckBox chCourtesy;
     public javax.swing.JCheckBox chInternalExpense;
     private javax.swing.JLabel jLabel1;
@@ -362,6 +398,7 @@ public class OrderPayView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -385,7 +422,11 @@ public class OrderPayView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

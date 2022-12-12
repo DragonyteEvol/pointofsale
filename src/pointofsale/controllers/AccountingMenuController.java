@@ -29,6 +29,7 @@ public class AccountingMenuController extends Controller implements ActionListen
         view.btnReports.addActionListener(this);
         view.btnSell.addActionListener(this);
         view.btnPaymentMethod.addActionListener(this);
+        view.btnTips.addActionListener(this);
     }
     
        public final void addMenu(){
@@ -61,6 +62,10 @@ public class AccountingMenuController extends Controller implements ActionListen
         if (source == this.view.btnReports) {
             addMenu();
             ReportController report = new ReportController(panel);
+        }
+        if (source == this.view.btnTips) {
+            addMenu();
+            TipController tipController = new TipController(panel);
         }
         if (source == this.view.btnSell) {
             addMenu();

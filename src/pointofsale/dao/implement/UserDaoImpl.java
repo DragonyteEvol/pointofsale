@@ -23,7 +23,7 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
 
     // table config
     final String TABLE = "users";
-    final List<String> COLUMS = Arrays.asList("name", "mail", "password", "admin");
+    final List<String> COLUMS = Arrays.asList("name", "mail", "password", "admin","waiter");
 
     // queries
     String INSERT;
@@ -32,6 +32,7 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
     final String GETALL = "select * from " + TABLE;
     final String GETBYMAIL = "select * from " + TABLE + " where mail=?";
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETWAITERS = "SELECT * FROM " + TABLE + " WHERE waiter=TRUE";
 
     private Connection connection;
 
@@ -99,7 +100,8 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
             statement.setString(2, a.getMail());
             statement.setString(3, a.getPassword());
             statement.setBoolean(4, a.isAdmin());
-            statement.setInt(5, a.getId());
+            statement.setBoolean(5, a.isWaiter());
+            statement.setInt(6, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -116,6 +118,31 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
 
     // select all rows
     @Override
+    public List<User> selectWaiters() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<User> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETWAITERS);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a.add(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+
+    }
+    
     public List<User> selectAll() {
         PreparedStatement statement = null;
         ResultSet set = null;
@@ -177,7 +204,8 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
         String password = set.getString("password");
         Boolean admin = set.getBoolean("admin");
         String created_at = set.getString("created_at");
-        User user = new User(set.getInt("id"), name, mail, password, admin, created_at);
+        Boolean waiter = set.getBoolean("waiter");
+        User user = new User(set.getInt("id"), name, mail, password, admin, waiter,created_at);
         return user;
     }
 

@@ -56,9 +56,19 @@ public class HomeController extends Controller implements ActionListener {
 
         checkEvent();
         checkNotifications();
+        checkPrivileges();
 
         this.view.setVisible(true);
 
+    }
+    
+    private void checkPrivileges(){
+        if(UserGlobal.getUser().isWaiter() || !UserGlobal.getUser().isAdmin()){
+            this.view.btnAccounting.setVisible(false);
+            this.view.btnInventory.setVisible(false);
+            this.view.btnEvent.setVisible(false);
+            this.view.btnConfig.setVisible(false);
+        }
     }
 
     public static void checkEvent() {

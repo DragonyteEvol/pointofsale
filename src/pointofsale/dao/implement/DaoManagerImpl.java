@@ -33,6 +33,7 @@ import pointofsale.dao.ProductIngredientDao;
 import pointofsale.dao.ReportDao;
 import pointofsale.dao.RoomDao;
 import pointofsale.dao.TableDao;
+import pointofsale.dao.TipDao;
 import pointofsale.dao.UnitDao;
 import pointofsale.dao.UserDao;
 
@@ -72,6 +73,7 @@ public class DaoManagerImpl implements DaoManager {
     private MissingStockDao missingStockDao;
     private DeleteDao deleteDao;
     private CashDrawerDao cashDrawerDao;
+    private TipDao tipDao;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -299,6 +301,14 @@ public class DaoManagerImpl implements DaoManager {
             this.cashDrawerDao = new CashDrawerDaoImpl(connection);
         }
         return this.cashDrawerDao;
+    }
+    
+    @Override
+    public TipDao getTipDao() {
+        if (tipDao == null) {
+            this.tipDao = new TipDaoImpl(connection);
+        }
+        return this.tipDao;
     }
 
 }

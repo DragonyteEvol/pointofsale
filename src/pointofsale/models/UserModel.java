@@ -38,5 +38,11 @@ public class UserModel extends Model{
         this.closeConnection();
         return users;
     }
+    
+    public List<User> selectWaiters(){
+        List<User> users = this.dao.getUserDao().selectWaiters();
+        this.closeConnection();
+        return users;
+    }
 
 }

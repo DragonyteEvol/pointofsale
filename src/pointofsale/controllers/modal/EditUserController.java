@@ -15,63 +15,71 @@ import pointofsale.views.modal.EditUserView;
  *
  * @author dragonyte
  */
-public class EditUserController implements ActionListener{
+public class EditUserController implements ActionListener {
+
     private EditUserView view;
     private User user;
 
     public EditUserController(User user) {
         this.view = new EditUserView(null, true);
-        view.setMinimumSize(new Dimension(350,0));
-        this.user=user;
-        
+        view.setMinimumSize(new Dimension(350, 0));
+        this.user = user;
+
         setUser();
-        
+
         view.btnSave.addActionListener(this);
-        
+
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
-    
-    private void setUser(){
+
+    private void setUser() {
         view.txtMail.setText(user.getMail());
         view.txtName.setText(user.getName());
         view.txtPassword.setText(user.getPassword());
-        if(user.isAdmin()){
+        if (user.isAdmin()) {
             view.cbType.setSelectedIndex(0);
-        }else{
-            view.cbType.setSelectedIndex(1);
+        } else {
+            if (user.isWaiter()) {
+                view.cbType.setSelectedIndex(2);
+            } else {
+                view.cbType.setSelectedIndex(1);
+            }
         }
     }
-    
-    private boolean validateRequest(String name, String mail,String password){
-        return !(name.isBlank()||mail.isBlank()||password.isBlank());
+
+    private boolean validateRequest(String name, String mail, String password) {
+        return !(name.isBlank() || mail.isBlank() || password.isBlank());
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if(source == view.btnSave){
+        if (source == view.btnSave) {
             UpdateUser u = new UpdateUser();
             u.start();
             view.dispose();
         }
     }
-    
-    class UpdateUser extends Thread{
+
+    class UpdateUser extends Thread {
+
         @Override
-        public void run(){
+        public void run() {
             String name = view.txtName.getText();
             String mail = view.txtMail.getText();
             String password = view.txtPassword.getText();
-            String type =(String) view.cbType.getSelectedItem();
+            String type = (String) view.cbType.getSelectedItem();
             boolean admin;
             admin = "administrador".equals(type);
-            if(validateRequest(name, mail, password)){
+            boolean waiter = "mesero".equals(type);
+            if (validateRequest(name, mail, password)) {
                 UserModel um = new UserModel();
                 user.setAdmin(admin);
                 user.setName(name);
                 user.setPassword(password);
                 user.setMail(mail);
+                user.setWaiter(waiter);
                 um.update(user);
             }
         }

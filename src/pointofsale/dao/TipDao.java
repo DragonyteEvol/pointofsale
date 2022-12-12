@@ -5,13 +5,12 @@
 package pointofsale.dao;
 
 import java.util.List;
-import pointofsale.objects.User;
+import pointofsale.objects.Tip;
 
 /**
  *
  * @author dragonyte
  */
-public interface UserDao extends Dao<User, Long>{
-    User selectByMail(String a);
-    List<User> selectWaiters();
+public interface TipDao extends Dao<Tip, Long>{
+    List<Tip> selectTipUser();
 }

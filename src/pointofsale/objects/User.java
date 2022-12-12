@@ -14,20 +14,31 @@ public class User {
 	private String mail;
 	private String password;
 	private boolean admin;
+        private boolean waiter;
 	private String created_at;
 
 	public User(){
 
 	}
 
-    public User(Integer id, String name, String mail, String password, boolean admin, String created_at) {
+    public User(Integer id, String name, String mail, String password, boolean admin, boolean waiter,String created_at) {
         this.id = id;
         this.name = name;
         this.mail = mail;
         this.password = password;
         this.admin = admin;
         this.created_at = created_at;
+        this.waiter = waiter;
     }
+
+    public boolean isWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(boolean waiter) {
+        this.waiter = waiter;
+    }
+    
     
 
     public Integer getId() {
@@ -80,7 +91,7 @@ public class User {
     
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", mail=" + mail + ", password=" + password + ", admin=" + admin + ", created_at=" + created_at + '}';
+        return name;
     }
 
 }

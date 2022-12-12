@@ -42,7 +42,12 @@ public class CardUserController extends CardController implements ActionListener
         if(user.isAdmin()){
             view.txtAdmin.setText("Administrador");
         }else{
-            view.txtAdmin.setText("Usuario");
+            if(user.isWaiter()){
+                 view.txtAdmin.setText("Mesero");
+            }else{
+                 view.txtAdmin.setText("Usuario");
+            }
+           
         }
     }
     

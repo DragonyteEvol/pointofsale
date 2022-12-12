@@ -32,6 +32,7 @@ import pointofsale.models.AnnulmentModel;
 import pointofsale.models.BillModel;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
+import pointofsale.models.UserModel;
 import pointofsale.objects.AditionalInformation;
 import pointofsale.objects.Annulment;
 import pointofsale.objects.Bill;
@@ -42,6 +43,7 @@ import pointofsale.objects.PaymentMethod;
 import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
+import pointofsale.objects.User;
 import pointofsale.views.components.PrintBill;
 import pointofsale.views.modal.ConfirmAnnulmentView;
 import pointofsale.views.modal.OrderPayView;
@@ -94,6 +96,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         if (aditionalInformation != null) {
             view.txtTipPercent.setValue(aditionalInformation.getDefault_tip());
         }
+        updatePrice();
     }
 
     public void initView() {
@@ -160,7 +163,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         Object source = ae.getSource();
         PaymentMethod paymentMethod = (PaymentMethod) view.cbPaymentMethod.getSelectedItem();
         if (source == view.btnPay) {
-
+            updatePrice();
             if (allocate) {
                 AllocattedTread allocattedTread = new AllocattedTread(paymentMethod);
                 allocattedTread.start();
@@ -303,6 +306,14 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 view.cbPaymentMethod.addItem(paymentMethod);
             }
         }
+        
+        private void setWaiters() {
+            UserModel userModel = new UserModel();
+            List<User> waiters = userModel.selectWaiters();
+            for (User waiter : waiters) {
+                view.cbWaiter.addItem(waiter);
+            }
+        }
 
         private void setTotal() {
             BillModel billModel = new BillModel();
@@ -374,7 +385,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 setTotal();
             }
             setDefaultTip();
-
+            System.out.print("WAITERS");
+            setWaiters();
         }
     }
 
@@ -382,6 +394,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
 
         private Bill contructBill() {
             PaymentMethod paymentMethod = (PaymentMethod) view.cbPaymentMethod.getSelectedItem();
+            User waiter = (User) view.cbWaiter.getSelectedItem();
             Bill bill = new Bill();
             bill.setDescription("normal_sell");
             if (room == null) {
@@ -416,6 +429,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             } else {
                 bill.setEvent_id(0);
             }
+            bill.setWaiter_id(waiter.getId());
             return bill;
         }
 

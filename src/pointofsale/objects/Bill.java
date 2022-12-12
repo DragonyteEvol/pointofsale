@@ -13,6 +13,7 @@ public class Bill {
 	private String description=null;
 	private Integer client_type=null;
 	private Integer client_id=null;
+        private Integer waiter_id=null;
 	private Integer user_id=null;
 	private Integer people=0;
 	private Integer discount=0;
@@ -27,7 +28,7 @@ public class Bill {
 	private Integer event_id=0;
 	private String created_at=null;
 
-    public Bill(Integer id, String description, Integer client_type, Integer client_id, Integer user_id, Integer people, Integer discount, Integer tip, boolean courtesy, boolean internal, Integer payment_method_id, boolean housing, boolean printed, Integer total, Integer total_real, Integer event_id, String created_at) {
+    public Bill(Integer id, String description, Integer client_type, Integer client_id,Integer waiter_id,Integer user_id, Integer people, Integer discount, Integer tip, boolean courtesy, boolean internal, Integer payment_method_id, boolean housing, boolean printed, Integer total, Integer total_real, Integer event_id, String created_at) {
         this.id = id;
         this.description = description;
         this.client_type = client_type;
@@ -45,10 +46,21 @@ public class Bill {
         this.total_real = total_real;
         this.event_id = event_id;
         this.created_at = created_at;
+        this.waiter_id = waiter_id;
+        
     }
 
     public Bill() {
     }
+
+    public Integer getWaiter_id() {
+        return waiter_id;
+    }
+
+    public void setWaiter_id(Integer waiter_id) {
+        this.waiter_id = waiter_id;
+    }
+    
     
     
 

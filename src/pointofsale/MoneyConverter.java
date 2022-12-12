@@ -17,4 +17,10 @@ public class MoneyConverter {
         NumberFormat formatMoney = NumberFormat.getCurrencyInstance(region);
         return (formatMoney.format(value));
     }
+    
+    public static String convertDouble(Long value){
+        Locale region = Locale.getDefault();
+        NumberFormat formatMoney = NumberFormat.getCurrencyInstance(region);
+        return (formatMoney.format(value));
+    }
 }

@@ -132,8 +132,13 @@ public class EditUserView extends javax.swing.JDialog {
 
         cbType.setBackground(new java.awt.Color(247, 247, 247));
         cbType.setForeground(new java.awt.Color(153, 153, 153));
-        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "usuario" }));
+        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "usuario", "mesero" }));
         cbType.setBorder(null);
+        cbType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTypeActionPerformed(evt);
+            }
+        });
         jPanel8.add(cbType);
         jPanel8.add(jSeparator4);
 
@@ -158,6 +163,10 @@ public class EditUserView extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTypeActionPerformed
 
     /**
      * @param args the command line arguments

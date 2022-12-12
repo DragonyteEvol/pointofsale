@@ -31,11 +31,12 @@ public class AcountingMenu extends javax.swing.JPanel {
         btnBills = new javax.swing.JButton();
         btnAnnulments = new javax.swing.JButton();
         btnReports = new javax.swing.JButton();
+        btnTips = new javax.swing.JButton();
         btnPaymentMethod = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
-        setLayout(new java.awt.GridLayout(6, 0));
+        setLayout(new java.awt.GridLayout(7, 0));
 
         btnExpens.setBackground(new java.awt.Color(102, 153, 255));
         btnExpens.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,6 +63,11 @@ public class AcountingMenu extends javax.swing.JPanel {
         btnReports.setText("Informes adicionales");
         add(btnReports);
 
+        btnTips.setBackground(new java.awt.Color(102, 153, 255));
+        btnTips.setForeground(new java.awt.Color(255, 255, 255));
+        btnTips.setText("Propinas");
+        add(btnTips);
+
         btnPaymentMethod.setBackground(new java.awt.Color(102, 153, 255));
         btnPaymentMethod.setForeground(new java.awt.Color(255, 255, 255));
         btnPaymentMethod.setText("Metodos de pago");
@@ -76,5 +82,6 @@ public class AcountingMenu extends javax.swing.JPanel {
     public javax.swing.JButton btnPaymentMethod;
     public javax.swing.JButton btnReports;
     public javax.swing.JButton btnSell;
+    public javax.swing.JButton btnTips;
     // End of variables declaration//GEN-END:variables
 }
