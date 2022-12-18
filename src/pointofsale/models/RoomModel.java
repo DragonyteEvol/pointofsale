@@ -69,6 +69,7 @@ public class RoomModel extends Model {
 
     public void allocateRoom(Room room, PaymentMethod paymentMethod, Integer total,Integer realTotal) {
         Bill bill = new Bill();
+        bill.setWaiter_id(0);
         bill.setClient_type(1);
         bill.setClient_id(room.getId());
         bill.setUser_id(UserGlobal.getUser().getId());
@@ -81,7 +82,9 @@ public class RoomModel extends Model {
         bill.setTotal(total);
         bill.setTotal_real(realTotal);
 
-        this.dao.getBillDao().insert(bill);
+        Integer bill_id=this.dao.getBillDao().insert(bill);
+        bill.setId(bill_id);
+        this.dao.getBillCurrentDao().insert(bill);
         
         List<Ingredient> ingredients = this.dao.getIngredientDao().selectAmenities();
         for(Ingredient ingredient : ingredients){

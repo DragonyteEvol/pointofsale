@@ -130,6 +130,8 @@ public class BillModel extends Model {
 
     public void sellProductTable(List<Product> products, Bill bill, BillTableTmp billTableTmp) {
         Integer bill_id = this.dao.getBillDao().insert(bill);
+        bill.setId(bill_id);
+        this.dao.getBillCurrentDao().insert(bill);
         for (Product product : products) {
             BillProduct billProduct = new BillProduct();
             billProduct.setBill_id(bill_id);
@@ -148,6 +150,8 @@ public class BillModel extends Model {
 
     public void sellProductRoom(List<Product> products, Bill bill, BillRoomTmp billRoomTmp) {
         Integer bill_id = this.dao.getBillDao().insert(bill);
+        bill.setId(bill_id);
+        this.dao.getBillCurrentDao().insert(bill);
         for (Product product : products) {
             BillProduct billProduct = new BillProduct();
             billProduct.setBill_id(bill_id);

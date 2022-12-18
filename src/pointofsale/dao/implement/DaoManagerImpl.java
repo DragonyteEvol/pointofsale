@@ -8,8 +8,10 @@ import java.sql.Connection;
 import pointofsale.dao.AditionalInformationDao;
 import pointofsale.dao.AnnulmentDao;
 import pointofsale.dao.AtmDao;
+import pointofsale.dao.BillCurrentDao;
 import pointofsale.dao.BillDao;
 import pointofsale.dao.BillProductDao;
+import pointofsale.dao.BillRestockCurrentDao;
 import pointofsale.dao.BillRestockDao;
 import pointofsale.dao.BillRestockIngredientDao;
 import pointofsale.dao.BillRoomProductTmpDao;
@@ -74,6 +76,8 @@ public class DaoManagerImpl implements DaoManager {
     private DeleteDao deleteDao;
     private CashDrawerDao cashDrawerDao;
     private TipDao tipDao;
+    private BillCurrentDao billCurrentDao;
+    private BillRestockCurrentDaoImpl billRestockCurrentDaoImpl;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -302,7 +306,7 @@ public class DaoManagerImpl implements DaoManager {
         }
         return this.cashDrawerDao;
     }
-    
+
     @Override
     public TipDao getTipDao() {
         if (tipDao == null) {
@@ -311,4 +315,20 @@ public class DaoManagerImpl implements DaoManager {
         return this.tipDao;
     }
 
+    @Override
+    public BillCurrentDao getBillCurrentDao() {
+        if (billCurrentDao == null) {
+            this.billCurrentDao = new BillCurrentDaoImpl(connection);
+        }
+        return this.billCurrentDao;
+    }
+
+    @Override
+    public BillRestockCurrentDao getBillRestockCurrentDao() {
+        
+        if (billRestockCurrentDaoImpl == null) {
+            this.billRestockCurrentDaoImpl = new BillRestockCurrentDaoImpl(connection);
+        }
+        return this.billRestockCurrentDaoImpl;
+    }
 }

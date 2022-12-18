@@ -38,4 +38,6 @@ public interface DaoManager {
         DeleteDao getDeleteDao();
         CashDrawerDao getCashDrawerDao();
         TipDao getTipDao();
+        BillCurrentDao getBillCurrentDao();
+        BillRestockCurrentDao getBillRestockCurrentDao();
 }
