@@ -9,6 +9,7 @@ import pointofsale.EventGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillProduct;
+import pointofsale.objects.BillRestock;
 import pointofsale.objects.BillRoomProductTmp;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableProductTmp;
@@ -172,7 +173,7 @@ public class BillModel extends Model {
             System.out.println("entro");
             MissingStock missingStock = this.dao.getMissingStockDao().selectWhereIngredient(ingredient.getId());
             if (missingStock == null) {
-                missingStock=new MissingStock(null, ingredient.getId(), false, null);
+                missingStock = new MissingStock(null, ingredient.getId(), false, null);
                 this.dao.getMissingStockDao().insert(missingStock);
             }
         }
@@ -228,6 +229,29 @@ public class BillModel extends Model {
 
         this.dao.getBillDao().insert(bill);
 
+        saveChanges();
+    }
+
+    public List<Bill> generateY() {
+        List<Bill> bills = this.dao.getBillCurrentDao().selectAll();
+        this.closeConnection();
+        return bills;
+    }
+
+    public void generateX() {
+        this.dao.getBillCurrentDao().delete(null);
+        this.closeConnection();
+    }
+
+    public BillRestock getLostDay() {
+        BillRestock billRestock = this.dao.getBillRestockCurrentDao().getLostDay();
+        this.closeConnection();
+        return billRestock;
+    }
+
+    public void deleteCurrentDay() {
+        this.dao.getBillRestockCurrentDao().delete(null);
+        this.dao.getBillCurrentDao().delete(null);
         saveChanges();
     }
 }

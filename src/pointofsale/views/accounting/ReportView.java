@@ -33,6 +33,7 @@ public class ReportView extends javax.swing.JPanel {
         txtTotal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JButton();
+        btnX = new javax.swing.JButton();
         pnTable = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -68,6 +69,12 @@ public class ReportView extends javax.swing.JPanel {
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel4.add(btnEdit);
 
+        btnX.setBackground(new java.awt.Color(102, 153, 255));
+        btnX.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnX.setForeground(new java.awt.Color(255, 255, 255));
+        btnX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/x-regular-24.png"))); // NOI18N
+        jPanel4.add(btnX);
+
         jPanel1.add(jPanel4);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -80,6 +87,7 @@ public class ReportView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEdit;
+    public javax.swing.JButton btnX;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;

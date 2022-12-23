@@ -5,7 +5,6 @@
 package pointofsale.controllers.modal;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -14,12 +13,10 @@ import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 import pointofsale.ConfigGlobal;
 import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;

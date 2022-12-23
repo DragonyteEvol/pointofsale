@@ -29,9 +29,10 @@ public class BillCurrentDaoImpl extends SqlConstructor implements BillCurrentDao
     // queries
     String INSERT;
     String UPDATE;
-    final String DELETE = "delete from " + TABLE + " where id=?";
-    final String GETALL = "select * from " + TABLE + " order by created_at desc limit 50";
+    final String DELETE = "delete from " + TABLE;
+    final String GETALL = "select sum(a.total) as total, b.name as description from "+TABLE+" a INNER JOIN payment_methods b on b.id = a.payment_method_id GROUP BY payment_method_id";
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETLOST = "";
     
     private Connection connection;
 
@@ -88,7 +89,6 @@ public class BillCurrentDaoImpl extends SqlConstructor implements BillCurrentDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -200,23 +200,10 @@ public class BillCurrentDaoImpl extends SqlConstructor implements BillCurrentDao
     // convert ResultSet to objects
     public Bill convert(ResultSet set) throws SQLException {
         String description = set.getString("description");
-        Integer client_type = set.getInt("client_type");
-        Integer client_id = set.getInt("client_id");
-        Integer waiter_id = set.getInt("waiter_id");
-        Integer user_id = set.getInt("user_id");
-        Integer people = set.getInt("people");
-        Integer discount = set.getInt("discount");
-        Integer tip = set.getInt("tip");
-        Boolean courtesy = set.getBoolean("courtesy");
-        Boolean internal = set.getBoolean("internal");
-        Integer payment_method_id = set.getInt("payment_method_id");
-        Boolean housing = set.getBoolean("housing");
-        Boolean printed = set.getBoolean("printed");
         Integer total = set.getInt("total");
-        Integer total_real = set.getInt("total_real");
-        Integer event_id = set.getInt("event_id");
-        String created_at = set.getString("created_at");
-        Bill bill = new Bill(set.getInt("id"), description, client_type, client_id, waiter_id,user_id, people, discount, tip, courtesy, internal, payment_method_id, housing, printed, total, total_real, event_id, created_at);
+        Bill bill = new Bill();
+        bill.setDescription(description);
+        bill.setTotal(total);
         return bill;
     }
 }

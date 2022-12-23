@@ -41,6 +41,8 @@ public class InventoryModel extends Model {
         //restock
         BillRestock billRestock = new BillRestock(null, UserGlobal.getUser().getId(), price, null);
         Integer billRestockId = this.dao.getBillRestockDao().insert(billRestock);
+        billRestock.setId(billRestockId);
+        this.dao.getBillRestockCurrentDao().insert(billRestock);
         for (Ingredient ingredient : listIngredients) {
             //inventory
             Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id=" + String.valueOf(ingredient.getId()));

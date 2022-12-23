@@ -4,6 +4,8 @@
  */
 package pointofsale.views.components;
 
+import pointofsale.MoneyConverter;
+
 /**
  *
  * @author sebastian.yanez
@@ -16,7 +18,7 @@ public class XView extends javax.swing.JPanel {
     public XView(String paymentMethod, Integer price) {
         initComponents();
         this.txtPaymentMethod.setText(paymentMethod);
-        this.txtPrice.setText(String.valueOf(price));
+        this.txtPrice.setText(String.valueOf(MoneyConverter.convertDouble(price)));
     }
 
     /**

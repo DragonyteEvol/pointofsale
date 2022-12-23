@@ -23,7 +23,7 @@ import pointofsale.objects.Tip;
 public class TipDaoImpl extends SqlConstructor implements TipDao {
 
     // table config
-    final String TABLE = "bills";
+    final String TABLE = "bills_current";
     final List<String> COLUMS = Arrays.asList("tip", "user_name");
 
     // queries

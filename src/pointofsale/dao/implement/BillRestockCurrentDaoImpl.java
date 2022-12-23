@@ -30,9 +30,10 @@ public class BillRestockCurrentDaoImpl extends SqlConstructor implements BillRes
     // queries
     String INSERT;
     String UPDATE;
-    final String DELETE = "delete from " + TABLE + " where id=?";
+    final String DELETE = "delete from " + TABLE;
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String GETLOST = "SELECT sum(a.price) as price, * from "+TABLE+" a;";
 
     private Connection connection;
 
@@ -75,7 +76,6 @@ public class BillRestockCurrentDaoImpl extends SqlConstructor implements BillRes
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -177,5 +177,30 @@ public class BillRestockCurrentDaoImpl extends SqlConstructor implements BillRes
         String created_at = set.getString("created_at");
         BillRestock billRestock = new BillRestock(set.getInt("id"), user_id, price, created_at);
         return billRestock;
+    }
+
+    @Override
+    public BillRestock getLostDay() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        BillRestock a = null;
+        try {
+            statement = this.connection.prepareStatement(GETLOST);
+            set = statement.executeQuery();
+            while (set.next()) {
+                a =(convert(set));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
     }
 }

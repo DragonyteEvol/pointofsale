@@ -11,5 +11,5 @@ import pointofsale.objects.BillRestock;
  * @author dragonyte
  */
 public interface BillRestockCurrentDao extends Dao<BillRestock, Long>{
-    
+    BillRestock getLostDay();
 }

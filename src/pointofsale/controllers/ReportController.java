@@ -18,6 +18,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import pointofsale.MoneyConverter;
 import pointofsale.UserGlobal;
+import pointofsale.controllers.modal.GenerateXYController;
 import pointofsale.models.InventoryModel;
 import pointofsale.objects.Atm;
 import pointofsale.objects.MoneyBox;
@@ -43,6 +44,7 @@ public class ReportController extends Controller implements ActionListener {
         
         view.btnEdit.addActionListener(this);
         editMoney.btnSave.addActionListener(this);
+        view.btnX.addActionListener(this);
 
         SetResource setResource = new SetResource();
         setResource.start();
@@ -57,6 +59,12 @@ public class ReportController extends Controller implements ActionListener {
         if(source == view.btnEdit){
             editMoney.txtValue.setText(atm.getValue()+"");
             editMoney.setVisible(true);
+        }
+        
+        if(source==view.btnX){
+            GenerateXYController gX = new GenerateXYController();
+            SetResource s = new SetResource();
+            s.start();
         }
         
         if(source == editMoney.btnSave){

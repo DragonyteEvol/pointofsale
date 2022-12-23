@@ -31,7 +31,7 @@ public class ConfirmDeleteView extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtMessage = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnYes = new javax.swing.JButton();
         btnNo = new javax.swing.JButton();
@@ -45,10 +45,10 @@ public class ConfirmDeleteView extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Eliminar elemento?");
-        jPanel2.add(jLabel1);
+        txtMessage.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtMessage.setForeground(new java.awt.Color(102, 102, 102));
+        txtMessage.setText("Eliminar elemento?");
+        jPanel2.add(txtMessage);
 
         jPanel1.add(jPanel2);
 
@@ -141,9 +141,9 @@ public class ConfirmDeleteView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnNo;
     public javax.swing.JButton btnYes;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    public javax.swing.JLabel txtMessage;
     // End of variables declaration//GEN-END:variables
 }
