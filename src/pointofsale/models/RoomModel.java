@@ -5,7 +5,6 @@
 package pointofsale.models;
 
 import java.util.List;
-import pointofsale.EventGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.objects.Atm;
 import pointofsale.objects.Bill;
@@ -76,9 +75,7 @@ public class RoomModel extends Model {
         System.out.print(paymentMethod.getId());
         bill.setPayment_method_id(paymentMethod.getId());
         bill.setHousing(true);
-        if(EventGlobal.getEvent()!=null){
-            bill.setEvent_id(EventGlobal.getEvent().getId());
-        }
+        bill.setEvent_id(0);
         bill.setTotal(total);
         bill.setTotal_real(realTotal);
 

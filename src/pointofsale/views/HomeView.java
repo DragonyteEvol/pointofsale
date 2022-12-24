@@ -37,7 +37,6 @@ public class HomeView extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         btnCashDrawerUnlock = new javax.swing.JButton();
         btnNotifications = new javax.swing.JButton();
-        btnCurrentEvent = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
@@ -97,14 +96,6 @@ public class HomeView extends javax.swing.JFrame {
         btnNotifications.setText("0");
         btnNotifications.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         jPanel8.add(btnNotifications);
-
-        btnCurrentEvent.setBackground(new java.awt.Color(102, 153, 255));
-        btnCurrentEvent.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        btnCurrentEvent.setForeground(new java.awt.Color(255, 255, 255));
-        btnCurrentEvent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/calendar-check-regular-24.png"))); // NOI18N
-        btnCurrentEvent.setText("Event");
-        btnCurrentEvent.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        jPanel8.add(btnCurrentEvent);
 
         btnUser.setBackground(new java.awt.Color(102, 153, 255));
         btnUser.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -226,7 +217,6 @@ public class HomeView extends javax.swing.JFrame {
     public javax.swing.JButton btnAccounting;
     public javax.swing.JButton btnCashDrawerUnlock;
     public javax.swing.JButton btnConfig;
-    public javax.swing.JButton btnCurrentEvent;
     public javax.swing.JButton btnDashboard;
     public javax.swing.JButton btnEvent;
     public javax.swing.JButton btnInventory;

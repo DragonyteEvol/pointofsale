@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JPanel;
-import pointofsale.EventGlobal;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.modal.EditEventController;
@@ -80,14 +79,12 @@ public class CardEventController implements ActionListener {
             event.setPrice(price);
             eventModel.update(event);
             
-            EventGlobal.setEvent(EventGlobal.getEventActive());
             secondView.dispose();
             
             OrderPayController orderPayController = new OrderPayController(event);
             
             SetInfo setInfo = new SetInfo();
             setInfo.start();
-            HomeController.checkEvent();
         }
         
     }

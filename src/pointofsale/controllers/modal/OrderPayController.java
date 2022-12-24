@@ -18,7 +18,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import pointofsale.ConfigGlobal;
-import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;
 import pointofsale.MoneyConverter;
 import pointofsale.UserGlobal;
@@ -32,6 +31,7 @@ import pointofsale.models.RoomModel;
 import pointofsale.models.UserModel;
 import pointofsale.objects.AditionalInformation;
 import pointofsale.objects.Annulment;
+import pointofsale.objects.Atm;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;
@@ -423,8 +423,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             bill.setPrinted(false);
             bill.setTotal(realPrice);
             bill.setTotal_real(price);
-            if (EventGlobal.getEvent() != null) {
-                bill.setEvent_id(EventGlobal.getEvent().getId());
+            if (table != null) {
+                bill.setEvent_id(table.getEvent_id());
             } else {
                 bill.setEvent_id(0);
             }

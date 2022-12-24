@@ -5,7 +5,6 @@
 package pointofsale.models;
 
 import java.util.List;
-import pointofsale.EventGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillProduct;
@@ -221,9 +220,7 @@ public class BillModel extends Model {
         bill.setDescription("event");
         bill.setPayment_method_id(paymentMethod.getId());
         bill.setHousing(false);
-        if (EventGlobal.getEvent() != null) {
-            bill.setEvent_id(EventGlobal.getEvent().getId());
-        }
+        bill.setEvent_id(event.getId());
         bill.setTotal(total);
         bill.setTotal_real(realTotal);
 

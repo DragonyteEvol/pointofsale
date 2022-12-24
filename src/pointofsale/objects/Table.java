@@ -12,15 +12,27 @@ public class Table {
 	private Integer id;    
 	private Integer capacity;
 	private Integer price;
+        private Integer event_id;
 	private String created_at;
 
-    public Table(Integer id, Integer capacity, Integer price, String created_at) {
+    public Table(Integer id, Integer capacity, Integer price,String created_at) {
         this.id = id;
         this.capacity = capacity;
         this.price = price;
         this.created_at = created_at;
     }
 
+    public Integer getEvent_id() {
+        return event_id;
+    }
+
+    public void setEvent_id(Integer event_id) {
+        this.event_id = event_id;
+    }
+
+    
+    
+    
     public Integer getId() {
         return id;
     }

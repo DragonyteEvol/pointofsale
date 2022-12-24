@@ -23,7 +23,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
 
     // table config
     final String TABLE = "tables";
-    final List<String> COLUMS = Arrays.asList("capacity", "price");
+    final List<String> COLUMS = Arrays.asList("capacity", "price","event_id");
 
     // queries
     String INSERT;
@@ -49,6 +49,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
             statement = this.connection.prepareStatement(INSERT);
             statement.setInt(1, a.getCapacity());
             statement.setInt(2, a.getPrice());
+            statement.setInt(3, a.getEvent_id());
             rowId = statement.executeUpdate();
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -94,7 +95,8 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setInt(1, a.getCapacity());
             statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getId());
+            statement.setInt(3, a.getEvent_id());
+            statement.setInt(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -169,8 +171,10 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
     public Table convert(ResultSet set) throws SQLException {
         Integer capacity = set.getInt("capacity");
         Integer price = set.getInt("price");
+        Integer event_id = set.getInt("event_id");
         String created_at = set.getString("created_at");
         Table table = new Table(set.getInt("id"), capacity, price, created_at);
+        table.setEvent_id(event_id);
         return table;
     }
 

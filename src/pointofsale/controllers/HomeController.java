@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
-import pointofsale.EventGlobal;
 import pointofsale.MissingGlobal;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.modal.CashDrawerController;
@@ -42,11 +41,9 @@ public class HomeController extends Controller implements ActionListener {
         this.view.btnUser.addActionListener(this);
         this.view.btnAccounting.addActionListener(this);
         this.view.btnEvent.addActionListener(this);
-        this.view.btnCurrentEvent.addActionListener(this);
         this.view.btnConfig.addActionListener(this);
         this.view.btnNotifications.addActionListener(this);
         this.view.btnCashDrawerUnlock.addActionListener(this);
-        HomeController.eventButton = view.btnCurrentEvent;
         HomeController.notificationButton = view.btnNotifications;
         HomeController.staticView = view;
 
@@ -54,7 +51,6 @@ public class HomeController extends Controller implements ActionListener {
 
         DashboardController dashboardController = new DashboardController(this.view.pnDinamic);
 
-        checkEvent();
         checkNotifications();
         checkPrivileges();
 
@@ -70,18 +66,7 @@ public class HomeController extends Controller implements ActionListener {
             this.view.btnConfig.setVisible(false);
         }
     }
-
-    public static void checkEvent() {
-        if (EventGlobal.getEvent() == null) {
-            eventButton.setVisible(false);
-        } else {
-            eventButton.setVisible(true);
-            eventButton.setText(EventGlobal.getEvent().getName());
-        }
-        HomeController.staticView.repaint();
-        HomeController.staticView.revalidate();
-    }
-
+    
     public static void checkNotifications() {
         List<MissingStock> missingStocks = MissingGlobal.getMissing();
         if (missingStocks != null) {

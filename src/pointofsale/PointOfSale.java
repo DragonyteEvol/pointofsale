@@ -18,7 +18,6 @@ public class PointOfSale {
      */
     public static void main(String[] args) {
         //HomeController a = new HomeController();
-        EventGlobal.setEvent(EventGlobal.getEventActive());
         ConfigGlobal.setConfig(ConfigGlobal.getDefaultConfig());
 
         MissingGlobal.setMissingStocks(MissingGlobal.getMissing());

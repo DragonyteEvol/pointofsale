@@ -31,6 +31,7 @@ public class CardTableView extends javax.swing.JPanel {
         btnEdit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtNumber = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnSell = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -40,7 +41,7 @@ public class CardTableView extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanel5.setLayout(new java.awt.GridLayout(4, 0));
+        jPanel5.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
@@ -49,28 +50,30 @@ public class CardTableView extends javax.swing.JPanel {
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/pencil-regular-24.png"))); // NOI18N
         jPanel1.add(btnEdit);
 
-        jPanel5.add(jPanel1);
+        jPanel5.add(jPanel1, java.awt.BorderLayout.NORTH);
 
         txtNumber.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/knife-regular-24.png"))); // NOI18N
         txtNumber.setText("1");
         jPanel2.add(txtNumber);
 
-        jPanel5.add(jPanel2);
+        jPanel5.add(jPanel2, java.awt.BorderLayout.CENTER);
 
         btnSell.setBackground(new java.awt.Color(51, 102, 255));
         btnSell.setForeground(new java.awt.Color(255, 255, 255));
         btnSell.setText("Vender");
         jPanel3.add(btnSell);
 
-        jPanel5.add(jPanel3);
+        jPanel6.add(jPanel3);
 
         btnPay.setBackground(new java.awt.Color(51, 102, 255));
         btnPay.setForeground(new java.awt.Color(255, 255, 255));
         btnPay.setText("Pagar");
         jPanel4.add(btnPay);
 
-        jPanel5.add(jPanel4);
+        jPanel6.add(jPanel4);
+
+        jPanel5.add(jPanel6, java.awt.BorderLayout.SOUTH);
 
         add(jPanel5);
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +88,7 @@ public class CardTableView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     public javax.swing.JLabel txtNumber;
     // End of variables declaration//GEN-END:variables
 }
