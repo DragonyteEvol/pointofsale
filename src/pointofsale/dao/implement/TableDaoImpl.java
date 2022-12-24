@@ -29,6 +29,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
+    final String DESABLEEVENT = "update " + TABLE + " set event_id=0 where event_id=?";
     final String GETALL = "select * from " + TABLE;
     final String GETONE = "select * from " + TABLE + " where id=?";
 
@@ -176,6 +177,26 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
         Table table = new Table(set.getInt("id"), capacity, price, created_at);
         table.setEvent_id(event_id);
         return table;
+    }
+
+    @Override
+    public void disableEvent(Integer event_id) {
+        PreparedStatement statement = null;
+        try {
+            statement = this.connection.prepareStatement(DESABLEEVENT);
+            statement.setInt(1, event_id);
+            if (statement.executeUpdate() == 0) {
+                System.out.println("Execute error");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 }

@@ -470,7 +470,8 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         @Override
         public void run() {
             BillModel billModel = new BillModel();
-            billModel.insertEvent(event, paymentMethod, realPrice, price);
+            User waiter = (User) view.cbWaiter.getSelectedItem();
+            billModel.insertEvent(event, paymentMethod, realPrice, price,waiter.getId());
         }
     }
 }

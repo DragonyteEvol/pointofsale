@@ -29,7 +29,7 @@ public class CardTableView extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        btnEdit2 = new javax.swing.JButton();
+        btnEvent = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtNumber = new javax.swing.JLabel();
@@ -51,10 +51,11 @@ public class CardTableView extends javax.swing.JPanel {
 
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        btnEdit2.setBackground(new java.awt.Color(102, 153, 255));
-        btnEdit2.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/calendar-check-regular-24.png"))); // NOI18N
-        jPanel8.add(btnEdit2);
+        btnEvent.setBackground(new java.awt.Color(102, 153, 255));
+        btnEvent.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        btnEvent.setForeground(new java.awt.Color(255, 255, 255));
+        btnEvent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/calendar-check-regular-24.png"))); // NOI18N
+        jPanel8.add(btnEvent);
 
         jPanel1.add(jPanel8);
 
@@ -100,7 +101,7 @@ public class CardTableView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEdit;
-    public javax.swing.JButton btnEdit2;
+    public javax.swing.JButton btnEvent;
     public javax.swing.JButton btnPay;
     public javax.swing.JButton btnSell;
     private javax.swing.JPanel jPanel1;

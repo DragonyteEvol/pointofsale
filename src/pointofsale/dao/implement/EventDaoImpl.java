@@ -4,6 +4,7 @@
  */
 package pointofsale.dao.implement;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +48,7 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
         PreparedStatement statement = null;
         Integer rowId = null;
         try {
-            statement = this.connection.prepareStatement(INSERT);
+            statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setString(2, a.getDescription());
             statement.setString(3, a.getStart_date());
@@ -55,8 +56,9 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
             statement.setInt(5, a.getPrice());
             statement.setBoolean(6, a.isActive());
             rowId = statement.executeUpdate();
-            if (rowId == 0) {
-                System.out.println("Execute error");
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getInt(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import pointofsale.models.EventModel;
+import pointofsale.models.TableModel;
 import pointofsale.objects.Event;
+import pointofsale.objects.Table;
 import pointofsale.views.modal.NewEventView;
 
 /**
@@ -18,10 +20,11 @@ import pointofsale.views.modal.NewEventView;
  */
 public class NewEventController implements ActionListener{
     private NewEventView view;
+    private Table table;
 
-    public NewEventController() {
+    public NewEventController(Table table) {
         this.view = new NewEventView(null, true);
-        
+        this.table = table;
         view.btnDelete.setVisible(false);
         view.btnSave.addActionListener(this);
         
@@ -45,7 +48,7 @@ public class NewEventController implements ActionListener{
                 EventModel eventModel = new EventModel();
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 Event event = new Event(null, name, description,timeStamp, "", price, true, null);
-                eventModel.insert(event);
+                eventModel.insert(event,table);
                 view.dispose();
             }
         }

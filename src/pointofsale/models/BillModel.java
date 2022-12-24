@@ -212,19 +212,22 @@ public class BillModel extends Model {
         return bill;
     }
 
-    public void insertEvent(Event event, PaymentMethod paymentMethod, Integer total, Integer realTotal) {
+    public void insertEvent(Event event, PaymentMethod paymentMethod, Integer total, Integer realTotal,Integer waiter_id) {
         Bill bill = new Bill();
         bill.setClient_type(3);
         bill.setClient_id(event.getId());
         bill.setUser_id(UserGlobal.getUser().getId());
         bill.setDescription("event");
+        bill.setWaiter_id(waiter_id);
         bill.setPayment_method_id(paymentMethod.getId());
         bill.setHousing(false);
         bill.setEvent_id(event.getId());
         bill.setTotal(total);
         bill.setTotal_real(realTotal);
 
-        this.dao.getBillDao().insert(bill);
+        Integer id = this.dao.getBillDao().insert(bill);
+        bill.setId(id);
+        this.dao.getBillCurrentDao().insert(bill);
 
         saveChanges();
     }

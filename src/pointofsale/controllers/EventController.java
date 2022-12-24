@@ -4,12 +4,9 @@
  */
 package pointofsale.controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JPanel;
 import pointofsale.controllers.components.CardEventController;
-import pointofsale.controllers.modal.NewEventController;
 import pointofsale.models.EventModel;
 import pointofsale.objects.Event;
 import pointofsale.views.event.EventView;
@@ -18,14 +15,12 @@ import pointofsale.views.event.EventView;
  *
  * @author dragonyte
  */
-public class EventController extends Controller implements ActionListener {
+public class EventController extends Controller{
 
     private EventView view;
 
     public EventController(JPanel panel) {
         this.view = new EventView();
-
-        view.btnCreate.addActionListener(this);
 
         panel.add(view);
         setEvent();
@@ -38,15 +33,6 @@ public class EventController extends Controller implements ActionListener {
         view.pnEvents.removeAll();
         SetResource setResource = new SetResource();
         setResource.start();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        Object source = ae.getSource();
-        if (source == view.btnCreate) {
-            NewEventController controller = new NewEventController();
-            setEvent();
-        }
     }
 
     class SetResource extends Thread {

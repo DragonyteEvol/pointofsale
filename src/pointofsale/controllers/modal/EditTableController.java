@@ -27,6 +27,7 @@ public class EditTableController implements ActionListener{
 
         this.view.btnSave.addActionListener(this);
         this.view.btnRemove.addActionListener(this);
+        this.view.btnEvent.addActionListener(this);
 
         setInfo();
         
@@ -68,6 +69,10 @@ public class EditTableController implements ActionListener{
             RemoveThread removeThread = new RemoveThread(table);
             removeThread.start();
             removed=true;
+            this.view.dispose();
+        }
+        if (source == this.view.btnEvent) {
+            NewEventController nec = new NewEventController(table);
             this.view.dispose();
         }
     }

@@ -6,6 +6,7 @@ package pointofsale.models;
 
 import java.util.List;
 import pointofsale.objects.Event;
+import pointofsale.objects.Table;
 
 /**
  *
@@ -31,8 +32,10 @@ public class EventModel extends Model{
         return event;
     }
     
-    public void insert(Event event){
-        this.dao.getEventDao().insert(event);
+    public void insert(Event event,Table table){
+        Integer event_id = this.dao.getEventDao().insert(event);
+        table.setEvent_id(event_id);
+        this.dao.getTableDao().modify(table);
         this.saveChanges();
     }
     

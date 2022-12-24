@@ -11,5 +11,5 @@ import pointofsale.objects.Table;
  * @author dragonyte
  */
 public interface TableDao extends Dao<Table, Long>{
-    
+    void disableEvent(Integer event_id);
 }

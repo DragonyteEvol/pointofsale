@@ -11,11 +11,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JPanel;
 import pointofsale.MoneyConverter;
-import pointofsale.controllers.HomeController;
 import pointofsale.controllers.modal.EditEventController;
 import pointofsale.controllers.modal.OrderPayController;
 import pointofsale.models.BillModel;
 import pointofsale.models.EventModel;
+import pointofsale.models.TableModel;
 import pointofsale.objects.Bill;
 import pointofsale.objects.Event;
 import pointofsale.views.components.CardEventView;
@@ -78,6 +78,8 @@ public class CardEventController implements ActionListener {
             Integer price = Integer.parseInt(String.valueOf(secondView.txtPrice.getValue()));
             event.setPrice(price);
             eventModel.update(event);
+            TableModel tableModel = new TableModel();
+            tableModel.disableEvent(event.getId());
             
             secondView.dispose();
             
