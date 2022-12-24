@@ -12,8 +12,23 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/components/FormatXYView.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/dao/implement/BillDaoImpl.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/components/CardTableView.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/dao/implement/TableDaoImpl.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/controllers/HomeController.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/models/BillModel.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/dao/implement/TipDaoImpl.java</file>
             <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/controllers/modal/GenerateXYController.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/PointOfSale.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/controllers/modal/OrderPayController.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/models/RoomModel.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/HomeView.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/dao/implement/BillRestockCurrentDaoImpl.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/sell/TableView.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/controllers/EventController.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/objects/Table.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/objects/Bill.java</file>
+            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/components/CardRoomView.java</file>
         </group>
     </open-files>
 </project-private>
