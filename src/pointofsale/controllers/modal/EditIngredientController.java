@@ -7,6 +7,8 @@ package pointofsale.controllers.modal;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import java.util.Objects;
 import javax.swing.JComboBox;
@@ -26,7 +28,7 @@ import pointofsale.views.modal.NewIngredientView;
  *
  * @author dragonyte
  */
-public class EditIngredientController implements ActionListener {
+public class EditIngredientController implements ActionListener,FocusListener {
 
     private NewIngredientView view;
     private Ingredient ingredient;
@@ -48,6 +50,9 @@ public class EditIngredientController implements ActionListener {
         this.view.btnSave.addActionListener(this);
         this.view.btnImage.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);
+         //FOCUS
+        this.view.txtImage.addFocusListener(this);
+        this.view.txtName.addFocusListener(this);
 
         setInfo();
 
@@ -71,6 +76,22 @@ public class EditIngredientController implements ActionListener {
     public boolean validRequest(String name, Integer price) {
         return !(name.isBlank() || price == 0 || price == null);
     }
+    
+       @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source==this.view.txtImage){
+            this.view.txtImage.selectAll();
+        }
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent ae) {

@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.controllers.ModalController;
 import pointofsale.controllers.UnitController;
 import pointofsale.models.UnitModel;
@@ -16,7 +18,7 @@ import pointofsale.views.modal.NewUnitView;
  *
  * @author dragonyte
  */
-public class NewUnitController extends ModalController implements ActionListener {
+public class NewUnitController extends ModalController implements ActionListener,FocusListener {
 
     private NewUnitView view;
     private UnitController superClass;
@@ -28,6 +30,10 @@ public class NewUnitController extends ModalController implements ActionListener
         this.superClass = superClass;
         //events
         this.view.btnSave.addActionListener(this);
+        //focus
+        this.view.txtName.addFocusListener(this);
+        this.view.txtPrefix.addFocusListener(this);
+        
         this.view.setVisible(true);
     }
 
@@ -41,6 +47,21 @@ public class NewUnitController extends ModalController implements ActionListener
             insertThread.start();
             this.closeFrame(this.view);
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+        if(source == this.view.txtPrefix){
+            this.view.txtPrefix.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     // Thread for insert unit

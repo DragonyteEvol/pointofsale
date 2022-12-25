@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -31,7 +33,7 @@ import pointofsale.views.modal.NewProductView;
  *
  * @author dragonyte
  */
-public class EditProductController implements ActionListener {
+public class EditProductController implements ActionListener,FocusListener {
 
     private NewProductView view;
     private AddIngredientProduct secondView;
@@ -64,6 +66,10 @@ public class EditProductController implements ActionListener {
         this.view.btnDelete.setVisible(false);
         this.secondView.btnSave.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);
+         //FOCUS
+        this.view.txtName.addFocusListener(this);
+        this.view.txtImage.addFocusListener(this);
+        
 
         setInfo();
 
@@ -147,6 +153,21 @@ public class EditProductController implements ActionListener {
             }
 
         }
+    }
+    
+     @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtImage){
+            this.view.txtImage.selectAll();
+        }
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     class UpdateThread extends Thread {

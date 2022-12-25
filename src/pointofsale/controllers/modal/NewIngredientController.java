@@ -7,6 +7,8 @@ package pointofsale.controllers.modal;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -24,7 +26,7 @@ import pointofsale.views.modal.NewIngredientView;
  *
  * @author dragonyte
  */
-public class NewIngredientController extends ModalController implements ActionListener {
+public class NewIngredientController extends ModalController implements ActionListener,FocusListener {
 
     private NewIngredientView view;
     private FileSelector selectorView;
@@ -46,6 +48,9 @@ public class NewIngredientController extends ModalController implements ActionLi
         this.view.btnSave.addActionListener(this);
         this.view.btnImage.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);
+        //FOCUS
+        this.view.txtImage.addFocusListener(this);
+        this.view.txtName.addFocusListener(this);
 
         SetResourceThread setResourceThread = new SetResourceThread(this.view.cbUnit, this.view.cbCategorie);
         setResourceThread.start();
@@ -86,6 +91,21 @@ public class NewIngredientController extends ModalController implements ActionLi
         }
         
         
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source==this.view.txtImage){
+            this.view.txtImage.selectAll();
+        }
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     class SetResourceThread extends Thread {

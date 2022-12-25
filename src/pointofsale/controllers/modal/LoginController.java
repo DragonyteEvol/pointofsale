@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.UserGlobal;
 import pointofsale.controllers.HomeController;
 import pointofsale.controllers.ModalController;
@@ -17,7 +19,7 @@ import pointofsale.views.modal.LoginView;
  *
  * @author dragonyte
  */
-public class LoginController extends ModalController implements ActionListener {
+public class LoginController extends ModalController implements ActionListener,FocusListener {
 
     private LoginView view;
     public boolean logged = false;
@@ -38,8 +40,12 @@ public class LoginController extends ModalController implements ActionListener {
     }
 
     private void initEvents() {
+        //CLIC
         this.view.btnStar.addActionListener(this);
         this.view.btnRegister.addActionListener(this);
+        //FOCUS
+        this.view.txtUser.addFocusListener(this);
+        this.view.txtPassword.addFocusListener(this);
     }
 
     // validate info of text fields
@@ -84,5 +90,20 @@ public class LoginController extends ModalController implements ActionListener {
         if (source == this.view.btnRegister) {
             RegisterController registerController = new RegisterController();
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtPassword){
+            this.view.txtPassword.selectAll();
+        }
+        if(source == this.view.txtUser){
+            this.view.txtUser.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 }

@@ -7,6 +7,8 @@ package pointofsale.controllers.modal;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.models.UserModel;
 import pointofsale.objects.User;
 import pointofsale.views.modal.EditUserView;
@@ -15,7 +17,7 @@ import pointofsale.views.modal.EditUserView;
  *
  * @author dragonyte
  */
-public class EditUserController implements ActionListener {
+public class EditUserController implements ActionListener,FocusListener {
 
     private EditUserView view;
     private User user;
@@ -28,6 +30,11 @@ public class EditUserController implements ActionListener {
         setUser();
 
         view.btnSave.addActionListener(this);
+        //FOCUS
+        
+        this.view.txtName.addFocusListener(this);
+        this.view.txtMail.addFocusListener(this);
+        this.view.txtPassword.addFocusListener(this);
 
         view.setLocationRelativeTo(null);
         view.setVisible(true);
@@ -60,6 +67,24 @@ public class EditUserController implements ActionListener {
             u.start();
             view.dispose();
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtMail){
+            this.view.txtMail.selectAll();
+        }
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+        if(source == this.view.txtPassword){
+            this.view.txtPassword.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     class UpdateUser extends Thread {

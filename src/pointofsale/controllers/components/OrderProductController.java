@@ -7,6 +7,8 @@ package pointofsale.controllers.components;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,7 +21,7 @@ import pointofsale.views.modal.SellProductView;
  *
  * @author dragonyte
  */
-public class OrderProductController implements ActionListener{
+public class OrderProductController implements ActionListener,FocusListener{
 
     public OrderProductView view;
     private Product product;
@@ -47,6 +49,8 @@ public class OrderProductController implements ActionListener{
         this.view.btnLess.addActionListener(this);
         this.view.btnPlus.addActionListener(this);
         this.view.btnClose.addActionListener(this);
+        //FOCUS
+        this.view.txtQuantity.addFocusListener(this);
     }
     
     private void setPrice(){
@@ -104,6 +108,18 @@ public class OrderProductController implements ActionListener{
             setPrice();
             removeComponent(view);
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(this.view.txtQuantity== source){
+            this.view.txtQuantity.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
 }

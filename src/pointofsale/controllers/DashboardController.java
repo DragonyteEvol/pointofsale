@@ -195,7 +195,6 @@ public class DashboardController extends Controller implements ActionListener {
             for (Report report : reports) {
                 data.setValue(report.getSubvalue(), "Ventas", report.getName());
             }
-            data.setValue(1000000, "Ventas", "Pepe Suarez");
 
             view.pnUsers.add(createLine(data,"Rendimiento De Usuarios"));
             refreshView(view);

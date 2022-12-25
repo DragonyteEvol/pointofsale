@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.objects.PaymentMethod;
 import pointofsale.views.modal.NewPaymentMethodView;
@@ -14,7 +16,7 @@ import pointofsale.views.modal.NewPaymentMethodView;
  *
  * @author dragonyte
  */
-public class EditPaymentMethodController implements ActionListener{
+public class EditPaymentMethodController implements ActionListener,FocusListener{
      private NewPaymentMethodView view;
      private PaymentMethod paymentMethod;
 
@@ -29,6 +31,8 @@ public class EditPaymentMethodController implements ActionListener{
 
         //events
         this.view.btnSave.addActionListener(this);
+        //FOCUS
+        this.view.txtName.addFocusListener(this);
         this.view.btnDelete.setVisible(false);
 
         this.view.setVisible(true);
@@ -62,6 +66,18 @@ public class EditPaymentMethodController implements ActionListener{
             updateThread.start();
             view.dispose();
         }
+    }
+    
+      @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     class UpdateThread extends Thread {

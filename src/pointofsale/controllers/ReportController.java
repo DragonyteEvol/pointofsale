@@ -7,6 +7,8 @@ package pointofsale.controllers;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -30,7 +32,7 @@ import pointofsale.views.modal.WarningUser;
  *
  * @author dragonyte
  */
-public class ReportController extends Controller implements ActionListener {
+public class ReportController extends Controller implements ActionListener,FocusListener {
 
     private ReportView view;
     private List<MoneyBox> moneyBoxs;
@@ -45,6 +47,8 @@ public class ReportController extends Controller implements ActionListener {
         view.btnEdit.addActionListener(this);
         editMoney.btnSave.addActionListener(this);
         view.btnX.addActionListener(this);
+        
+        this.editMoney.txtValue.addFocusListener(this);
 
         SetResource setResource = new SetResource();
         setResource.start();
@@ -142,6 +146,18 @@ public class ReportController extends Controller implements ActionListener {
         }
 
         return arrayData;
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.editMoney.txtValue){
+            this.editMoney.txtValue.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     //THREADS

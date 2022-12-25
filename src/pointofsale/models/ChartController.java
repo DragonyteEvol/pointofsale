@@ -27,7 +27,7 @@ public class ChartController extends Model {
     public String ROOMS = "select id,sum(total_real) as subvalue,client_id as name,1 as quantity,strftime(\"%Y-%m\", created_at) as updated_at from bills where client_type=2 group by client_id order by name";
     public String LASTBILL = "select products.id,quantity,subvalue,name,bills_products.created_at as updated_at from bills_products inner join products on products.id = bills_products.product_id order by bills_products.created_at desc limit 5";
     public String PEOPLE ="Select id,\"people\" as name,1 as quantity,sum(people) as subvalue,strftime(\"%Y-%m\", created_at) as updated_at from bills group by updated_at order by updated_at desc limit 1";
-    public String USERSELL = "Select user_id as id,name as name,1 as quantity,sum(total) as subvalue,strftime(\"%Y-%m\", bills.created_at) as updated_at from bills inner join users on users.id = bills.user_id where updated_at =  strftime('%Y-%m','now') group by user_id,updated_at order by updated_at desc";
+    public String USERSELL = "Select user_id as id,name as name,1 as quantity,sum(total) as subvalue,strftime(\"%Y-%m\", bills.created_at) as updated_at from bills inner join users on users.id = bills.waiter_id where updated_at =  strftime('%Y-%m','now') group by waiter_id,updated_at order by updated_at desc";
 
     public Report selectReport(String sql) {
         Report report = this.dao.getReportDao().selectReport(sql);

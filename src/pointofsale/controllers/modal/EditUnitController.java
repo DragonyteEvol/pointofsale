@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.models.UnitModel;
 import pointofsale.objects.Unit;
 import pointofsale.views.modal.NewUnitView;
@@ -14,7 +16,7 @@ import pointofsale.views.modal.NewUnitView;
  *
  * @author dragonyte
  */
-public class EditUnitController implements ActionListener{
+public class EditUnitController implements ActionListener,FocusListener{
     
     private NewUnitView view;
     private Unit unit;
@@ -26,6 +28,10 @@ public class EditUnitController implements ActionListener{
         this.unit = unit;
 
         this.view.btnSave.addActionListener(this);
+        
+        //focus
+        this.view.txtName.addFocusListener(this);
+        this.view.txtPrefix.addFocusListener(this);
 
         setInfo();
 
@@ -41,6 +47,21 @@ public class EditUnitController implements ActionListener{
 
     public boolean validRequest(String name,String prefix) {
         return !(name.isBlank() || prefix.isBlank());
+    }
+    
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+        if(source == this.view.txtPrefix){
+            this.view.txtPrefix.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     @Override

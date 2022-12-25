@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.models.EventModel;
 import pointofsale.objects.Event;
 import pointofsale.views.modal.NewEventView;
@@ -14,7 +16,7 @@ import pointofsale.views.modal.NewEventView;
  *
  * @author dragonyte
  */
-public class EditEventController implements ActionListener {
+public class EditEventController implements ActionListener,FocusListener {
 
     private NewEventView view;
     private Event event;
@@ -30,6 +32,9 @@ public class EditEventController implements ActionListener {
 
         view.btnDelete.addActionListener(this);
         view.btnSave.addActionListener(this);
+        //FOCUS
+        view.txtName.addFocusListener(this);
+        view.txtDescription.addFocusListener(this);
 
         view.setLocationRelativeTo(null);
         view.setVisible(true);
@@ -54,6 +59,22 @@ public class EditEventController implements ActionListener {
             updateEvent.start();
             view.dispose();
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+        if(source==this.view.txtDescription){
+            this.view.txtDescription.selectAll();
+        }
+        
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     class DeleteEvent extends Thread {

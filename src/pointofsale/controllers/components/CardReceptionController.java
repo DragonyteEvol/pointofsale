@@ -8,6 +8,8 @@ import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -20,7 +22,7 @@ import pointofsale.views.modal.ConfirmReceipView;
  *
  * @author dragonyte
  */
-public class CardReceptionController implements ActionListener {
+public class CardReceptionController implements ActionListener,FocusListener {
 
     private CardReceipView view;
     private ConfirmReceipView confirmView;
@@ -47,10 +49,12 @@ public class CardReceptionController implements ActionListener {
             view.txtImage.setIcon(icon);
         }
         
-
+        //CLICK
         view.btnLess.addActionListener(this);
         view.btnPlus.addActionListener(this);
         view.btnSave.addActionListener(this);
+        //FOCUS
+        view.txtQuantity.addFocusListener(this);
 
         this.confirmView = new ConfirmReceipView(null, true);
         this.confirmView.setLocationRelativeTo(null);
@@ -98,6 +102,18 @@ public class CardReceptionController implements ActionListener {
         if(source == confirmView.btnClose){
             confirmView.dispose();
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(this.view.txtQuantity== source){
+            this.view.txtQuantity.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
 }

@@ -7,6 +7,8 @@ package pointofsale.controllers;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import pointofsale.ConfigGlobal;
@@ -22,7 +24,7 @@ import pointofsale.views.modal.CashDrawerPasswordView;
  *
  * @author dragonyte
  */
-public class InfoController implements ActionListener {
+public class InfoController implements ActionListener,FocusListener {
 
     private InfoView view;
     private CashDrawerPasswordView passwordView;
@@ -45,6 +47,13 @@ public class InfoController implements ActionListener {
         view.btnSelectRoute.addActionListener(this);
         view.btnDeleteAll.addActionListener(this);
         selectorView.fileChooser.addActionListener(this);
+        //FOCUS
+        this.view.txtNit.addFocusListener(this);
+        this.view.txtName.addFocusListener(this);
+        this.view.txtTip.addFocusListener(this);
+        this.view.txtAddress.addFocusListener(this);
+        this.view.txtPhone.addFocusListener(this);
+        this.view.txtRoute.addFocusListener(this);
 
         panel.add(this.view);
     }
@@ -54,7 +63,6 @@ public class InfoController implements ActionListener {
         if (aditionalInformation != null) {
             view.txtName.setText(aditionalInformation.getName());
             view.txtNit.setText(aditionalInformation.getNit() + "");
-            view.txtTip.setValue(aditionalInformation.getDefault_tip());
             view.txtAddress.setText(aditionalInformation.getAddress());
             view.txtPhone.setText(aditionalInformation.getPhone() + "");
             view.txtRoute.setText(aditionalInformation.getLogo_path() + "");
@@ -102,6 +110,30 @@ public class InfoController implements ActionListener {
             }
 
         }
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtNit){
+            this.view.txtNit.selectAll();
+        }
+        if(source == this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+        if(source == this.view.txtAddress){
+            this.view.txtAddress.selectAll();
+        }
+        if(source == this.view.txtPhone){
+            this.view.txtPhone.selectAll();
+        }
+        if(source == this.view.txtRoute){
+            this.view.txtAddress.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     class InsertConfig extends Thread {

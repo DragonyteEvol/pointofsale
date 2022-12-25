@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import java.util.Objects;
 import javax.swing.JComboBox;
@@ -19,7 +21,7 @@ import pointofsale.views.modal.NewRoomView;
  *
  * @author dragonyte
  */
-public class EditRoomController implements ActionListener {
+public class EditRoomController implements ActionListener,FocusListener {
 
     private NewRoomView view;
     private Room room;
@@ -32,6 +34,8 @@ public class EditRoomController implements ActionListener {
 
         this.view.btnSave.addActionListener(this);
         this.view.btnRemove.addActionListener(this);
+        //Focus
+        this.view.txtDescription.addFocusListener(this);
 
         setInfo();
         SetResource setResource = new SetResource(this.view.cbCategorie, room);
@@ -53,6 +57,18 @@ public class EditRoomController implements ActionListener {
         } else {
             return true;
         }
+    }
+    
+     @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtDescription){
+            this.view.txtDescription.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 
     @Override

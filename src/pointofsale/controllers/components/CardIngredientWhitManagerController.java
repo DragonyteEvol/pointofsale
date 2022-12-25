@@ -8,6 +8,8 @@ import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -18,7 +20,7 @@ import pointofsale.views.components.CardIngredientWhitManagerView;
  *
  * @author dragonyte
  */
-public class CardIngredientWhitManagerController implements ActionListener {
+public class CardIngredientWhitManagerController implements ActionListener,FocusListener {
 
     public CardIngredientWhitManagerView view;
     public Ingredient ingredient;
@@ -38,6 +40,8 @@ public class CardIngredientWhitManagerController implements ActionListener {
         this.view.btnAdd.addActionListener(this);
         this.view.btnLess.addActionListener(this);
         this.view.btnPlus.addActionListener(this);
+        //FOCUS
+        this.view.txtQuantity.addFocusListener(this);
     }
 
     private void setIngredientInfo() {
@@ -90,5 +94,17 @@ public class CardIngredientWhitManagerController implements ActionListener {
             this.view.txtQuantity.setText(String.valueOf(less));
         }
 
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source == this.view.txtQuantity){
+            this.view.txtQuantity.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 }

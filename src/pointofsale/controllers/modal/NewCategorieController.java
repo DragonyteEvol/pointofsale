@@ -6,6 +6,8 @@ package pointofsale.controllers.modal;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.CategorieModel;
 import pointofsale.objects.Categorie;
@@ -15,7 +17,7 @@ import pointofsale.views.modal.NewCategorieView;
  *
  * @author dragonyte
  */
-public class NewCategorieController extends ModalController implements ActionListener{
+public class NewCategorieController extends ModalController implements ActionListener,FocusListener{
     private NewCategorieView view;
     private CategorieModel model;
 
@@ -28,6 +30,9 @@ public class NewCategorieController extends ModalController implements ActionLis
         
         //events
         this.view.btnSave.addActionListener(this);
+        
+        //FOCUS
+        this.view.txtName.addFocusListener(this);
        
         this.view.setVisible(true);
     }
@@ -59,5 +64,17 @@ public class NewCategorieController extends ModalController implements ActionLis
                 this.closeFrame(this.view);
             }
         }      
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        Object source = e.getSource();
+        if(source== this.view.txtName){
+            this.view.txtName.selectAll();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
     }
 }
