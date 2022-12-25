@@ -148,6 +148,7 @@ public class PolimorphismView extends javax.swing.JPanel {
         jLabel4.setText("Cantidad");
         jPanel10.add(jLabel4);
 
+        txtQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtQuantity.setBorder(null);
         jPanel10.add(txtQuantity);
         jPanel10.add(jSeparator2);
@@ -162,6 +163,7 @@ public class PolimorphismView extends javax.swing.JPanel {
         jLabel7.setText("Cantidad requerida");
         jPanel11.add(jLabel7);
 
+        txtRequired.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtRequired.setBorder(null);
         jPanel11.add(txtRequired);
         jPanel11.add(jSeparator4);
@@ -176,6 +178,7 @@ public class PolimorphismView extends javax.swing.JPanel {
         jLabel5.setText("Minimo");
         jPanel12.add(jLabel5);
 
+        txtMinimum.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtMinimum.setBorder(null);
         jPanel12.add(txtMinimum);
         jPanel12.add(jSeparator6);

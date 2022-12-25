@@ -132,6 +132,7 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.LINE_AXIS));
 
+        txtDiscountPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtDiscountPrice.setBorder(null);
         jPanel18.add(txtDiscountPrice);
 
@@ -152,6 +153,7 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel20.setLayout(new javax.swing.BoxLayout(jPanel20, javax.swing.BoxLayout.LINE_AXIS));
 
+        txtDiscountPercent.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 5));
         txtDiscountPercent.setBorder(null);
         jPanel20.add(txtDiscountPercent);
 
@@ -177,6 +179,7 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel24.setLayout(new javax.swing.BoxLayout(jPanel24, javax.swing.BoxLayout.LINE_AXIS));
 
+        txtTipPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtTipPrice.setBorder(null);
         jPanel24.add(txtTipPrice);
 
@@ -198,6 +201,7 @@ public class OrderPayView extends javax.swing.JDialog {
 
         jPanel22.setLayout(new javax.swing.BoxLayout(jPanel22, javax.swing.BoxLayout.LINE_AXIS));
 
+        txtTipPercent.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 5));
         txtTipPercent.setBorder(null);
         jPanel22.add(txtTipPercent);
 

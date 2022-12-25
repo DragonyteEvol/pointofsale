@@ -117,6 +117,7 @@ public class NewProductView extends javax.swing.JDialog {
         jLabel3.setText("Precio:");
         jPanel9.add(jLabel3);
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtPrice.setBorder(null);
         jPanel9.add(txtPrice);
 
@@ -134,6 +135,7 @@ public class NewProductView extends javax.swing.JDialog {
         jLabel4.setText("Tiempo:");
         jPanel10.add(jLabel4);
 
+        txtTime.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 2));
         txtTime.setBorder(null);
         jPanel10.add(txtTime);
 

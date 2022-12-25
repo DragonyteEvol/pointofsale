@@ -59,6 +59,8 @@ public class ConfirmEventMoney extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Precio final del evento");
         jPanel3.add(jLabel2);
+
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5000));
         jPanel3.add(txtPrice);
         jPanel3.add(jSeparator1);
 

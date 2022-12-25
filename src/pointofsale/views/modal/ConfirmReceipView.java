@@ -54,6 +54,7 @@ public class ConfirmReceipView extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtPrice.setBorder(null);
         jPanel2.add(txtPrice);
 

@@ -113,6 +113,7 @@ public class NewEventView extends javax.swing.JDialog {
         jLabel4.setText("Precio Inicial");
         jPanel5.add(jLabel4);
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5000));
         txtPrice.setBorder(null);
         jPanel5.add(txtPrice);
         jPanel5.add(jSeparator1);

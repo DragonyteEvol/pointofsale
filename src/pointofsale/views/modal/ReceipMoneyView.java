@@ -216,6 +216,7 @@ public class ReceipMoneyView extends javax.swing.JDialog {
 
         jPanel11.setLayout(new javax.swing.BoxLayout(jPanel11, javax.swing.BoxLayout.LINE_AXIS));
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtPrice.setBorder(null);
         jPanel11.add(txtPrice);
 
@@ -233,7 +234,7 @@ public class ReceipMoneyView extends javax.swing.JDialog {
             .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel15Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel15Layout.setVerticalGroup(

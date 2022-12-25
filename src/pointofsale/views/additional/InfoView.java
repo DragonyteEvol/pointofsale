@@ -74,7 +74,7 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGap(0, 513, Short.MAX_VALUE)
         );
 
         add(jPanel6, java.awt.BorderLayout.LINE_START);
@@ -89,7 +89,7 @@ public class InfoView extends javax.swing.JPanel {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGap(0, 513, Short.MAX_VALUE)
         );
 
         add(jPanel7, java.awt.BorderLayout.LINE_END);
@@ -148,6 +148,8 @@ public class InfoView extends javax.swing.JPanel {
         jPanel18.add(jPanel24);
 
         jPanel25.setLayout(new javax.swing.BoxLayout(jPanel25, javax.swing.BoxLayout.LINE_AXIS));
+
+        txtTip.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 5));
         jPanel25.add(txtTip);
 
         jPanel18.add(jPanel25);

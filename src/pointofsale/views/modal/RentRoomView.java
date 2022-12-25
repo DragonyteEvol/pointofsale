@@ -93,7 +93,7 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel5.add(jPanel2);
 
-        jPanel20.setLayout(new java.awt.GridLayout());
+        jPanel20.setLayout(new java.awt.GridLayout(1, 0));
 
         txtDate.setForeground(new java.awt.Color(153, 153, 153));
         txtDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -132,6 +132,7 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.Y_AXIS));
 
+        txtOld.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtOld.setBorder(null);
         jPanel16.add(txtOld);
 
@@ -155,6 +156,7 @@ public class RentRoomView extends javax.swing.JDialog {
 
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.Y_AXIS));
 
+        txtChild.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtChild.setBorder(null);
         jPanel18.add(txtChild);
         jPanel18.add(jSeparator2);

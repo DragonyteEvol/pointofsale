@@ -128,7 +128,7 @@ public class InfoController implements ActionListener,FocusListener {
             this.view.txtPhone.selectAll();
         }
         if(source == this.view.txtRoute){
-            this.view.txtAddress.selectAll();
+            this.view.txtRoute.selectAll();
         }
     }
 

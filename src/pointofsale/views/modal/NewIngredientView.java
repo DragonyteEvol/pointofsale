@@ -188,6 +188,7 @@ public class NewIngredientView extends javax.swing.JDialog {
         jLabel3.setText("Precio");
         jPanel13.add(jLabel3);
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtPrice.setBorder(null);
         jPanel13.add(txtPrice);
         jPanel13.add(jSeparator3);
@@ -202,6 +203,7 @@ public class NewIngredientView extends javax.swing.JDialog {
         jLabel6.setText("Cantidad o stock");
         jPanel14.add(jLabel6);
 
+        txtStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtStock.setBorder(null);
         jPanel14.add(txtStock);
         jPanel14.add(jSeparator5);
@@ -222,6 +224,7 @@ public class NewIngredientView extends javax.swing.JDialog {
         jLabel7.setText("Cantidad minima");
         jPanel15.add(jLabel7);
 
+        txtMinimum.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtMinimum.setBorder(null);
         jPanel15.add(txtMinimum);
         jPanel15.add(jSeparator2);

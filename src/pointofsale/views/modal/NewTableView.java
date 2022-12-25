@@ -54,12 +54,14 @@ public class NewTableView extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Precio");
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 100));
         txtPrice.setBorder(null);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Capacidad");
 
+        txtCapacity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtCapacity.setBorder(null);
 
         btnSave.setBackground(new java.awt.Color(235, 71, 71));

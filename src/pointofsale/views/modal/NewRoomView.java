@@ -82,6 +82,7 @@ public class NewRoomView extends javax.swing.JDialog {
         jLabel2.setText("Precio");
         jPanel4.add(jLabel2);
 
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 10000));
         txtPrice.setBorder(null);
         jPanel4.add(txtPrice);
         jPanel4.add(jSeparator4);
@@ -97,6 +98,7 @@ public class NewRoomView extends javax.swing.JDialog {
         jLabel3.setText("Capacidad");
         jPanel5.add(jLabel3);
 
+        txtCapacity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtCapacity.setBorder(null);
         jPanel5.add(txtCapacity);
         jPanel5.add(jSeparator3);
