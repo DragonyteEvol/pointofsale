@@ -19,7 +19,7 @@ public class WarningMissingController {
         
         
         view.txtProduct.setText(missingStock.getName());
-        view.txtQuantity.setText(missingStock.getQuantity() + missingStock.getUnit() + " disponibles");
+        view.txtQuantity.setText(Long.toString(missingStock.getQuantity()) + missingStock.getUnit() + " disponibles");
         
         view.setLocationRelativeTo(null);
         view.setVisible(true);

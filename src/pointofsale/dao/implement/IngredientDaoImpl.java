@@ -49,21 +49,21 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
 
     // insert row 
     @Override
-    public Integer insert(Ingredient a) {
+    public Long insert(Ingredient a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getUnit_id());
-            statement.setInt(4, a.getCategorie_id());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getUnit_id());
+            statement.setLong(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
             statement.setBoolean(6, a.isAmenitie());
-            statement.executeUpdate();
+            Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -83,7 +83,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -105,12 +105,12 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getUnit_id());
-            statement.setInt(4, a.getCategorie_id());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getUnit_id());
+            statement.setLong(4, a.getCategorie_id());
             statement.setString(5, a.getRoute_image());
             statement.setBoolean(6, a.isAmenitie());
-            statement.setInt(7, a.getId());
+            statement.setLong(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -187,7 +187,7 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
         Ingredient ingredient = convert(set);
         ingredient.setUnit(unit);
         if (quantity) {
-            Integer quantitys = set.getInt("quantity");
+            Long quantitys = set.getLong("quantity");
             ingredient.setQuantity(quantitys);
         }
         return ingredient;
@@ -195,13 +195,13 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
 
     public Ingredient convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
-        Integer price = set.getInt("price");
-        Integer unit_id = set.getInt("unit_id");
-        Integer categorie_id = set.getInt("categorie_id");
+        Long price = set.getLong("price");
+        Long unit_id = set.getLong("unit_id");
+        Long categorie_id = set.getLong("categorie_id");
         String route_image = set.getString("route_image");
         String created_at = set.getString("created_at");
         boolean amenitie = set.getBoolean("amenitie");
-        Ingredient ingredient = new Ingredient(set.getInt("id"), name, price, unit_id, categorie_id, route_image, created_at);
+        Ingredient ingredient = new Ingredient(set.getLong("id"), name, price, unit_id, categorie_id, route_image, created_at);
         if(set.getString("unit")!=null){
             ingredient.setUnit(set.getString("unit"));
         }
@@ -265,13 +265,13 @@ public class IngredientDaoImpl extends SqlConstructor implements IngredientDao {
     }
 
     @Override
-    public List<Ingredient> selectRelProduct(Integer id) {
+    public List<Ingredient> selectRelProduct(Long id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         List<Ingredient> a = new ArrayList<>();
         try {
             statement = this.connection.prepareStatement(GETRELPRODUCT + " where product_ingredient.product_id=?");
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convertIngredientUnit(set, true));

@@ -9,17 +9,17 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Room {
-	private Integer id;    
+	private Long id;    
 	private String route_image;
-	private Integer capacity;
+	private Long capacity;
 	private String description;
-	private Integer price;
-	private Integer categorie_id;
+	private Long price;
+	private Long categorie_id;
 	private String created_at;
         private boolean allocatted;
         private String categorie;
 
-    public Room(Integer id, String route_image, Integer capacity, String description, Integer price, Integer categorie_id,boolean allocatted, String created_at) {
+    public Room(Long id, String route_image, Long capacity, String description, Long price, Long categorie_id,boolean allocatted, String created_at) {
         this.id = id;
         this.route_image = route_image;
         this.capacity = capacity;
@@ -34,11 +34,11 @@ public class Room {
     }
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,11 +50,11 @@ public class Room {
         this.route_image = route_image;
     }
 
-    public Integer getCapacity() {
+    public Long getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(Long capacity) {
         this.capacity = capacity;
     }
 
@@ -66,19 +66,19 @@ public class Room {
         this.description = description;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public Integer getCategorie_id() {
+    public Long getCategorie_id() {
         return categorie_id;
     }
 
-    public void setCategorie_id(Integer categorie_id) {
+    public void setCategorie_id(Long categorie_id) {
         this.categorie_id = categorie_id;
     }
 

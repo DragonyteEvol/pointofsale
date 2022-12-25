@@ -41,7 +41,7 @@ public class EditEventController implements ActionListener,FocusListener {
 
     }
 
-    private boolean validateRequest(String name, String description, Integer price) {
+    private boolean validateRequest(String name, String description, Long price) {
         return !(name.isBlank() || description.isBlank() || price == null || price < 0);
     }
 
@@ -95,7 +95,7 @@ public class EditEventController implements ActionListener,FocusListener {
         private void updateEvent() {
             String name = view.txtName.getText();
             String description = view.txtDescription.getText();
-            Integer price = Integer.parseInt(String.valueOf(view.txtPrice.getValue()));
+            Long price = Long.valueOf(String.valueOf(view.txtPrice.getValue()));
             if (validateRequest(name, description, price)) {
                 event.setName(name);
                 event.setDescription(description);

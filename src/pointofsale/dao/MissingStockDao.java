@@ -13,5 +13,5 @@ import pointofsale.objects.MissingStock;
  */
 public interface MissingStockDao extends Dao<MissingStock, Long>{
     List<MissingStock> selectNotification();
-    MissingStock selectWhereIngredient(Integer ingredient_id);
+    MissingStock selectWhereIngredient(Long ingredient_id);
 }

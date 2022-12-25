@@ -9,14 +9,14 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class MoneyBox {
-	private Integer id;    
-	private Integer entry;
-	private Integer out;
-	private Integer required;
-	private Integer user_id;
+	private Long id;    
+	private Long entry;
+	private Long out;
+	private Long required;
+	private Long user_id;
 	private String created_at;
 
-    public MoneyBox(Integer id, Integer entry, Integer out, Integer required, Integer user_id, String created_at) {
+    public MoneyBox(Long id, Long entry, Long out, Long required, Long user_id, String created_at) {
         this.id = id;
         this.entry = entry;
         this.out = out;
@@ -30,43 +30,43 @@ public class MoneyBox {
     
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getEntry() {
+    public Long getEntry() {
         return entry;
     }
 
-    public void setEntry(Integer entry) {
+    public void setEntry(Long entry) {
         this.entry = entry;
     }
 
-    public Integer getOut() {
+    public Long getOut() {
         return out;
     }
 
-    public void setOut(Integer out) {
+    public void setOut(Long out) {
         this.out = out;
     }
 
-    public Integer getRequired() {
+    public Long getRequired() {
         return required;
     }
 
-    public void setRequired(Integer required) {
+    public void setRequired(Long required) {
         this.required = required;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

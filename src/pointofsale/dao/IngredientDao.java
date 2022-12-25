@@ -17,7 +17,7 @@ public interface IngredientDao extends Dao<Ingredient, Long> {
 
     List<Ingredient> selectWhitUnit(String where);
 
-    List<Ingredient> selectRelProduct(Integer id);
+    List<Ingredient> selectRelProduct(Long id);
 
     List<Ingredient> selectUnitQuantity();
 

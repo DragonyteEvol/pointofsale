@@ -9,21 +9,21 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Product {
-	private Integer id;    
+	private Long id;    
 	private String name;
-	private Integer price;
-	private Integer time;
+	private Long price;
+	private Long time;
 	private String route_image;
-	private Integer categorie_id;
+	private Long categorie_id;
 	private String created_at;
-        private Integer quantity=null;
+        private Long quantity=null;
 
     public Product() {
     }
 
         
         
-    public Product(Integer id, String name, Integer price, Integer time, String route_image, Integer categorie_id, String created_at) {
+    public Product(Long id, String name, Long price, Long time, String route_image, Long categorie_id, String created_at) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -33,11 +33,11 @@ public class Product {
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,19 +49,19 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
@@ -73,11 +73,11 @@ public class Product {
         this.route_image = route_image;
     }
 
-    public Integer getCategorie_id() {
+    public Long getCategorie_id() {
         return categorie_id;
     }
 
-    public void setCategorie_id(Integer categorie_id) {
+    public void setCategorie_id(Long categorie_id) {
         this.categorie_id = categorie_id;
     }
 
@@ -89,11 +89,11 @@ public class Product {
         this.created_at = created_at;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
     

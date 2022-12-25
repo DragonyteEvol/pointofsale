@@ -29,7 +29,7 @@ public class NewTableController extends ModalController implements ActionListene
         this.view.setVisible(true);
     }
 
-    public boolean validRequest(Integer capacity) {
+    public boolean validRequest(Long capacity) {
         if (capacity <= 0) {
             return false;
         } else {
@@ -41,8 +41,8 @@ public class NewTableController extends ModalController implements ActionListene
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Integer capacity =(Integer) this.view.txtCapacity.getValue();
-            Integer price =(Integer) this.view.txtPrice.getValue();
+            Long capacity =(Long) this.view.txtCapacity.getValue();
+            Long price =(Long) this.view.txtPrice.getValue();
             if(validRequest(capacity)){
                 InsertThread insertThread = new InsertThread(price, capacity);
                 insertThread.start();
@@ -55,7 +55,7 @@ public class NewTableController extends ModalController implements ActionListene
 
         private Table table;
 
-        public InsertThread(Integer price, Integer capacity) {
+        public InsertThread(Long price, Long capacity) {
             Table table = new Table(null, capacity, price, null);
             this.table = table;
         }

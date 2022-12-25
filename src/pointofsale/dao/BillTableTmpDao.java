@@ -13,6 +13,6 @@ import pointofsale.objects.Product;
  * @author dragonyte
  */
 public interface BillTableTmpDao extends Dao<BillTableTmp, Long>{
-    BillTableTmp selectByTableId(Integer id);
-    List<Product> selectProducts(Integer id);
+    BillTableTmp selectByTableId(Long id);
+    List<Product> selectProducts(Long id);
 }

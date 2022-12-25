@@ -15,7 +15,7 @@ public class XView extends javax.swing.JPanel {
     /**
      * Creates new form XView
      */
-    public XView(String paymentMethod, Integer price) {
+    public XView(String paymentMethod, Long price) {
         initComponents();
         this.txtPaymentMethod.setText(paymentMethod);
         this.txtPrice.setText(String.valueOf(MoneyConverter.convertDouble(price)));

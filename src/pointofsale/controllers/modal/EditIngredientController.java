@@ -73,7 +73,7 @@ public class EditIngredientController implements ActionListener,FocusListener {
         setResourceThread.start();
     }
 
-    public boolean validRequest(String name, Integer price) {
+    public boolean validRequest(String name, Long price) {
         return !(name.isBlank() || price == 0 || price == null);
     }
     
@@ -99,13 +99,13 @@ public class EditIngredientController implements ActionListener,FocusListener {
         if (source == this.view.btnSave) {
             String name = this.view.txtName.getText();
             String route_image= this.view.txtImage.getText();
-            Integer price = (Integer) this.view.txtPrice.getValue();
-            Integer stock = (Integer) this.view.txtStock.getValue();
-            Integer minimum = (Integer) this.view.txtMinimum.getValue();
+            Long price = (Long) this.view.txtPrice.getValue();
+            Long stock = (Long) this.view.txtStock.getValue();
+            Long minimum = (Long) this.view.txtMinimum.getValue();
             Unit unit = (Unit) this.view.cbUnit.getSelectedItem();
-            Integer unit_id = unit.getId();
+            Long unit_id = unit.getId();
             Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
-            Integer categorie_id = categorie.getId();
+            Long categorie_id = categorie.getId();
             if (validRequest(name, price)) {
                 this.ingredient.setName(name);
                 this.ingredient.setPrice(price);

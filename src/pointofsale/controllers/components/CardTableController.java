@@ -139,14 +139,14 @@ public class CardTableController extends Controller implements ActionListener {
             Event event = eventModel.selectById(table.getEvent_id());
             event.setActive(false);
             event.setEnd_date(end_date);
-            Integer price = Integer.valueOf(String.valueOf(secondView.txtPrice.getValue()));
+            Long price = Long.valueOf(String.valueOf(secondView.txtPrice.getValue()));
             event.setPrice(price);
             eventModel = new EventModel();
             eventModel.update(event);
             TableModel tableModel = new TableModel();
             tableModel.disableEvent(event.getId());
             OrderPayController orderPayController = new OrderPayController(event);
-            table.setEvent_id(0);
+            table.setEvent_id(Long.valueOf(0));
             setInfo();
             view.repaint();
             view.revalidate();

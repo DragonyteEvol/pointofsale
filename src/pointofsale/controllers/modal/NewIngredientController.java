@@ -164,14 +164,14 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         private Ingredient createIngredient() {
             String name = this.view.txtName.getText();
-            Integer price = (Integer) this.view.txtPrice.getValue();
+            Long price = (Long) this.view.txtPrice.getValue();
             Unit unit = (Unit) this.view.cbUnit.getSelectedItem();
-            Integer unit_id = unit.getId();
-            Integer quantity = (Integer) this.view.txtStock.getValue();
-            Integer minimum = (Integer) this.view.txtMinimum.getValue();
+            Long unit_id = unit.getId();
+            Long quantity = (Long) this.view.txtStock.getValue();
+            Long minimum = (Long) this.view.txtMinimum.getValue();
             String image_route = this.view.txtImage.getText();
             Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
-            Integer categorie_id = categorie.getId();
+            Long categorie_id = categorie.getId();
 
             //CREATE INGREDIENT
             Ingredient ingredient = new Ingredient();
@@ -204,13 +204,13 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         private Ingredient createIngredient() {
             String name = view.txtName.getText();
-            Integer price = (Integer) view.txtPrice.getValue();
+            Long price = (Long) view.txtPrice.getValue();
             Unit unit = (Unit) view.cbUnit.getSelectedItem();
-            Integer unit_id = unit.getId();
-            Integer quantity = (Integer) view.txtStock.getValue();
-            Integer minimum = (Integer) view.txtMinimum.getValue();
+            Long unit_id = unit.getId();
+            Long quantity = (Long) view.txtStock.getValue();
+            Long minimum = (Long) view.txtMinimum.getValue();
             Categorie categorie = (Categorie) view.cbCategorie.getSelectedItem();
-            Integer categorie_id = categorie.getId();
+            Long categorie_id = categorie.getId();
 
             //CREATE INGREDIENT
             Ingredient ingredient = new Ingredient();

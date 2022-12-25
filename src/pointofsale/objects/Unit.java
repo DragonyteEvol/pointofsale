@@ -9,12 +9,12 @@ package pointofsale.objects;
  * @author dragonyteevol
  */
 public class Unit {
-    private Integer id;
+    private Long id;
     private String name;
     private String prefix;
     private String created_at;
 
-    public Unit(Integer id, String name, String prefix, String created_at) {
+    public Unit(Long id, String name, String prefix, String created_at) {
         this.id = id;
         this.name = name;
         this.prefix = prefix;
@@ -23,11 +23,11 @@ public class Unit {
 
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

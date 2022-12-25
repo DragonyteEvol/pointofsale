@@ -116,7 +116,7 @@ public class GenerateXYController implements ActionListener{
             //ATM
             InventoryModel inventoryModel = new InventoryModel();
             Atm atm = inventoryModel.selectAtm();
-            atm.setValue(500000);
+            atm.setValue(Long.valueOf(500000));
             inventoryModel = new InventoryModel();
             inventoryModel.updateAtm(atm);
             

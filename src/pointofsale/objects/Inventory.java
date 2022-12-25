@@ -9,13 +9,13 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Inventory {
-	private Integer id;    
-	private Integer ingredient_id;
-	private Integer quantity;
-	private Integer minimum;
+	private Long id;    
+	private Long ingredient_id;
+	private Long quantity;
+	private Long minimum;
 	private String created_at;
 
-    public Inventory(Integer id, Integer ingredient_id, Integer quantity, Integer minimum, String created_at) {
+    public Inventory(Long id, Long ingredient_id, Long quantity, Long minimum, String created_at) {
         this.id = id;
         this.ingredient_id = ingredient_id;
         this.quantity = quantity;
@@ -25,35 +25,35 @@ public class Inventory {
     
     public Inventory(){}
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getIngredient_id() {
+    public Long getIngredient_id() {
         return ingredient_id;
     }
 
-    public void setIngredient_id(Integer ingredient_id) {
+    public void setIngredient_id(Long ingredient_id) {
         this.ingredient_id = ingredient_id;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
-    public Integer getMinimum() {
+    public Long getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Integer minimum) {
+    public void setMinimum(Long minimum) {
         this.minimum = minimum;
     }
 

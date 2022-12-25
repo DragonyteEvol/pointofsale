@@ -34,7 +34,7 @@ public class TableModel extends Model{
         this.saveChanges();
     }
     
-    public void disableEvent(Integer event_id){
+    public void disableEvent(Long event_id){
         this.dao.getTableDao().disableEvent(event_id);
         saveChanges();
     }

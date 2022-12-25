@@ -43,15 +43,15 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
 
     // insert row 
     @Override
-    public Integer insert(Table a) {
+    public Long insert(Table a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getCapacity());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getEvent_id());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getCapacity());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getEvent_id());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -73,7 +73,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -94,10 +94,10 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getCapacity());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getEvent_id());
-            statement.setInt(4, a.getId());
+            statement.setLong(1, a.getCapacity());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getEvent_id());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -170,21 +170,21 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
 
     // convert ResultSet to objects
     public Table convert(ResultSet set) throws SQLException {
-        Integer capacity = set.getInt("capacity");
-        Integer price = set.getInt("price");
-        Integer event_id = set.getInt("event_id");
+        Long capacity = set.getLong("capacity");
+        Long price = set.getLong("price");
+        Long event_id = set.getLong("event_id");
         String created_at = set.getString("created_at");
-        Table table = new Table(set.getInt("id"), capacity, price, created_at);
+        Table table = new Table(set.getLong("id"), capacity, price, created_at);
         table.setEvent_id(event_id);
         return table;
     }
 
     @Override
-    public void disableEvent(Integer event_id) {
+    public void disableEvent(Long event_id) {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DESABLEEVENT);
-            statement.setInt(1, event_id);
+            statement.setLong(1, event_id);
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }

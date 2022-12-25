@@ -69,7 +69,7 @@ public class InfoController implements ActionListener,FocusListener {
         }
     }
 
-    private boolean validateRequest(String name, Integer nit, Integer tip) {
+    private boolean validateRequest(String name, Long nit, Long tip) {
         return !(name.isBlank() || nit == null || tip == null);
     }
 
@@ -141,9 +141,9 @@ public class InfoController implements ActionListener,FocusListener {
         @Override
         public void run() {
             String name = view.txtName.getText();
-            Integer nit = Integer.parseInt(view.txtNit.getText());
-            Integer tip = Integer.parseInt(String.valueOf(view.txtTip.getValue()));
-            Integer phone = Integer.parseInt(view.txtPhone.getText());
+            Long nit = Long.valueOf(view.txtNit.getText());
+            Long tip = Long.valueOf(String.valueOf(view.txtTip.getValue()));
+            Long phone = Long.valueOf(view.txtPhone.getText());
             String address = view.txtAddress.getText();
             String route = view.txtRoute.getText();
             if (validateRequest(name, nit, tip)) {

@@ -46,10 +46,10 @@ public class IngredientModel extends Model {
     }
 
     public void insert(Ingredient ingredient, boolean extras) {
-        Integer quantity = ingredient.getQuantity();
-        Integer minimum = ingredient.getMinimum();
+        Long quantity = ingredient.getQuantity();
+        Long minimum = ingredient.getMinimum();
 
-        Integer ingredient_id = this.dao.getIngredientDao().insert(ingredient);
+        Long ingredient_id = this.dao.getIngredientDao().insert(ingredient);
 
         Inventory inventory = this.createInventory(minimum, quantity, ingredient_id);
         MovementInventory movementInventory = this.createMovement(quantity, ingredient_id);
@@ -59,12 +59,12 @@ public class IngredientModel extends Model {
         this.saveChanges();
     }
 
-    public void insertPolimorphism(Product product, Ingredient ingredient, Integer required) {
-        Integer product_id = this.dao.getProductDao().insert(product);
-        Integer quantity = ingredient.getQuantity();
-        Integer minimum = ingredient.getMinimum();
+    public void insertPolimorphism(Product product, Ingredient ingredient, Long required) {
+        Long product_id = this.dao.getProductDao().insert(product);
+        Long quantity = ingredient.getQuantity();
+        Long minimum = ingredient.getMinimum();
 
-        Integer ingredient_id = this.dao.getIngredientDao().insert(ingredient);
+        Long ingredient_id = this.dao.getIngredientDao().insert(ingredient);
 
         Inventory inventory = this.createInventory(minimum, quantity, ingredient_id);
         MovementInventory movementInventory = this.createMovement(quantity, ingredient_id);
@@ -77,7 +77,7 @@ public class IngredientModel extends Model {
         saveChanges();
     }
 
-    private Inventory createInventory(Integer minimum, Integer quantity, Integer ingredient_id) {
+    private Inventory createInventory(Long minimum, Long quantity, Long ingredient_id) {
         Inventory inventory = new Inventory();
         inventory.setMinimum(minimum);
         inventory.setQuantity(quantity);
@@ -85,7 +85,7 @@ public class IngredientModel extends Model {
         return inventory;
     }
 
-    private MovementInventory createMovement(Integer quantity, Integer ingredient_id) {
+    private MovementInventory createMovement(Long quantity, Long ingredient_id) {
         MovementInventory movementInventory = new MovementInventory();
         movementInventory.setAddition(true);
         movementInventory.setSubstraction(false);
@@ -94,7 +94,7 @@ public class IngredientModel extends Model {
         return movementInventory;
     }
 
-    public List<Ingredient> selectWhereCategorie(Integer categorie_id) {
+    public List<Ingredient> selectWhereCategorie(Long categorie_id) {
         List<Ingredient> ingredients = this.dao.getIngredientDao().selectWhere("categorie_id =" + String.valueOf(categorie_id));
         this.closeConnection();
         return ingredients;
@@ -106,7 +106,7 @@ public class IngredientModel extends Model {
         return ingredients;
     }
 
-    public Ingredient selectById(Integer id) {
+    public Ingredient selectById(Long id) {
         Ingredient ingredient = this.dao.getIngredientDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return ingredient;
@@ -119,7 +119,7 @@ public class IngredientModel extends Model {
         this.saveChanges();
     }
 
-    public List<Ingredient> selectRelProduct(Integer id) {
+    public List<Ingredient> selectRelProduct(Long id) {
         List<Ingredient> ingredients = this.dao.getIngredientDao().selectRelProduct(id);
         this.closeConnection();
         return ingredients;

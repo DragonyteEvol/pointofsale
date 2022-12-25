@@ -55,10 +55,10 @@ public final class OrderPayController implements ActionListener, ChangeListener 
     private ConfirmAnnulmentView annulmentView;
     private Room room = null;
     private Table table = null;
-    private Integer realPrice;
-    private Integer discount = 0;
-    private Integer tip = 0;
-    public Integer price = 0;
+    private Long realPrice;
+    private Long discount = Long.valueOf(0);
+    private Long tip = Long.valueOf(0);
+    public Long price = Long.valueOf(0);
     private List<Product> products = new ArrayList<>();
     private BillTableTmp billTableTmp;
     private BillRoomTmp billRoomTmp;
@@ -81,7 +81,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         initView();
     }
 
-    public OrderPayController(Room room, Integer price, boolean allocate) {
+    public OrderPayController(Room room, Long price, boolean allocate) {
         this.room = room;
         this.allocate = allocate;
         this.realPrice = price;
@@ -114,7 +114,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             arrayData[0][2] = MoneyConverter.convertDouble(realPrice) + "";
             arrayData[0][3] = room.getCapacity() + "";
 
-            products.add(new Product(null, room.getDescription(), realPrice, 0, "", realPrice, null));
+            products.add(new Product(null, room.getDescription(), realPrice, Long.valueOf(0), "", realPrice, null));
 
             String rowTitle[] = {"Habitacion no", "Descripcion", "Precio", "Capacidad"};
 
@@ -276,10 +276,10 @@ public final class OrderPayController implements ActionListener, ChangeListener 
     }
 
     private void updatePrice() {
-        Integer discountPrice = Integer.parseInt(String.valueOf(view.txtDiscountPrice.getValue()));
-        Integer discountPercent = Integer.parseInt(String.valueOf(view.txtDiscountPercent.getValue()));
-        Integer tipPrice = Integer.parseInt(String.valueOf(view.txtTipPrice.getValue()));
-        Integer tipPercent = Integer.parseInt(String.valueOf(view.txtTipPercent.getValue()));
+        Long discountPrice = Long.valueOf(String.valueOf(view.txtDiscountPrice.getValue()));
+        Long discountPercent = Long.valueOf(String.valueOf(view.txtDiscountPercent.getValue()));
+        Long tipPrice = Long.valueOf(String.valueOf(view.txtTipPrice.getValue()));
+        Long tipPercent = Long.valueOf(String.valueOf(view.txtTipPercent.getValue()));
 
         tip = (tipPrice) + ((realPrice * tipPercent) / 100);
 
@@ -397,11 +397,11 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             Bill bill = new Bill();
             bill.setDescription("normal_sell");
             if (room == null) {
-                bill.setClient_type(1);
+                bill.setClient_type(Long.valueOf(1));
                 bill.setClient_id(table.getId());
                 bill.setPeople(table.getCapacity());
             } else {
-                bill.setClient_type(2);
+                bill.setClient_type(Long.valueOf(2));
                 bill.setClient_id(room.getId());
                 bill.setPeople(room.getCapacity());
             }
@@ -426,7 +426,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             if (table != null) {
                 bill.setEvent_id(table.getEvent_id());
             } else {
-                bill.setEvent_id(0);
+                bill.setEvent_id(Long.valueOf(0));
             }
             bill.setWaiter_id(waiter.getId());
             return bill;

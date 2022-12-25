@@ -9,51 +9,51 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Table {
-	private Integer id;    
-	private Integer capacity;
-	private Integer price;
-        private Integer event_id;
+	private Long id;    
+	private Long capacity;
+	private Long price;
+        private Long event_id;
 	private String created_at;
 
-    public Table(Integer id, Integer capacity, Integer price,String created_at) {
+    public Table(Long id, Long capacity, Long price,String created_at) {
         this.id = id;
         this.capacity = capacity;
         this.price = price;
         this.created_at = created_at;
     }
 
-    public Integer getEvent_id() {
+    public Long getEvent_id() {
         return event_id;
     }
 
-    public void setEvent_id(Integer event_id) {
+    public void setEvent_id(Long event_id) {
         this.event_id = event_id;
     }
 
     
     
     
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getCapacity() {
+    public Long getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(Long capacity) {
         this.capacity = capacity;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

@@ -42,16 +42,16 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
 
     // insert row 
     @Override
-    public Integer insert(BillRestockIngredient a) {
+    public Long insert(BillRestockIngredient a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getBill_restock_id());
-            statement.setInt(2, a.getIngredient_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getSubvalue());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getBill_restock_id());
+            statement.setLong(2, a.getIngredient_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getSubvalue());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -73,7 +73,7 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -94,11 +94,11 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getBill_restock_id());
-            statement.setInt(2, a.getIngredient_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getSubvalue());
-            statement.setInt(5, a.getId());
+            statement.setLong(1, a.getBill_restock_id());
+            statement.setLong(2, a.getIngredient_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getSubvalue());
+            statement.setLong(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -171,12 +171,12 @@ public class BillRestockIngredientDaoImpl extends SqlConstructor implements Bill
 
     // convert ResultSet to objects
     public BillRestockIngredient convert(ResultSet set) throws SQLException {
-        Integer bill_restock_id = set.getInt("bill_restock_id");
-        Integer ingredient_id = set.getInt("ingredient_id");
-        Integer quantity = set.getInt("quantity");
-        Integer subvalue = set.getInt("subvalue");
+        Long bill_restock_id = set.getLong("bill_restock_id");
+        Long ingredient_id = set.getLong("ingredient_id");
+        Long quantity = set.getLong("quantity");
+        Long subvalue = set.getLong("subvalue");
         String created_at = set.getString("created_at");
-        BillRestockIngredient billRestockIngredient = new BillRestockIngredient(set.getInt("id"), bill_restock_id, ingredient_id, quantity, subvalue, created_at);
+        BillRestockIngredient billRestockIngredient = new BillRestockIngredient(set.getLong("id"), bill_restock_id, ingredient_id, quantity, subvalue, created_at);
         return billRestockIngredient;
     }
 }

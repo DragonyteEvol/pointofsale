@@ -30,7 +30,7 @@ public class PaymentMethodModel extends Model {
         return paymentMethods;
     }
     
-    public PaymentMethod selectById(Integer id){
+    public PaymentMethod selectById(Long id){
         PaymentMethod paymentMethod = this.dao.getPaymentMethodDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return paymentMethod;

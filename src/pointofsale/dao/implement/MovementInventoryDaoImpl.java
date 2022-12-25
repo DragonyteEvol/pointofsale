@@ -44,16 +44,16 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
 
     // insert row 
     @Override
-    public Integer insert(MovementInventory a) {
+    public Long insert(MovementInventory a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getIngredient_id());
-            statement.setInt(2, a.getQuantity());
+            statement.setLong(1, a.getIngredient_id());
+            statement.setLong(2, a.getQuantity());
             statement.setBoolean(3, a.isAddition());
             statement.setBoolean(4, a.isSubstraction());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -75,7 +75,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -96,11 +96,11 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getIngredient_id());
-            statement.setInt(2, a.getQuantity());
+            statement.setLong(1, a.getIngredient_id());
+            statement.setLong(2, a.getQuantity());
             statement.setBoolean(3, a.isAddition());
             statement.setBoolean(4, a.isSubstraction());
-            statement.setInt(5, a.getId());
+            statement.setLong(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -173,12 +173,12 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
 
     // convert ResultSet to objects
     public MovementInventory convert(ResultSet set) throws SQLException {
-        Integer ingredient_id = set.getInt("ingredient_id");
-        Integer quantity = set.getInt("quantity");
+        Long ingredient_id = set.getLong("ingredient_id");
+        Long quantity = set.getLong("quantity");
         Boolean addition = set.getBoolean("addition");
         Boolean substraction = set.getBoolean("substraction");
         String created_at = set.getString("created_at");
-        MovementInventory movementInventory = new MovementInventory(set.getInt("id"), ingredient_id, quantity, addition, substraction, created_at);
+        MovementInventory movementInventory = new MovementInventory(set.getLong("id"), ingredient_id, quantity, addition, substraction, created_at);
         return movementInventory;
     }
 
@@ -202,7 +202,7 @@ public class MovementInventoryDaoImpl extends SqlConstructor implements Movement
     }
 
     @Override
-    public List<MovementInventory> getByIngredient(int id) {
+    public List<MovementInventory> getByIngredient(Long id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         List<MovementInventory> a = new ArrayList<>();

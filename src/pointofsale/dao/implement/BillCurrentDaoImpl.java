@@ -44,32 +44,32 @@ public class BillCurrentDaoImpl extends SqlConstructor implements BillCurrentDao
 
     // insert row 
     @Override
-    public Integer insert(Bill a) {
+    public Long insert(Bill a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getDescription());
-            statement.setInt(2, a.getClient_type());
-            statement.setInt(3, a.getClient_id());
-            statement.setInt(4, a.getWaiter_id());
-            statement.setInt(5, a.getUser_id());
-            statement.setInt(6, a.getPeople());
-            statement.setInt(7, a.getDiscount());
-            statement.setInt(8, a.getTip());
+            statement.setLong(2, a.getClient_type());
+            statement.setLong(3, a.getClient_id());
+            statement.setLong(4, a.getWaiter_id());
+            statement.setLong(5, a.getUser_id());
+            statement.setLong(6, a.getPeople());
+            statement.setLong(7, a.getDiscount());
+            statement.setLong(8, a.getTip());
             statement.setBoolean(9, a.isCourtesy());
             statement.setBoolean(10, a.isInternal());
-            statement.setInt(11, a.getPayment_method_id());
+            statement.setLong(11, a.getPayment_method_id());
             statement.setBoolean(12, a.isHousing());
             statement.setBoolean(13, a.isPrinted());
-            statement.setInt(14, a.getTotal());
-            statement.setInt(15, a.getTotal_real());
-            statement.setInt(16, a.getEvent_id());
-            statement.setInt(17, a.getId());
-            rowId = statement.executeUpdate();
+            statement.setLong(14, a.getTotal());
+            statement.setLong(15, a.getTotal_real());
+            statement.setLong(16, a.getEvent_id());
+            statement.setLong(17, a.getId());
+            rowId = Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -110,23 +110,23 @@ public class BillCurrentDaoImpl extends SqlConstructor implements BillCurrentDao
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getDescription());
-            statement.setInt(2, a.getClient_type());
-            statement.setInt(3, a.getClient_id());
-            statement.setInt(4, a.getWaiter_id());
-            statement.setInt(5, a.getUser_id());
-            statement.setInt(6, a.getPeople());
-            statement.setInt(7, a.getDiscount());
-            statement.setInt(8, a.getTip());
+            statement.setLong(2, a.getClient_type());
+            statement.setLong(3, a.getClient_id());
+            statement.setLong(4, a.getWaiter_id());
+            statement.setLong(5, a.getUser_id());
+            statement.setLong(6, a.getPeople());
+            statement.setLong(7, a.getDiscount());
+            statement.setLong(8, a.getTip());
             statement.setBoolean(9, a.isCourtesy());
             statement.setBoolean(10, a.isInternal());
-            statement.setInt(11, a.getPayment_method_id());
+            statement.setLong(11, a.getPayment_method_id());
             statement.setBoolean(12, a.isHousing());
             statement.setBoolean(13, a.isPrinted());
-            statement.setInt(14, a.getTotal());
-            statement.setInt(15, a.getTotal_real());
-            statement.setInt(16, a.getEvent_id());
-            statement.setInt(17, a.getId());
-            statement.setInt(17, a.getId());
+            statement.setLong(14, a.getTotal());
+            statement.setLong(15, a.getTotal_real());
+            statement.setLong(16, a.getEvent_id());
+            statement.setLong(17, a.getId());
+            statement.setLong(17, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -200,7 +200,7 @@ public class BillCurrentDaoImpl extends SqlConstructor implements BillCurrentDao
     // convert ResultSet to objects
     public Bill convert(ResultSet set) throws SQLException {
         String description = set.getString("description");
-        Integer total = set.getInt("total");
+        Long total = set.getLong("total");
         Bill bill = new Bill();
         bill.setDescription(description);
         bill.setTotal(total);

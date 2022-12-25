@@ -44,15 +44,15 @@ public class ProductIngredientDaoImpl extends SqlConstructor implements ProductI
 
     // insert row 
     @Override
-    public Integer insert(ProductIngredient a) {
+    public Long insert(ProductIngredient a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getProduct_id());
-            statement.setInt(2, a.getIngredient_id());
-            statement.setInt(3, a.getQuantity());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getProduct_id());
+            statement.setLong(2, a.getIngredient_id());
+            statement.setLong(3, a.getQuantity());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -74,7 +74,7 @@ public class ProductIngredientDaoImpl extends SqlConstructor implements ProductI
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -95,10 +95,10 @@ public class ProductIngredientDaoImpl extends SqlConstructor implements ProductI
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getProduct_id());
-            statement.setInt(2, a.getIngredient_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getId());
+            statement.setLong(1, a.getProduct_id());
+            statement.setLong(2, a.getIngredient_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -171,11 +171,11 @@ public class ProductIngredientDaoImpl extends SqlConstructor implements ProductI
 
     // convert ResultSet to objects
     public ProductIngredient convert(ResultSet set) throws SQLException {
-        Integer product_id = set.getInt("product_id");
-        Integer ingredient_id = set.getInt("ingredient_id");
-        Integer quantity = set.getInt("quantity");
+        Long product_id = set.getLong("product_id");
+        Long ingredient_id = set.getLong("ingredient_id");
+        Long quantity = set.getLong("quantity");
         String created_at = set.getString("created_at");
-        ProductIngredient productIngredient = new ProductIngredient(set.getInt("id"), product_id, ingredient_id, quantity, created_at);
+        ProductIngredient productIngredient = new ProductIngredient(set.getLong("id"), product_id, ingredient_id, quantity, created_at);
         return productIngredient;
     }
 

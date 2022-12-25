@@ -38,8 +38,8 @@ public class TipDaoImpl extends SqlConstructor implements TipDao {
 
     // insert row 
     @Override
-    public Integer insert(Tip a) {
-        return 1;
+    public Long insert(Tip a) {
+        return Long.valueOf(1);
     }
 
     // delete row

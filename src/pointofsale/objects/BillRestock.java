@@ -9,39 +9,39 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class BillRestock {
-	private Integer id;    
-	private Integer user_id;
-	private Integer price;
+	private Long id;    
+	private Long user_id;
+	private Long price;
 	private String created_at;
 
-    public BillRestock(Integer id, Integer user_id, Integer price, String created_at) {
+    public BillRestock(Long id, Long user_id, Long price, String created_at) {
         this.id = id;
         this.user_id = user_id;
         this.price = price;
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

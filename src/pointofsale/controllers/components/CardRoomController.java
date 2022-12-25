@@ -48,9 +48,9 @@ public class CardRoomController implements ActionListener {
     }
 
     private void setInfo() {
-        this.view.txtNumber.setText(String.valueOf(this.room.getId()));
+        this.view.txtNumber.setText(Long.toString(this.room.getId()));
         this.view.txtPrice.setText(MoneyConverter.convertDouble(this.room.getPrice()));
-        this.view.txtCapacity.setText(String.valueOf(this.room.getCapacity()));
+        this.view.txtCapacity.setText(Long.toString(this.room.getCapacity()));
         isAllocatted();
     }
 

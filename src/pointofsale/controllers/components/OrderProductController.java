@@ -54,7 +54,7 @@ public class OrderProductController implements ActionListener,FocusListener{
     }
     
     private void setPrice(){
-        Integer price=0;
+        Long price=Long.valueOf(0);
         for(Product productp : listProduct){
             price += (productp.getPrice() * productp.getQuantity());
         }
@@ -84,9 +84,9 @@ public class OrderProductController implements ActionListener,FocusListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        Integer quantity = Integer.valueOf(this.view.txtQuantity.getText());
+        Long quantity = Long.valueOf(this.view.txtQuantity.getText());
         if(source==this.view.btnPlus){
-            Integer value = quantity + 1;
+            Long value = quantity + 1;
             this.view.txtQuantity.setText(String.valueOf(value));
             this.listProduct.remove(product);
             this.product.setQuantity(value);
@@ -95,7 +95,7 @@ public class OrderProductController implements ActionListener,FocusListener{
         }
         
         if(source==this.view.btnLess){
-            Integer value = quantity - 1;
+            Long value = quantity - 1;
             this.view.txtQuantity.setText(String.valueOf(value));
             this.listProduct.remove(product);
             this.product.setQuantity(value);

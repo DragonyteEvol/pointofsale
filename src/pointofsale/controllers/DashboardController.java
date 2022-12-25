@@ -50,9 +50,9 @@ public class DashboardController extends Controller implements ActionListener {
             DefaultPieDataset data = new DefaultPieDataset();
 
             ChartController chartController = new ChartController();
-            data.setValue("Ventas", chartController.selectReport(chartController.SELLCHARTDAY).getSubvalue());
+                data.setValue("Ventas", Math.toIntExact(chartController.selectReport(chartController.SELLCHARTDAY).getSubvalue()));
             chartController = new ChartController();
-            data.setValue("Gastos", chartController.selectReport(chartController.EXPENSECHARTDAY).getSubvalue());
+            data.setValue("Gastos", Math.toIntExact(chartController.selectReport(chartController.EXPENSECHARTDAY).getSubvalue()));
 
             view.pnSellDay.add(createPie(data, "Ventas Diarias"));
             refreshView(view);
@@ -62,9 +62,9 @@ public class DashboardController extends Controller implements ActionListener {
             DefaultPieDataset data = new DefaultPieDataset();
 
             ChartController chartController = new ChartController();
-            data.setValue("Ventas", chartController.selectReport(chartController.SELLCHARTMONTH).getSubvalue());
+            data.setValue("Ventas", Math.toIntExact(chartController.selectReport(chartController.SELLCHARTMONTH).getSubvalue()));
             chartController = new ChartController();
-            data.setValue("Gastos", chartController.selectReport(chartController.EXPENSEMONTH).getSubvalue());
+            data.setValue("Gastos", Math.toIntExact(chartController.selectReport(chartController.EXPENSEMONTH).getSubvalue()));
 
             view.pnSellMonth.add(createPie(data, "Ventas Mensuales"));
             refreshView(view);
@@ -74,9 +74,9 @@ public class DashboardController extends Controller implements ActionListener {
             DefaultPieDataset data = new DefaultPieDataset();
 
             ChartController chartController = new ChartController();
-            data.setValue("Ventas", chartController.selectReport(chartController.SELLCHARTYEAR).getSubvalue());
+            data.setValue("Ventas", Math.toIntExact(chartController.selectReport(chartController.SELLCHARTYEAR).getSubvalue()));
             chartController = new ChartController();
-            data.setValue("Gastos", chartController.selectReport(chartController.EXPENSEYEAR).getSubvalue());
+            data.setValue("Gastos", Math.toIntExact(chartController.selectReport(chartController.EXPENSEYEAR).getSubvalue()));
 
             view.pnSellYear.add(createPie(data, "Ventas Anuales"));
             refreshView(view);

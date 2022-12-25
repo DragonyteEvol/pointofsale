@@ -90,10 +90,10 @@ public class InventoryController extends Controller implements ActionListener, F
         String arrayData[][] = new String[ingredients.size()][6];
 
         for (int i = 0; i < ingredients.size(); i++) {
-            arrayData[i][0] = ingredients.get(i).getId() + "";
+            arrayData[i][0] = Long.toString(ingredients.get(i).getId()) + "";
             arrayData[i][1] = ingredients.get(i).getName() + "";
             arrayData[i][2] = MoneyConverter.convertDouble(ingredients.get(i).getPrice()) + "";
-            arrayData[i][3] = ingredients.get(i).getQuantity() + "";
+            arrayData[i][3] = Long.toString(ingredients.get(i).getQuantity()) + "";
             arrayData[i][4] = ingredients.get(i).getUnit() + "";
             arrayData[i][5] = ingredients.get(i).getCreated_at() + "";
         }

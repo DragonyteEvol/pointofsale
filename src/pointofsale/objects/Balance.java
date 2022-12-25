@@ -9,13 +9,13 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Balance {
-	private Integer id;
+	private Long id;
 	private String reason;
-	private Integer value;
-	private Integer user_id;
+	private Long value;
+	private Long user_id;
 	private String created_at;
 
-        public Balance(Integer id, String reason, Integer value, Integer user_id, String created_at) {
+        public Balance(Long id, String reason, Long value, Long user_id, String created_at) {
         this.id = id;
         this.reason = reason;
         this.value = value;
@@ -23,11 +23,11 @@ public class Balance {
         this.created_at = created_at;
     }
         
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,19 +39,19 @@ public class Balance {
         this.reason = reason;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

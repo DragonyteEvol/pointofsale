@@ -15,7 +15,7 @@ import pointofsale.objects.Unit;
 public class UnitModel extends Model {
 
     public void insert(Unit unit) {
-        Integer a = this.dao.getUnitDao().insert(unit);
+        Long a = this.dao.getUnitDao().insert(unit);
         this.saveChanges();
         System.out.println(a);
     }
@@ -26,7 +26,7 @@ public class UnitModel extends Model {
         return units;
     }
     
-    public Unit selectById(Integer id){
+    public Unit selectById(Long id){
         Unit unit = this.dao.getUnitDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return unit;

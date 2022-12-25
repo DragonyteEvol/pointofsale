@@ -44,22 +44,22 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
 
     // insert row 
     @Override
-    public Integer insert(Room a) {
+    public Long insert(Room a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getRoute_image());
-            statement.setInt(2, a.getCapacity());
+            statement.setLong(2, a.getCapacity());
             statement.setString(3, a.getDescription());
-            statement.setInt(4, a.getPrice());
+            statement.setLong(4, a.getPrice());
             statement.setBoolean(5, a.isAllocatted());
-            statement.setInt(6, a.getCategorie_id());
+            statement.setLong(6, a.getCategorie_id());
 
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -79,7 +79,7 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -101,12 +101,12 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getRoute_image());
-            statement.setInt(2, a.getCapacity());
+            statement.setLong(2, a.getCapacity());
             statement.setString(3, a.getDescription());
-            statement.setInt(4, a.getPrice());
+            statement.setLong(4, a.getPrice());
             statement.setBoolean(5, a.isAllocatted());
-            statement.setInt(6, a.getCategorie_id());
-            statement.setInt(7, a.getId());
+            statement.setLong(6, a.getCategorie_id());
+            statement.setLong(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -209,13 +209,13 @@ public class RoomDaoImpl extends SqlConstructor implements RoomDao {
     // convert ResultSet to objects
     public Room convert(ResultSet set) throws SQLException {
         String route_image = set.getString("route_image");
-        Integer capacity = set.getInt("capacity");
+        Long capacity = set.getLong("capacity");
         String description = set.getString("description");
-        Integer price = set.getInt("price");
-        Integer categorie_id = set.getInt("categorie_id");
+        Long price = set.getLong("price");
+        Long categorie_id = set.getLong("categorie_id");
         boolean allocatted = set.getBoolean("allocatted");
         String created_at = set.getString("created_at");
-        Room room = new Room(set.getInt("id"), route_image, capacity, description, price, categorie_id, allocatted, created_at);
+        Room room = new Room(set.getLong("id"), route_image, capacity, description, price, categorie_id, allocatted, created_at);
         return room;
     }
 

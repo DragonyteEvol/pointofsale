@@ -51,7 +51,7 @@ public class CardReceipInfoController implements ActionListener,FocusListener{
     }
     
     public void setTotalPrice(JLabel label){
-        Integer value = 0;
+        Long value = Long.valueOf(0);
         for(Ingredient ingredientp: listIngredient){
             value += ingredientp.getPrice();
         }

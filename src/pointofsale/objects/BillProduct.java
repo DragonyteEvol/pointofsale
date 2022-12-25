@@ -9,14 +9,14 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class BillProduct {
-	private Integer id;    
-	private Integer bill_id;
-	private Integer product_id;
-	private Integer quantity;
-	private Integer subvalue;
+	private Long id;    
+	private Long bill_id;
+	private Long product_id;
+	private Long quantity;
+	private Long subvalue;
 	private String created_at;
 
-    public BillProduct(Integer id, Integer bill_id, Integer product_id, Integer quantity, Integer subvalue, String created_at) {
+    public BillProduct(Long id, Long bill_id, Long product_id, Long quantity, Long subvalue, String created_at) {
         this.id = id;
         this.bill_id = bill_id;
         this.product_id = product_id;
@@ -30,43 +30,43 @@ public class BillProduct {
     
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getBill_id() {
+    public Long getBill_id() {
         return bill_id;
     }
 
-    public void setBill_id(Integer bill_id) {
+    public void setBill_id(Long bill_id) {
         this.bill_id = bill_id;
     }
 
-    public Integer getProduct_id() {
+    public Long getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(Integer product_id) {
+    public void setProduct_id(Long product_id) {
         this.product_id = product_id;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
-    public Integer getSubvalue() {
+    public Long getSubvalue() {
         return subvalue;
     }
 
-    public void setSubvalue(Integer subvalue) {
+    public void setSubvalue(Long subvalue) {
         this.subvalue = subvalue;
     }
 

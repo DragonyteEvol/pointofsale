@@ -42,16 +42,16 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao {
 
     // insert row 
     @Override
-    public Integer insert(Annulment a) {
+    public Long insert(Annulment a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getReason());
-            statement.setInt(2, a.getUser_id());
-            statement.setInt(3, a.getProduct_id());
-            statement.setInt(4, a.getQuantity());
-            rowId = statement.executeUpdate();
+            statement.setLong(2, a.getUser_id());
+            statement.setLong(3, a.getProduct_id());
+            statement.setLong(4, a.getQuantity());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -73,7 +73,7 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -95,10 +95,10 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getReason());
-            statement.setInt(2, a.getUser_id());
-            statement.setInt(3, a.getProduct_id());
-            statement.setInt(4, a.getQuantity());
-            statement.setInt(5, a.getId());
+            statement.setLong(2, a.getUser_id());
+            statement.setLong(3, a.getProduct_id());
+            statement.setLong(4, a.getQuantity());
+            statement.setLong(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -172,13 +172,13 @@ public class AnnulmentDaoImpl extends SqlConstructor implements AnnulmentDao {
     // convert ResultSet to objects
     public Annulment convert(ResultSet set) throws SQLException {
         String reason = set.getString("reason");
-        Integer user_id = set.getInt("user_id");
-        Integer product_id = set.getInt("product_id");
-        Integer quantity = set.getInt("quantity");
+        Long user_id = set.getLong("user_id");
+        Long product_id = set.getLong("product_id");
+        Long quantity = set.getLong("quantity");
         String created_at = set.getString("created_at");
         String name = set.getString("name");
         String product = set.getString("product");
-        Annulment annulment = new Annulment(set.getInt("id"), reason, user_id, created_at);
+        Annulment annulment = new Annulment(set.getLong("id"), reason, user_id, created_at);
         annulment.setProduct_id(product_id);
         annulment.setQuantity(quantity);
         annulment.setName(name);

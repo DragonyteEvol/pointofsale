@@ -44,14 +44,14 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
 
     // insert row 
     @Override
-    public Integer insert(Categorie a) {
+    public Long insert(Categorie a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getName());
-            statement.setInt(2, a.getTarget());
-            rowId = statement.executeUpdate();
+            statement.setLong(2, a.getTarget());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -73,7 +73,7 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -95,8 +95,8 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
-            statement.setInt(2, a.getTarget());
-            statement.setInt(3, a.getId());
+            statement.setLong(2, a.getTarget());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -170,9 +170,9 @@ public class CategorieDaoImpl extends SqlConstructor implements CategorieDao {
     // convert ResultSet to objects
     public Categorie convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
-        Integer target = set.getInt("target");
+        Long target = set.getLong("target");
         String created_at = set.getString("created_at");
-        Categorie categorie = new Categorie(set.getInt("id"), name, target, created_at);
+        Categorie categorie = new Categorie(set.getLong("id"), name, target, created_at);
         return categorie;
     }
 

@@ -42,16 +42,16 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
 
     // insert row 
     @Override
-    public Integer insert(MoneyBox a) {
+    public Long insert(MoneyBox a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getEntry());
-            statement.setInt(2, a.getOut());
-            statement.setInt(3, a.getRequired());
-            statement.setInt(4, a.getUser_id());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getEntry());
+            statement.setLong(2, a.getOut());
+            statement.setLong(3, a.getRequired());
+            statement.setLong(4, a.getUser_id());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -73,7 +73,7 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -94,11 +94,11 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getEntry());
-            statement.setInt(2, a.getOut());
-            statement.setInt(3, a.getRequired());
-            statement.setInt(4, a.getUser_id());
-            statement.setInt(5, a.getId());
+            statement.setLong(1, a.getEntry());
+            statement.setLong(2, a.getOut());
+            statement.setLong(3, a.getRequired());
+            statement.setLong(4, a.getUser_id());
+            statement.setLong(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -171,12 +171,12 @@ public class MoneyBoxDaoImpl extends SqlConstructor implements MoneyBoxDao {
 
     // convert ResultSet to objects
     public MoneyBox convert(ResultSet set) throws SQLException {
-        Integer entry = set.getInt("entry");
-        Integer out = set.getInt("out");
-        Integer required = set.getInt("required");
-        Integer user_id = set.getInt("user_id");
+        Long entry = set.getLong("entry");
+        Long out = set.getLong("out");
+        Long required = set.getLong("required");
+        Long user_id = set.getLong("user_id");
         String created_at = set.getString("created_at");
-        MoneyBox moneyBox = new MoneyBox(set.getInt("id"), entry, out, required, user_id, created_at);
+        MoneyBox moneyBox = new MoneyBox(set.getLong("id"), entry, out, required, user_id, created_at);
         return moneyBox;
     }
 

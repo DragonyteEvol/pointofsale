@@ -47,18 +47,18 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
 
     // insert row 
     @Override
-    public Integer insert(Inventory a) {
+    public Long insert(Inventory a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, a.getIngredient_id());
-            statement.setInt(2, a.getQuantity());
-            statement.setInt(3, a.getMinimum());
-            statement.executeUpdate();
+            statement.setLong(1, a.getIngredient_id());
+            statement.setLong(2, a.getQuantity());
+            statement.setLong(3, a.getMinimum());
+            Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -78,7 +78,7 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -99,10 +99,10 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getIngredient_id());
-            statement.setInt(2, a.getQuantity());
-            statement.setInt(3, a.getMinimum());
-            statement.setInt(4, a.getId());
+            statement.setLong(1, a.getIngredient_id());
+            statement.setLong(2, a.getQuantity());
+            statement.setLong(3, a.getMinimum());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -203,11 +203,11 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
 
     // convert ResultSet to objects
     public Inventory convert(ResultSet set) throws SQLException {
-        Integer ingredient_id = set.getInt("ingredient_id");
-        Integer quantity = set.getInt("quantity");
-        Integer minimum = set.getInt("minimum");
+        Long ingredient_id = set.getLong("ingredient_id");
+        Long quantity = set.getLong("quantity");
+        Long minimum = set.getLong("minimum");
         String created_at = set.getString("created_at");
-        Inventory inventory = new Inventory(set.getInt("id"), ingredient_id, quantity, minimum, created_at);
+        Inventory inventory = new Inventory(set.getLong("id"), ingredient_id, quantity, minimum, created_at);
         return inventory;
     }
 
@@ -231,13 +231,13 @@ public class InventoryDaoImpl extends SqlConstructor implements InventoryDao {
     }
 
     @Override
-    public Inventory selectMissingIngredient(Integer ingredient_id){
+    public Inventory selectMissingIngredient(Long ingredient_id){
         PreparedStatement statement = null;
         ResultSet set = null;
         Inventory a = null;
         try {
             statement = this.connection.prepareStatement(GETMISSINGREDIENT);
-            statement.setInt(1, ingredient_id);
+            statement.setLong(1, ingredient_id);
             set = statement.executeQuery();
             if (set.next()) {
                 a = convert(set);

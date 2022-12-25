@@ -9,16 +9,16 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class AditionalInformation {
-	private Integer id;    
-	private Integer nit;
+	private Long id;    
+	private Long nit;
 	private String name;
         private String address ="";
-        private Integer phone =null;
+        private Long phone =null;
 	private String logo_path;
-	private Integer default_tip;
+	private Long default_tip;
 	private String created_at;
 
-    public AditionalInformation(Integer id, Integer nit, String name, String logo_path, Integer default_tip, String created_at) {
+    public AditionalInformation(Long id, Long nit, String name, String logo_path, Long default_tip, String created_at) {
         this.id = id;
         this.nit = nit;
         this.name = name;
@@ -27,7 +27,7 @@ public class AditionalInformation {
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -39,24 +39,24 @@ public class AditionalInformation {
         this.address = address;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
     
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getNit() {
+    public Long getNit() {
         return nit;
     }
 
-    public void setNit(Integer nit) {
+    public void setNit(Long nit) {
         this.nit = nit;
     }
 
@@ -76,11 +76,11 @@ public class AditionalInformation {
         this.logo_path = logo_path;
     }
 
-    public Integer getDefault_tip() {
+    public Long getDefault_tip() {
         return default_tip;
     }
 
-    public void setDefault_tip(Integer default_tip) {
+    public void setDefault_tip(Long default_tip) {
         this.default_tip = default_tip;
     }
 

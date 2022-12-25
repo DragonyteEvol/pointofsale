@@ -9,23 +9,23 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Categorie{
-	private Integer id;    
+	private Long id;    
 	private String name;
-	private Integer target;
+	private Long target;
 	private String created_at;
 
-    public Categorie(Integer id, String name, Integer target, String created_at) {
+    public Categorie(Long id, String name, Long target, String created_at) {
         this.id = id;
         this.name = name;
         this.target = target;
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,11 +37,11 @@ public class Categorie{
         this.name = name;
     }
 
-    public Integer getTarget() {
+    public Long getTarget() {
         return target;
     }
 
-    public void setTarget(Integer target) {
+    public void setTarget(Long target) {
         this.target = target;
     }
 

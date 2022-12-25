@@ -49,7 +49,7 @@ public class NewCategorieController extends ModalController implements ActionLis
     
     private Categorie createCategorie(){
         String name = this.view.txtName.getText();
-        Integer target = this.view.cbTarget.getSelectedIndex();
+        Long target = Long.valueOf(this.view.cbTarget.getSelectedIndex());
         return new Categorie(null, name, target, null);
     }
 	// create a unit from text fields

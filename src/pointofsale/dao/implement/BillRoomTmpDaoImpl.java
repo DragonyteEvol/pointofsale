@@ -47,17 +47,17 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
 
     // insert row 
     @Override
-    public Integer insert(BillRoomTmp a) {
+    public Long insert(BillRoomTmp a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, a.getRoom_id());
-            statement.setInt(2, a.getTotal());
-            statement.executeUpdate();
+            statement.setLong(1, a.getRoom_id());
+            statement.setLong(2, a.getTotal());
+            Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -77,7 +77,7 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -98,9 +98,9 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getRoom_id());
-            statement.setInt(2, a.getTotal());
-            statement.setInt(3, a.getId());
+            statement.setLong(1, a.getRoom_id());
+            statement.setLong(2, a.getTotal());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -173,15 +173,15 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
 
     // convert ResultSet to objects
     public BillRoomTmp convert(ResultSet set) throws SQLException {
-        Integer room_id = set.getInt("room_id");
-        Integer total = set.getInt("total");
+        Long room_id = set.getLong("room_id");
+        Long total = set.getLong("total");
         String created_at = set.getString("created_at");
-        BillRoomTmp billRoom = new BillRoomTmp(set.getInt("id"), room_id, total, created_at);
+        BillRoomTmp billRoom = new BillRoomTmp(set.getLong("id"), room_id, total, created_at);
         return billRoom;
     }
 
     @Override
-    public BillRoomTmp selectByRoomId(Integer id) {
+    public BillRoomTmp selectByRoomId(Long id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         BillRoomTmp a = null;
@@ -209,13 +209,13 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
     }
     
     @Override
-    public List<Product> selectProducts(Integer id) {
+    public List<Product> selectProducts(Long id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         List<Product> a = new ArrayList<>();
         try {
             statement = this.connection.prepareStatement(GETPRODUCTS);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convertProduct(set));
@@ -237,10 +237,10 @@ public class BillRoomTmpDaoImpl extends SqlConstructor implements BillRoomTmpDao
     
     // convert ResultSet to objects
     public Product convertProduct(ResultSet set) throws SQLException {
-        Integer id = set.getInt("id");
+        Long id = set.getLong("id");
         String name = set.getString("name");
-        Integer quantity = set.getInt("quantity");
-        Integer subvalue = set.getInt("subvalue");
+        Long quantity = set.getLong("quantity");
+        Long subvalue = set.getLong("subvalue");
         String created_at = set.getString("updated_at");
         Product product = new Product();
         product.setId(id);

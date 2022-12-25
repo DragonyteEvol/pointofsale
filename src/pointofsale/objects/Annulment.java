@@ -10,21 +10,21 @@ package pointofsale.objects;
  */
 public class Annulment {
 
-    private Integer id;
+    private Long id;
     private String reason;
-    private Integer user_id;
+    private Long user_id;
     private String created_at,product,name;
-    private Integer product_id=null;
-    private Integer quantity=null;
+    private Long product_id=null;
+    private Long quantity=null;
 
-    public Annulment(Integer id, String reason, Integer user_id, String created_at) {
+    public Annulment(Long id, String reason, Long user_id, String created_at) {
         this.id = id;
         this.reason = reason;
         this.user_id = user_id;
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -46,25 +46,25 @@ public class Annulment {
     
     
 
-    public Integer getProduct_id() {
+    public Long getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(Integer product_id) {
+    public void setProduct_id(Long product_id) {
         this.product_id = product_id;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
     
     
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,11 +76,11 @@ public class Annulment {
         this.reason = reason;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

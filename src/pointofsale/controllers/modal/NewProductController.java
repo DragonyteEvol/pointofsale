@@ -106,7 +106,7 @@ public class NewProductController extends Controller implements ActionListener,F
         return !(name.isBlank() || name.isEmpty());
     }
 
-    private boolean validatePolimorphismRequest(Integer price, Integer required, Integer quantity, Integer minimum) {
+    private boolean validatePolimorphismRequest(Long price, Long required, Long quantity, Long minimum) {
         if (price == 0 || required == 0 || quantity == 0 || minimum == 0) {
             return false;
         } else {
@@ -116,10 +116,10 @@ public class NewProductController extends Controller implements ActionListener,F
 
     private Product createProduct() {
         String name = this.view.txtName.getText();
-        Integer price = (Integer) this.view.txtPrice.getValue();
-        Integer time = (Integer) this.view.txtTime.getValue();
+        Long price = (Long) this.view.txtPrice.getValue();
+        Long time = (Long) this.view.txtTime.getValue();
         Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
-        Integer categorie_id = categorie.getId();
+        Long categorie_id = categorie.getId();
         Product productv = new Product();
         productv.setName(name);
         productv.setPrice(price);
@@ -155,10 +155,10 @@ public class NewProductController extends Controller implements ActionListener,F
         }
 
         if (source == this.thirdView.btnSave) {
-            Integer price = Integer.parseInt(String.valueOf(thirdView.txtPrice.getValue()));
-            Integer required = Integer.parseInt(String.valueOf(thirdView.txtRequired.getValue()));
-            Integer quantity = Integer.parseInt(String.valueOf(thirdView.txtQuantity.getValue()));
-            Integer minimum = Integer.parseInt(String.valueOf(thirdView.txtMinimum.getValue()));
+            Long price = Long.valueOf(String.valueOf(thirdView.txtPrice.getValue()));
+            Long required = Long.valueOf(String.valueOf(thirdView.txtRequired.getValue()));
+            Long quantity = Long.valueOf(String.valueOf(thirdView.txtQuantity.getValue()));
+            Long minimum = Long.valueOf(String.valueOf(thirdView.txtMinimum.getValue()));
             if (validatePolimorphismRequest(price, required, quantity, minimum)) {
                 Categorie categorie = (Categorie) thirdView.cbCategorie.getSelectedItem();
                 Unit unit = (Unit) thirdView.cbUnit.getSelectedItem();
@@ -344,9 +344,9 @@ public class NewProductController extends Controller implements ActionListener,F
 
     class InsertPolimorphis extends Thread {
 
-        private Integer required;
+        private Long required;
 
-        public InsertPolimorphis(Integer required) {
+        public InsertPolimorphis(Long required) {
             this.required = required;
         }
 

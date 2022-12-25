@@ -9,14 +9,14 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class MovementInventory {
-	private Integer id;    
+	private Long id;    
 	private boolean addition;
 	private boolean substraction;
-	private Integer ingredient_id;
-	private Integer quantity;
+	private Long ingredient_id;
+	private Long quantity;
 	private String created_at;
 
-    public MovementInventory(Integer id,Integer ingredient_id,Integer quantity,boolean addition, boolean substraction, String created_at) {
+    public MovementInventory(Long id,Long ingredient_id,Long quantity,boolean addition, boolean substraction, String created_at) {
         this.id = id;
         this.addition = addition;
         this.substraction = substraction;
@@ -27,11 +27,11 @@ public class MovementInventory {
     
     public MovementInventory(){}
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,19 +51,19 @@ public class MovementInventory {
         this.substraction = substraction;
     }
 
-    public Integer getIngredient_id() {
+    public Long getIngredient_id() {
         return ingredient_id;
     }
 
-    public void setIngredient_id(Integer ingredient_id) {
+    public void setIngredient_id(Long ingredient_id) {
         this.ingredient_id = ingredient_id;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

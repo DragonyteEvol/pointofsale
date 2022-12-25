@@ -54,7 +54,7 @@ public class EditPaymentMethodController implements ActionListener,FocusListener
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             String name = view.txtName.getText();
-            Integer virtual = view.cbVirtual.getSelectedIndex();
+            Long virtual = Long.valueOf(view.cbVirtual.getSelectedIndex());
             paymentMethod.setName(name);
             if(virtual==0){
                 paymentMethod.setVirtual(false);

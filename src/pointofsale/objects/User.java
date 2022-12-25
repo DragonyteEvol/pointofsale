@@ -9,7 +9,7 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class User {
-	private Integer id;    
+	private Long id;    
 	private String name;
 	private String mail;
 	private String password;
@@ -21,7 +21,7 @@ public class User {
 
 	}
 
-    public User(Integer id, String name, String mail, String password, boolean admin, boolean waiter,String created_at) {
+    public User(Long id, String name, String mail, String password, boolean admin, boolean waiter,String created_at) {
         this.id = id;
         this.name = name;
         this.mail = mail;
@@ -41,11 +41,11 @@ public class User {
     
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

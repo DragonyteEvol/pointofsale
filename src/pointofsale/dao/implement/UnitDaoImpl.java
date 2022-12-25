@@ -45,17 +45,17 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
 
     // insert row 
     @Override
-    public Integer insert(Unit a) {
+    public Long insert(Unit a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setString(2, a.getPrefix());
-		    statement.executeUpdate();
+		    Long.valueOf(statement.executeUpdate());
 			ResultSet idKey = statement.getGeneratedKeys();
 			if(idKey.next()){
-				rowId = idKey.getInt(1);
+				rowId = idKey.getLong(1);
 			}
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -75,7 +75,7 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -98,7 +98,7 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
             statement.setString(2, a.getPrefix());
-            statement.setInt(3, a.getId());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -175,7 +175,7 @@ public class UnitDaoImpl extends SqlConstructor implements UnitDao {
         String name = set.getString("name");
         String prefix = set.getString("prefix");
         String created_at = set.getString("created_at");
-        Unit unit = new Unit(set.getInt("id"), name, prefix, created_at);
+        Unit unit = new Unit(set.getLong("id"), name, prefix, created_at);
         return unit;
     }
 

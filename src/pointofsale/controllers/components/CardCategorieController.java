@@ -37,15 +37,15 @@ public class CardCategorieController extends CardController implements ActionLis
     
     private void setInfo() {
         this.view.txtName.setText(categorie.getName());
-        if (categorie.getTarget() == 0) {
+        if (categorie.getTarget().equals(Long.valueOf(0))) {
             this.view.txtTarget.setText("Ingrediente");
         }
         
-        if (categorie.getTarget() == 1) {
+        if (categorie.getTarget().equals(Long.valueOf(1))) {
             this.view.txtTarget.setText("Producto");
         }
         
-        if (categorie.getTarget() == 2) {
+        if (categorie.getTarget().equals(Long.valueOf(2))) {
             this.view.txtTarget.setText("Habitacion");
         }
     }

@@ -38,7 +38,7 @@ public class NewEventController implements ActionListener,FocusListener{
         view.setVisible(true);
     }
     
-    private boolean validateRequest(String name,String description,Integer price){
+    private boolean validateRequest(String name,String description,Long price){
         return !(name.isBlank() || description.isBlank() || price==null || price < 0);
     }
 
@@ -49,7 +49,7 @@ public class NewEventController implements ActionListener,FocusListener{
         if(source == view.btnSave){
             String name = view.txtName.getText();
             String description = view.txtDescription.getText();
-            Integer price = Integer.valueOf(String.valueOf(view.txtPrice.getValue()));
+            Long price = Long.valueOf(String.valueOf(view.txtPrice.getValue()));
             if(validateRequest(name, description, price)){
                 EventModel eventModel = new EventModel();
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());

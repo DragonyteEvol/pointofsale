@@ -45,14 +45,14 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
 
     // insert row 
     @Override
-    public Integer insert(MissingStock a) {
+    public Long insert(MissingStock a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getIngredient_id());
+            statement.setLong(1, a.getIngredient_id());
             statement.setBoolean(2, a.isShowed());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -74,7 +74,7 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -95,9 +95,9 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getIngredient_id());
+            statement.setLong(1, a.getIngredient_id());
             statement.setBoolean(2, a.isShowed());
-            statement.setInt(3, a.getId());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -170,21 +170,21 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
 
     // convert ResultSet to objects
     public MissingStock convert(ResultSet set) throws SQLException {
-        Integer ingredient_id = set.getInt("ingredient_id");
+        Long ingredient_id = set.getLong("ingredient_id");
         String created_at = set.getString("created_at");
         boolean showed = set.getBoolean("showed");
-        MissingStock missingStock = new MissingStock(set.getInt("id"), ingredient_id, showed, created_at);
+        MissingStock missingStock = new MissingStock(set.getLong("id"), ingredient_id, showed, created_at);
         return missingStock;
     }
 
     public MissingStock convertNotification(ResultSet set) throws SQLException {
-        Integer ingredient_id = set.getInt("ingredient_id");
+        Long ingredient_id = set.getLong("ingredient_id");
         String created_at = set.getString("created_at");
         String name = set.getString("name");
         String unit = set.getString("unit");
-        Integer quantity = set.getInt("quantity");
+        Long quantity = set.getLong("quantity");
         boolean showed = set.getBoolean("showed");
-        MissingStock missingStock = new MissingStock(set.getInt("id"), ingredient_id, showed, created_at);
+        MissingStock missingStock = new MissingStock(set.getLong("id"), ingredient_id, showed, created_at);
         missingStock.setName(name);
         missingStock.setQuantity(quantity);
         missingStock.setUnit(unit);
@@ -217,13 +217,13 @@ public class MissingStockDaoImpl extends SqlConstructor implements MissingStockD
     }
 
     @Override
-    public MissingStock selectWhereIngredient(Integer ingredient_id) {
+    public MissingStock selectWhereIngredient(Long ingredient_id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         MissingStock a = null;
         try {
             statement = this.connection.prepareStatement(GETWHERE);
-            statement.setInt(1, ingredient_id);
+            statement.setLong(1, ingredient_id);
             set = statement.executeQuery();
             if (set.next()) {
                 a = convert(set);

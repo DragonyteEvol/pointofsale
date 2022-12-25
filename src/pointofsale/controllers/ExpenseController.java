@@ -52,10 +52,10 @@ public class ExpenseController extends Controller implements ActionListener {
         String arrayData[][] = new String[reports.size()][5];
 
         for (int i = 0; i < reports.size(); i++) {
-            arrayData[i][0] = reports.get(i).getId() + "";
+            arrayData[i][0] = Long.toString(reports.get(i).getId()) + "";
             arrayData[i][1] = reports.get(i).getName() + "";
             arrayData[i][2] = MoneyConverter.convertDouble(reports.get(i).getSubvalue()) + "";
-            arrayData[i][3] = reports.get(i).getQuantity() + "";
+            arrayData[i][3] = Long.toString(reports.get(i).getQuantity()) + "";
             arrayData[i][4] = reports.get(i).getCreated_at() + "";
         }
 

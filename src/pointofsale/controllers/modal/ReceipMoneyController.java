@@ -28,9 +28,9 @@ import pointofsale.views.modal.ReceipMoneyView;
 public class ReceipMoneyController implements ActionListener, ChangeListener {
 
     private ReceipMoneyView view;
-    private Integer total;
+    private Long total;
 
-    public ReceipMoneyController(Integer total) {
+    public ReceipMoneyController(Long total) {
         this.total = total;
 
         setResource();
@@ -63,7 +63,7 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
         Object source = ae.getSource();
 
         if (source == this.view.btnSave) {
-            Integer receibed = Integer.parseInt(String.valueOf(view.txtPrice.getValue()));
+            Long receibed = Long.valueOf(String.valueOf(view.txtPrice.getValue()));
             if (total <= receibed) {
                 RoomModel roomModel = new RoomModel();
                 roomModel.cashRegister(total, receibed);
@@ -73,42 +73,42 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
         }
 
         if (source == this.view.btn1000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 1000);
         }
 
         if (source == this.view.btn2000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 2000);
         }
 
         if (source == this.view.btn5000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 5000);
         }
 
         if (source == this.view.btn10000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 10000);
         }
 
         if (source == this.view.btn20000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 20000);
         }
 
         if (source == this.view.btn50000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 50000);
         }
 
         if (source == this.view.btn100000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 100000);
         }
 
         if (source == this.view.btn200000) {
-            Integer price = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long price = Long.valueOf(this.view.txtPrice.getValue().toString());
             this.view.txtPrice.setValue(price + 200000);
         }
     }
@@ -134,7 +134,7 @@ public class ReceipMoneyController implements ActionListener, ChangeListener {
     public void stateChanged(ChangeEvent ce) {
         Object source = ce.getSource();
         if (source == this.view.txtPrice) {
-            Integer pay = Integer.parseInt(this.view.txtPrice.getValue().toString());
+            Long pay = Long.valueOf(this.view.txtPrice.getValue().toString());
             if (total >= pay) {
                 this.view.txtExchange.setText("0");
             } else {

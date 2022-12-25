@@ -44,21 +44,21 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
 
     // insert row 
     @Override
-    public Integer insert(Event a) {
+    public Long insert(Event a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
             statement.setString(2, a.getDescription());
             statement.setString(3, a.getStart_date());
             statement.setString(4, a.getEnd_date());
-            statement.setInt(5, a.getPrice());
+            statement.setLong(5, a.getPrice());
             statement.setBoolean(6, a.isActive());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -78,7 +78,7 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -103,9 +103,9 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
             statement.setString(2, a.getDescription());
             statement.setString(3, a.getStart_date());
             statement.setString(4, a.getEnd_date());
-            statement.setInt(5, a.getPrice());
+            statement.setLong(5, a.getPrice());
             statement.setBoolean(6, a.isActive());
-            statement.setInt(7, a.getId());
+            statement.setLong(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -210,10 +210,10 @@ public class EventDaoImpl extends SqlConstructor implements EventDao {
         String description = set.getString("description");
         String start_date = set.getString("start_date");
         String end_date = set.getString("end_date");
-        Integer price = set.getInt("price");
+        Long price = set.getLong("price");
         String created_at = set.getString("created_at");
         boolean active = set.getBoolean("active");
-        Event event = new Event(set.getInt("id"), name, description, start_date, end_date, price, active,created_at);
+        Event event = new Event(set.getLong("id"), name, description, start_date, end_date, price, active,created_at);
         return event;
     }
 

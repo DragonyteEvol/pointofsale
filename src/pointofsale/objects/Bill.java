@@ -9,26 +9,26 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Bill {
-	private Integer id=null;    
+	private Long id=null;    
 	private String description=null;
-	private Integer client_type=null;
-	private Integer client_id=null;
-        private Integer waiter_id=null;
-	private Integer user_id=null;
-	private Integer people=0;
-	private Integer discount=0;
-	private Integer tip=0;
+	private Long client_type=null;
+	private Long client_id=null;
+        private Long waiter_id=null;
+	private Long user_id=null;
+	private Long people=Long.valueOf(0);
+	private Long discount=Long.valueOf(0);
+	private Long tip=Long.valueOf(0);
 	private boolean courtesy=false;
 	private boolean internal=false;
-	private Integer payment_method_id=null;
+	private Long payment_method_id=null;
 	private boolean housing=false;
 	private boolean printed=false;
-	private Integer total=null;
-	private Integer total_real=null;
-	private Integer event_id=0;
+	private Long total=null;
+	private Long total_real=null;
+	private Long event_id=Long.valueOf(0);
 	private String created_at=null;
 
-    public Bill(Integer id, String description, Integer client_type, Integer client_id,Integer waiter_id,Integer user_id, Integer people, Integer discount, Integer tip, boolean courtesy, boolean internal, Integer payment_method_id, boolean housing, boolean printed, Integer total, Integer total_real, Integer event_id, String created_at) {
+    public Bill(Long id, String description, Long client_type, Long client_id,Long waiter_id,Long user_id, Long people, Long discount, Long tip, boolean courtesy, boolean internal, Long payment_method_id, boolean housing, boolean printed, Long total, Long total_real, Long event_id, String created_at) {
         this.id = id;
         this.description = description;
         this.client_type = client_type;
@@ -53,22 +53,22 @@ public class Bill {
     public Bill() {
     }
 
-    public Integer getWaiter_id() {
+    public Long getWaiter_id() {
         return waiter_id;
     }
 
-    public void setWaiter_id(Integer waiter_id) {
+    public void setWaiter_id(Long waiter_id) {
         this.waiter_id = waiter_id;
     }
     
     
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -80,51 +80,51 @@ public class Bill {
         this.description = description;
     }
 
-    public Integer getClient_type() {
+    public Long getClient_type() {
         return client_type;
     }
 
-    public void setClient_type(Integer client_type) {
+    public void setClient_type(Long client_type) {
         this.client_type = client_type;
     }
 
-    public Integer getClient_id() {
+    public Long getClient_id() {
         return client_id;
     }
 
-    public void setClient_id(Integer client_id) {
+    public void setClient_id(Long client_id) {
         this.client_id = client_id;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Integer getPeople() {
+    public Long getPeople() {
         return people;
     }
 
-    public void setPeople(Integer people) {
+    public void setPeople(Long people) {
         this.people = people;
     }
 
-    public Integer getDiscount() {
+    public Long getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Integer discount) {
+    public void setDiscount(Long discount) {
         this.discount = discount;
     }
 
-    public Integer getTip() {
+    public Long getTip() {
         return tip;
     }
 
-    public void setTip(Integer tip) {
+    public void setTip(Long tip) {
         this.tip = tip;
     }
 
@@ -144,11 +144,11 @@ public class Bill {
         this.internal = internal;
     }
 
-    public Integer getPayment_method_id() {
+    public Long getPayment_method_id() {
         return payment_method_id;
     }
 
-    public void setPayment_method_id(Integer payment_method_id) {
+    public void setPayment_method_id(Long payment_method_id) {
         this.payment_method_id = payment_method_id;
     }
 
@@ -168,27 +168,27 @@ public class Bill {
         this.printed = printed;
     }
 
-    public Integer getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 
-    public Integer getTotal_real() {
+    public Long getTotal_real() {
         return total_real;
     }
 
-    public void setTotal_real(Integer total_real) {
+    public void setTotal_real(Long total_real) {
         this.total_real = total_real;
     }
 
-    public Integer getEvent_id() {
+    public Long getEvent_id() {
         return event_id;
     }
 
-    public void setEvent_id(Integer event_id) {
+    public void setEvent_id(Long event_id) {
         this.event_id = event_id;
     }
 

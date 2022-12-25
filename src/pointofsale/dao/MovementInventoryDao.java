@@ -13,5 +13,5 @@ import pointofsale.objects.MovementInventory;
  */
 public interface MovementInventoryDao extends Dao<MovementInventory, Long>{
     void deleteWhere(String where);
-    List<MovementInventory> getByIngredient(int id);
+    List<MovementInventory> getByIngredient(Long id);
 }

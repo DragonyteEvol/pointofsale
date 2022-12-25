@@ -78,7 +78,7 @@ public class CardReceptionController implements ActionListener,FocusListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        Integer value = Integer.valueOf(view.txtQuantity.getText());
+        Long value = Long.valueOf(view.txtQuantity.getText());
         if (source == view.btnPlus) {
             view.txtQuantity.setText(String.valueOf(value + 1));
         }
@@ -91,7 +91,7 @@ public class CardReceptionController implements ActionListener,FocusListener {
             }
         }
         if (source == confirmView.btnSave) {
-            Integer price = Integer.valueOf(String.valueOf(confirmView.txtPrice.getValue()));
+            Long price = Long.valueOf(String.valueOf(confirmView.txtPrice.getValue()));
             confirmView.dispose();
             ingredient.setQuantity(value);
             ingredient.setPrice(price);

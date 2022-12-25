@@ -43,17 +43,17 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
 
     // insert row 
     @Override
-    public Integer insert(BillRestock a) {
+    public Long insert(BillRestock a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, a.getUser_id());
-            statement.setInt(2, a.getPrice());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getUser_id());
+            statement.setLong(2, a.getPrice());
+            rowId = Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -73,7 +73,7 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -94,9 +94,9 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getUser_id());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getId());
+            statement.setLong(1, a.getUser_id());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -169,10 +169,10 @@ public class BillRestockDaoImpl extends SqlConstructor implements BillRestockDao
 
     // convert ResultSet to objects
     public BillRestock convert(ResultSet set) throws SQLException {
-        Integer user_id = set.getInt("user_id");
-        Integer price = set.getInt("price");
+        Long user_id = set.getLong("user_id");
+        Long price = set.getLong("price");
         String created_at = set.getString("created_at");
-        BillRestock billRestock = new BillRestock(set.getInt("id"), user_id, price, created_at);
+        BillRestock billRestock = new BillRestock(set.getLong("id"), user_id, price, created_at);
         return billRestock;
     }
 }

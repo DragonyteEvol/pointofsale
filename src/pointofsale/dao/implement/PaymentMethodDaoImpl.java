@@ -43,14 +43,14 @@ public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMetho
 
     // insert row 
     @Override
-    public Integer insert(PaymentMethod a) {
+    public Long insert(PaymentMethod a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getName());
             statement.setBoolean(2, a.isVirtual());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -72,7 +72,7 @@ public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMetho
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -95,7 +95,7 @@ public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMetho
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
             statement.setBoolean(2, a.isVirtual());
-            statement.setInt(3, a.getId());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -171,7 +171,7 @@ public class PaymentMethodDaoImpl extends SqlConstructor implements PaymentMetho
         String name = set.getString("name");
         Boolean virtual = set.getBoolean("virtual");
         String created_at = set.getString("created_at");
-        PaymentMethod paymentMethod = new PaymentMethod(set.getInt("id"), name, virtual, created_at);
+        PaymentMethod paymentMethod = new PaymentMethod(set.getLong("id"), name, virtual, created_at);
         return paymentMethod;
     }
 

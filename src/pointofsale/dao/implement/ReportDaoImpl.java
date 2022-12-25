@@ -78,10 +78,10 @@ public class ReportDaoImpl extends SqlConstructor implements ReportDao {
 
     // convert ResultSet to objects
     public Report convert(ResultSet set) throws SQLException {
-        Integer id = set.getInt("id");
+        Long id = set.getLong("id");
         String name = set.getString("name");
-        Integer quantity = set.getInt("quantity");
-        Integer subvalue = set.getInt("subvalue");
+        Long quantity = set.getLong("quantity");
+        Long subvalue = set.getLong("subvalue");
         String created_at = set.getString("updated_at");
         Report report = new Report();
         report.setId(id);

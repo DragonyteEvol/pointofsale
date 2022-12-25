@@ -44,16 +44,16 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
 
     // insert row 
     @Override
-    public Integer insert(BillProduct a) {
+    public Long insert(BillProduct a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getBill_id());
-            statement.setInt(2, a.getProduct_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getSubvalue());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getBill_id());
+            statement.setLong(2, a.getProduct_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getSubvalue());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -75,7 +75,7 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -96,11 +96,11 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getBill_id());
-            statement.setInt(2, a.getProduct_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getSubvalue());
-            statement.setInt(5, a.getId());
+            statement.setLong(1, a.getBill_id());
+            statement.setLong(2, a.getProduct_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getSubvalue());
+            statement.setLong(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -173,19 +173,19 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
 
     // convert ResultSet to objects
     public BillProduct convert(ResultSet set) throws SQLException {
-        Integer bill_id = set.getInt("bill_id");
-        Integer product_id = set.getInt("product_id");
-        Integer quantity = set.getInt("quantity");
-        Integer subvalue = set.getInt("subvalue");
+        Long bill_id = set.getLong("bill_id");
+        Long product_id = set.getLong("product_id");
+        Long quantity = set.getLong("quantity");
+        Long subvalue = set.getLong("subvalue");
         String created_at = set.getString("created_at");
-        BillProduct billProduct = new BillProduct(set.getInt("id"), bill_id, product_id, quantity, subvalue, created_at);
+        BillProduct billProduct = new BillProduct(set.getLong("id"), bill_id, product_id, quantity, subvalue, created_at);
         return billProduct;
     }
     
     // convert ResultSet to objects
     public Product convertProduct(ResultSet set) throws SQLException {
-        Integer quantity = set.getInt("quantity");
-        Integer subvalue = set.getInt("subvalue");
+        Long quantity = set.getLong("quantity");
+        Long subvalue = set.getLong("subvalue");
         String name = set.getString("name");
         Product product = new Product();
         product.setName(name);
@@ -195,13 +195,13 @@ public class BillProductDaoImpl extends SqlConstructor implements BillProductDao
     }
 
     @Override
-    public List<Product> selectProductsByBillId(Integer id) {
+    public List<Product> selectProductsByBillId(Long id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         List<Product> a = new ArrayList<>();
         try {
             statement = this.connection.prepareStatement(GETPRODUCTS);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             set = statement.executeQuery();
             while (set.next()) {
                 a.add(convertProduct(set));

@@ -9,13 +9,13 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class ProductIngredient {
-	private Integer id;    
-	private Integer product_id;
-	private Integer ingredient_id;
-	private Integer quantity;
+	private Long id;    
+	private Long product_id;
+	private Long ingredient_id;
+	private Long quantity;
 	private String created_at;
 
-    public ProductIngredient(Integer id, Integer product_id, Integer ingredient_id, Integer quantity, String created_at) {
+    public ProductIngredient(Long id, Long product_id, Long ingredient_id, Long quantity, String created_at) {
         this.id = id;
         this.product_id = product_id;
         this.ingredient_id = ingredient_id;
@@ -23,35 +23,35 @@ public class ProductIngredient {
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getProduct_id() {
+    public Long getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(Integer product_id) {
+    public void setProduct_id(Long product_id) {
         this.product_id = product_id;
     }
 
-    public Integer getIngredient_id() {
+    public Long getIngredient_id() {
         return ingredient_id;
     }
 
-    public void setIngredient_id(Integer ingredient_id) {
+    public void setIngredient_id(Long ingredient_id) {
         this.ingredient_id = ingredient_id;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 

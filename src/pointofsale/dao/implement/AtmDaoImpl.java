@@ -42,14 +42,14 @@ public class AtmDaoImpl extends SqlConstructor implements AtmDao {
 
     // insert row 
     @Override
-    public Integer insert(Atm a) {
+    public Long insert(Atm a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getUser_id());
-            statement.setInt(2, a.getValue());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getUser_id());
+            statement.setLong(2, a.getValue());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -71,7 +71,7 @@ public class AtmDaoImpl extends SqlConstructor implements AtmDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -92,9 +92,9 @@ public class AtmDaoImpl extends SqlConstructor implements AtmDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getUser_id());
-            statement.setInt(2, a.getValue());
-            statement.setInt(3, a.getId());
+            statement.setLong(1, a.getUser_id());
+            statement.setLong(2, a.getValue());
+            statement.setLong(3, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -167,10 +167,10 @@ public class AtmDaoImpl extends SqlConstructor implements AtmDao {
 
     // convert ResultSet to objects
     public Atm convert(ResultSet set) throws SQLException {
-        Integer user_id = set.getInt("user_id");
-        Integer value = set.getInt("value");
+        Long user_id = set.getLong("user_id");
+        Long value = set.getLong("value");
         String created_at = set.getString("created_at");
-        Atm atm = new Atm(set.getInt("id"), user_id, value, created_at);
+        Atm atm = new Atm(set.getLong("id"), user_id, value, created_at);
         return atm;
     }
 }

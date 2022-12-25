@@ -45,31 +45,31 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
 
     // insert row 
     @Override
-    public Integer insert(Bill a) {
+    public Long insert(Bill a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getDescription());
-            statement.setInt(2, a.getClient_type());
-            statement.setInt(3, a.getClient_id());
-            statement.setInt(4, a.getWaiter_id());
-            statement.setInt(5, a.getUser_id());
-            statement.setInt(6, a.getPeople());
-            statement.setInt(7, a.getDiscount());
-            statement.setInt(8, a.getTip());
+            statement.setLong(2, a.getClient_type());
+            statement.setLong(3, a.getClient_id());
+            statement.setLong(4, a.getWaiter_id());
+            statement.setLong(5, a.getUser_id());
+            statement.setLong(6, a.getPeople());
+            statement.setLong(7, a.getDiscount());
+            statement.setLong(8, a.getTip());
             statement.setBoolean(9, a.isCourtesy());
             statement.setBoolean(10, a.isInternal());
-            statement.setInt(11, a.getPayment_method_id());
+            statement.setLong(11, a.getPayment_method_id());
             statement.setBoolean(12, a.isHousing());
             statement.setBoolean(13, a.isPrinted());
-            statement.setInt(14, a.getTotal());
-            statement.setInt(15, a.getTotal_real());
-            statement.setInt(16, a.getEvent_id());
-            rowId = statement.executeUpdate();
+            statement.setLong(14, a.getTotal());
+            statement.setLong(15, a.getTotal_real());
+            statement.setLong(16, a.getEvent_id());
+            rowId = Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -89,7 +89,7 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -111,22 +111,22 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getDescription());
-            statement.setInt(2, a.getClient_type());
-            statement.setInt(3, a.getClient_id());
-            statement.setInt(4, a.getWaiter_id());
-            statement.setInt(5, a.getUser_id());
-            statement.setInt(6, a.getPeople());
-            statement.setInt(7, a.getDiscount());
-            statement.setInt(8, a.getTip());
+            statement.setLong(2, a.getClient_type());
+            statement.setLong(3, a.getClient_id());
+            statement.setLong(4, a.getWaiter_id());
+            statement.setLong(5, a.getUser_id());
+            statement.setLong(6, a.getPeople());
+            statement.setLong(7, a.getDiscount());
+            statement.setLong(8, a.getTip());
             statement.setBoolean(9, a.isCourtesy());
             statement.setBoolean(10, a.isInternal());
-            statement.setInt(11, a.getPayment_method_id());
+            statement.setLong(11, a.getPayment_method_id());
             statement.setBoolean(12, a.isHousing());
             statement.setBoolean(13, a.isPrinted());
-            statement.setInt(14, a.getTotal());
-            statement.setInt(15, a.getTotal_real());
-            statement.setInt(16, a.getEvent_id());
-            statement.setInt(17, a.getId());
+            statement.setLong(14, a.getTotal());
+            statement.setLong(15, a.getTotal_real());
+            statement.setLong(16, a.getEvent_id());
+            statement.setLong(17, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -200,28 +200,28 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
     // convert ResultSet to objects
     public Bill convert(ResultSet set) throws SQLException {
         String description = set.getString("description");
-        Integer client_type = set.getInt("client_type");
-        Integer client_id = set.getInt("client_id");
-        Integer waiter_id = set.getInt("waiter_id");
-        Integer user_id = set.getInt("user_id");
-        Integer people = set.getInt("people");
-        Integer discount = set.getInt("discount");
-        Integer tip = set.getInt("tip");
+        Long client_type = set.getLong("client_type");
+        Long client_id = set.getLong("client_id");
+        Long waiter_id = set.getLong("waiter_id");
+        Long user_id = set.getLong("user_id");
+        Long people = set.getLong("people");
+        Long discount = set.getLong("discount");
+        Long tip = set.getLong("tip");
         Boolean courtesy = set.getBoolean("courtesy");
         Boolean internal = set.getBoolean("internal");
-        Integer payment_method_id = set.getInt("payment_method_id");
+        Long payment_method_id = set.getLong("payment_method_id");
         Boolean housing = set.getBoolean("housing");
         Boolean printed = set.getBoolean("printed");
-        Integer total = set.getInt("total");
-        Integer total_real = set.getInt("total_real");
-        Integer event_id = set.getInt("event_id");
+        Long total = set.getLong("total");
+        Long total_real = set.getLong("total_real");
+        Long event_id = set.getLong("event_id");
         String created_at = set.getString("created_at");
-        Bill bill = new Bill(set.getInt("id"), description, client_type, client_id, waiter_id,user_id, people, discount, tip, courtesy, internal, payment_method_id, housing, printed, total, total_real, event_id, created_at);
+        Bill bill = new Bill(set.getLong("id"), description, client_type, client_id, waiter_id,user_id, people, discount, tip, courtesy, internal, payment_method_id, housing, printed, total, total_real, event_id, created_at);
         return bill;
     }
 
     @Override
-    public List<Bill> selectByEvent(Integer event_id) {
+    public List<Bill> selectByEvent(Long event_id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         List<Bill> a = new ArrayList<>();
@@ -249,13 +249,13 @@ public class BillDaoImpl extends SqlConstructor implements BillDao {
     }
 
     @Override
-    public Bill selectCollectEvent(Integer event_id) {
+    public Bill selectCollectEvent(Long event_id) {
         PreparedStatement statement = null;
         ResultSet set = null;
         Bill a = null;
         try {
             statement = this.connection.prepareStatement(GETCOLLECTEVENT);
-            statement.setInt(1, event_id);
+            statement.setLong(1, event_id);
             set = statement.executeQuery();
             if (set.next()) {
                 a = convert(set);

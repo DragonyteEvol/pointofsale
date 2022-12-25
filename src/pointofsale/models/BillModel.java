@@ -48,15 +48,15 @@ public class BillModel extends Model {
 
     public void insertRoomOrder(Room room, List<Product> listProduct) {
         BillRoomTmp billRoomTmp = this.dao.getBillRoomTmpDao().selectByRoomId(room.getId());
-        Integer price = 0;
+        Long price = Long.valueOf(0);
         if (billRoomTmp == null) {
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
             }
             billRoomTmp = new BillRoomTmp(null, room.getId(), price, null);
-            Integer id = this.dao.getBillRoomTmpDao().insert(billRoomTmp);
+            Long id = this.dao.getBillRoomTmpDao().insert(billRoomTmp);
             for (Product product : listProduct) {
-                Integer price_product = product.getPrice() * product.getQuantity();
+                Long price_product = product.getPrice() * product.getQuantity();
                 BillRoomProductTmp billRoomProductTmp = new BillRoomProductTmp(null, id, product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillRoomProductTmpDao().insert(billRoomProductTmp);
             }
@@ -64,7 +64,7 @@ public class BillModel extends Model {
             ///////////////////////////
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
-                Integer price_product = product.getPrice() * product.getQuantity();
+                Long price_product = product.getPrice() * product.getQuantity();
                 BillRoomProductTmp billRoomProductTmp = new BillRoomProductTmp(null, billRoomTmp.getId(), product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillRoomProductTmpDao().insert(billRoomProductTmp);
             }
@@ -77,15 +77,15 @@ public class BillModel extends Model {
 
     public void insertTableOrder(Table table, List<Product> listProduct) {
         BillTableTmp billTableTmp = this.dao.getBillTableTmpDao().selectByTableId(table.getId());
-        Integer price = 0;
+        Long price = Long.valueOf(0);
         if (billTableTmp == null) {
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
             }
             billTableTmp = new BillTableTmp(null, table.getId(), price, null);
-            Integer id = this.dao.getBillTableTmpDao().insert(billTableTmp);
+            Long id = this.dao.getBillTableTmpDao().insert(billTableTmp);
             for (Product product : listProduct) {
-                Integer price_product = product.getPrice() * product.getQuantity();
+                Long price_product = product.getPrice() * product.getQuantity();
                 BillTableProductTmp billTableProductTmp = new BillTableProductTmp(null, id, product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillTableProductTmpDao().insert(billTableProductTmp);
             }
@@ -93,7 +93,7 @@ public class BillModel extends Model {
             ///////////////////////////
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
-                Integer price_product = product.getPrice() * product.getQuantity();
+                Long price_product = product.getPrice() * product.getQuantity();
                 BillTableProductTmp billTableProductTmp = new BillTableProductTmp(null, billTableTmp.getId(), product.getId(), product.getQuantity(), price_product, null);
                 this.dao.getBillTableProductTmpDao().insert(billTableProductTmp);
             }
@@ -104,32 +104,32 @@ public class BillModel extends Model {
         this.saveChanges();
     }
 
-    public BillRoomTmp checkBillRoomTmp(Integer id) {
+    public BillRoomTmp checkBillRoomTmp(Long id) {
         BillRoomTmp billRoomTmp = this.dao.getBillRoomTmpDao().selectByRoomId(id);
         this.closeConnection();
         return billRoomTmp;
     }
 
-    public BillTableTmp checkBillTableTmp(Integer id) {
+    public BillTableTmp checkBillTableTmp(Long id) {
         BillTableTmp billTableTmp = this.dao.getBillTableTmpDao().selectByTableId(id);
         this.closeConnection();
         return billTableTmp;
     }
 
-    public List<Product> selectProductsTableTmp(Integer id) {
+    public List<Product> selectProductsTableTmp(Long id) {
         List<Product> products = this.dao.getBillTableTmpDao().selectProducts(id);
         this.closeConnection();
         return products;
     }
 
-    public List<Product> selectProductsRoomTmp(Integer id) {
+    public List<Product> selectProductsRoomTmp(Long id) {
         List<Product> products = this.dao.getBillRoomTmpDao().selectProducts(id);
         this.closeConnection();
         return products;
     }
 
     public void sellProductTable(List<Product> products, Bill bill, BillTableTmp billTableTmp) {
-        Integer bill_id = this.dao.getBillDao().insert(bill);
+        Long bill_id = this.dao.getBillDao().insert(bill);
         bill.setId(bill_id);
         this.dao.getBillCurrentDao().insert(bill);
         for (Product product : products) {
@@ -149,7 +149,7 @@ public class BillModel extends Model {
     }
 
     public void sellProductRoom(List<Product> products, Bill bill, BillRoomTmp billRoomTmp) {
-        Integer bill_id = this.dao.getBillDao().insert(bill);
+        Long bill_id = this.dao.getBillDao().insert(bill);
         bill.setId(bill_id);
         this.dao.getBillCurrentDao().insert(bill);
         for (Product product : products) {
@@ -188,7 +188,7 @@ public class BillModel extends Model {
             this.dao.getMovementInventoryDao().insert(movementInventory);
 
             Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id=" + String.valueOf(productIngredient.getIngredient_id()));
-            Integer quantity = inventory.getQuantity() - (productIngredient.getQuantity() * product.getQuantity());
+            Long quantity = inventory.getQuantity() - (productIngredient.getQuantity() * product.getQuantity());
             inventory.setQuantity(quantity);
             this.dao.getInventoryDao().modify(inventory);
         }
@@ -212,9 +212,9 @@ public class BillModel extends Model {
         return bill;
     }
 
-    public void insertEvent(Event event, PaymentMethod paymentMethod, Integer total, Integer realTotal,Integer waiter_id) {
+    public void insertEvent(Event event, PaymentMethod paymentMethod, Long total, Long realTotal,Long waiter_id) {
         Bill bill = new Bill();
-        bill.setClient_type(3);
+        bill.setClient_type(Long.valueOf(3));
         bill.setClient_id(event.getId());
         bill.setUser_id(UserGlobal.getUser().getId());
         bill.setDescription("event");
@@ -225,7 +225,7 @@ public class BillModel extends Model {
         bill.setTotal(total);
         bill.setTotal_real(realTotal);
 
-        Integer id = this.dao.getBillDao().insert(bill);
+        Long id = this.dao.getBillDao().insert(bill);
         bill.setId(id);
         this.dao.getBillCurrentDao().insert(bill);
 

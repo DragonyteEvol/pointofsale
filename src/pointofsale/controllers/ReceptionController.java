@@ -138,7 +138,7 @@ public class ReceptionController extends Controller implements ActionListener, F
 
         @Override
         public void run() {
-            Integer value = 0;
+            Long value = Long.valueOf(0);
             for (Ingredient ingredientp : listIngredients) {
                 value += ingredientp.getPrice();
             }

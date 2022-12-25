@@ -43,7 +43,7 @@ public class RoomModel extends Model {
         return room;
     }
 
-    public Room selectById(Integer id) {
+    public Room selectById(Long id) {
         Room room = this.dao.getRoomDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return room;
@@ -66,20 +66,20 @@ public class RoomModel extends Model {
         this.saveChanges();
     }
 
-    public void allocateRoom(Room room, PaymentMethod paymentMethod, Integer total,Integer realTotal) {
+    public void allocateRoom(Room room, PaymentMethod paymentMethod, Long total,Long realTotal) {
         Bill bill = new Bill();
-        bill.setWaiter_id(0);
-        bill.setClient_type(1);
+        bill.setWaiter_id(Long.valueOf(0));
+        bill.setClient_type(Long.valueOf(1));
         bill.setClient_id(room.getId());
         bill.setUser_id(UserGlobal.getUser().getId());
         System.out.print(paymentMethod.getId());
         bill.setPayment_method_id(paymentMethod.getId());
         bill.setHousing(true);
-        bill.setEvent_id(0);
+        bill.setEvent_id(Long.valueOf(0));
         bill.setTotal(total);
         bill.setTotal_real(realTotal);
 
-        Integer bill_id=this.dao.getBillDao().insert(bill);
+        Long bill_id=this.dao.getBillDao().insert(bill);
         bill.setId(bill_id);
         this.dao.getBillCurrentDao().insert(bill);
         
@@ -98,7 +98,7 @@ public class RoomModel extends Model {
         saveChanges();
     }
 
-    public void cashRegister(Integer total, Integer receibed) {
+    public void cashRegister(Long total, Long receibed) {
         MoneyBox moneyBox = new MoneyBox();
         moneyBox.setEntry(receibed);
         moneyBox.setOut(receibed - total);

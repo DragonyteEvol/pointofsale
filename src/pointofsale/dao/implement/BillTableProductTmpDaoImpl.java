@@ -43,19 +43,19 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
 
     // insert row 
     @Override
-    public Integer insert(BillTableProductTmp a) {
+    public Long insert(BillTableProductTmp a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, a.getBill_tmp_id());
-            statement.setInt(2, a.getProduct_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getSubvalue());
-            statement.executeUpdate();
+            statement.setLong(1, a.getBill_tmp_id());
+            statement.setLong(2, a.getProduct_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getSubvalue());
+            Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -75,7 +75,7 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -96,11 +96,11 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getBill_tmp_id());
-            statement.setInt(2, a.getProduct_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getSubvalue());
-            statement.setInt(5, a.getId());
+            statement.setLong(1, a.getBill_tmp_id());
+            statement.setLong(2, a.getProduct_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getSubvalue());
+            statement.setLong(5, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -173,11 +173,11 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
     
     
     @Override
-    public void deleteBill(Integer id) {
+    public void deleteBill(Long id) {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETEBILL);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -194,12 +194,12 @@ public class BillTableProductTmpDaoImpl extends SqlConstructor implements pointo
 
     // convert ResultSet to objects
     public BillTableProductTmp convert(ResultSet set) throws SQLException {
-        Integer bill_tmp_id = set.getInt("bill_tmp_id");
-        Integer product_id = set.getInt("product_id");
-        Integer quantity = set.getInt("quantity");
-        Integer subvalue = set.getInt("subvalue");
+        Long bill_tmp_id = set.getLong("bill_tmp_id");
+        Long product_id = set.getLong("product_id");
+        Long quantity = set.getLong("quantity");
+        Long subvalue = set.getLong("subvalue");
         String created_at = set.getString("created_at");
-        BillTableProductTmp billTableProduct = new BillTableProductTmp(set.getInt("id"), bill_tmp_id, product_id, quantity, subvalue, created_at);
+        BillTableProductTmp billTableProduct = new BillTableProductTmp(set.getLong("id"), bill_tmp_id, product_id, quantity, subvalue, created_at);
         return billTableProduct;
     }
 

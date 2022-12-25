@@ -115,13 +115,13 @@ public class CardBillController implements ActionListener {
         public void setProducts() {
             if (bill.isHousing()) {
                 String name = "habitacion " + String.valueOf(bill.getClient_id());
-                Integer price = (bill.getTotal_real());
+                Long price = (bill.getTotal_real());
                 GridLayout gridLayout = new GridLayout(1, 3);
                 view.pnBill.setLayout(gridLayout);
                 view.pnBill.add(new JLabel(name));
                 view.pnBill.add(new JLabel(MoneyConverter.convertDouble(price)));
                 view.pnBill.add(new JLabel(MoneyConverter.convertDouble(price)));
-                products.add(new Product(null, name, price, 0, "", 1, null));
+                products.add(new Product(null, name, price, Long.valueOf(0), "", Long.valueOf(1), null));
             } else {
                 BillModel billModel = new BillModel();
                 products = billModel.selectProductsByBill(bill);
@@ -130,7 +130,7 @@ public class CardBillController implements ActionListener {
 
                 for (Product product : products) {
                     String name = product.getName();
-                    Integer price = (product.getPrice());
+                    Long price = (product.getPrice());
                     String quantity = String.valueOf(product.getQuantity());
                     view.pnBill.add(new JLabel(name));
                     view.pnBill.add(new JLabel(MoneyConverter.convertDouble(price)));

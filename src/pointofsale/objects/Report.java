@@ -9,33 +9,33 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Report {
-    private Integer id,subvalue,value,quantity;
+    private Long id,subvalue,value,quantity;
     private String name,created_at;
 
     public Report() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getSubvalue() {
+    public Long getSubvalue() {
         return subvalue;
     }
 
-    public void setSubvalue(Integer subvalue) {
+    public void setSubvalue(Long subvalue) {
         this.subvalue = subvalue;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 
@@ -55,11 +55,11 @@ public class Report {
         this.created_at = created_at;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
     

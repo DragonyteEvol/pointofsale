@@ -44,16 +44,16 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
 
     // insert row 
     @Override
-    public Integer insert(User a) {
+    public Long insert(User a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getName());
             statement.setString(2, a.getMail());
             statement.setString(3, a.getPassword());
             statement.setBoolean(4, a.isAdmin());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -75,7 +75,7 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -101,7 +101,7 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
             statement.setString(3, a.getPassword());
             statement.setBoolean(4, a.isAdmin());
             statement.setBoolean(5, a.isWaiter());
-            statement.setInt(6, a.getId());
+            statement.setLong(6, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -205,7 +205,7 @@ public class UserDaoImpl extends SqlConstructor implements UserDao {
         Boolean admin = set.getBoolean("admin");
         String created_at = set.getString("created_at");
         Boolean waiter = set.getBoolean("waiter");
-        User user = new User(set.getInt("id"), name, mail, password, admin, waiter,created_at);
+        User user = new User(set.getLong("id"), name, mail, password, admin, waiter,created_at);
         return user;
     }
 

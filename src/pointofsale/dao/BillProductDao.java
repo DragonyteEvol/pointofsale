@@ -13,5 +13,5 @@ import pointofsale.objects.Product;
  * @author dragonyte
  */
 public interface BillProductDao extends Dao<BillProduct, Long>{
-    List<Product> selectProductsByBillId(Integer id);
+    List<Product> selectProductsByBillId(Long id);
 }

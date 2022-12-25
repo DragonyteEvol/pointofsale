@@ -42,15 +42,15 @@ public class CommandDaoImpl extends SqlConstructor implements CommandDao {
 
     // insert row 
     @Override
-    public Integer insert(Command a) {
+    public Long insert(Command a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getClient_type());
-            statement.setInt(2, a.getClient_id());
+            statement.setLong(1, a.getClient_type());
+            statement.setLong(2, a.getClient_id());
             statement.setBoolean(3, a.isPrinted());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -72,7 +72,7 @@ public class CommandDaoImpl extends SqlConstructor implements CommandDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -93,10 +93,10 @@ public class CommandDaoImpl extends SqlConstructor implements CommandDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getClient_type());
-            statement.setInt(2, a.getClient_id());
+            statement.setLong(1, a.getClient_type());
+            statement.setLong(2, a.getClient_id());
             statement.setBoolean(3, a.isPrinted());
-            statement.setInt(4, a.getId());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -169,11 +169,11 @@ public class CommandDaoImpl extends SqlConstructor implements CommandDao {
 
     // convert ResultSet to objects
     public Command convert(ResultSet set) throws SQLException {
-        Integer client_type = set.getInt("client_type");
-        Integer client_id = set.getInt("client_id");
+        Long client_type = set.getLong("client_type");
+        Long client_id = set.getLong("client_id");
         Boolean printed = set.getBoolean("printed");
         String created_at = set.getString("created_at");
-        Command command = new Command(set.getInt("id"), client_type, client_id, printed, created_at);
+        Command command = new Command(set.getLong("id"), client_type, client_id, printed, created_at);
         return command;
     }
 }

@@ -9,16 +9,16 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Event {
-	private Integer id;    
+	private Long id;    
 	private String name;
 	private String description;
 	private String start_date;
 	private String end_date;
-	private Integer price;
+	private Long price;
 	private String created_at;
         private boolean active=false;
 
-    public Event(Integer id, String name, String description, String start_date, String end_date, Integer price, boolean active,String created_at) {
+    public Event(Long id, String name, String description, String start_date, String end_date, Long price, boolean active,String created_at) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -29,11 +29,11 @@ public class Event {
         this.active = active;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -69,11 +69,11 @@ public class Event {
         this.end_date = end_date;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

@@ -9,39 +9,39 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class BillRoomTmp {
-	private Integer id;    
-	private Integer room_id;
-	private Integer total;
+	private Long id;    
+	private Long room_id;
+	private Long total;
 	private String created_at;
 
-    public BillRoomTmp(Integer id, Integer room_id, Integer total, String created_at) {
+    public BillRoomTmp(Long id, Long room_id, Long total, String created_at) {
         this.id = id;
         this.room_id = room_id;
         this.total = total;
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getRoom_id() {
+    public Long getRoom_id() {
         return room_id;
     }
 
-    public void setRoom_id(Integer room_id) {
+    public void setRoom_id(Long room_id) {
         this.room_id = room_id;
     }
 
-    public Integer getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 

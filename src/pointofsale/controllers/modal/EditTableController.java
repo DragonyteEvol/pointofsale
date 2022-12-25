@@ -40,7 +40,7 @@ public class EditTableController implements ActionListener{
         this.view.txtPrice.setValue(table.getPrice());
     }
 
-    public boolean validRequest(Integer capacity) {
+    public boolean validRequest(Long capacity) {
         if (capacity <= 0) {
             return false;
         } else {
@@ -52,10 +52,10 @@ public class EditTableController implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Integer capacity =(Integer) this.view.txtCapacity.getValue();
+            Long capacity =(Long) this.view.txtCapacity.getValue();
                         System.out.print("ok");
 
-            Integer price =Integer.parseInt(String.valueOf(this.view.txtPrice.getValue()));
+            Long price =Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
             if(validRequest(capacity)){
                 table.setCapacity(capacity);
                 table.setPrice(price);

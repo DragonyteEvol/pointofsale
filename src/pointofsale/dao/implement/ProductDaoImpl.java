@@ -45,20 +45,20 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
 
     // insert row 
     @Override
-    public Integer insert(Product a) {
+    public Long insert(Product a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, a.getName());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getTime());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getTime());
             statement.setString(4, a.getRoute_image());
-            statement.setInt(5, a.getCategorie_id());
-            statement.executeUpdate();
+            statement.setLong(5, a.getCategorie_id());
+            Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
-                rowId = idKey.getInt(1);
+                rowId = idKey.getLong(1);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -78,7 +78,7 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -100,11 +100,11 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getName());
-            statement.setInt(2, a.getPrice());
-            statement.setInt(3, a.getTime());
+            statement.setLong(2, a.getPrice());
+            statement.setLong(3, a.getTime());
             statement.setString(4, a.getRoute_image());
-            statement.setInt(5, a.getCategorie_id());
-            statement.setInt(6, a.getId());
+            statement.setLong(5, a.getCategorie_id());
+            statement.setLong(6, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -178,12 +178,12 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
     // convert ResultSet to objects
     public Product convert(ResultSet set) throws SQLException {
         String name = set.getString("name");
-        Integer price = set.getInt("price");
-        Integer time = set.getInt("time");
+        Long price = set.getLong("price");
+        Long time = set.getLong("time");
         String route_image = set.getString("route_image");
-        Integer categorie_id = set.getInt("categorie_id");
+        Long categorie_id = set.getLong("categorie_id");
         String created_at = set.getString("created_at");
-        Product product = new Product(set.getInt("id"), name, price, time, route_image, categorie_id, created_at);
+        Product product = new Product(set.getLong("id"), name, price, time, route_image, categorie_id, created_at);
         return product;
     }
 

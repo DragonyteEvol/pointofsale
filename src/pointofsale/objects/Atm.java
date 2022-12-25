@@ -9,39 +9,39 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Atm {
-	private Integer id;    
-	private Integer user_id;
-	private Integer value;
+	private Long id;    
+	private Long user_id;
+	private Long value;
 	private String created_at;
 
-    public Atm(Integer id, Integer user_id, Integer value, String created_at) {
+    public Atm(Long id, Long user_id, Long value, String created_at) {
         this.id = id;
         this.user_id = user_id;
         this.value = value;
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Integer getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 

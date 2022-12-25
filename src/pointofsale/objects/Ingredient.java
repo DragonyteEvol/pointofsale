@@ -9,19 +9,19 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Ingredient {
-	private Integer id;    
+	private Long id;    
 	private String name;
-	private Integer price;
-	private Integer unit_id;
+	private Long price;
+	private Long unit_id;
         private String unit,categorie;
-	private Integer categorie_id;
-        private Integer quantity;
-        private Integer minimum;
+	private Long categorie_id;
+        private Long quantity;
+        private Long minimum;
 	private String route_image;
 	private String created_at;
         private boolean amenitie;
 
-    public Ingredient(Integer id, String name, Integer price, Integer unit_id, Integer categorie_id,Integer quantity,Integer minimum ,String route_image, String created_at) {
+    public Ingredient(Long id, String name, Long price, Long unit_id, Long categorie_id,Long quantity,Long minimum ,String route_image, String created_at) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -33,7 +33,7 @@ public class Ingredient {
         this.created_at = created_at;
     }
 
-    public Ingredient(Integer id, String name, Integer price, Integer unit_id, Integer categorie_id, String route_image, String created_at) {
+    public Ingredient(Long id, String name, Long price, Long unit_id, Long categorie_id, String route_image, String created_at) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -47,7 +47,7 @@ public class Ingredient {
     
     public Ingredient(){}
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -59,7 +59,7 @@ public class Ingredient {
         this.amenitie = amenitie;
     }
     
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,27 +71,27 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public Integer getUnit_id() {
+    public Long getUnit_id() {
         return unit_id;
     }
 
-    public void setUnit_id(Integer unit_id) {
+    public void setUnit_id(Long unit_id) {
         this.unit_id = unit_id;
     }
 
-    public Integer getCategorie_id() {
+    public Long getCategorie_id() {
         return categorie_id;
     }
 
-    public void setCategorie_id(Integer categorie_id) {
+    public void setCategorie_id(Long categorie_id) {
         this.categorie_id = categorie_id;
     }
 
@@ -111,19 +111,19 @@ public class Ingredient {
         this.created_at = created_at;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
-    public Integer getMinimum() {
+    public Long getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Integer minimum) {
+    public void setMinimum(Long minimum) {
         this.minimum = minimum;
     }
 

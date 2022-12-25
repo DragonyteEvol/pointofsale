@@ -39,7 +39,8 @@ public class EditCategorieController implements ActionListener,FocusListener {
     private void setInfo() {
         this.view.txtTitle.setText("Editar categoria");
         this.view.txtName.setText(categorie.getName());
-        this.view.cbTarget.setSelectedIndex(categorie.getTarget());
+        Integer index = Math.toIntExact(categorie.getTarget());
+        this.view.cbTarget.setSelectedIndex(index);
 
     }
 
@@ -52,7 +53,7 @@ public class EditCategorieController implements ActionListener,FocusListener {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             String name = this.view.txtName.getText();
-            Integer target = this.view.cbTarget.getSelectedIndex();
+            Long target = Long.valueOf(this.view.cbTarget.getSelectedIndex());
             if (validRequest(name)) {
                 this.categorie.setName(name);
                 this.categorie.setTarget(target);

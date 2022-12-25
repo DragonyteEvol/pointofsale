@@ -9,14 +9,14 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class BillRestockIngredient {
-	private Integer id;    
-	private Integer bill_restock_id;
-	private Integer ingredient_id;
-	private Integer quantity;
-	private Integer subvalue;
+	private Long id;    
+	private Long bill_restock_id;
+	private Long ingredient_id;
+	private Long quantity;
+	private Long subvalue;
 	private String created_at;
 
-    public BillRestockIngredient(Integer id, Integer bill_restock_id, Integer ingredient_id, Integer quantity, Integer subvalue, String created_at) {
+    public BillRestockIngredient(Long id, Long bill_restock_id, Long ingredient_id, Long quantity, Long subvalue, String created_at) {
         this.id = id;
         this.bill_restock_id = bill_restock_id;
         this.ingredient_id = ingredient_id;
@@ -25,43 +25,43 @@ public class BillRestockIngredient {
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getBill_restock_id() {
+    public Long getBill_restock_id() {
         return bill_restock_id;
     }
 
-    public void setBill_restock_id(Integer bill_restock_id) {
+    public void setBill_restock_id(Long bill_restock_id) {
         this.bill_restock_id = bill_restock_id;
     }
 
-    public Integer getIngredient_id() {
+    public Long getIngredient_id() {
         return ingredient_id;
     }
 
-    public void setIngredient_id(Integer ingredient_id) {
+    public void setIngredient_id(Long ingredient_id) {
         this.ingredient_id = ingredient_id;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
-    public Integer getSubvalue() {
+    public Long getSubvalue() {
         return subvalue;
     }
 
-    public void setSubvalue(Integer subvalue) {
+    public void setSubvalue(Long subvalue) {
         this.subvalue = subvalue;
     }
 

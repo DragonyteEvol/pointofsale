@@ -9,15 +9,15 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class MissingStock {
-	private Integer id;    
-	private Integer ingredient_id;
+	private Long id;    
+	private Long ingredient_id;
         private boolean showed;
         private String name;
         private String unit;
-        private Integer quantity;
+        private Long quantity;
 	private String created_at;
 
-    public MissingStock(Integer id, Integer ingredient_id,boolean showed ,String created_at) {
+    public MissingStock(Long id, Long ingredient_id,boolean showed ,String created_at) {
         this.id = id;
         this.ingredient_id = ingredient_id;
         this.showed = showed;
@@ -44,11 +44,11 @@ public class MissingStock {
         this.unit = unit;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
@@ -58,19 +58,19 @@ public class MissingStock {
         this.showed = showed;
     }
     
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getIngredient_id() {
+    public Long getIngredient_id() {
         return ingredient_id;
     }
 
-    public void setIngredient_id(Integer ingredient_id) {
+    public void setIngredient_id(Long ingredient_id) {
         this.ingredient_id = ingredient_id;
     }
 

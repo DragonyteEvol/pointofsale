@@ -42,13 +42,13 @@ public class CashDrawerDaoImpl extends SqlConstructor implements CashDrawerDao {
 
     // insert row 
     @Override
-    public Integer insert(CashDrawer a) {
+    public Long insert(CashDrawer a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getPassword());
-            rowId = statement.executeUpdate();
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }

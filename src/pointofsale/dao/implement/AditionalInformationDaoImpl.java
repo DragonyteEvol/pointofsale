@@ -42,18 +42,18 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
 
     // insert row 
     @Override
-    public Integer insert(AditionalInformation a) {
+    public Long insert(AditionalInformation a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getNit());
+            statement.setLong(1, a.getNit());
             statement.setString(2, a.getName());
             statement.setString(3, a.getAddress());
-            statement.setInt(4, a.getPhone());
+            statement.setLong(4, a.getPhone());
             statement.setString(5, a.getLogo_path());
-            statement.setInt(6, a.getDefault_tip());
-            rowId = statement.executeUpdate();
+            statement.setLong(6, a.getDefault_tip());
+            rowId = Long.valueOf(statement.executeUpdate());
 
             if (rowId == 0) {
                 System.out.println("Execute error");
@@ -76,7 +76,7 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -97,13 +97,13 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getNit());
+            statement.setLong(1, a.getNit());
             statement.setString(2, a.getName());
             statement.setString(3, a.getAddress());
-            statement.setInt(4, a.getPhone());
+            statement.setLong(4, a.getPhone());
             statement.setString(5, a.getLogo_path());
-            statement.setInt(6, a.getDefault_tip());
-            statement.setInt(7, a.getId());
+            statement.setLong(6, a.getDefault_tip());
+            statement.setLong(7, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -176,14 +176,14 @@ public class AditionalInformationDaoImpl extends SqlConstructor implements Aditi
 
     // convert ResultSet to objects
     public AditionalInformation convert(ResultSet set) throws SQLException {
-        Integer nit = set.getInt("nit");
+        Long nit = set.getLong("nit");
         String name = set.getString("name");
         String logo_path = set.getString("logo_path");
-        Integer default_tip = set.getInt("default_tip");
+        Long default_tip = set.getLong("default_tip");
         String created_at = set.getString("created_at");
         String address = set.getString("address");
-        Integer phone = set.getInt("phone");
-        AditionalInformation information = new AditionalInformation(set.getInt("id"), nit, name, logo_path, default_tip, created_at);
+        Long phone = set.getLong("phone");
+        AditionalInformation information = new AditionalInformation(set.getLong("id"), nit, name, logo_path, default_tip, created_at);
         information.setAddress(address);
         information.setPhone(phone);
         return information;

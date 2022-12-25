@@ -42,15 +42,15 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
 
     // insert row 
     @Override
-    public Integer insert(Balance a) {
+    public Long insert(Balance a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
             statement.setString(1, a.getReason());
-            statement.setInt(2, a.getValue());
-            statement.setInt(3, a.getUser_id());
-            rowId = statement.executeUpdate();
+            statement.setLong(2, a.getValue());
+            statement.setLong(3, a.getUser_id());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -72,7 +72,7 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -94,9 +94,9 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
         try {
             statement = this.connection.prepareStatement(UPDATE);
             statement.setString(1, a.getReason());
-            statement.setInt(2, a.getValue());
-            statement.setInt(3, a.getUser_id());
-            statement.setInt(4, a.getId());
+            statement.setLong(2, a.getValue());
+            statement.setLong(3, a.getUser_id());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -170,10 +170,10 @@ public class BalanceDaoImpl extends SqlConstructor implements BalanceDao {
     // convert ResultSet to objects
     public Balance convert(ResultSet set) throws SQLException {
         String reason = set.getString("reason");
-        Integer value = set.getInt("value");
-        Integer user_id = set.getInt("user_id");
+        Long value = set.getLong("value");
+        Long user_id = set.getLong("user_id");
         String created_at = set.getString("created_at");
-        Balance balance = new Balance(set.getInt("id"), reason, value, user_id, created_at);
+        Balance balance = new Balance(set.getLong("id"), reason, value, user_id, created_at);
         return balance;
     }
 }

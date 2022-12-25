@@ -72,7 +72,7 @@ public class AnnulmentController extends Controller implements ActionListener {
         if (rowSelected != -1) {
             DefaultTableModel m = (DefaultTableModel) table.getModel();
 
-            Integer id = Integer.parseInt(String.valueOf(table.getValueAt(rowSelected, 0)));
+            Long id = Long.valueOf(String.valueOf(table.getValueAt(rowSelected, 0)));
             m.removeRow(rowSelected);
             Annulment annulment = new Annulment(id, null, null, null);
             AnnulmentModel annulmentModel = new AnnulmentModel();

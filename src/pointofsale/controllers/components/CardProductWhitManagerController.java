@@ -69,14 +69,14 @@ public class CardProductWhitManagerController implements ActionListener, FocusLi
         panel.repaint();
     }
 
-    private boolean validateRequest(Integer quantity) {
+    private boolean validateRequest(Long quantity) {
         return !(quantity <= 0 || quantity == null);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        Integer quantity = Integer.valueOf(this.view.txtQuantity.getText());
+        Long quantity = Long.valueOf(this.view.txtQuantity.getText());
         if (source == this.view.btnAdd) {
             if (validateRequest(quantity)) {
                 product.setQuantity(quantity);
@@ -85,12 +85,12 @@ public class CardProductWhitManagerController implements ActionListener, FocusLi
         }
 
         if (source == this.view.btnPlus) {
-            Integer sum = quantity + 1;
+            Long sum = quantity + 1;
             this.view.txtQuantity.setText(String.valueOf(sum));
         }
 
         if (source == this.view.btnLess) {
-            Integer less = quantity - 1;
+            Long less = quantity - 1;
             this.view.txtQuantity.setText(String.valueOf(less));
         }
     }

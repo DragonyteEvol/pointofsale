@@ -82,10 +82,10 @@ public class RoomManagerController extends ModalController implements ActionList
         this.secondView.txtPrice.setText(MoneyConverter.convertDouble(room.getPrice()));
     }
 
-    private Integer getPrice() {
-        Integer childs = (Integer) this.secondView.txtChild.getValue();
-        Integer old = (Integer) this.secondView.txtOld.getValue();
-        Integer price = this.room.getPrice() + (childs * 50000) + (old * 80000);
+    private Long getPrice() {
+        Integer childs = (int) this.secondView.txtChild.getValue();
+        Integer old = (int) this.secondView.txtOld.getValue();
+        Long price = this.room.getPrice() + (childs * 50000) + (old * 80000);
         return price;
     }
 
@@ -103,7 +103,7 @@ public class RoomManagerController extends ModalController implements ActionList
         }
 
         if (source == this.secondView.btnPay) {
-            Integer total = getPrice();
+            Long total = getPrice();
             this.secondView.dispose();
             OrderPayController orderPayController = new OrderPayController(room, total, true);
 

@@ -29,7 +29,7 @@ public class CategorieModel extends Model {
         this.saveChanges();
     }
     
-    public Categorie selectById(Integer id){
+    public Categorie selectById(Long id){
         Categorie categorie = this.dao.getCategorieDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return categorie;

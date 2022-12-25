@@ -9,12 +9,12 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class PaymentMethod {
-	private Integer id;    
+	private Long id;    
 	private String name;
 	private boolean virtual;
 	private String created_at;
 
-    public PaymentMethod(Integer id, String name, boolean virtual, String created_at) {
+    public PaymentMethod(Long id, String name, boolean virtual, String created_at) {
         this.id = id;
         this.name = name;
         this.virtual = virtual;
@@ -26,11 +26,11 @@ public class PaymentMethod {
     
     
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

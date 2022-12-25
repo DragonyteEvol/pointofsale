@@ -14,7 +14,7 @@ import pointofsale.objects.Table;
  */
 public class EventModel extends Model{
     
-    public Event selectById(Integer id){
+    public Event selectById(Long id){
         Event event = this.dao.getEventDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return event;
@@ -33,7 +33,7 @@ public class EventModel extends Model{
     }
     
     public void insert(Event event,Table table){
-        Integer event_id = this.dao.getEventDao().insert(event);
+        Long event_id = this.dao.getEventDao().insert(event);
         table.setEvent_id(event_id);
         this.dao.getTableDao().modify(table);
         this.saveChanges();

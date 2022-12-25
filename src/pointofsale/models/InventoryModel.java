@@ -31,23 +31,23 @@ public class InventoryModel extends Model {
         this.dao.getMovementInventoryDao().insert(movementInventory);
     }
 
-    public Inventory selectWhereIngredient(Integer id) {
+    public Inventory selectWhereIngredient(Long id) {
         Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id=" + String.valueOf(id));
         this.closeConnection();
         return inventory;
     }
 
-    public void receiptInventory(List<Ingredient> listIngredients, Integer price) {
+    public void receiptInventory(List<Ingredient> listIngredients, Long price) {
         //restock
         BillRestock billRestock = new BillRestock(null, UserGlobal.getUser().getId(), price, null);
-        Integer billRestockId = this.dao.getBillRestockDao().insert(billRestock);
+        Long billRestockId = this.dao.getBillRestockDao().insert(billRestock);
         billRestock.setId(billRestockId);
         this.dao.getBillRestockCurrentDao().insert(billRestock);
         for (Ingredient ingredient : listIngredients) {
             //inventory
             Inventory inventory = this.dao.getInventoryDao().selectWhereIngredient("ingredient_id=" + String.valueOf(ingredient.getId()));
             System.out.println("ASDLKJASLK" + String.valueOf(inventory.getId()));
-            Integer value = inventory.getQuantity() + ingredient.getQuantity();
+            Long value = inventory.getQuantity() + ingredient.getQuantity();
             inventory.setQuantity(value);
             //movement
             MovementInventory movementInventory = new MovementInventory(null, ingredient.getId(), ingredient.getQuantity(), true, false, null);
@@ -63,7 +63,7 @@ public class InventoryModel extends Model {
 
     }
     
-    private void checkMissing(Integer id){
+    private void checkMissing(Long id){
         MissingStock missingStock = this.dao.getMissingStockDao().selectWhereIngredient(id);
         if(missingStock!=null){
             Inventory inventory =this.dao.getInventoryDao().selectMissingIngredient(id);
@@ -105,7 +105,7 @@ public class InventoryModel extends Model {
         this.saveChanges();
     }
     
-    public List<MovementInventory> getMovementInventory(int id){
+    public List<MovementInventory> getMovementInventory(Long id){
         List<MovementInventory> movementInventorys = this.dao.getMovementInventoryDao().getByIngredient(id);
         this.closeConnection();
         return movementInventorys;

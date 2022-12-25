@@ -9,13 +9,13 @@ package pointofsale.objects;
  * @author dragonyte
  */
 public class Command {
-	private Integer id;    
-	private Integer client_type;
-	private Integer client_id;
+	private Long id;    
+	private Long client_type;
+	private Long client_id;
 	private boolean printed;
 	private String created_at;
 
-    public Command(Integer id, Integer client_type, Integer client_id, boolean printed, String created_at) {
+    public Command(Long id, Long client_type, Long client_id, boolean printed, String created_at) {
         this.id = id;
         this.client_type = client_type;
         this.client_id = client_id;
@@ -23,27 +23,27 @@ public class Command {
         this.created_at = created_at;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getClient_type() {
+    public Long getClient_type() {
         return client_type;
     }
 
-    public void setClient_type(Integer client_type) {
+    public void setClient_type(Long client_type) {
         this.client_type = client_type;
     }
 
-    public Integer getClient_id() {
+    public Long getClient_id() {
         return client_id;
     }
 
-    public void setClient_id(Integer client_id) {
+    public void setClient_id(Long client_id) {
         this.client_id = client_id;
     }
 

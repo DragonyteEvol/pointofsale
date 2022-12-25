@@ -15,7 +15,7 @@ import pointofsale.objects.ProductIngredient;
  */
 public class ProductModel extends Model{
     public void insert(Product product,List<Ingredient> listIngredients){
-        Integer id = this.dao.getProductDao().insert(product);
+        Long id = this.dao.getProductDao().insert(product);
         for(Ingredient ingredient: listIngredients){
             ProductIngredient productIngredient = new ProductIngredient(null, id, ingredient.getId(), ingredient.getQuantity(), null);
             this.dao.getProductIngredientDao().insert(productIngredient);
@@ -35,7 +35,7 @@ public class ProductModel extends Model{
         return products;
     }
     
-    public Product selectById(Integer id){
+    public Product selectById(Long id){
         Product product = this.dao.getProductDao().selectById(Long.parseLong(String.valueOf(id)));
         this.closeConnection();
         return product;

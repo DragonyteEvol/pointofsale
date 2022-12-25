@@ -42,7 +42,7 @@ public class NewPaymentMethodController implements ActionListener,FocusListener{
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             String name = view.txtName.getText();
-            Integer virtual = view.cbVirtual.getSelectedIndex();
+            Long virtual = Long.valueOf(view.cbVirtual.getSelectedIndex());
             InsertThread insertThread = new InsertThread(name, virtual);
             insertThread.start();
             view.dispose();
@@ -64,9 +64,9 @@ public class NewPaymentMethodController implements ActionListener,FocusListener{
     class InsertThread extends Thread {
 
         private String name;
-        private Integer virtual;
+        private Long virtual;
 
-        public InsertThread(String name,Integer virtual) {
+        public InsertThread(String name,Long virtual) {
             this.name = name;
             this.virtual = virtual;
         }

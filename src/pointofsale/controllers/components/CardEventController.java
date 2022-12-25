@@ -75,7 +75,7 @@ public class CardEventController implements ActionListener {
 
             event.setActive(false);
             event.setEnd_date(end_date);
-            Integer price = Integer.parseInt(String.valueOf(secondView.txtPrice.getValue()));
+            Long price = Long.valueOf(String.valueOf(secondView.txtPrice.getValue()));
             event.setPrice(price);
             eventModel.update(event);
             TableModel tableModel = new TableModel();
@@ -105,7 +105,7 @@ public class CardEventController implements ActionListener {
         private void setCollect() {
             BillModel billModel = new BillModel();
             Bill bill = billModel.selectCollectEvent(event);
-            Integer value = 0;
+            Long value = Long.valueOf(0);
             if (null != bill) {
                 value = bill.getTotal_real() + event.getPrice();
             }

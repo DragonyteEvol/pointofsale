@@ -42,15 +42,15 @@ public class CommandProductDaoImpl extends SqlConstructor implements CommandProd
 
     // insert row 
     @Override
-    public Integer insert(CommandProduct a) {
+    public Long insert(CommandProduct a) {
         PreparedStatement statement = null;
-        Integer rowId = null;
+        Long rowId = null;
         try {
             statement = this.connection.prepareStatement(INSERT);
-            statement.setInt(1, a.getCommand_id());
-            statement.setInt(2, a.getProduct_id());
-            statement.setInt(3, a.getQuantity());
-            rowId = statement.executeUpdate();
+            statement.setLong(1, a.getCommand_id());
+            statement.setLong(2, a.getProduct_id());
+            statement.setLong(3, a.getQuantity());
+            rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");
             }
@@ -72,7 +72,7 @@ public class CommandProductDaoImpl extends SqlConstructor implements CommandProd
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(DELETE);
-            statement.setInt(1, a.getId());
+            statement.setLong(1, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -93,10 +93,10 @@ public class CommandProductDaoImpl extends SqlConstructor implements CommandProd
         PreparedStatement statement = null;
         try {
             statement = this.connection.prepareStatement(UPDATE);
-            statement.setInt(1, a.getCommand_id());
-            statement.setInt(2, a.getProduct_id());
-            statement.setInt(3, a.getQuantity());
-            statement.setInt(4, a.getId());
+            statement.setLong(1, a.getCommand_id());
+            statement.setLong(2, a.getProduct_id());
+            statement.setLong(3, a.getQuantity());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -169,11 +169,11 @@ public class CommandProductDaoImpl extends SqlConstructor implements CommandProd
 
     // convert ResultSet to objects
     public CommandProduct convert(ResultSet set) throws SQLException {
-        Integer command_id = set.getInt("command_id");
-        Integer product_id = set.getInt("product_id");
-        Integer quantity = set.getInt("quantity");
+        Long command_id = set.getLong("command_id");
+        Long product_id = set.getLong("product_id");
+        Long quantity = set.getLong("quantity");
         String created_at = set.getString("created_at");
-        CommandProduct commandProduct = new CommandProduct(set.getInt("id"), command_id, product_id, quantity, created_at);
+        CommandProduct commandProduct = new CommandProduct(set.getLong("id"), command_id, product_id, quantity, created_at);
         return commandProduct;
     }
 
