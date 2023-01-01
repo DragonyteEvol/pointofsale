@@ -28,6 +28,9 @@ public class UnitView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -40,14 +43,28 @@ public class UnitView extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Unidades de medida");
+        jPanel6.add(jLabel1);
+
+        jPanel1.add(jPanel6);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnCreate.setBackground(new java.awt.Color(0, 102, 255));
         btnCreate.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
         btnCreate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 5));
-        jPanel1.add(btnCreate);
+        jPanel5.add(btnCreate);
+
+        jPanel1.add(jPanel5);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -63,6 +80,8 @@ public class UnitView extends javax.swing.JPanel {
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
+        pnUnits.setBackground(new java.awt.Color(255, 255, 255));
+        pnUnits.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         pnUnits.setLayout(new java.awt.GridLayout(0, 6, 5, 5));
         jScrollPane1.setViewportView(pnUnits);
 
@@ -76,10 +95,13 @@ public class UnitView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCreate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnUnits;
     public javax.swing.JTextField txtSearch;

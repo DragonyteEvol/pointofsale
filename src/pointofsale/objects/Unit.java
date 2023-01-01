@@ -20,6 +20,9 @@ public class Unit {
         this.prefix = prefix;
         this.created_at = created_at;
     }
+    
+    public Unit(){
+    }
 
     
 

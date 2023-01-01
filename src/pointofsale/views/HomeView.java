@@ -36,6 +36,7 @@ public class HomeView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnCashDrawerUnlock = new javax.swing.JButton();
+        btnCalculator = new javax.swing.JButton();
         btnNotifications = new javax.swing.JButton();
         btnUser = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -88,6 +89,18 @@ public class HomeView extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnCashDrawerUnlock);
+
+        btnCalculator.setBackground(new java.awt.Color(102, 153, 255));
+        btnCalculator.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        btnCalculator.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalculator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/calculator-regular-24.png"))); // NOI18N
+        btnCalculator.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        btnCalculator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalculatorActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnCalculator);
 
         btnNotifications.setBackground(new java.awt.Color(102, 153, 255));
         btnNotifications.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -178,6 +191,10 @@ public class HomeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCashDrawerUnlockActionPerformed
 
+    private void btnCalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalculatorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,6 +232,7 @@ public class HomeView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAccounting;
+    public javax.swing.JButton btnCalculator;
     public javax.swing.JButton btnCashDrawerUnlock;
     public javax.swing.JButton btnConfig;
     public javax.swing.JButton btnDashboard;

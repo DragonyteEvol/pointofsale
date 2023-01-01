@@ -28,6 +28,9 @@ public class IngredientView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -41,12 +44,26 @@ public class IngredientView extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(204, 255, 204));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Ingredientes");
+        jPanel5.add(jLabel1);
+
+        jPanel1.add(jPanel5);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnCreate.setBackground(new java.awt.Color(102, 153, 255));
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("+");
-        jPanel1.add(btnCreate);
+        jPanel4.add(btnCreate);
+
+        jPanel1.add(jPanel4);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -65,6 +82,7 @@ public class IngredientView extends javax.swing.JPanel {
 
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        pnIngredients.setBackground(new java.awt.Color(255, 255, 255));
         pnIngredients.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
         pnIngredients.setLayout(new java.awt.GridLayout(0, 5, 5, 5));
         jScrollPane1.setViewportView(pnIngredients);
@@ -79,9 +97,12 @@ public class IngredientView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCreate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel pnIngredients;
     public javax.swing.JPanel pnnn1234;

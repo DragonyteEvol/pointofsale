@@ -49,9 +49,11 @@ public class XView extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel1.setText("Metodo de pago:");
         jPanel2.add(jLabel1);
 
+        txtPaymentMethod.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtPaymentMethod.setText("PaymentMethod");
         jPanel2.add(txtPaymentMethod);
 
@@ -59,9 +61,11 @@ public class XView extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel3.setText("Cantidad Facturada:");
         jPanel3.add(jLabel3);
 
+        txtPrice.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtPrice.setText("Price");
         jPanel3.add(txtPrice);
 

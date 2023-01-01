@@ -74,6 +74,7 @@ public class CardBillView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         txtPrice.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -82,6 +83,7 @@ public class CardBillView extends javax.swing.JPanel {
 
         jPanel3.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
+        pnBill.setBackground(new java.awt.Color(255, 255, 255));
         pnBill.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 1, 3, 1));
         pnBill.setForeground(new java.awt.Color(204, 204, 204));
         jPanel3.add(pnBill, java.awt.BorderLayout.CENTER);

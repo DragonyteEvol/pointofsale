@@ -31,6 +31,7 @@ public class GenerateXYView extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnAcept = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         rbX = new javax.swing.JRadioButton();
         rbY = new javax.swing.JRadioButton();
@@ -42,42 +43,48 @@ public class GenerateXYView extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnCancel.setBackground(new java.awt.Color(235, 71, 71));
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancelar");
+        btnCancel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jPanel2.add(btnCancel);
 
+        btnAcept.setBackground(new java.awt.Color(235, 71, 71));
+        btnAcept.setForeground(new java.awt.Color(255, 255, 255));
         btnAcept.setText("Aceptar");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(btnCancel)
-                .addGap(103, 103, 103)
-                .addComponent(btnAcept)
-                .addContainerGap(140, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel)
-                    .addComponent(btnAcept))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        btnAcept.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jPanel2.add(btnAcept);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 0, 20, 0));
+
+        rbX.setBackground(new java.awt.Color(252, 252, 252));
         rbX.setText("Generar X");
         rbX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbXActionPerformed(evt);
             }
         });
+        jPanel3.add(rbX);
 
+        rbY.setBackground(new java.awt.Color(252, 252, 252));
         rbY.setSelected(true);
         rbY.setText("Generar Y");
         rbY.addActionListener(new java.awt.event.ActionListener() {
@@ -85,29 +92,9 @@ public class GenerateXYView extends javax.swing.JDialog {
                 rbYActionPerformed(evt);
             }
         });
+        jPanel3.add(rbY);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
-                .addComponent(rbX)
-                .addGap(62, 62, 62)
-                .addComponent(rbY)
-                .addGap(147, 147, 147))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbX)
-                    .addComponent(rbY))
-                .addContainerGap(133, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+        jPanel1.add(jPanel3, java.awt.BorderLayout.NORTH);
 
         getContentPane().add(jPanel1);
 
@@ -170,6 +157,7 @@ public class GenerateXYView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     public javax.swing.JRadioButton rbX;
     public javax.swing.JRadioButton rbY;
     // End of variables declaration//GEN-END:variables

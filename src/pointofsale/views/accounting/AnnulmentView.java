@@ -27,6 +27,9 @@ public class AnnulmentView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
         pnAnnulments = new javax.swing.JPanel();
 
@@ -35,12 +38,26 @@ public class AnnulmentView extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel1.setLayout(new java.awt.GridLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Cancelaciones");
+        jPanel3.add(jLabel1);
+
+        jPanel1.add(jPanel3);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnDelete.setBackground(new java.awt.Color(102, 153, 255));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/eraser-solid-24.png"))); // NOI18N
-        jPanel1.add(btnDelete);
+        jPanel2.add(btnDelete);
+
+        jPanel1.add(jPanel2);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -52,7 +69,10 @@ public class AnnulmentView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnDelete;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel pnAnnulments;
     // End of variables declaration//GEN-END:variables
 }

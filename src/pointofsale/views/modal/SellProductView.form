@@ -352,9 +352,7 @@
                       <SubComponents>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
                           <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="null"/>
-                            </Property>
+                            <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                           </Properties>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>

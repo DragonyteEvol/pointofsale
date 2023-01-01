@@ -55,7 +55,7 @@ public class FormatXYView extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtType.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtType.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         txtType.setText("Type");
         jPanel5.add(txtType);
 
@@ -64,10 +64,11 @@ public class FormatXYView extends javax.swing.JDialog {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel4.setText("Fecha: ");
         jPanel6.add(jLabel4);
 
+        txtDate.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtDate.setText("Date");
         jPanel6.add(txtDate);
 
@@ -80,10 +81,11 @@ public class FormatXYView extends javax.swing.JDialog {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel1.setText("Sumatoria:");
         jPanel7.add(jLabel1);
 
+        txtSum.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtSum.setText("Sum");
         jPanel7.add(txtSum);
 
@@ -92,10 +94,11 @@ public class FormatXYView extends javax.swing.JDialog {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel2.setText("Perdidas:");
         jPanel8.add(jLabel2);
 
+        txtLost.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtLost.setText("Lost");
         jPanel8.add(txtLost);
 
@@ -103,10 +106,11 @@ public class FormatXYView extends javax.swing.JDialog {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel3.setText("Total:");
         jPanel9.add(jLabel3);
 
+        txtTotal.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtTotal.setText("Total");
         jPanel9.add(txtTotal);
 

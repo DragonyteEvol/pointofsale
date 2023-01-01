@@ -27,6 +27,9 @@ public class TipView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         pnGraph = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -42,11 +45,22 @@ public class TipView extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
-        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Propinas");
+        jPanel3.add(jLabel2);
+
+        jPanel1.add(jPanel3);
+
+        jPanel2.setLayout(new java.awt.GridLayout());
 
         pnGraph.setBackground(new java.awt.Color(255, 255, 255));
         pnGraph.setLayout(new javax.swing.BoxLayout(pnGraph, javax.swing.BoxLayout.LINE_AXIS));
-        jPanel1.add(pnGraph);
+        jPanel2.add(pnGraph);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -61,12 +75,14 @@ public class TipView extends javax.swing.JPanel {
         jPanel5.add(txtTotal);
 
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setText("total de propinas");
+        jLabel1.setText("Total de propinas");
         jPanel5.add(jLabel1);
 
         jPanel4.add(jPanel5);
 
-        jPanel1.add(jPanel4);
+        jPanel2.add(jPanel4);
+
+        jPanel1.add(jPanel2);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
@@ -85,7 +101,10 @@ public class TipView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     public javax.swing.JPanel pnContent;

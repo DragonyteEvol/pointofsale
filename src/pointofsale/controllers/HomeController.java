@@ -44,6 +44,7 @@ public class HomeController extends Controller implements ActionListener {
         this.view.btnConfig.addActionListener(this);
         this.view.btnNotifications.addActionListener(this);
         this.view.btnCashDrawerUnlock.addActionListener(this);
+        this.view.btnCalculator.addActionListener(this);
         HomeController.notificationButton = view.btnNotifications;
         HomeController.staticView = view;
 
@@ -122,6 +123,9 @@ public class HomeController extends Controller implements ActionListener {
         
         if (source == this.view.btnCashDrawerUnlock) {
             CashDrawerController cashDrawerController = new CashDrawerController();
+        }
+        if(source == this.view.btnCalculator){
+            Conversor conversor = new Conversor();
         }
     }
 

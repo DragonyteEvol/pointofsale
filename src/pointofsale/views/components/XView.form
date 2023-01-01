@@ -47,11 +47,17 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Sans" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Metodo de pago:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtPaymentMethod">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Sans" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="PaymentMethod"/>
               </Properties>
               <AuxValues>
@@ -71,11 +77,17 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Sans" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cantidad Facturada:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtPrice">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Sans" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Price"/>
               </Properties>
               <AuxValues>

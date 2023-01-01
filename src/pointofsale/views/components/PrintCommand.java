@@ -60,7 +60,7 @@ public class PrintCommand extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtTarget.setFont(new java.awt.Font("sansserif", 1, 45)); // NOI18N
+        txtTarget.setFont(new java.awt.Font("Lucida Sans", 1, 45)); // NOI18N
         txtTarget.setText("Table Room");
         jPanel4.add(txtTarget);
 
@@ -72,9 +72,11 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel3.setText("Mesero: ");
         jPanel6.add(jLabel3);
 
+        txtWaiter.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtWaiter.setText("Waiter");
         jPanel6.add(txtWaiter);
 
@@ -83,9 +85,11 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel2.setText("Fecha: ");
         jPanel3.add(jLabel2);
 
+        txtDate.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtDate.setText("Date");
         jPanel3.add(txtDate);
 

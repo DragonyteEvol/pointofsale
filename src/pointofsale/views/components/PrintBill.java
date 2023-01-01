@@ -65,7 +65,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtCompany.setFont(new java.awt.Font("sansserif", 1, 23)); // NOI18N
+        txtCompany.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         txtCompany.setText("Company Name");
         jPanel5.add(txtCompany);
 
@@ -73,6 +73,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtNit.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtNit.setText("Nit");
         jPanel6.add(txtNit);
 
@@ -80,6 +81,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtAddress.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtAddress.setText("Address");
         jPanel7.add(txtAddress);
 
@@ -87,6 +89,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtPhone.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtPhone.setText("Phone");
         jPanel8.add(txtPhone);
 
@@ -94,6 +97,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtWorker.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtWorker.setText("Worker");
         jPanel9.add(txtWorker);
 
@@ -101,6 +105,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtWaiter.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtWaiter.setText("Waiter");
         jPanel1.add(txtWaiter);
 
@@ -115,7 +120,7 @@ public class PrintBill extends javax.swing.JDialog {
         flowLayout1.setAlignOnBaseline(true);
         jPanel10.setLayout(flowLayout1);
 
-        txtBill.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
+        txtBill.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         txtBill.setText("Factura ");
         jPanel10.add(txtBill);
 
@@ -124,9 +129,11 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
+        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel7.setText("Fecha:");
         jPanel11.add(jLabel7);
 
+        txtDate.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtDate.setText("Date");
         jPanel11.add(txtDate);
 
@@ -143,9 +150,11 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        jLabel9.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel9.setText("Subtotal:");
         jPanel13.add(jLabel9);
 
+        txtSubtotal.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtSubtotal.setText("Subtotal");
         jPanel13.add(txtSubtotal);
 
@@ -153,11 +162,11 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel11.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel11.setText("Total:");
         jPanel14.add(jLabel11);
 
-        txtTotal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         txtTotal.setText("Total");
         jPanel14.add(txtTotal);
 

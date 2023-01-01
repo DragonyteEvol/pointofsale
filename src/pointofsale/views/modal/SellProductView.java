@@ -168,7 +168,7 @@ public class SellProductView extends javax.swing.JDialog {
 
         jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.LINE_AXIS));
 
-        jScrollPane4.setBorder(null);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         pnCategories.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane4.setViewportView(pnCategories);

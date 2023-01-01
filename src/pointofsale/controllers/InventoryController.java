@@ -97,7 +97,12 @@ public class InventoryController extends Controller implements ActionListener, F
             arrayData[i][4] = ingredients.get(i).getUnit() + "";
             arrayData[i][5] = ingredients.get(i).getCreated_at() + "";
         }
-        setIngredient(ingredients.get(0));
+        try{
+            setIngredient(ingredients.get(0));
+        }catch(Exception e){
+            e.getMessage();
+        }
+        
         return arrayData;
     }
     

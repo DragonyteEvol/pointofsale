@@ -46,7 +46,6 @@ public class CardIngredientView extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnEdit.setBackground(new java.awt.Color(51, 102, 255));
@@ -68,8 +67,6 @@ public class CardIngredientView extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
         txtName.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         txtName.setText("Name");
         jPanel3.add(txtName);
@@ -77,10 +74,6 @@ public class CardIngredientView extends javax.swing.JPanel {
         jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         txtImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/cheese-solid-24.png"))); // NOI18N
         jPanel6.add(txtImage);
@@ -91,7 +84,6 @@ public class CardIngredientView extends javax.swing.JPanel {
 
         jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -103,7 +95,6 @@ public class CardIngredientView extends javax.swing.JPanel {
 
         jPanel7.add(jPanel8);
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
