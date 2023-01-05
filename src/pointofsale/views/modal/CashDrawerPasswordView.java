@@ -68,6 +68,7 @@ public class CashDrawerPasswordView extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtPassword.setBackground(new java.awt.Color(249, 249, 249));
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 50)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(153, 153, 153));
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);

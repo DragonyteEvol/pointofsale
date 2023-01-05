@@ -37,19 +37,15 @@ public class EditUserView extends javax.swing.JDialog {
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMail = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cbType = new javax.swing.JComboBox<>();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
 
@@ -85,10 +81,10 @@ public class EditUserView extends javax.swing.JDialog {
         jLabel1.setText("Nombre:");
         jPanel5.add(jLabel1);
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setForeground(new java.awt.Color(153, 153, 153));
         txtName.setBorder(null);
         jPanel5.add(txtName);
-        jPanel5.add(jSeparator1);
 
         jPanel3.add(jPanel5);
 
@@ -100,10 +96,10 @@ public class EditUserView extends javax.swing.JDialog {
         jLabel2.setText("Correo electronico:");
         jPanel6.add(jLabel2);
 
+        txtMail.setBackground(new java.awt.Color(249, 249, 249));
         txtMail.setForeground(new java.awt.Color(153, 153, 153));
         txtMail.setBorder(null);
         jPanel6.add(txtMail);
-        jPanel6.add(jSeparator2);
 
         jPanel3.add(jPanel6);
 
@@ -115,10 +111,10 @@ public class EditUserView extends javax.swing.JDialog {
         jLabel3.setText("Contraseña:");
         jPanel7.add(jLabel3);
 
+        txtPassword.setBackground(new java.awt.Color(249, 249, 249));
         txtPassword.setForeground(new java.awt.Color(153, 153, 153));
         txtPassword.setBorder(null);
         jPanel7.add(txtPassword);
-        jPanel7.add(jSeparator3);
 
         jPanel3.add(jPanel7);
 
@@ -140,7 +136,6 @@ public class EditUserView extends javax.swing.JDialog {
             }
         });
         jPanel8.add(cbType);
-        jPanel8.add(jSeparator4);
 
         jPanel3.add(jPanel8);
 
@@ -227,10 +222,6 @@ public class EditUserView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     public javax.swing.JTextField txtMail;
     public javax.swing.JTextField txtName;
     public javax.swing.JTextField txtPassword;

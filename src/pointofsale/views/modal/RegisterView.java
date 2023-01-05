@@ -52,7 +52,7 @@ public class RegisterView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -79,6 +79,7 @@ public class RegisterView extends javax.swing.JDialog {
         jLabel2.setText("Nombre");
         jPanel2.add(jLabel2);
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setBorder(null);
         jPanel2.add(txtName);
@@ -93,6 +94,7 @@ public class RegisterView extends javax.swing.JDialog {
         jLabel3.setText("Email");
         jPanel8.add(jLabel3);
 
+        txtMail.setBackground(new java.awt.Color(249, 249, 249));
         txtMail.setForeground(new java.awt.Color(102, 102, 102));
         txtMail.setBorder(null);
         jPanel8.add(txtMail);
@@ -107,6 +109,7 @@ public class RegisterView extends javax.swing.JDialog {
         jLabel4.setText("Contraseña");
         jPanel9.add(jLabel4);
 
+        txtPassword.setBackground(new java.awt.Color(249, 249, 249));
         txtPassword.setForeground(new java.awt.Color(102, 102, 102));
         txtPassword.setText("jPasswordField1");
         txtPassword.setBorder(null);

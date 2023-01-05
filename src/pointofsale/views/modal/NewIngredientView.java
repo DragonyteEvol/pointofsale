@@ -41,7 +41,6 @@ public class NewIngredientView extends javax.swing.JDialog {
         jPanel8 = new javax.swing.JPanel();
         txtImage = new javax.swing.JTextField();
         btnImage = new javax.swing.JButton();
-        jSeparator7 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -51,24 +50,19 @@ public class NewIngredientView extends javax.swing.JDialog {
         jPanel12 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel13 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel14 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtStock = new javax.swing.JSpinner();
-        jSeparator5 = new javax.swing.JSeparator();
         jPanel11 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtMinimum = new javax.swing.JSpinner();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel16 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cbUnit = new javax.swing.JComboBox<>();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel17 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         cbCategorie = new javax.swing.JComboBox<>();
@@ -115,6 +109,7 @@ public class NewIngredientView extends javax.swing.JDialog {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new java.awt.GridLayout(2, 0));
 
+        txtImage.setBackground(new java.awt.Color(249, 249, 249));
         txtImage.setForeground(new java.awt.Color(153, 153, 153));
         txtImage.setBorder(null);
         jPanel8.add(txtImage);
@@ -124,7 +119,6 @@ public class NewIngredientView extends javax.swing.JDialog {
         btnImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/image-add-solid-24.png"))); // NOI18N
         btnImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(235, 71, 71), 5));
         jPanel8.add(btnImage);
-        jPanel8.add(jSeparator7);
 
         jPanel18.add(jPanel8);
 
@@ -173,10 +167,10 @@ public class NewIngredientView extends javax.swing.JDialog {
         jLabel2.setText("Nombre");
         jPanel12.add(jLabel2);
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setForeground(new java.awt.Color(153, 153, 153));
         txtName.setBorder(null);
         jPanel12.add(txtName);
-        jPanel12.add(jSeparator1);
 
         jPanel10.add(jPanel12);
 
@@ -191,7 +185,6 @@ public class NewIngredientView extends javax.swing.JDialog {
         txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         txtPrice.setBorder(null);
         jPanel13.add(txtPrice);
-        jPanel13.add(jSeparator3);
 
         jPanel10.add(jPanel13);
 
@@ -206,7 +199,6 @@ public class NewIngredientView extends javax.swing.JDialog {
         txtStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtStock.setBorder(null);
         jPanel14.add(txtStock);
-        jPanel14.add(jSeparator5);
 
         jPanel10.add(jPanel14);
 
@@ -227,7 +219,6 @@ public class NewIngredientView extends javax.swing.JDialog {
         txtMinimum.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtMinimum.setBorder(null);
         jPanel15.add(txtMinimum);
-        jPanel15.add(jSeparator2);
 
         jPanel11.add(jPanel15);
 
@@ -243,7 +234,6 @@ public class NewIngredientView extends javax.swing.JDialog {
         cbUnit.setForeground(new java.awt.Color(153, 153, 153));
         cbUnit.setBorder(null);
         jPanel16.add(cbUnit);
-        jPanel16.add(jSeparator4);
 
         jPanel11.add(jPanel16);
 
@@ -356,12 +346,6 @@ public class NewIngredientView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JTextField txtImage;
     public javax.swing.JSpinner txtMinimum;

@@ -37,13 +37,11 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         cbVirtual = new javax.swing.JComboBox<>();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -84,10 +82,10 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setForeground(new java.awt.Color(153, 153, 153));
         txtName.setBorder(null);
         jPanel7.add(txtName);
-        jPanel7.add(jSeparator1);
 
         jPanel3.add(jPanel7);
 
@@ -115,7 +113,6 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
         cbVirtual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "fisico", "virtual" }));
         cbVirtual.setBorder(null);
         jPanel9.add(cbVirtual);
-        jPanel9.add(jSeparator2);
 
         jPanel4.add(jPanel9);
 
@@ -200,8 +197,6 @@ public class NewPaymentMethodView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTextField txtName;
     public javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables

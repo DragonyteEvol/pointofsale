@@ -34,7 +34,6 @@ public class ConfirmEventMoney extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -61,8 +60,8 @@ public class ConfirmEventMoney extends javax.swing.JDialog {
         jPanel3.add(jLabel2);
 
         txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5000));
+        txtPrice.setBorder(null);
         jPanel3.add(txtPrice);
-        jPanel3.add(jSeparator1);
 
         jPanel2.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -145,7 +144,6 @@ public class ConfirmEventMoney extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JSpinner txtPrice;
     // End of variables declaration//GEN-END:variables
 }

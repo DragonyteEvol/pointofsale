@@ -35,7 +35,6 @@ public class EditMoney extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtValue = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
 
@@ -65,11 +64,11 @@ public class EditMoney extends javax.swing.JDialog {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
+        txtValue.setBackground(new java.awt.Color(249, 249, 249));
         txtValue.setForeground(new java.awt.Color(153, 153, 153));
         txtValue.setText("0");
-        txtValue.setBorder(null);
+        txtValue.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
         jPanel3.add(txtValue);
-        jPanel3.add(jSeparator1);
 
         jPanel1.add(jPanel3);
 
@@ -139,7 +138,6 @@ public class EditMoney extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 }

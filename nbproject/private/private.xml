@@ -12,15 +12,6 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/modal/SellProductView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/components/CardIngredientView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/accounting/ReportView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/inventory/IngredientView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/components/CardUnitView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/accounting/TipView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/inventory/UnitView.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/controllers/InventoryController.java</file>
-            <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/controllers/components/ScrollBar.java</file>
             <file>file:/C:/Users/sebastian.yanez/Downloads/pointofsale/src/pointofsale/views/modal/LoginView.java</file>
         </group>
     </open-files>

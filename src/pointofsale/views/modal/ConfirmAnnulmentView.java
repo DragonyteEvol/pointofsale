@@ -61,9 +61,11 @@ public class ConfirmAnnulmentView extends javax.swing.JDialog {
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
 
+        txtReason.setBackground(new java.awt.Color(249, 249, 249));
         txtReason.setColumns(20);
         txtReason.setLineWrap(true);
         txtReason.setRows(5);
+        txtReason.setBorder(null);
         jScrollPane1.setViewportView(txtReason);
 
         jPanel4.add(jScrollPane1);

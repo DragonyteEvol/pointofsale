@@ -35,20 +35,16 @@ public class NewEventView extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtDate = new com.toedter.calendar.JDateChooser();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
@@ -82,9 +78,9 @@ public class NewEventView extends javax.swing.JDialog {
         jLabel2.setText("Nombre del evento");
         jPanel3.add(jLabel2);
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setBorder(null);
         jPanel3.add(txtName);
-        jPanel3.add(jSeparator3);
 
         jPanel1.add(jPanel3);
 
@@ -95,14 +91,15 @@ public class NewEventView extends javax.swing.JDialog {
         jLabel3.setText("Descripcion");
         jPanel4.add(jLabel3);
 
+        txtDescription.setBackground(new java.awt.Color(249, 249, 249));
         txtDescription.setColumns(20);
         txtDescription.setForeground(new java.awt.Color(102, 102, 102));
         txtDescription.setLineWrap(true);
         txtDescription.setRows(5);
+        txtDescription.setBorder(null);
         jScrollPane1.setViewportView(txtDescription);
 
         jPanel4.add(jScrollPane1);
-        jPanel4.add(jSeparator2);
 
         jPanel1.add(jPanel4);
 
@@ -116,7 +113,6 @@ public class NewEventView extends javax.swing.JDialog {
         txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5000));
         txtPrice.setBorder(null);
         jPanel5.add(txtPrice);
-        jPanel5.add(jSeparator1);
 
         jPanel1.add(jPanel5);
 
@@ -127,9 +123,9 @@ public class NewEventView extends javax.swing.JDialog {
         jLabel5.setText("Fecha");
         jPanel6.add(jLabel5);
 
+        txtDate.setBackground(new java.awt.Color(249, 249, 249));
         txtDate.setDateFormatString("dd/MM/yyyy");
         jPanel6.add(txtDate);
-        jPanel6.add(jSeparator4);
 
         jPanel1.add(jPanel6);
 
@@ -212,10 +208,6 @@ public class NewEventView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     public com.toedter.calendar.JDateChooser txtDate;
     public javax.swing.JTextArea txtDescription;
     public javax.swing.JTextField txtName;

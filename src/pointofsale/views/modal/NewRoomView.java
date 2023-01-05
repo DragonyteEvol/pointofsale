@@ -35,20 +35,16 @@ public class NewRoomView extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtCapacity = new javax.swing.JSpinner();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         cbCategorie = new javax.swing.JComboBox<>();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
@@ -85,7 +81,6 @@ public class NewRoomView extends javax.swing.JDialog {
         txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 10000));
         txtPrice.setBorder(null);
         jPanel4.add(txtPrice);
-        jPanel4.add(jSeparator4);
 
         jPanel2.add(jPanel4);
 
@@ -101,7 +96,6 @@ public class NewRoomView extends javax.swing.JDialog {
         txtCapacity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtCapacity.setBorder(null);
         jPanel5.add(txtCapacity);
-        jPanel5.add(jSeparator3);
 
         jPanel2.add(jPanel5);
 
@@ -114,6 +108,7 @@ public class NewRoomView extends javax.swing.JDialog {
         jLabel4.setText("Descripcion");
         jPanel6.add(jLabel4);
 
+        txtDescription.setBackground(new java.awt.Color(249, 249, 249));
         txtDescription.setColumns(20);
         txtDescription.setForeground(new java.awt.Color(102, 102, 102));
         txtDescription.setLineWrap(true);
@@ -122,7 +117,6 @@ public class NewRoomView extends javax.swing.JDialog {
         jScrollPane1.setViewportView(txtDescription);
 
         jPanel6.add(jScrollPane1);
-        jPanel6.add(jSeparator2);
 
         jPanel2.add(jPanel6);
 
@@ -139,7 +133,6 @@ public class NewRoomView extends javax.swing.JDialog {
         cbCategorie.setForeground(new java.awt.Color(102, 102, 102));
         cbCategorie.setBorder(null);
         jPanel7.add(cbCategorie);
-        jPanel7.add(jSeparator1);
 
         jPanel2.add(jPanel7);
 
@@ -224,10 +217,6 @@ public class NewRoomView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     public javax.swing.JSpinner txtCapacity;
     public javax.swing.JTextArea txtDescription;
     public javax.swing.JSpinner txtPrice;

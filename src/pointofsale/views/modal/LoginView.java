@@ -86,9 +86,14 @@ public class LoginView extends javax.swing.JDialog {
         jLabel2.setText("Usuario");
         jPanel9.add(jLabel2);
 
+        txtUser.setBackground(new java.awt.Color(249, 249, 249));
         txtUser.setForeground(new java.awt.Color(102, 102, 102));
-        txtUser.setText("xebas27@hotmail.com");
         txtUser.setBorder(null);
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
         jPanel9.add(txtUser);
 
         jPanel2.add(jPanel9);
@@ -102,8 +107,8 @@ public class LoginView extends javax.swing.JDialog {
         jLabel3.setText("Contraseña");
         jPanel10.add(jLabel3);
 
+        txtPassword.setBackground(new java.awt.Color(249, 249, 249));
         txtPassword.setForeground(new java.awt.Color(102, 102, 102));
-        txtPassword.setText("1234");
         txtPassword.setBorder(null);
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +227,10 @@ public class LoginView extends javax.swing.JDialog {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserActionPerformed
 
     /**
      * @param args the command line arguments

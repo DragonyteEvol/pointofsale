@@ -47,13 +47,11 @@ public class RentRoomView extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         txtOld = new javax.swing.JSpinner();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel13 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         txtChild = new javax.swing.JSpinner();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel10 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -136,9 +134,6 @@ public class RentRoomView extends javax.swing.JDialog {
         txtOld.setBorder(null);
         jPanel16.add(txtOld);
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel16.add(jSeparator1);
-
         jPanel12.add(jPanel16);
 
         jPanel9.add(jPanel12);
@@ -159,7 +154,6 @@ public class RentRoomView extends javax.swing.JDialog {
         txtChild.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtChild.setBorder(null);
         jPanel18.add(txtChild);
-        jPanel18.add(jSeparator2);
 
         jPanel13.add(jPanel18);
 
@@ -206,11 +200,11 @@ public class RentRoomView extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
         );
 
         pack();
@@ -286,8 +280,6 @@ public class RentRoomView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JSpinner txtChild;
     public javax.swing.JTextField txtDate;
     public javax.swing.JSpinner txtOld;

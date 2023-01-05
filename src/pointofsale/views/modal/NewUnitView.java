@@ -35,11 +35,9 @@ public class NewUnitView extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPrefix = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
 
@@ -68,6 +66,7 @@ public class NewUnitView extends javax.swing.JDialog {
         jLabel2.setText("Nombre");
         jPanel3.add(jLabel2);
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setForeground(new java.awt.Color(153, 153, 153));
         txtName.setBorder(null);
         txtName.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +75,6 @@ public class NewUnitView extends javax.swing.JDialog {
             }
         });
         jPanel3.add(txtName);
-        jPanel3.add(jSeparator1);
 
         jPanel1.add(jPanel3);
 
@@ -88,10 +86,10 @@ public class NewUnitView extends javax.swing.JDialog {
         jLabel3.setText("Prefijo");
         jPanel4.add(jLabel3);
 
+        txtPrefix.setBackground(new java.awt.Color(249, 249, 249));
         txtPrefix.setForeground(new java.awt.Color(153, 153, 153));
         txtPrefix.setBorder(null);
         jPanel4.add(txtPrefix);
-        jPanel4.add(jSeparator2);
 
         jPanel1.add(jPanel4);
 
@@ -119,7 +117,7 @@ public class NewUnitView extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, Short.MAX_VALUE)
         );
 
         pack();
@@ -184,8 +182,6 @@ public class NewUnitView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTextField txtName;
     public javax.swing.JTextField txtPrefix;
     public javax.swing.JLabel txtTitle;

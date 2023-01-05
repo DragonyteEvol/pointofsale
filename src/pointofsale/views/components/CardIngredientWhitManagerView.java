@@ -33,9 +33,12 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         txtName = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         btnLess = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
         txtQuantity = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         btnPlus = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -43,6 +46,7 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(221, 221, 221));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        setLayout(new java.awt.BorderLayout());
 
         jPanel3.setForeground(new java.awt.Color(51, 102, 255));
 
@@ -50,6 +54,8 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
         jPanel5.add(txtImage);
 
         jPanel3.add(jPanel5);
+
+        add(jPanel3, java.awt.BorderLayout.NORTH);
 
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
@@ -64,6 +70,7 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
         jPanel4.add(jPanel1);
 
         jPanel6.setForeground(new java.awt.Color(51, 102, 255));
+        jPanel6.setLayout(new java.awt.BorderLayout());
 
         btnLess.setBackground(new java.awt.Color(51, 102, 255));
         btnLess.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
@@ -74,11 +81,19 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
                 btnLessActionPerformed(evt);
             }
         });
-        jPanel7.add(btnLess);
+        jPanel8.add(btnLess);
+
+        jPanel6.add(jPanel8, java.awt.BorderLayout.WEST);
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jPanel9.setLayout(new java.awt.GridLayout(2, 0));
 
         txtQuantity.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         txtQuantity.setText("0");
-        jPanel7.add(txtQuantity);
+        txtQuantity.setBorder(null);
+        jPanel9.add(txtQuantity);
+
+        jPanel6.add(jPanel9, java.awt.BorderLayout.CENTER);
 
         btnPlus.setBackground(new java.awt.Color(51, 102, 255));
         btnPlus.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
@@ -92,7 +107,9 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
         btnAdd.setText(">");
         jPanel7.add(btnAdd);
 
-        jPanel6.add(jPanel7);
+        jPanel10.add(jPanel7);
+
+        jPanel6.add(jPanel10, java.awt.BorderLayout.EAST);
 
         jPanel4.add(jPanel6);
 
@@ -106,20 +123,7 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
 
         jPanel4.add(jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessActionPerformed
@@ -132,12 +136,15 @@ public class CardIngredientWhitManagerView extends javax.swing.JPanel {
     public javax.swing.JButton btnLess;
     public javax.swing.JButton btnPlus;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     public javax.swing.JLabel txtImage;
     public javax.swing.JLabel txtName;
     public javax.swing.JTextField txtQuantity;

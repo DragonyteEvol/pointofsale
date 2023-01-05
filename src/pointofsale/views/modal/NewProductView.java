@@ -40,19 +40,15 @@ public class NewProductView extends javax.swing.JDialog {
         jPanel8 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtTime = new javax.swing.JSpinner();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel11 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         cbCategorie = new javax.swing.JComboBox<>();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel14 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtImage = new javax.swing.JTextField();
@@ -100,11 +96,9 @@ public class NewProductView extends javax.swing.JDialog {
         jLabel2.setText("Nombre:");
         jPanel8.add(jLabel2);
 
+        txtName.setBackground(new java.awt.Color(249, 249, 249));
         txtName.setBorder(null);
         jPanel8.add(txtName);
-
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.add(jSeparator1);
 
         jPanel2.add(jPanel8);
 
@@ -121,9 +115,6 @@ public class NewProductView extends javax.swing.JDialog {
         txtPrice.setBorder(null);
         jPanel9.add(txtPrice);
 
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.add(jSeparator2);
-
         jPanel2.add(jPanel9);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,9 +130,6 @@ public class NewProductView extends javax.swing.JDialog {
         txtTime.setBorder(null);
         jPanel10.add(txtTime);
 
-        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.add(jSeparator3);
-
         jPanel2.add(jPanel10);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -156,9 +144,6 @@ public class NewProductView extends javax.swing.JDialog {
         cbCategorie.setBackground(new java.awt.Color(252, 251, 251));
         cbCategorie.setBorder(null);
         jPanel11.add(cbCategorie);
-
-        jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel11.add(jSeparator4);
 
         jPanel2.add(jPanel11);
 
@@ -328,10 +313,6 @@ public class NewProductView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JPanel pnDinamic;

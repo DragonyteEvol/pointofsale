@@ -64,7 +64,7 @@ public class Calculator extends javax.swing.JDialog {
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -109,11 +109,12 @@ public class Calculator extends javax.swing.JDialog {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 5, 0));
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel9.setLayout(new javax.swing.BoxLayout(jPanel9, javax.swing.BoxLayout.LINE_AXIS));
 
-        txtQuantity.setBorder(null);
+        txtQuantity.setBackground(new java.awt.Color(249, 249, 249));
+        txtQuantity.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
         txtQuantity.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtQuantity.setText("0");
         jPanel9.add(txtQuantity);
@@ -123,6 +124,7 @@ public class Calculator extends javax.swing.JDialog {
         jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
 
         cbUnitA.setBackground(new java.awt.Color(252, 252, 252));
+        cbUnitA.setBorder(null);
         jPanel10.add(cbUnitA);
 
         jPanel6.add(jPanel10);
@@ -131,7 +133,7 @@ public class Calculator extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 5, 0));
-        jPanel5.setLayout(new java.awt.GridLayout());
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
@@ -145,6 +147,7 @@ public class Calculator extends javax.swing.JDialog {
         jPanel12.setLayout(new javax.swing.BoxLayout(jPanel12, javax.swing.BoxLayout.LINE_AXIS));
 
         cbUnitB.setBackground(new java.awt.Color(252, 252, 252));
+        cbUnitB.setBorder(null);
         jPanel12.add(cbUnitB);
 
         jPanel5.add(jPanel12);

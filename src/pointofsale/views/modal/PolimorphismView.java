@@ -35,28 +35,22 @@ public class PolimorphismView extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JSpinner();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cbUnit = new javax.swing.JComboBox<>();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel9 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         cbCategorie = new javax.swing.JComboBox<>();
-        jSeparator5 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JSpinner();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel11 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtRequired = new javax.swing.JSpinner();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel12 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtMinimum = new javax.swing.JSpinner();
-        jSeparator6 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -100,7 +94,6 @@ public class PolimorphismView extends javax.swing.JPanel {
 
         txtPrice.setBorder(null);
         jPanel7.add(txtPrice);
-        jPanel7.add(jSeparator1);
 
         jPanel5.add(jPanel7);
 
@@ -115,7 +108,6 @@ public class PolimorphismView extends javax.swing.JPanel {
         cbUnit.setBackground(new java.awt.Color(252, 252, 252));
         cbUnit.setBorder(null);
         jPanel8.add(cbUnit);
-        jPanel8.add(jSeparator3);
 
         jPanel5.add(jPanel8);
 
@@ -130,7 +122,6 @@ public class PolimorphismView extends javax.swing.JPanel {
         cbCategorie.setBackground(new java.awt.Color(252, 252, 252));
         cbCategorie.setBorder(null);
         jPanel9.add(cbCategorie);
-        jPanel9.add(jSeparator5);
 
         jPanel5.add(jPanel9);
 
@@ -151,7 +142,6 @@ public class PolimorphismView extends javax.swing.JPanel {
         txtQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtQuantity.setBorder(null);
         jPanel10.add(txtQuantity);
-        jPanel10.add(jSeparator2);
 
         jPanel6.add(jPanel10);
 
@@ -166,7 +156,6 @@ public class PolimorphismView extends javax.swing.JPanel {
         txtRequired.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         txtRequired.setBorder(null);
         jPanel11.add(txtRequired);
-        jPanel11.add(jSeparator4);
 
         jPanel6.add(jPanel11);
 
@@ -181,7 +170,6 @@ public class PolimorphismView extends javax.swing.JPanel {
         txtMinimum.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 5));
         txtMinimum.setBorder(null);
         jPanel12.add(txtMinimum);
-        jPanel12.add(jSeparator6);
 
         jPanel6.add(jPanel12);
 
@@ -213,12 +201,6 @@ public class PolimorphismView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     public javax.swing.JSpinner txtMinimum;
     public javax.swing.JSpinner txtPrice;
     public javax.swing.JSpinner txtQuantity;
