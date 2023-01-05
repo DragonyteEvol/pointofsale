@@ -32,8 +32,8 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
     final String DELETE = "delete from " + TABLE + " where id=?";
     final String GETALL = "select products.*,categories.name as categorie from " + TABLE + " inner join categories on categories.id=products.categorie_id";
     final String GETONE = "select * from " + TABLE + " where id=?";
-    final String GETWHERE = "select * from " + TABLE + " where ";
-    final String SEARCH = "SELECT products.*,categories.name as unit from " + TABLE + " Inner join categories on categories.id=products.categorie_id where products.name like ";
+    final String GETWHERE = "select products.*,categories.name as categorie from  "+TABLE+" inner join categories on categories.id=products.categorie_id WHERE ";
+    final String SEARCH = "SELECT products.*,categories.name as categorie from " + TABLE + " Inner join categories on categories.id=products.categorie_id where products.name like ";
 
     private Connection connection;
 
@@ -184,6 +184,9 @@ public class ProductDaoImpl extends SqlConstructor implements ProductDao {
         Long categorie_id = set.getLong("categorie_id");
         String created_at = set.getString("created_at");
         Product product = new Product(set.getLong("id"), name, price, time, route_image, categorie_id, created_at);
+        if(set.getString("categorie") != null){
+            product.setCategorie(set.getString("categorie"));
+        }
         return product;
     }
 

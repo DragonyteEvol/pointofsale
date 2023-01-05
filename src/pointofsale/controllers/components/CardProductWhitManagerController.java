@@ -46,6 +46,7 @@ public class CardProductWhitManagerController implements ActionListener, FocusLi
     //ozuna
     private void setInfo() {
         this.view.txtName.setText("<html><p>" + product.getName() + "</p></html>");
+        this.view.txtCategorie.setText(product.getCategorie());
         if (!"".equals(product.getRoute_image())) {
             ImageIcon icon = new ImageIcon(product.getRoute_image());
             Image img = icon.getImage();

@@ -43,7 +43,7 @@ public class CardTableView extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        setLayout(new java.awt.BorderLayout());
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 
@@ -95,7 +95,7 @@ public class CardTableView extends javax.swing.JPanel {
 
         jPanel5.add(jPanel6, java.awt.BorderLayout.SOUTH);
 
-        add(jPanel5, java.awt.BorderLayout.CENTER);
+        add(jPanel5);
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -17,6 +17,7 @@ public class Product {
 	private Long categorie_id;
 	private String created_at;
         private Long quantity=null;
+        private String categorie;
 
     public Product() {
     }
@@ -36,6 +37,15 @@ public class Product {
     public Long getId() {
         return id;
     }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+    
 
     public void setId(Long id) {
         this.id = id;

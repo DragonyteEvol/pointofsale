@@ -39,7 +39,7 @@ public class CardIngredientController extends CardController implements ActionLi
     private void setInfo() {
         this.view.txtName.setText(ingredient.getName());
         this.view.txtPrice.setText(MoneyConverter.convertDouble(ingredient.getPrice()));
-        this.view.txtUnit.setText(Long.toString(ingredient.getUnit_id()));
+        this.view.txtUnit.setText(ingredient.getUnit());
         if (!"".equals(ingredient.getRoute_image())) {
             ImageIcon icon = new ImageIcon(ingredient.getRoute_image());
             Image img = icon.getImage();

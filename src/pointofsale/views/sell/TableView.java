@@ -53,7 +53,7 @@ public class TableView extends javax.swing.JPanel {
         pnTables.setBackground(new java.awt.Color(255, 255, 255));
         pnTables.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnTables.setPreferredSize(size());
-        pnTables.setLayout(new java.awt.GridLayout(0, 4));
+        pnTables.setLayout(new java.awt.GridLayout(0, 4, 4, 4));
         jScrollPane1.setViewportView(pnTables);
 
         jPanel2.add(jScrollPane1);

@@ -38,7 +38,7 @@ public class CardProductController extends CardController implements ActionListe
     private void setInfo() {
         this.view.txtName.setText(product.getName());
         this.view.txtPrice.setText(MoneyConverter.convertDouble(product.getPrice()));
-        this.view.txtCategorie.setText(Long.toString((product.getTime())));
+        this.view.txtCategorie.setText(product.getCategorie());
         if (!"".equals(product.getRoute_image())) {
             ImageIcon icon = new ImageIcon(product.getRoute_image());
             Image img = icon.getImage();

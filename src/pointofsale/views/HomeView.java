@@ -123,7 +123,7 @@ public class HomeView extends javax.swing.JFrame {
         jPanel2.add(jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel6.setLayout(new java.awt.GridLayout());
 
         btnDashboard.setBackground(new java.awt.Color(252, 252, 252));
         btnDashboard.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N

@@ -66,6 +66,7 @@ public class InfoController implements ActionListener,FocusListener {
             view.txtAddress.setText(aditionalInformation.getAddress());
             view.txtPhone.setText(aditionalInformation.getPhone() + "");
             view.txtRoute.setText(aditionalInformation.getLogo_path() + "");
+            view.txtTip.setValue(aditionalInformation.getDefault_tip());
         }
     }
 
