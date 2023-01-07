@@ -5,7 +5,6 @@
 package pointofsale.controllers;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,18 +19,9 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import pointofsale.MoneyConverter;
-import pointofsale.UserGlobal;
-import pointofsale.models.ChartController;
-import pointofsale.models.InventoryModel;
 import pointofsale.models.TipModel;
-import pointofsale.objects.Atm;
-import pointofsale.objects.MoneyBox;
-import pointofsale.objects.Report;
 import pointofsale.objects.Tip;
-import pointofsale.views.accounting.ReportView;
 import pointofsale.views.accounting.TipView;
-import pointofsale.views.modal.EditMoney;
-import pointofsale.views.modal.WarningUser;
 
 /**
  *

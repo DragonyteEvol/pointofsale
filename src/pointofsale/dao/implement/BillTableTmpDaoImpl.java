@@ -16,7 +16,6 @@ import pointofsale.dao.BillTableTmpDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.BillTableTmp;
 import pointofsale.objects.Product;
-import pointofsale.objects.Report;
 
 /**
  *

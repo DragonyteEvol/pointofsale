@@ -18,15 +18,10 @@ import javax.print.PrintServiceLookup;
 import javax.print.SimpleDoc;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
-import pointofsale.UserGlobal;
-import pointofsale.controllers.HomeController;
 import pointofsale.controllers.ModalController;
 import pointofsale.models.CashDrawerModel;
-import pointofsale.models.UserModel;
 import pointofsale.objects.CashDrawer;
-import pointofsale.objects.User;
 import pointofsale.views.modal.CashDrawerPasswordView;
-import pointofsale.views.modal.LoginView;
 
 /**
  *

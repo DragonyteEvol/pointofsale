@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.List;
 import pointofsale.dao.TipDao;
 import pointofsale.database.SqlConstructor;
-import pointofsale.objects.Atm;
 import pointofsale.objects.Tip;
 
 /**

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import pointofsale.dao.BillRestockCurrentDao;
-import pointofsale.dao.BillRestockDao;
 import pointofsale.database.SqlConstructor;
 import pointofsale.objects.BillRestock;
 

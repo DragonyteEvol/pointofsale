@@ -16,13 +16,10 @@ import pointofsale.models.InventoryModel;
 import pointofsale.objects.Atm;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillRestock;
-import pointofsale.objects.Inventory;
 import pointofsale.views.components.FormatXYView;
 import pointofsale.views.components.XView;
-import pointofsale.views.menu.InventoryMenu;
 import pointofsale.views.modal.ConfirmDeleteView;
 import pointofsale.views.modal.GenerateXYView;
-import pointofsale.views.modal.WarningUser;
 
 /**
  *

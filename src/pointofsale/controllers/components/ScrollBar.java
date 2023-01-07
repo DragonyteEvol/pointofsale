@@ -10,7 +10,6 @@ package pointofsale.controllers.components;
  */
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 import javax.swing.plaf.basic.*;
 
 public class ScrollBar {

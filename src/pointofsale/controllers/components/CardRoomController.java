@@ -12,7 +12,6 @@ import pointofsale.MoneyConverter;
 import pointofsale.controllers.modal.EditRoomController;
 import pointofsale.controllers.modal.RoomManagerController;
 import pointofsale.models.BillModel;
-import pointofsale.models.RoomModel;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.Room;
 import pointofsale.views.components.CardRoomView;

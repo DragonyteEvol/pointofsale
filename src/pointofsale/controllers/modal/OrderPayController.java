@@ -31,7 +31,6 @@ import pointofsale.models.RoomModel;
 import pointofsale.models.UserModel;
 import pointofsale.objects.AditionalInformation;
 import pointofsale.objects.Annulment;
-import pointofsale.objects.Atm;
 import pointofsale.objects.Bill;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;

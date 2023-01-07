@@ -18,7 +18,7 @@ public class SqlConstructor {
 		String INSERT= "insert into "+table+"(";
 		String values=") values(";
 		for(String c:colums){
-			if(c==colums.get(colums.size()-1)){
+			if(c.equals(colums.get(colums.size()-1))){
 				INSERT +=c;
 				values += "?";
 			}else{
@@ -35,7 +35,7 @@ public class SqlConstructor {
 	// String UPDATE= "update "+TABLE+" set name=?,prefix=? where id=?";
     String UPDATE= "update "+table+" set ";
 		for(String c: colums){
-			if(c==colums.get(colums.size()-1)){
+			if(c.equals(colums.get(colums.size()-1))){
 				UPDATE += c + "=?";
 			}else{
 				UPDATE+= c + "=?,";

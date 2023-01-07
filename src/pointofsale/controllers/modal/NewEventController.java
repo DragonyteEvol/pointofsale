@@ -11,7 +11,6 @@ import java.awt.event.FocusListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import pointofsale.models.EventModel;
-import pointofsale.models.TableModel;
 import pointofsale.objects.Event;
 import pointofsale.objects.Table;
 import pointofsale.views.modal.NewEventView;

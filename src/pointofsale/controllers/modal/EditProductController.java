@@ -16,7 +16,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import pointofsale.controllers.components.CardIngredientInfoController;
 import pointofsale.controllers.components.CardIngredientWhitManagerController;
 import pointofsale.models.CategorieModel;
