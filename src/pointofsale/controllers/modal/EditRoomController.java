@@ -76,7 +76,7 @@ public class EditRoomController implements ActionListener,FocusListener {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
             Long price = Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
-            Long capacity = (Long) this.view.txtCapacity.getValue();
+            Long capacity = Long.valueOf(String.valueOf(this.view.txtCapacity.getValue()));
             if (validRequest(capacity, price)) {
                 String description = this.view.txtDescription.getText();
                 Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();

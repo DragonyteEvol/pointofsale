@@ -62,8 +62,8 @@ public class NewRoomController extends ModalController implements ActionListener
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Long price = (Long) this.view.txtPrice.getValue();
-            Long capacity = (Long) this.view.txtCapacity.getValue();
+            Long price = Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
+            Long capacity = Long.valueOf(String.valueOf(this.view.txtCapacity.getValue()));
             if (validRequest(capacity, price)) {
                 String description = this.view.txtDescription.getText();
                 Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();

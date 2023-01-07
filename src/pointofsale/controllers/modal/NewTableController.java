@@ -41,8 +41,8 @@ public class NewTableController extends ModalController implements ActionListene
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Long capacity =(Long) this.view.txtCapacity.getValue();
-            Long price =(Long) this.view.txtPrice.getValue();
+            Long capacity = Long.valueOf(String.valueOf(view.txtCapacity.getValue()));
+            Long price = Long.valueOf(String.valueOf(view.txtPrice.getValue()));
             if(validRequest(capacity)){
                 InsertThread insertThread = new InsertThread(price, capacity);
                 insertThread.start();

@@ -89,6 +89,11 @@ public class ExpenseController extends Controller implements ActionListener {
                 reports = reportModel.select(reportModel.EXPENSEUNIQUE);
                 construcTable(reports);
             }
+            if (view.cbTime.getSelectedItem().equals("DIA")) {
+                ReportModel reportModel = new ReportModel();
+                reports = reportModel.select(reportModel.EXPENSEDAY);
+                construcTable(reports);
+            }
         }
         
         if(source == view.btnExport){

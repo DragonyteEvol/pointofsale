@@ -105,8 +105,8 @@ public class EditProductController implements ActionListener,FocusListener {
 
     private Product createProduct(Product productv) {
         String name = this.view.txtName.getText();
-        Long price = (Long) this.view.txtPrice.getValue();
-        Long time = (Long) this.view.txtTime.getValue();
+        Long price = Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
+        Long time = Long.valueOf(String.valueOf(this.view.txtTime.getValue()));
         Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
         String route_image = this.view.txtImage.getText();
         Long categorie_id = categorie.getId();

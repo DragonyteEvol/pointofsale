@@ -60,7 +60,7 @@ public class DefaultAccountingView extends javax.swing.JPanel {
         jPanel2.add(btnExport);
 
         cbTime.setBackground(new java.awt.Color(252, 252, 252));
-        cbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPECIFICO", "AGRUPADO", "MES", "AÑO" }));
+        cbTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ESPECIFICO", "AGRUPADO", "DIA", "MES", "AÑO" }));
         jPanel2.add(cbTime);
 
         jPanel1.add(jPanel2);

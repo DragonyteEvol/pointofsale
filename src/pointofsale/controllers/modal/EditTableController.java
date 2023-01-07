@@ -52,7 +52,7 @@ public class EditTableController implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
-            Long capacity =(Long) this.view.txtCapacity.getValue();
+            Long capacity = Long.valueOf(String.valueOf(this.view.txtCapacity.getValue()));
                         System.out.print("ok");
 
             Long price =Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));

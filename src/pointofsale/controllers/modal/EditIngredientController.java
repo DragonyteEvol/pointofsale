@@ -99,9 +99,9 @@ public class EditIngredientController implements ActionListener,FocusListener {
         if (source == this.view.btnSave) {
             String name = this.view.txtName.getText();
             String route_image= this.view.txtImage.getText();
-            Long price = (Long) this.view.txtPrice.getValue();
-            Long stock = (Long) this.view.txtStock.getValue();
-            Long minimum = (Long) this.view.txtMinimum.getValue();
+            Long price = Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
+            Long stock = Long.valueOf(String.valueOf(this.view.txtStock.getValue()));
+            Long minimum = Long.valueOf(String.valueOf(this.view.txtMinimum.getValue()));
             Unit unit = (Unit) this.view.cbUnit.getSelectedItem();
             Long unit_id = unit.getId();
             Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();

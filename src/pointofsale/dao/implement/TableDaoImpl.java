@@ -50,7 +50,7 @@ public class TableDaoImpl extends SqlConstructor implements TableDao {
             statement = this.connection.prepareStatement(INSERT);
             statement.setLong(1, a.getCapacity());
             statement.setLong(2, a.getPrice());
-            statement.setLong(3, a.getEvent_id());
+            statement.setLong(3, 0);
             rowId = Long.valueOf(statement.executeUpdate());
             if (rowId == 0) {
                 System.out.println("Execute error");

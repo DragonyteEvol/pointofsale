@@ -88,6 +88,11 @@ public class SellController extends Controller implements ActionListener{
                 reports = reportModel.select(reportModel.SELLUNIQUE);
                 construcTable(reports);
             }
+            if (view.cbTime.getSelectedItem().equals("DIA")) {
+                ReportModel reportModel = new ReportModel();
+                reports = reportModel.select(reportModel.SELLDAY);
+                construcTable(reports);
+            }
         }
         
         if(source == view.btnExport){

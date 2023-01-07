@@ -164,11 +164,11 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         private Ingredient createIngredient() {
             String name = this.view.txtName.getText();
-            Long price = (Long) this.view.txtPrice.getValue();
+            Long price = Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
             Unit unit = (Unit) this.view.cbUnit.getSelectedItem();
             Long unit_id = unit.getId();
-            Long quantity = (Long) this.view.txtStock.getValue();
-            Long minimum = (Long) this.view.txtMinimum.getValue();
+            Long quantity = Long.valueOf(String.valueOf(this.view.txtStock.getValue()));
+            Long minimum = Long.valueOf(String.valueOf(this.view.txtMinimum.getValue()));
             String image_route = this.view.txtImage.getText();
             Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
             Long categorie_id = categorie.getId();
@@ -204,11 +204,11 @@ public class NewIngredientController extends ModalController implements ActionLi
 
         private Ingredient createIngredient() {
             String name = view.txtName.getText();
-            Long price = (Long) view.txtPrice.getValue();
+            Long price = Long.valueOf(String.valueOf(view.txtPrice.getValue()));
             Unit unit = (Unit) view.cbUnit.getSelectedItem();
             Long unit_id = unit.getId();
-            Long quantity = (Long) view.txtStock.getValue();
-            Long minimum = (Long) view.txtMinimum.getValue();
+            Long quantity = Long.valueOf(String.valueOf(view.txtStock.getValue()));
+            Long minimum =  Long.valueOf(String.valueOf(view.txtMinimum.getValue()));
             Categorie categorie = (Categorie) view.cbCategorie.getSelectedItem();
             Long categorie_id = categorie.getId();
 

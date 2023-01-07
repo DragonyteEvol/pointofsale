@@ -92,11 +92,12 @@
                   <Color blue="fc" green="fc" red="fc" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="5">
                     <StringItem index="0" value="ESPECIFICO"/>
                     <StringItem index="1" value="AGRUPADO"/>
-                    <StringItem index="2" value="MES"/>
-                    <StringItem index="3" value="A&#xd1;O"/>
+                    <StringItem index="2" value="DIA"/>
+                    <StringItem index="3" value="MES"/>
+                    <StringItem index="4" value="A&#xd1;O"/>
                   </StringArray>
                 </Property>
               </Properties>

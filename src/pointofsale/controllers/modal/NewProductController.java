@@ -116,8 +116,8 @@ public class NewProductController extends Controller implements ActionListener,F
 
     private Product createProduct() {
         String name = this.view.txtName.getText();
-        Long price = (Long) this.view.txtPrice.getValue();
-        Long time = (Long) this.view.txtTime.getValue();
+        Long price = Long.valueOf(String.valueOf(this.view.txtPrice.getValue()));
+        Long time = Long.valueOf(String.valueOf(this.view.txtTime.getValue()));
         Categorie categorie = (Categorie) this.view.cbCategorie.getSelectedItem();
         Long categorie_id = categorie.getId();
         Product productv = new Product();
