@@ -21,6 +21,7 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.JTableHeader;
+import pointofsale.MoneyConverter;
 import pointofsale.controllers.Controller;
 import pointofsale.controllers.PrintFunctions;
 import pointofsale.controllers.components.CardProductWhitManagerController;
@@ -34,6 +35,7 @@ import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
 import pointofsale.objects.User;
+import pointofsale.views.components.BillView;
 import pointofsale.views.components.PrintCommand;
 import pointofsale.views.modal.SellProductView;
 
@@ -162,11 +164,15 @@ public class SellProductsController extends Controller implements ActionListener
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 printCommand.txtDate.setText(timeStamp);
 
-                JTable tables = construcTable(listProduct);
-                JTableHeader header = tables.getTableHeader();
+                for (Product product : listProduct) {
+                    BillView billView = new BillView();
+                    final String html = "<html><body style='width: %1spx'>%1s";
+                    billView.txtName.setText(String.format(html, 50, product.getName()));
+                    billView.txtQuantity.setText(String.valueOf(product.getQuantity()));
+                    billView.txtSubvalue.setText(MoneyConverter.convertDouble(product.getPrice()));
+                    printCommand.pnTable.add(billView);
+                }
 
-                printCommand.pnTable.add(header, BorderLayout.NORTH);
-                printCommand.pnTable.add(tables, BorderLayout.CENTER);
                 printCommand.pnTable.repaint();
                 printCommand.pnTable.revalidate();
 
@@ -176,27 +182,6 @@ public class SellProductsController extends Controller implements ActionListener
             }
         }
 
-    }
-
-    private JTable construcTable(List<Product> products) {
-        String rowTitle[] = {"Nombre", "Subvalor", "Cantidad"};
-        String arrayData[][] = modelTable(products);
-
-        JTable inventoryTable = new JTable(arrayData, rowTitle);
-        inventoryTable.getColumnModel().getColumn(0).setCellRenderer(new WordWrapCellRenderer());
-        return inventoryTable;
-    }
-
-    private String[][] modelTable(List<Product> products) {
-        String arrayData[][] = new String[products.size()][3];
-
-        for (int i = 0; i < products.size(); i++) {
-            arrayData[i][0] = products.get(i).getName() + "";
-            arrayData[i][1] = products.get(i).getPrice() + "";
-            arrayData[i][2] = products.get(i).getQuantity() + "";
-        }
-
-        return arrayData;
     }
 
     @Override
@@ -258,7 +243,7 @@ public class SellProductsController extends Controller implements ActionListener
                 view.pnProducts.revalidate();
             }
         }
-        
+
         private void setWaiters() {
             UserModel userModel = new UserModel();
             List<User> users = userModel.selectWaiters();

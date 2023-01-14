@@ -41,6 +41,14 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtDate = new javax.swing.JLabel();
+        pnTest = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         pnTable = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -59,6 +67,7 @@ public class PrintCommand extends javax.swing.JDialog {
         jPanel2.add(jSeparator1);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtTarget.setFont(new java.awt.Font("Lucida Sans", 1, 45)); // NOI18N
         txtTarget.setText("Table Room");
@@ -99,9 +108,42 @@ public class PrintCommand extends javax.swing.JDialog {
 
         pnBase.add(jPanel2);
 
+        pnTest.setBackground(new java.awt.Color(255, 255, 255));
+        pnTest.setLayout(new javax.swing.BoxLayout(pnTest, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel8.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setText("Nombre");
+        jPanel9.add(jLabel4);
+
+        jPanel8.add(jPanel9);
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel5.setText("Cantidad");
+        jPanel10.add(jLabel5);
+
+        jPanel8.add(jPanel10);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel6.setText("Subvalor");
+        jPanel11.add(jLabel6);
+
+        jPanel8.add(jPanel11);
+
+        pnTest.add(jPanel8);
+
         pnTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnTable.setLayout(new java.awt.BorderLayout());
-        pnBase.add(pnTable);
+        pnTable.setLayout(new java.awt.GridLayout(0, 1));
+        pnTest.add(pnTable);
+
+        pnBase.add(pnTest);
 
         getContentPane().add(pnBase);
 
@@ -154,15 +196,23 @@ public class PrintCommand extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JPanel pnBase;
     public javax.swing.JPanel pnTable;
+    public javax.swing.JPanel pnTest;
     public javax.swing.JLabel txtDate;
     public javax.swing.JLabel txtTarget;
     public javax.swing.JLabel txtWaiter;

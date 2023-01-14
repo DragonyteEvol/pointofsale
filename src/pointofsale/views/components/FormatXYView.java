@@ -54,6 +54,7 @@ public class FormatXYView extends javax.swing.JDialog {
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtType.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         txtType.setText("Type");
@@ -105,6 +106,7 @@ public class FormatXYView extends javax.swing.JDialog {
         jPanel3.add(jPanel8);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel3.setText("Total:");

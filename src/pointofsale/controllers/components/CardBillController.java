@@ -76,10 +76,10 @@ public class CardBillController implements ActionListener {
                 JTable tables = construcTable(products);
                 JTableHeader header = tables.getTableHeader();
 
-                printBill.pnTable.add(header, BorderLayout.NORTH);
-                printBill.pnTable.add(tables, BorderLayout.CENTER);
-                printBill.pnTable.repaint();
-                printBill.pnTable.revalidate();
+                printBill.pnFist.add(header, BorderLayout.NORTH);
+                printBill.pnFist.add(tables, BorderLayout.CENTER);
+                printBill.pnFist.repaint();
+                printBill.pnFist.revalidate();
 
                 printBill.setVisible(true);
                 pf.print(printBill.pnBase);

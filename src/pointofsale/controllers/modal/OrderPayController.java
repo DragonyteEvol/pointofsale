@@ -40,6 +40,7 @@ import pointofsale.objects.Product;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
 import pointofsale.objects.User;
+import pointofsale.views.components.BillView;
 import pointofsale.views.components.PrintBill;
 import pointofsale.views.modal.ConfirmAnnulmentView;
 import pointofsale.views.modal.OrderPayView;
@@ -134,6 +135,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             arrayData[0][3] = event.getStart_date() + "";
 
             String rowTitle[] = {"Event no", "Descripcion", "Fecha de inicio"};
+            products.add(new Product(null,event.getName(),realPrice,Long.valueOf(0),"",realPrice,null));
 
             tableProducts = new JTable(arrayData, rowTitle);
             view.pnScroll.setViewportView(tableProducts);
@@ -182,26 +184,32 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             HomeController.checkNotifications();
         }
         if (source == view.btnPrint) {
+            final String html = "<html><body style='width: %1spx'>%1s";
             User waiter = (User) view.cbWaiter.getSelectedItem();
             PrintBill printBill = new PrintBill(null, true);
-            printBill.txtWorker.setText("Atendido por: " + UserGlobal.getUser().getName());
+            printBill.txtWorker.setText(String.format(html, 100,"Atendido por: " + UserGlobal.getUser().getName()));
+            printBill.txtNit.setText(String.valueOf(ConfigGlobal.getConfig().getNit()));
             printBill.txtCompany.setText(ConfigGlobal.getConfig().getName());
-            printBill.txtWaiter.setText("Mesero: " + waiter.getName());
+            printBill.txtWaiter.setText(String.format(html, 100,"Mesero: " + waiter.getName()));
             PrintFunctions pf = new PrintFunctions();
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-            printBill.txtDate.setText(timeStamp);
+            printBill.txtDate.setText(String.format(html, 100,timeStamp));
             printBill.txtSubtotal.setText(realPrice + "");
             printBill.txtTotal.setText(price + "");
             printBill.txtAddress.setText(ConfigGlobal.getConfig().getAddress());
             printBill.txtPhone.setText(ConfigGlobal.getConfig().getPhone() + "");
             printBill.txtBill.setText(ConfigGlobal.getConfig().getName());
             printBill.txtBill.setText("Factura de compra");
+            
+            for (Product product : products) {
+                    BillView billView = new BillView();
+                    billView.txtName.setText(String.format(html, 50, product.getName()));
+                    billView.txtQuantity.setText(String.valueOf(product.getQuantity()));
+                    billView.txtSubvalue.setText(MoneyConverter.convertDouble(product.getPrice()));
+                    printBill.pnTable.add(billView);
+                    System.out.println("Añadiendo panel");
+                }
 
-            JTable tables = construcTable(products);
-            JTableHeader header = tables.getTableHeader();
-
-            printBill.pnTable.add(header, BorderLayout.NORTH);
-            printBill.pnTable.add(tables, BorderLayout.CENTER);
             printBill.pnTable.repaint();
             printBill.pnTable.revalidate();
 

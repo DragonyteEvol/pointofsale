@@ -33,9 +33,11 @@ public class XView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         txtPaymentMethod = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         txtPrice = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -49,27 +51,38 @@ public class XView extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel1.setText("Metodo de pago:");
         jPanel2.add(jLabel1);
 
-        txtPaymentMethod.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        txtPaymentMethod.setText("PaymentMethod");
-        jPanel2.add(txtPaymentMethod);
-
         jPanel1.add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        txtPaymentMethod.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        txtPaymentMethod.setText("PaymentMethod");
+        jPanel5.add(txtPaymentMethod);
+
+        jPanel1.add(jPanel5);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jLabel3.setText("Cantidad Facturada:");
         jPanel3.add(jLabel3);
 
+        jPanel1.add(jPanel3);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         txtPrice.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtPrice.setText("Price");
-        jPanel3.add(txtPrice);
+        jPanel6.add(txtPrice);
 
-        jPanel1.add(jPanel3);
+        jPanel1.add(jPanel6);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
@@ -90,6 +103,8 @@ public class XView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel txtPaymentMethod;
     public javax.swing.JLabel txtPrice;

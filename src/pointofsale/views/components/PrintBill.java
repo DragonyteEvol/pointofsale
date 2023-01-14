@@ -47,6 +47,14 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel11 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtDate = new javax.swing.JLabel();
+        pnFist = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         pnTable = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -64,6 +72,7 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtCompany.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         txtCompany.setText("Company Name");
@@ -72,6 +81,7 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel2.add(jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtNit.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtNit.setText("Nit");
@@ -80,6 +90,7 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel2.add(jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtAddress.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtAddress.setText("Address");
@@ -88,6 +99,7 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel2.add(jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtPhone.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtPhone.setText("Phone");
@@ -96,6 +108,7 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel2.add(jPanel8);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtWorker.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtWorker.setText("Worker");
@@ -104,6 +117,7 @@ public class PrintBill extends javax.swing.JDialog {
         jPanel2.add(jPanel9);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         txtWaiter.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         txtWaiter.setText("Waiter");
@@ -113,7 +127,7 @@ public class PrintBill extends javax.swing.JDialog {
 
         pnBase.add(jPanel2);
 
-        jPanel4.setLayout(new java.awt.GridLayout(3, 0));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
@@ -139,16 +153,49 @@ public class PrintBill extends javax.swing.JDialog {
 
         jPanel4.add(jPanel11);
 
+        pnFist.setBackground(new java.awt.Color(255, 255, 255));
+        pnFist.setLayout(new javax.swing.BoxLayout(pnFist, javax.swing.BoxLayout.Y_AXIS));
+
+        jPanel15.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel1.setText("Nombre");
+        jPanel16.add(jLabel1);
+
+        jPanel15.add(jPanel16);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setText("Cantidad");
+        jPanel17.add(jLabel2);
+
+        jPanel15.add(jPanel17);
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setText("Subvalor");
+        jPanel18.add(jLabel3);
+
+        jPanel15.add(jPanel18);
+
+        pnFist.add(jPanel15);
+
         pnTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnTable.setLayout(new java.awt.BorderLayout());
-        jPanel4.add(pnTable);
+        pnTable.setLayout(new java.awt.GridLayout(0, 1));
+        pnFist.add(pnTable);
+
+        jPanel4.add(pnFist);
 
         pnBase.add(jPanel4);
 
-        jPanel3.setLayout(new java.awt.BorderLayout());
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+        jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel9.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jLabel9.setText("Subtotal:");
@@ -158,9 +205,10 @@ public class PrintBill extends javax.swing.JDialog {
         txtSubtotal.setText("Subtotal");
         jPanel13.add(txtSubtotal);
 
-        jPanel3.add(jPanel13, java.awt.BorderLayout.PAGE_START);
+        jPanel3.add(jPanel13);
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel11.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel11.setText("Total:");
@@ -170,7 +218,7 @@ public class PrintBill extends javax.swing.JDialog {
         txtTotal.setText("Total");
         jPanel14.add(txtTotal);
 
-        jPanel3.add(jPanel14, java.awt.BorderLayout.CENTER);
+        jPanel3.add(jPanel14);
 
         pnBase.add(jPanel3);
 
@@ -222,7 +270,10 @@ public class PrintBill extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -230,6 +281,10 @@ public class PrintBill extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -239,6 +294,7 @@ public class PrintBill extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     public javax.swing.JPanel pnBase;
+    public javax.swing.JPanel pnFist;
     public javax.swing.JPanel pnTable;
     public javax.swing.JLabel txtAddress;
     public javax.swing.JLabel txtBill;
