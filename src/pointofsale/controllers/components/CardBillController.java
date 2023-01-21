@@ -24,6 +24,7 @@ import pointofsale.controllers.PrintFunctions;
 import pointofsale.models.BillModel;
 import pointofsale.objects.Bill;
 import pointofsale.objects.Product;
+import pointofsale.views.components.BillView;
 import pointofsale.views.components.CardBillView;
 import pointofsale.views.components.PrintBill;
 
@@ -59,13 +60,16 @@ public class CardBillController implements ActionListener {
         Object source = ae.getSource();
         if (source == view.btnPrint) {
             if (source == view.btnPrint) {
+                final String html = "<html><body style='width: %1spx'>%1s";
+
                 PrintBill printBill = new PrintBill(null, true);
-                printBill.txtWorker.setText("Imprimido por: " + UserGlobal.getUser().getName());
+                printBill.txtWorker.setText(String.format(html, 100,"Atendido por: " + UserGlobal.getUser().getName()));
                 PrintFunctions pf = new PrintFunctions();
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-                printBill.txtDate.setText(timeStamp);
+                printBill.txtDate.setText(String.format(html, 100,timeStamp));
                 printBill.txtSubtotal.setText(bill.getTotal() + "");
                 printBill.txtTotal.setText(bill.getTotal_real() + "");
+                printBill.txtWaiter.setVisible(false);
                 printBill.txtCompany.setText(ConfigGlobal.getConfig().getName());
                 printBill.txtNit.setText(ConfigGlobal.getConfig().getNit() + "");
                 printBill.txtAddress.setText(ConfigGlobal.getConfig().getAddress());
@@ -73,11 +77,15 @@ public class CardBillController implements ActionListener {
                 printBill.txtBill.setText(ConfigGlobal.getConfig().getName());
                 printBill.txtBill.setText("Factura de compra");
 
-                JTable tables = construcTable(products);
-                JTableHeader header = tables.getTableHeader();
-
-                printBill.pnFist.add(header, BorderLayout.NORTH);
-                printBill.pnFist.add(tables, BorderLayout.CENTER);
+                for (Product product : products) {
+                    BillView billView = new BillView();
+                    billView.txtName.setText(String.format(html, 50, product.getName()));
+                    billView.txtQuantity.setText(String.valueOf(product.getQuantity()));
+                    billView.txtSubvalue.setText(MoneyConverter.convertDouble(product.getPrice()));
+                    printBill.pnFist.add(billView);
+                    System.out.println("Añadiendo panel");
+                }
+                
                 printBill.pnFist.repaint();
                 printBill.pnFist.revalidate();
 

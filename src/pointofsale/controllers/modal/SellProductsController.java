@@ -152,6 +152,7 @@ public class SellProductsController extends Controller implements ActionListener
                 }
             }
             if (view.chPrint.isSelected()) {
+                final String html = "<html><body style='width: %1spx'>%1s";
                 PrintCommand printCommand = new PrintCommand(null, true);
                 if (room == null) {
                     printCommand.txtTarget.setText("Mesa " + table.getId());
@@ -159,14 +160,13 @@ public class SellProductsController extends Controller implements ActionListener
                     printCommand.txtTarget.setText("Habitacion " + room.getId());
                 }
                 User waiter = (User) view.cbWaiter.getSelectedItem();
-                printCommand.txtWaiter.setText(waiter.getName());
+                printCommand.txtWaiter.setText(String.format(html, 150, waiter.getName()));
                 PrintFunctions pf = new PrintFunctions();
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 printCommand.txtDate.setText(timeStamp);
 
                 for (Product product : listProduct) {
                     BillView billView = new BillView();
-                    final String html = "<html><body style='width: %1spx'>%1s";
                     billView.txtName.setText(String.format(html, 50, product.getName()));
                     billView.txtQuantity.setText(String.valueOf(product.getQuantity()));
                     billView.txtSubvalue.setText(MoneyConverter.convertDouble(product.getPrice()));
