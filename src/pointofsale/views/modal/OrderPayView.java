@@ -78,6 +78,7 @@ public class OrderPayView extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
+        chDivideAccount = new javax.swing.JCheckBox();
         btnPrint = new javax.swing.JButton();
         btnPay = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -303,6 +304,18 @@ public class OrderPayView extends javax.swing.JDialog {
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        chDivideAccount.setBackground(new java.awt.Color(255, 255, 255));
+        chDivideAccount.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        chDivideAccount.setForeground(new java.awt.Color(153, 153, 153));
+        chDivideAccount.setText("Dividir cuenta");
+        chDivideAccount.setBorder(null);
+        chDivideAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chDivideAccountActionPerformed(evt);
+            }
+        });
+        jPanel16.add(chDivideAccount);
+
         btnPrint.setBackground(new java.awt.Color(235, 71, 71));
         btnPrint.setForeground(new java.awt.Color(255, 255, 255));
         btnPrint.setText("Imprimir");
@@ -343,6 +356,10 @@ public class OrderPayView extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chDivideAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chDivideAccountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chDivideAccountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,6 +413,7 @@ public class OrderPayView extends javax.swing.JDialog {
     public javax.swing.JComboBox<Object> cbPaymentMethod;
     public javax.swing.JComboBox<Object> cbWaiter;
     public javax.swing.JCheckBox chCourtesy;
+    public javax.swing.JCheckBox chDivideAccount;
     public javax.swing.JCheckBox chInternalExpense;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

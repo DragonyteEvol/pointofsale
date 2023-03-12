@@ -64,7 +64,7 @@ public class CardBillController implements ActionListener {
 
                 PrintBill printBill = new PrintBill(null, true);
                 printBill.txtWorker.setText(String.format(html, 100,"Atendido por: " + UserGlobal.getUser().getName()));
-                PrintFunctions pf = new PrintFunctions();
+                
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 printBill.txtDate.setText(String.format(html, 100,timeStamp));
                 printBill.txtSubtotal.setText(bill.getTotal() + "");
@@ -89,8 +89,8 @@ public class CardBillController implements ActionListener {
                 printBill.pnFist.repaint();
                 printBill.pnFist.revalidate();
 
-                printBill.setVisible(true);
-                pf.print(printBill.pnBase);
+                PrintFunctions pf = new PrintFunctions(printBill.pnBase);
+                pf.print();
             }
         }
     }

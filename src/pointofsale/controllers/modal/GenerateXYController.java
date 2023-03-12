@@ -94,7 +94,7 @@ public class GenerateXYController implements ActionListener{
             Long sum = Long.valueOf(0);
             List<Bill> bills = billModel.generateY();
             for(Bill bill : bills){
-                XView xView = new XView(bill.getDescription(), bill.getTotal());
+                XView xView = new XView(bill.getDescription(), bill.getTotal_real());
                 formatView.pnBill.add(xView);
                 sum += bill.getTotal();
             }
@@ -106,10 +106,10 @@ public class GenerateXYController implements ActionListener{
             formatView.txtLost.setText(MoneyConverter.convertDouble(billLost.getPrice()));
             formatView.txtSum.setText(MoneyConverter.convertDouble(sum));
             formatView.txtTotal.setText(MoneyConverter.convertDouble(total));
-            formatView.setVisible(true);
+            formatView.setVisible(false);
             //IMPRIMIR
-            PrintFunctions pf = new PrintFunctions();
-            pf.print(formatView.pnBase);
+            PrintFunctions pf = new PrintFunctions(formatView.pnBase);
+            pf.print();
             //ATM
             InventoryModel inventoryModel = new InventoryModel();
             Atm atm = inventoryModel.selectAtm();
@@ -134,7 +134,7 @@ public class GenerateXYController implements ActionListener{
             Long sum = Long.valueOf(0);
             List<Bill> bills = billModel.generateY();
             for(Bill bill : bills){
-                XView xView = new XView(bill.getDescription(), bill.getTotal());
+                XView xView = new XView(bill.getDescription(), bill.getTotal_real());
                 formatView.pnBill.add(xView);
                 sum += bill.getTotal();
             }
@@ -146,11 +146,11 @@ public class GenerateXYController implements ActionListener{
             formatView.txtLost.setText(MoneyConverter.convertDouble(billLost.getPrice()));
             formatView.txtSum.setText(MoneyConverter.convertDouble(sum));
             formatView.txtTotal.setText(MoneyConverter.convertDouble(total));
-            formatView.setVisible(true);
+            formatView.setVisible(false);
             
             //IMPRIMIR
-            PrintFunctions pf = new PrintFunctions();
-            pf.print(formatView.pnBase);
+            PrintFunctions pf = new PrintFunctions(formatView.pnBase);
+            pf.print();
             
         }
     }

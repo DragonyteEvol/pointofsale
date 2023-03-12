@@ -161,7 +161,7 @@ public class SellProductsController extends Controller implements ActionListener
                 }
                 User waiter = (User) view.cbWaiter.getSelectedItem();
                 printCommand.txtWaiter.setText(String.format(html, 150, waiter.getName()));
-                PrintFunctions pf = new PrintFunctions();
+                
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
                 printCommand.txtDate.setText(timeStamp);
 
@@ -177,8 +177,8 @@ public class SellProductsController extends Controller implements ActionListener
                 printCommand.pnTable.revalidate();
 
                 printCommand.setVisible(true);
-
-                pf.print(printCommand.pnBase);
+                PrintFunctions pf = new PrintFunctions(printCommand.pnBase);
+                pf.print();
             }
         }
 

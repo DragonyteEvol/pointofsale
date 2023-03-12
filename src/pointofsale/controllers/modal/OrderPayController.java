@@ -191,7 +191,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             printBill.txtNit.setText(String.valueOf(ConfigGlobal.getConfig().getNit()));
             printBill.txtCompany.setText(ConfigGlobal.getConfig().getName());
             printBill.txtWaiter.setText(String.format(html, 100,"Mesero: " + waiter.getName()));
-            PrintFunctions pf = new PrintFunctions();
+            
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             printBill.txtDate.setText(String.format(html, 100,timeStamp));
             printBill.txtSubtotal.setText(realPrice + "");
@@ -209,12 +209,12 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                     printBill.pnTable.add(billView);
                     System.out.println("Añadiendo panel");
                 }
-
+            PrintFunctions pf = new PrintFunctions(printBill.pnBase);
             printBill.pnTable.repaint();
             printBill.pnTable.revalidate();
 
-            printBill.setVisible(true);
-            pf.print(printBill.pnBase);
+            printBill.setVisible(false);
+            pf.print();
         }
 
         if (source == view.btnDelete) {
