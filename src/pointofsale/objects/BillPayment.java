@@ -13,6 +13,7 @@ public class BillPayment {
     private Long id;
     private Long payment_id;
     private Long price;
+    private String payment_method;
 
     public BillPayment(Long id, Long payment_id, Long price) {
         this.id = id;
@@ -45,6 +46,14 @@ public class BillPayment {
 
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    public String getPayment_method() {
+        return payment_method;
+    }
+
+    public void setPayment_method(String payment_method) {
+        this.payment_method = payment_method;
     }
 
    

@@ -55,6 +55,9 @@ public class MultiAccountController implements ActionListener, ChangeListener {
 
     private BillPayment getBillPayment(Long pricePay) {
         PaymentMethod paymentMethod = (PaymentMethod) this.view.cbMethodPayment.getSelectedItem();
+        if (!paymentMethod.isVirtual()) {
+            ReceipMoneyController receipMoneyController = new ReceipMoneyController(pricePay);
+        }
         BillPayment billPayment = new BillPayment();
         billPayment.setPayment_id(paymentMethod.getId());
         billPayment.setPrice(pricePay);

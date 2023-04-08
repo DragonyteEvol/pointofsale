@@ -12,9 +12,11 @@ import java.util.List;
 import pointofsale.MoneyConverter;
 import pointofsale.controllers.PrintFunctions;
 import pointofsale.models.BillModel;
+import pointofsale.models.BillPaymentModel;
 import pointofsale.models.InventoryModel;
 import pointofsale.objects.Atm;
 import pointofsale.objects.Bill;
+import pointofsale.objects.BillPayment;
 import pointofsale.objects.BillRestock;
 import pointofsale.views.components.FormatXYView;
 import pointofsale.views.components.XView;
@@ -89,16 +91,16 @@ public class GenerateXYController implements ActionListener{
     
     class GenerateX extends Thread{
         public void run(){
-            BillModel billModel = new BillModel();
+            BillPaymentModel billPaymentModel = new BillPaymentModel();
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             Long sum = Long.valueOf(0);
-            List<Bill> bills = billModel.generateY();
-            for(Bill bill : bills){
-                XView xView = new XView(bill.getDescription(), bill.getTotal_real());
+            List<BillPayment> bills = billPaymentModel.generateX();
+            for(BillPayment bill : bills){
+                XView xView = new XView(bill.getPayment_method(), bill.getPrice());
                 formatView.pnBill.add(xView);
-                sum += bill.getTotal();
+                sum += bill.getPrice();
             }
-            billModel= new BillModel();
+            BillModel billModel= new BillModel();
             BillRestock billLost = billModel.getLostDay();
             Long total = sum - billLost.getPrice();
             formatView.txtDate.setText(timeStamp);
@@ -106,7 +108,7 @@ public class GenerateXYController implements ActionListener{
             formatView.txtLost.setText(MoneyConverter.convertDouble(billLost.getPrice()));
             formatView.txtSum.setText(MoneyConverter.convertDouble(sum));
             formatView.txtTotal.setText(MoneyConverter.convertDouble(total));
-            formatView.setVisible(false);
+            formatView.setVisible(true);
             //IMPRIMIR
             PrintFunctions pf = new PrintFunctions(formatView.pnBase);
             pf.print();
@@ -129,16 +131,16 @@ public class GenerateXYController implements ActionListener{
     
     class GenerateY extends Thread{
         public void run(){
-            BillModel billModel = new BillModel();
+            BillPaymentModel billPaymentModel = new BillPaymentModel();
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             Long sum = Long.valueOf(0);
-            List<Bill> bills = billModel.generateY();
-            for(Bill bill : bills){
-                XView xView = new XView(bill.getDescription(), bill.getTotal_real());
+            List<BillPayment> bills = billPaymentModel.generateY();
+            for(BillPayment bill : bills){
+                XView xView = new XView(bill.getPayment_method(), bill.getPrice());
                 formatView.pnBill.add(xView);
-                sum += bill.getTotal();
+                sum += bill.getPrice();
             }
-            billModel= new BillModel();
+            BillModel billModel= new BillModel();
             BillRestock billLost = billModel.getLostDay();
             Long total = sum - billLost.getPrice();
             formatView.txtDate.setText(timeStamp);
@@ -146,7 +148,7 @@ public class GenerateXYController implements ActionListener{
             formatView.txtLost.setText(MoneyConverter.convertDouble(billLost.getPrice()));
             formatView.txtSum.setText(MoneyConverter.convertDouble(sum));
             formatView.txtTotal.setText(MoneyConverter.convertDouble(total));
-            formatView.setVisible(false);
+            formatView.setVisible(true);
             
             //IMPRIMIR
             PrintFunctions pf = new PrintFunctions(formatView.pnBase);

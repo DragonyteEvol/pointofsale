@@ -32,9 +32,12 @@ public class BillPaymentDaoImpl extends SqlConstructor implements BillPaymentDao
     String INSERT;
     String UPDATE;
     final String DELETE = "delete from " + TABLE + " where id=?";
+    final String DELETEALL = "delete from " + TABLE;
     final String GETALL = "select * from " + TABLE + " order by created_at desc limit 50";
     final String GETONE = "select * from " + TABLE + " where id=?";
+    final String BACKUP = "INSERT INTO bill_payment_history SELECT * FROM bill_payment";
     final String GETLAST = "SELECT * FROM bills ORDER BY 1 DESC LIMIT 1";
+    final String GETX = "SELECT sum(total_real) as total_real,name FROM bill_payment a INNER JOIN payment_methods b ON  a.payment_method_id=b.id GROUP by name";
     
     private Connection connection;
 
@@ -204,5 +207,75 @@ public class BillPaymentDaoImpl extends SqlConstructor implements BillPaymentDao
             }
         }
         return a;
+    }
+    
+    public void backup() {
+        PreparedStatement statement = null;
+        Long rowId = null;
+        try {
+            statement = this.connection.prepareStatement(BACKUP, Statement.RETURN_GENERATED_KEYS);
+            rowId = Long.valueOf(statement.executeUpdate());
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getLong(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    
+    public List<BillPayment> generateX() {
+        PreparedStatement statement = null;
+        ResultSet set = null;
+        List<BillPayment> a = new ArrayList<>();
+        try {
+            statement = this.connection.prepareStatement(GETX);
+            set = statement.executeQuery();
+            while (set.next()) {
+                BillPayment bp = new BillPayment();
+                bp.setPrice(set.getLong("total_real"));
+                bp.setPayment_method(set.getString("name"));
+                a.add(bp);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (set != null) {
+                try {
+                    set.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return a;
+
+    }
+    
+     public void deleteAll() {
+        PreparedStatement statement = null;
+        Long rowId = null;
+        try {
+            statement = this.connection.prepareStatement(DELETEALL, Statement.RETURN_GENERATED_KEYS);
+            rowId = Long.valueOf(statement.executeUpdate());
+            ResultSet idKey = statement.getGeneratedKeys();
+            if (idKey.next()) {
+                rowId = idKey.getLong(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

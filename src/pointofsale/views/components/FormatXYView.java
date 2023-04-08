@@ -49,7 +49,7 @@ public class FormatXYView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        pnBase.setLayout(new java.awt.BorderLayout());
+        pnBase.setLayout(new javax.swing.BoxLayout(pnBase, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
 
@@ -75,7 +75,7 @@ public class FormatXYView extends javax.swing.JDialog {
 
         jPanel2.add(jPanel6);
 
-        pnBase.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        pnBase.add(jPanel2);
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
@@ -118,11 +118,11 @@ public class FormatXYView extends javax.swing.JDialog {
 
         jPanel3.add(jPanel9);
 
-        pnBase.add(jPanel3, java.awt.BorderLayout.PAGE_END);
+        pnBase.add(jPanel3);
 
         pnBill.setBackground(new java.awt.Color(255, 255, 255));
         pnBill.setLayout(new javax.swing.BoxLayout(pnBill, javax.swing.BoxLayout.Y_AXIS));
-        pnBase.add(pnBill, java.awt.BorderLayout.CENTER);
+        pnBase.add(pnBill);
 
         getContentPane().add(pnBase);
 

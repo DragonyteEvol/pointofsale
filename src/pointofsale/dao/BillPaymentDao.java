@@ -4,6 +4,7 @@
  */
 package pointofsale.dao;
 
+import java.util.List;
 import pointofsale.objects.BillPayment;
 
 /**
@@ -12,4 +13,8 @@ import pointofsale.objects.BillPayment;
  */
 public interface BillPaymentDao extends Dao<BillPayment, Long>{
     BillPayment selectLast();
+    void deleteAll();
+    void backup();
+    List<BillPayment> generateX();
+    
 }
