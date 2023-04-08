@@ -40,4 +40,5 @@ public interface DaoManager {
         TipDao getTipDao();
         BillCurrentDao getBillCurrentDao();
         BillRestockCurrentDao getBillRestockCurrentDao();
+        BillPaymentDao getBillPaymentDao();
 }

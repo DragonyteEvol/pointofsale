@@ -4,7 +4,6 @@
  */
 package pointofsale.controllers.modal;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -16,7 +15,6 @@ import javax.swing.JTable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import pointofsale.ConfigGlobal;
 import pointofsale.MissingGlobal;
 import pointofsale.MoneyConverter;
@@ -135,7 +133,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             arrayData[0][3] = event.getStart_date() + "";
 
             String rowTitle[] = {"Event no", "Descripcion", "Fecha de inicio"};
-            products.add(new Product(null,event.getName(),realPrice,Long.valueOf(0),"",realPrice,null));
+            products.add(new Product(null, event.getName(), realPrice, Long.valueOf(0), "", realPrice, null));
 
             tableProducts = new JTable(arrayData, rowTitle);
             view.pnScroll.setViewportView(tableProducts);
@@ -154,8 +152,6 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         view.setVisible(true);
     }
 
-   
-
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -173,12 +169,15 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 billEvent.start();
             }
 
-            if (paymentMethod.isVirtual()) {
-                view.dispose();
+            if (view.chDivideAccount.isSelected()) {
+                MultiAccountController mac = new MultiAccountController(price);
             } else {
-                view.dispose();
-                ReceipMoneyController receipMoneyController = new ReceipMoneyController(price);
+                if (!paymentMethod.isVirtual()) {
+                    ReceipMoneyController receipMoneyController = new ReceipMoneyController(price);
+                }
             }
+            view.dispose();
+
             MissingGlobal.showNotifications();
 
             HomeController.checkNotifications();
@@ -187,28 +186,28 @@ public final class OrderPayController implements ActionListener, ChangeListener 
             final String html = "<html><body style='width: %1spx'>%1s";
             User waiter = (User) view.cbWaiter.getSelectedItem();
             PrintBill printBill = new PrintBill(null, true);
-            printBill.txtWorker.setText(String.format(html, 100,"Atendido por: " + UserGlobal.getUser().getName()));
+            printBill.txtWorker.setText(String.format(html, 100, "Atendido por: " + UserGlobal.getUser().getName()));
             printBill.txtNit.setText(String.valueOf(ConfigGlobal.getConfig().getNit()));
             printBill.txtCompany.setText(ConfigGlobal.getConfig().getName());
-            printBill.txtWaiter.setText(String.format(html, 100,"Mesero: " + waiter.getName()));
-            
+            printBill.txtWaiter.setText(String.format(html, 100, "Mesero: " + waiter.getName()));
+
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-            printBill.txtDate.setText(String.format(html, 100,timeStamp));
+            printBill.txtDate.setText(String.format(html, 100, timeStamp));
             printBill.txtSubtotal.setText(realPrice + "");
             printBill.txtTotal.setText(price + "");
             printBill.txtAddress.setText(ConfigGlobal.getConfig().getAddress());
             printBill.txtPhone.setText(ConfigGlobal.getConfig().getPhone() + "");
             printBill.txtBill.setText(ConfigGlobal.getConfig().getName());
             printBill.txtBill.setText("Factura de compra");
-            
+
             for (Product product : products) {
-                    BillView billView = new BillView();
-                    billView.txtName.setText(String.format(html, 50, product.getName()));
-                    billView.txtQuantity.setText(String.valueOf(product.getQuantity()));
-                    billView.txtSubvalue.setText(MoneyConverter.convertDouble(product.getPrice()));
-                    printBill.pnTable.add(billView);
-                    System.out.println("Añadiendo panel");
-                }
+                BillView billView = new BillView();
+                billView.txtName.setText(String.format(html, 50, product.getName()));
+                billView.txtQuantity.setText(String.valueOf(product.getQuantity()));
+                billView.txtSubvalue.setText(MoneyConverter.convertDouble(product.getPrice()));
+                printBill.pnTable.add(billView);
+                System.out.println("Añadiendo panel");
+            }
             PrintFunctions pf = new PrintFunctions(printBill.pnBase);
             printBill.pnTable.repaint();
             printBill.pnTable.revalidate();
@@ -312,7 +311,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 view.cbPaymentMethod.addItem(paymentMethod);
             }
         }
-        
+
         private void setWaiters() {
             UserModel userModel = new UserModel();
             List<User> waiters = userModel.selectWaiters();
@@ -478,7 +477,7 @@ public final class OrderPayController implements ActionListener, ChangeListener 
         public void run() {
             BillModel billModel = new BillModel();
             User waiter = (User) view.cbWaiter.getSelectedItem();
-            billModel.insertEvent(event, paymentMethod, realPrice, price,waiter.getId());
+            billModel.insertEvent(event, paymentMethod, realPrice, price, waiter.getId());
         }
     }
 }

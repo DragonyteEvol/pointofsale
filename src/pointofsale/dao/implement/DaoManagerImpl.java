@@ -10,6 +10,7 @@ import pointofsale.dao.AnnulmentDao;
 import pointofsale.dao.AtmDao;
 import pointofsale.dao.BillCurrentDao;
 import pointofsale.dao.BillDao;
+import pointofsale.dao.BillPaymentDao;
 import pointofsale.dao.BillProductDao;
 import pointofsale.dao.BillRestockCurrentDao;
 import pointofsale.dao.BillRestockDao;
@@ -78,6 +79,7 @@ public class DaoManagerImpl implements DaoManager {
     private TipDao tipDao;
     private BillCurrentDao billCurrentDao;
     private BillRestockCurrentDaoImpl billRestockCurrentDaoImpl;
+    private BillPaymentDaoImpl billPaymentDaoImpl;
 
     public DaoManagerImpl(Connection connection) {
         this.connection = connection;
@@ -330,5 +332,13 @@ public class DaoManagerImpl implements DaoManager {
             this.billRestockCurrentDaoImpl = new BillRestockCurrentDaoImpl(connection);
         }
         return this.billRestockCurrentDaoImpl;
+    }
+
+    @Override
+    public BillPaymentDao getBillPaymentDao() {
+          if (billPaymentDaoImpl == null) {
+            this.billPaymentDaoImpl = new BillPaymentDaoImpl(connection);
+        }
+        return this.billPaymentDaoImpl;
     }
 }
