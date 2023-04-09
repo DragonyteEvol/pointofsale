@@ -25,7 +25,7 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
 
     // table config
     final String TABLE = "bills_table_tmp";
-    final List<String> COLUMS = Arrays.asList("table_id", "total");
+    final List<String> COLUMS = Arrays.asList("table_id", "total","waiter");
 
     // queries
     String INSERT;
@@ -53,6 +53,7 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
             statement = this.connection.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, a.getTable_id());
             statement.setLong(2, a.getTotal());
+            statement.setString(3, a.getWaiter());
             rowId = Long.valueOf(statement.executeUpdate());
             ResultSet idKey = statement.getGeneratedKeys();
             if (idKey.next()) {
@@ -99,7 +100,8 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
             statement = this.connection.prepareStatement(UPDATE);
             statement.setLong(1, a.getTable_id());
             statement.setLong(2, a.getTotal());
-            statement.setLong(3, a.getId());
+            statement.setString(3, a.getWaiter());
+            statement.setLong(4, a.getId());
             if (statement.executeUpdate() == 0) {
                 System.out.println("Execute error");
             }
@@ -174,8 +176,9 @@ public class BillTableTmpDaoImpl extends SqlConstructor implements BillTableTmpD
     public BillTableTmp convert(ResultSet set) throws SQLException {
         Long table_id = set.getLong("table_id");
         Long total = set.getLong("total");
+        String waiter = set.getString("waiter");
         String created_at = set.getString("created_at");
-        BillTableTmp billTable = new BillTableTmp(set.getLong("id"), table_id, total, created_at);
+        BillTableTmp billTable = new BillTableTmp(set.getLong("id"), table_id, total, waiter,created_at);
         return billTable;
     }
 

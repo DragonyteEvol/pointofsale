@@ -33,6 +33,7 @@ public class CardTableView extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txtNumber = new javax.swing.JLabel();
+        txtWaiter = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         btnEdit = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -59,12 +60,18 @@ public class CardTableView extends javax.swing.JPanel {
 
         jPanel1.add(jPanel8);
 
+        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.Y_AXIS));
+
         txtNumber.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pointofsale/images/table-25.png"))); // NOI18N
         txtNumber.setText("1");
         jPanel2.add(txtNumber);
 
         jPanel7.add(jPanel2);
+
+        txtWaiter.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        txtWaiter.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel7.add(txtWaiter);
 
         jPanel1.add(jPanel7);
 
@@ -114,5 +121,6 @@ public class CardTableView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     public javax.swing.JLabel txtNumber;
+    public javax.swing.JLabel txtWaiter;
     // End of variables declaration//GEN-END:variables
 }

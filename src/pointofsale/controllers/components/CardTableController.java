@@ -63,16 +63,24 @@ public class CardTableController extends Controller implements ActionListener {
         BillTableTmp billTableTmp = billModel.checkBillTableTmp(table.getId());
         if (billTableTmp == null) {
             this.view.btnSell.setText("Vender");
+            this.view.txtWaiter.setText("");
             this.view.btnPay.setVisible(false);
         } else {
+            String waiter = billTableTmp.getWaiter();
+            if(waiter.length() >11){
+                waiter = waiter.substring(0,11);
+            }else{
+                waiter = waiter.substring(0,waiter.length());
+            }
+            this.view.txtWaiter.setText(waiter);
             this.view.btnSell.setText(MoneyConverter.convertDouble(billTableTmp.getTotal()));
             this.view.btnPay.setVisible(true);
         }
         if (table.getEvent_id() == 0) {
             this.view.btnEvent.setVisible(false);
             System.out.print("INVISIBLE" + table.getEvent_id());
-        }else{
-            
+        } else {
+
             this.view.btnEvent.setVisible(true);
             System.out.print("VISIBLE" + table.getEvent_id());
         }

@@ -141,10 +141,11 @@ public class SellProductsController extends Controller implements ActionListener
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source == this.view.btnSave) {
+            User waiter = (User) view.cbWaiter.getSelectedItem();
             if (validateRequest()) {
                 BillModel billModel = new BillModel();
                 if (room == null) {
-                    billModel.insertTableOrder(table, listProduct);
+                    billModel.insertTableOrder(table, listProduct,waiter);
                     this.view.dispose();
                 } else {
                     billModel.insertRoomOrder(room, listProduct);
@@ -159,7 +160,7 @@ public class SellProductsController extends Controller implements ActionListener
                 } else {
                     printCommand.txtTarget.setText("Habitacion " + room.getId());
                 }
-                User waiter = (User) view.cbWaiter.getSelectedItem();
+                
                 printCommand.txtWaiter.setText(String.format(html, 150, waiter.getName()));
                 
                 String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());

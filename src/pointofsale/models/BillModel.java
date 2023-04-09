@@ -23,6 +23,7 @@ import pointofsale.objects.Product;
 import pointofsale.objects.ProductIngredient;
 import pointofsale.objects.Room;
 import pointofsale.objects.Table;
+import pointofsale.objects.User;
 
 /**
  *
@@ -75,14 +76,14 @@ public class BillModel extends Model {
         this.saveChanges();
     }
 
-    public void insertTableOrder(Table table, List<Product> listProduct) {
+    public void insertTableOrder(Table table, List<Product> listProduct,User waiter) {
         BillTableTmp billTableTmp = this.dao.getBillTableTmpDao().selectByTableId(table.getId());
         Long price = Long.valueOf(0);
         if (billTableTmp == null) {
             for (Product product : listProduct) {
                 price += (product.getPrice() * product.getQuantity());
             }
-            billTableTmp = new BillTableTmp(null, table.getId(), price, null);
+            billTableTmp = new BillTableTmp(null, table.getId(), price,waiter.getName(), null);
             Long id = this.dao.getBillTableTmpDao().insert(billTableTmp);
             for (Product product : listProduct) {
                 Long price_product = product.getPrice() * product.getQuantity();

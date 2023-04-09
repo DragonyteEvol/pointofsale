@@ -12,12 +12,14 @@ public class BillTableTmp {
 	private Long id;    
 	private Long table_id;
 	private Long total;
+        private String waiter;
 	private String created_at;
 
-    public BillTableTmp(Long id, Long table_id, Long total, String created_at) {
+    public BillTableTmp(Long id, Long table_id, Long total, String waiter,String created_at) {
         this.id = id;
         this.table_id = table_id;
         this.total = total;
+        this.waiter = waiter;
         this.created_at = created_at;
     }
 
@@ -35,6 +37,14 @@ public class BillTableTmp {
 
     public void setTable_id(Long table_id) {
         this.table_id = table_id;
+    }
+
+    public String getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(String waiter) {
+        this.waiter = waiter;
     }
 
     public Long getTotal() {
