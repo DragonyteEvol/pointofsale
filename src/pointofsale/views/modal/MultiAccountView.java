@@ -30,12 +30,6 @@ public class MultiAccountView extends javax.swing.JDialog {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        cbMethodPayment = new javax.swing.JComboBox<>();
-        jPanel12 = new javax.swing.JPanel();
-        btnSave = new javax.swing.JButton();
         jPanel18 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -54,13 +48,19 @@ public class MultiAccountView extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         txtDivide = new javax.swing.JSpinner();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        cbMethodPayment = new javax.swing.JComboBox<>();
+        jPanel12 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        jPanel15.setLayout(new java.awt.BorderLayout());
+        jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,38 +68,7 @@ public class MultiAccountView extends javax.swing.JDialog {
         jLabel1.setText("Division de cuentas");
         jPanel16.add(jLabel1);
 
-        jPanel15.add(jPanel16, java.awt.BorderLayout.PAGE_START);
-
-        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setText("Metodo de pago:");
-        jPanel11.add(jLabel7);
-
-        cbMethodPayment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbMethodPaymentActionPerformed(evt);
-            }
-        });
-        jPanel11.add(cbMethodPayment);
-
-        jPanel17.add(jPanel11);
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT);
-        flowLayout1.setAlignOnBaseline(true);
-        jPanel12.setLayout(flowLayout1);
-
-        btnSave.setBackground(new java.awt.Color(255, 51, 51));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Pagar");
-        jPanel12.add(btnSave);
-
-        jPanel17.add(jPanel12);
-
-        jPanel15.add(jPanel17, java.awt.BorderLayout.PAGE_END);
+        jPanel15.add(jPanel16);
 
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setLayout(new javax.swing.BoxLayout(jPanel18, javax.swing.BoxLayout.Y_AXIS));
@@ -141,7 +110,9 @@ public class MultiAccountView extends javax.swing.JDialog {
         jPanel2.add(jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
+
+        txtPrice.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 500));
         jPanel6.add(txtPrice);
 
         jPanel2.add(jPanel6);
@@ -159,14 +130,47 @@ public class MultiAccountView extends javax.swing.JDialog {
         jPanel3.add(jPanel9);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setLayout(new java.awt.GridLayout());
+        jPanel10.setLayout(new java.awt.GridLayout(1, 0));
+
+        txtDivide.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         jPanel10.add(txtDivide);
 
         jPanel3.add(jPanel10);
 
         jPanel18.add(jPanel3);
 
-        jPanel15.add(jPanel18, java.awt.BorderLayout.CENTER);
+        jPanel15.add(jPanel18);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setText("Metodo de pago:");
+        jPanel11.add(jLabel7);
+
+        cbMethodPayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMethodPaymentActionPerformed(evt);
+            }
+        });
+        jPanel11.add(cbMethodPayment);
+
+        jPanel17.add(jPanel11);
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT);
+        flowLayout1.setAlignOnBaseline(true);
+        jPanel12.setLayout(flowLayout1);
+
+        btnSave.setBackground(new java.awt.Color(255, 51, 51));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Pagar");
+        jPanel12.add(btnSave);
+
+        jPanel17.add(jPanel12);
+
+        jPanel15.add(jPanel17);
 
         getContentPane().add(jPanel15);
 

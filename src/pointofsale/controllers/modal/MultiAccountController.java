@@ -38,6 +38,7 @@ public class MultiAccountController implements ActionListener, ChangeListener {
         thread.start();
         initEvents();
         setPrice();
+        this.view.setSize(500, 250);
         this.view.setVisible(true);
     }
 
