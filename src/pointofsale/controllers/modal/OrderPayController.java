@@ -24,12 +24,14 @@ import pointofsale.controllers.PrintFunctions;
 import pointofsale.controllers.components.WordWrapCellRenderer;
 import pointofsale.models.AnnulmentModel;
 import pointofsale.models.BillModel;
+import pointofsale.models.BillPaymentModel;
 import pointofsale.models.PaymentMethodModel;
 import pointofsale.models.RoomModel;
 import pointofsale.models.UserModel;
 import pointofsale.objects.AditionalInformation;
 import pointofsale.objects.Annulment;
 import pointofsale.objects.Bill;
+import pointofsale.objects.BillPayment;
 import pointofsale.objects.BillRoomTmp;
 import pointofsale.objects.BillTableTmp;
 import pointofsale.objects.Event;
@@ -175,6 +177,11 @@ public final class OrderPayController implements ActionListener, ChangeListener 
                 if (!paymentMethod.isVirtual()) {
                     ReceipMoneyController receipMoneyController = new ReceipMoneyController(price);
                 }
+                BillPaymentModel billPaymentModel = new BillPaymentModel();
+                BillPayment bp = new BillPayment();
+                bp.setPayment_id(paymentMethod.getId());
+                bp.setPrice(price);
+                billPaymentModel.insert(bp);
             }
             view.dispose();
 
